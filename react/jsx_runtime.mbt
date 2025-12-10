@@ -52,14 +52,15 @@ pub fn jsx(
     }
     val["style"] = style_obj
   }
-  // Set children in props
-  if not(children.is_empty()) {
-    let children_arr = @core.any(children.map(_.to_react_node()))
-    if children.length() == 1 {
-      // Single child - pass directly, not as array
+  // Set children in props - cache length to avoid multiple calls
+  let children_count = children.length()
+  if children_count > 0 {
+    if children_count == 1 {
+      // Single child - pass directly, not as array (no map needed)
       val["children"] = children[0].to_react_node()
     } else {
-      val["children"] = children_arr
+      // Multiple children - need array
+      val["children"] = @core.any(children.map(_.to_react_node()))
     }
   }
   // key is passed as 3rd argument, not in props
@@ -68,7 +69,7 @@ pub fn jsx(
     None => @core.undefined()
   }
   // Choose jsx or jsxs based on children count
-  if children.length() <= 1 {
+  if children_count <= 1 {
     ffi_jsx(tag, val, key_val).cast()
   } else {
     ffi_jsxs(tag, val, key_val).cast()
@@ -92,19 +93,19 @@ pub fn jsx_tag(
 /// Fragment using jsx runtime
 pub fn jsx_fragment(children : Array[&ReactNode], key? : String) -> Element {
   let val = @core.new_object()
-  if not(children.is_empty()) {
-    let children_arr = @core.any(children.map(_.to_react_node()))
-    if children.length() == 1 {
+  let children_count = children.length()
+  if children_count > 0 {
+    if children_count == 1 {
       val["children"] = children[0].to_react_node()
     } else {
-      val["children"] = children_arr
+      val["children"] = @core.any(children.map(_.to_react_node()))
     }
   }
   let key_val : @core.Any = match key {
     Some(k) => @core.any(k)
     None => @core.undefined()
   }
-  if children.length() <= 1 {
+  if children_count <= 1 {
     ffi_jsx(get_jsx_fragment(), val, key_val).cast()
   } else {
     ffi_jsxs(get_jsx_fragment(), val, key_val).cast()
