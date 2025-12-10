@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/vitest"
+package "mizchi/npm_typed/vitest"
 
 import(
   "mizchi/js/core"

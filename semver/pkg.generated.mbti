@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/semver"
+package "mizchi/npm_typed/semver"
 
 import(
   "mizchi/js/core"

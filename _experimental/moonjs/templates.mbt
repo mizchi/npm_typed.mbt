@@ -262,9 +262,9 @@ fn template_react_pkg_json() -> String {
     #|  "import": [
     #|    "mizchi/js",
     #|    "mizchi/js/browser/dom",
-    #|    "mizchi/js/npm/react",
-    #|    "mizchi/js/npm/react_element",
-    #|    "mizchi/js/npm/react_dom_client",
+    #|    "mizchi/npm_typed/react",
+    #|    "mizchi/npm_typed/react_element",
+    #|    "mizchi/npm_typed/react_dom_client",
     #|    "moonbitlang/async"
     #|  ]
     #|}

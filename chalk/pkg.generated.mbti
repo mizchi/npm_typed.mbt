@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/chalk"
+package "mizchi/npm_typed/chalk"
 
 import(
   "mizchi/js/core"

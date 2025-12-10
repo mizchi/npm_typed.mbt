@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/ignore"
+package "mizchi/npm_typed/ignore"
 
 import(
   "mizchi/js/core"

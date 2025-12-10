@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/puppeteer"
+package "mizchi/npm_typed/puppeteer"
 
 import(
   "mizchi/js/core"

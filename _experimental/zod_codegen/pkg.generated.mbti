@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/_experimental/zod_codegen"
+package "mizchi/npm_typed/_experimental/zod_codegen"
 
 import(
   "mizchi/js/core"
-  "mizchi/js/npm/zod"
+  "mizchi/npm_typed/zod"
 )
 
 // Values

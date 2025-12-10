@@ -24,7 +24,7 @@ Add to your `moon.pkg.json`:
 
 ## Limitations
 
-Unlike TypeScript, MoonBit's current type system cannot infer types from Zod schemas at compile time. In TypeScript, you can do `z.infer<typeof schema>` to get static types, but this is not possible in MoonBit. Use the `@zod_codegen` package to generate MoonBit structs from Zod schemas if you need type definitions.
+Unlike TypeScript, MoonBit's current type system cannot infer types from Zod schemas at compile time. In TypeScript, you can do `z.infer<typeof schema>` to get static types, but this is not possible in MoonBit.
 
 ## Basic Usage
 
@@ -113,4 +113,5 @@ if not(result.success()) {
 
 ## See Also
 
-- `@mizchi/js/npm/zod_codegen` - Generate MoonBit structs from Zod schemas
+- [Zod Documentation](https://zod.dev/)
+- [zod_codegen](../_experimental/zod_codegen/) - Generate MoonBit structs from Zod schemas (experimental)

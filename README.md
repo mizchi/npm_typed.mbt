@@ -171,7 +171,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details. Most bindings in this reposi
 ```moonbit
 // moon.pkg.json: import mizchi/npm_typed/react, mizchi/npm_typed/react_element
 
-fn counter(props : Unit) -> @react.Element {
+fn counter(_props : Unit) -> @react.Element {
   let (count, set_count) = @react.useState(0)
   @react_element.div([
     @react_element.span(["Count: \{count}"]),
@@ -186,7 +186,7 @@ fn counter(props : Unit) -> @react.Element {
 // moon.pkg.json: import mizchi/npm_typed/hono
 
 async fn main {
-  let app : @hono.Hono[Unit, Unit] = @hono.Hono::new()
+  let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
   app.get("/", fn(c) { c.text("Hello, Hono!") }) |> ignore
 }
 ```
@@ -197,13 +197,16 @@ async fn main {
 // moon.pkg.json: import mizchi/npm_typed/zod
 
 fn main {
-  let schema = @zod.object()
-    .field("name", @zod.string())
-    .field("age", @zod.number())
-
-  let result = schema.safeParse(@core.any({ "name": "Alice", "age": 30 }))
-  if result.success {
-    println("Valid!")
+  let user_schema = @zod.object({
+    "name": @zod.string(),
+    "age": @zod.number().int(),
+  })
+  let data = @core.new_object()
+  data["name"] = @core.any("Alice")
+  data["age"] = @core.any(30)
+  match user_schema.safeParse(data) {
+    Ok(_) => println("Valid!")
+    Err(_) => println("Invalid!")
   }
 }
 ```

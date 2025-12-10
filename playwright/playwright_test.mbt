@@ -5,7 +5,7 @@
 ///   npx playwright install chromium
 ///
 /// Run tests with:
-///   PLAYWRIGHT_TEST=1 moon test --no-parallelize -p mizchi/js/npm/playwright
+///   PLAYWRIGHT_TEST=1 moon test --no-parallelize -p mizchi/npm_typed/playwright
 
 ///|
 /// Check if PLAYWRIGHT_TEST=1 is set

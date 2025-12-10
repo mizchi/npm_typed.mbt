@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/vite/_example"
+package "mizchi/npm_typed/vite/_example"
 
 // Values
 pub fn config_example() -> Unit

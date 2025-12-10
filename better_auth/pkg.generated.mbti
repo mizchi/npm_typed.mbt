@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/better_auth"
+package "mizchi/npm_typed/better_auth"
 
 import(
   "mizchi/js/core"

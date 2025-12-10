@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/magic_string"
+package "mizchi/npm_typed/magic_string"
 
 import(
   "mizchi/js/core"

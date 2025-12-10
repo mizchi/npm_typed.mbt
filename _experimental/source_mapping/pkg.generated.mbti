@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/_experimental/source_mapping"
+package "mizchi/npm_typed/_experimental/source_mapping"
 
 import(
   "mizchi/js/core"
-  "mizchi/js/npm/error_stack_parser"
-  "mizchi/js/npm/source_map"
+  "mizchi/npm_typed/error_stack_parser"
+  "mizchi/npm_typed/source_map"
   "moonbitlang/core/hashmap"
 )
 

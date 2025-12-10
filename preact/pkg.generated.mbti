@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/preact"
+package "mizchi/npm_typed/preact"
 
 import(
   "mizchi/js/browser/dom"

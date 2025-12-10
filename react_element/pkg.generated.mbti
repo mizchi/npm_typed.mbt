@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/react_element"
+package "mizchi/npm_typed/react_element"
 
 import(
   "mizchi/js/browser/dom"
   "mizchi/js/core"
-  "mizchi/js/npm/react"
   "mizchi/js/web/http"
+  "mizchi/npm_typed/react"
 )
 
 // Values

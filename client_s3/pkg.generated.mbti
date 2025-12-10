@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/client_s3"
+package "mizchi/npm_typed/client_s3"
 
 import(
   "mizchi/js/core"

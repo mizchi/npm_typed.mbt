@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/modelcontextprotocol"
+package "mizchi/npm_typed/modelcontextprotocol"
 
 import(
   "mizchi/js/core"

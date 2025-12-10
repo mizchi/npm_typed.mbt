@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/vue"
+package "mizchi/npm_typed/vue"
 
 import(
   "mizchi/js/browser/dom"

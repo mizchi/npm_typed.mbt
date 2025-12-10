@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/testing_library"
+package "mizchi/npm_typed/testing_library"
 
 import(
   "mizchi/js/browser/dom"

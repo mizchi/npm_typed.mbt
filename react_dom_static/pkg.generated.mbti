@@ -1,12 +1,12 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/react_dom_static"
+package "mizchi/npm_typed/react_dom_static"
 
 import(
   "mizchi/js/builtins/error"
   "mizchi/js/core"
   "mizchi/js/node/stream"
-  "mizchi/js/npm/react"
   "mizchi/js/web/streams"
+  "mizchi/npm_typed/react"
   "moonbitlang/async/js_async"
 )
 

@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/global_jsdom"
+package "mizchi/npm_typed/global_jsdom"
 
 // Values
 pub fn register() -> Unit

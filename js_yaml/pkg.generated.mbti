@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/js_yaml"
+package "mizchi/npm_typed/js_yaml"
 
 import(
   "mizchi/js/core"

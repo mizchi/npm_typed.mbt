@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/drizzle"
+package "mizchi/npm_typed/drizzle"
 
 import(
   "mizchi/js/core"

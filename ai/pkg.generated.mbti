@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/ai"
+package "mizchi/npm_typed/ai"
 
 import(
   "mizchi/js/builtins/iterator"

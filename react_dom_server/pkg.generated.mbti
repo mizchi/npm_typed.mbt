@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/react_dom_server"
+package "mizchi/npm_typed/react_dom_server"
 
 import(
-  "mizchi/js/npm/react"
   "mizchi/js/web/streams"
+  "mizchi/npm_typed/react"
 )
 
 // Values

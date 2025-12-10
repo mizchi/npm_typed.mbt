@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/dotenv"
+package "mizchi/npm_typed/dotenv"
 
 import(
   "mizchi/js/core"

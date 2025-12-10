@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/execa"
+package "mizchi/npm_typed/execa"
 
 import(
   "mizchi/js/core"

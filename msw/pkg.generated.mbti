@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/msw"
+package "mizchi/npm_typed/msw"
 
 import(
   "mizchi/js/core"

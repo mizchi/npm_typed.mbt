@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/source_map"
+package "mizchi/npm_typed/source_map"
 
 import(
   "mizchi/js/core"

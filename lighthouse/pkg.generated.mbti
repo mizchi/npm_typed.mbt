@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/lighthouse"
+package "mizchi/npm_typed/lighthouse"
 
 import(
   "mizchi/js/core"
-  "mizchi/js/npm/puppeteer"
+  "mizchi/npm_typed/puppeteer"
 )
 
 // Values

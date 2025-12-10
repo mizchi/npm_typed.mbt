@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/jose"
+package "mizchi/npm_typed/jose"
 
 import(
   "mizchi/js/core"

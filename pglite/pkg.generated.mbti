@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/pglite"
+package "mizchi/npm_typed/pglite"
 
 import(
   "mizchi/js/core"

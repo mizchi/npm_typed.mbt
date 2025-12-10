@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/examples/realworld/server"
+package "mizchi/npm_typed/_examples/realworld/server"
 
 import(
   "mizchi/js/node/sqlite"
-  "mizchi/js/npm/better_auth"
-  "mizchi/js/npm/hono"
+  "mizchi/npm_typed/better_auth"
+  "mizchi/npm_typed/hono"
 )
 
 // Values

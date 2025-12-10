@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/_experimental/moon_api"
+package "mizchi/npm_typed/_experimental/moon_api"
 
 // Values
 pub fn build(target? : Target, mode? : BuildMode, output_wat? : Bool, debug? : Bool, cwd? : String, stdio? : Stdio) -> CommandResult

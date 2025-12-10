@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/oxc_minify"
+package "mizchi/npm_typed/oxc_minify"
 
 // Values
 pub fn minify(String) -> String

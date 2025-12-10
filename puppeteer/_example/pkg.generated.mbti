@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/puppeteer/_example"
+package "mizchi/npm_typed/puppeteer/_example"
 
 // Values
 pub fn cdp_example() -> Unit

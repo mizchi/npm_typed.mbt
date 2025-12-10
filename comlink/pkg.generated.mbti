@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/comlink"
+package "mizchi/npm_typed/comlink"
 
 import(
   "mizchi/js/core"

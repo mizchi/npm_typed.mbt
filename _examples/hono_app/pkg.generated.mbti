@@ -1,8 +1,8 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/examples/hono_app"
+package "mizchi/npm_typed/_examples/hono_app"
 
 import(
-  "mizchi/js/npm/hono"
+  "mizchi/npm_typed/hono"
 )
 
 // Values

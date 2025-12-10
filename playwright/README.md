@@ -74,7 +74,7 @@ npx playwright install chromium
 
 ```bash
 # Run playwright tests with the environment variable
-PLAYWRIGHT_TEST=1 moon test --no-parallelize -p mizchi/js/npm/playwright
+PLAYWRIGHT_TEST=1 moon test --no-parallelize -p mizchi/npm_typed/playwright
 ```
 
 The `PLAYWRIGHT_TEST=1` environment variable is required to run the actual browser tests. Without it, tests will be skipped (useful for regular CI that doesn't have browser support).
@@ -84,7 +84,7 @@ The `--no-parallelize` flag is recommended to avoid resource contention when lau
 ### CI Integration
 
 Playwright tests run in a separate CI workflow (`.github/workflows/playwright.yaml`) that:
-- Only triggers on changes to `src/npm/playwright/**` or `src/npm/playwright_test/**`
+- Only triggers on changes to `playwright/**` or `playwright_test/**`
 - Installs Chromium browser with dependencies
 - Runs tests with `PLAYWRIGHT_TEST=1` environment variable
 

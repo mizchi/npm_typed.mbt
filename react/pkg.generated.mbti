@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/react"
+package "mizchi/npm_typed/react"
 
 import(
   "mizchi/js/browser/dom"

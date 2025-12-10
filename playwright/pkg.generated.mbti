@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/playwright"
+package "mizchi/npm_typed/playwright"
 
 import(
   "mizchi/js/core"

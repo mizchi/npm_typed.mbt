@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/ink_ui"
+package "mizchi/npm_typed/ink_ui"
 
 import(
   "mizchi/js/core"
-  "mizchi/js/npm/react"
+  "mizchi/npm_typed/react"
 )
 
 // Values

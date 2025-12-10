@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/js/npm/colorette"
+package "mizchi/npm_typed/colorette"
 
 // Values
 #alias(bg_black)
