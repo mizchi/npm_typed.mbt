@@ -154,6 +154,16 @@ Add to your `moon.pkg.json`:
 - 🚧 **Partial**: Core functionality implemented
 - 🤖 **AI Generated**: Needs testing
 
+### Can't find your library?
+
+You can easily add new bindings with AI assistance:
+
+```bash
+./_scripts/new-library.sh <package_name>
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details. Most bindings in this repository were generated with AI agents.
+
 ## Quick Start
 
 ### React Example
