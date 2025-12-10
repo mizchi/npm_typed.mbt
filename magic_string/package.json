@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "magic-string": "~0.30.0"
+  }
+}

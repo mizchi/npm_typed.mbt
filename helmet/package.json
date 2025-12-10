@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "helmet": "^8.0.0"
+  }
+}

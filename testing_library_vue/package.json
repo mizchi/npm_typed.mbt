@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "@testing-library/vue": "^8.0.0"
+  }
+}

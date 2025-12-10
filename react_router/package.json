@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "react-router": "^7.0.0"
+  }
+}

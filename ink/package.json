@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "ink": "^6.0.0"
+  }
+}

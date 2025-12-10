@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "react-dom": "^19.0.0"
+  }
+}

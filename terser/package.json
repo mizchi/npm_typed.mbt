@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "terser": "^5.0.0"
+  }
+}

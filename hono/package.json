@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "hono": "^4.0.0"
+  }
+}

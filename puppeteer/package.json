@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}

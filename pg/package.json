@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "pg": "^8.0.0"
+  }
+}

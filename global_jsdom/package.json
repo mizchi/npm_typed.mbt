@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "global-jsdom": "^27.0.0"
+  }
+}

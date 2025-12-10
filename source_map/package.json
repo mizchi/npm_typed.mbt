@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "source-map": "~0.7.0"
+  }
+}

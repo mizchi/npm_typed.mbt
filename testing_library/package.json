@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "@testing-library/dom": "^10.0.0"
+  }
+}

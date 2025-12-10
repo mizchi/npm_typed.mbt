@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "pino": "^10.0.0"
+  }
+}

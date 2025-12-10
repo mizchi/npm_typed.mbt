@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "@inkjs/ui": "^2.0.0"
+  }
+}

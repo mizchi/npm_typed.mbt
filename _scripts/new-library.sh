@@ -119,15 +119,26 @@ EOF
 # Create README.md as alias (symlink to README.mbt.md)
 ln -s "README.mbt.md" "$PACKAGE_DIR/README.md"
 
+# Create package.json with empty peerDependencies
+cat > "$PACKAGE_DIR/package.json" << EOF
+{
+  "private": true,
+  "peerDependencies": {
+  }
+}
+EOF
+
 echo "Created:"
 echo "  $PACKAGE_DIR/moon.pkg.json"
+echo "  $PACKAGE_DIR/package.json"
 echo "  $PACKAGE_DIR/$PACKAGE_NAME.mbt"
 echo "  $PACKAGE_DIR/${PACKAGE_NAME}_test.mbt"
 echo "  $PACKAGE_DIR/README.mbt.md"
 echo "  $PACKAGE_DIR/README.md -> README.mbt.md"
 echo ""
 echo "Next steps:"
-echo "  1. Add FFI bindings to $PACKAGE_DIR/$PACKAGE_NAME.mbt"
-echo "  2. Add tests to $PACKAGE_DIR/${PACKAGE_NAME}_test.mbt"
-echo "  3. Update README.mbt.md with usage examples"
-echo "  4. Run: moon test --package $PACKAGE_NAME --target js"
+echo "  1. Add peerDependencies to $PACKAGE_DIR/package.json"
+echo "  2. Add FFI bindings to $PACKAGE_DIR/$PACKAGE_NAME.mbt"
+echo "  3. Add tests to $PACKAGE_DIR/${PACKAGE_NAME}_test.mbt"
+echo "  4. Update README.mbt.md with usage examples"
+echo "  5. Run: moon test --package $PACKAGE_NAME --target js"

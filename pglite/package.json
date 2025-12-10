@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "@electric-sql/pglite": "~0.3.0"
+  }
+}

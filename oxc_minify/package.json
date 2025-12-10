@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "oxc-minify": "~0.99.0"
+  }
+}

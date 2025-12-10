@@ -5,3 +5,5 @@ onlyBuiltDependencies:
   - puppeteer
   - sharp
   - workerd
+packages:
+  - '*'

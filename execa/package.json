@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "execa": "^9.0.0"
+  }
+}

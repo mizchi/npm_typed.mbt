@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "lighthouse": "^13.0.0"
+  }
+}

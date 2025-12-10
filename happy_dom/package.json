@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "happy-dom": "^20.0.0"
+  }
+}

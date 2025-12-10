@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "@testing-library/react": "^16.0.0"
+  }
+}

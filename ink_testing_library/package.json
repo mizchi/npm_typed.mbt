@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "ink-testing-library": "^4.0.0"
+  }
+}

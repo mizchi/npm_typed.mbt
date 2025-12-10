@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "htmlparser2": "^10.0.0"
+  }
+}

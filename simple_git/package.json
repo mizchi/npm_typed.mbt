@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "simple-git": "^3.0.0"
+  }
+}

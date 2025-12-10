@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "@duckdb/duckdb-wasm": "^1.0.0"
+  }
+}

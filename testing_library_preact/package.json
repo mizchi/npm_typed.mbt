@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "@testing-library/preact": "^3.0.0"
+  }
+}
