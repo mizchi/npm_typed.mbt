@@ -6,7 +6,7 @@ MoonBit FFI bindings for npm packages.
 
 ```bash
 # Clone and setup
-git clone https://github.com/mizchi/npm_typed.git
+git clone https://github.com/mizchi/npm_typed.mbt.git
 cd npm_typed
 pnpm install
 moon update && moon install
