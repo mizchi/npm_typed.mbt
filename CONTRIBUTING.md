@@ -12,7 +12,35 @@ Thank you for your interest in contributing to js.mbt! This document provides gu
 
 ## Getting Started
 
-mizchi/js is a MoonBit library providing JavaScript FFI bindings for various runtimes including Node.js, Deno, and browsers.
+mizchi/npm_typed is a collection of MoonBit FFI bindings for npm packages.
+
+### Creating a New Library Binding
+
+Use the boilerplate script to create a new library:
+
+```bash
+# Basic usage
+./_scripts/new-library.sh <package_name>
+
+# With custom npm package name
+./_scripts/new-library.sh <package_name> <npm_package_name>
+
+# Examples
+./_scripts/new-library.sh lodash
+./_scripts/new-library.sh client_dynamodb @aws-sdk/client-dynamodb
+```
+
+This creates:
+- `<package_name>/moon.pkg.json` - Package configuration
+- `<package_name>/<package_name>.mbt` - FFI bindings
+- `<package_name>/<package_name>_test.mbt` - Tests
+- `<package_name>/README.mbt.md` - Executable documentation
+- `<package_name>/README.md` - Symlink to README.mbt.md
+
+After creating, run tests with:
+```bash
+moon test --package <package_name> --target js
+```
 
 ### Prerequisites
 
@@ -109,6 +137,49 @@ deno test -A target/js/release/build/examples/deno/deno.js
 - Document all public APIs with doc comments
 - Include usage examples where appropriate
 - Reference MDN documentation for web APIs
+
+### README.mbt.md - Executable Documentation
+
+Each package should have a `README.mbt.md` file that serves as **living documentation** with executable examples.
+
+**Purpose:**
+- `README.mbt.md`: User-facing documentation showing **how to use** the API (concise examples)
+- `*_test.mbt`: Comprehensive test coverage (exhaustive edge cases)
+
+**Guidelines:**
+- Focus on **common use cases**, not exhaustive API coverage
+- Each ```` ```mbt test ```` block should demonstrate a specific feature
+- Use `inspect()` for verifiable output (snapshot testing)
+- Keep examples simple and self-explanatory
+- Avoid testing internal details or edge cases (those belong in `*_test.mbt`)
+
+**Example structure:**
+```markdown
+# Package Name
+
+Brief description.
+
+## Installation
+... installation instructions ...
+
+## Basic Usage
+\`\`\`mbt test
+// Show the most common use case
+let result = @pkg.basic_function("input")
+inspect(result, content="expected output")
+\`\`\`
+
+## Feature A
+\`\`\`mbt test
+// Demonstrate Feature A
+...
+\`\`\`
+```
+
+**Running doc tests:**
+```bash
+moon test --package <package_name> --target js
+```
 
 ### Testing
 

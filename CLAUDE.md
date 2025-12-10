@@ -6,6 +6,14 @@ This is a [MoonBit](https://docs.moonbitlang.com) project.
 
 If you're unsure about MoonBit syntax, refer to the [MoonBit Cheatsheet](./_examples/moonbit_cheatsheet.mbt.md) - it covers common patterns, differences from Rust, and key language features.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, including:
+- Development setup
+- Testing procedures
+- Code style
+- **README.mbt.md** - Executable documentation guidelines
+
 ## Project Structure
 
 - MoonBit packages are organized per directory, for each directory, there is a
