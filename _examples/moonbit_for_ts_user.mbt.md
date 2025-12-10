@@ -6,7 +6,7 @@ This guide helps TypeScript developers understand MoonBit language features thro
 
 Functions in MoonBit are similar to TypeScript but with explicit type annotations:
 
-```moonbit
+```mbt check
 // MoonBit function
 
 ///|
@@ -31,7 +31,7 @@ function add(a: number, b: number): number {
 
 MoonBit uses `Option[T]` (like TypeScript's `T | null`) and has a special `guard` statement for early returns:
 
-```moonbit
+```mbt check
 ///|
 test "guard and option types" {
   let opt_value : Int? = Some(10) // Int? is shorthand for Option[Int]
@@ -64,7 +64,7 @@ const v = optValue
 
 Structs are like TypeScript interfaces/classes with auto-implemented traits:
 
-```moonbit
+```mbt check
 ///|
 struct Point {
   x : Int
@@ -117,7 +117,7 @@ const { y } = p2
 
 Enums are like TypeScript discriminated unions:
 
-```moonbit
+```mbt check
 ///|
 test "enum types" {
   enum Color {
@@ -151,7 +151,7 @@ const c3: Color = { type: 'Rgb', r: 255, g: 0, b: 0 }
 
 MoonBit has powerful pattern matching, including for JSON:
 
-```moonbit
+```mbt check
 ///|
 test "pattern matching with json" {
   let json : Json = { "message": "Test", "value": [10, 2, 30] }
@@ -186,7 +186,7 @@ if (json.message === "Test" &&
 
 MoonBit supports named parameters with `~` and optional parameters with `?`:
 
-```moonbit
+```mbt check
 // Named parameters (required)
 
 ///|
@@ -230,7 +230,7 @@ function paramFunc2({ a = 1, b }: { a?: number, b?: number } = {}) {
 
 MoonBit has explicit error handling with `raise` and `try/catch`:
 
-```moonbit
+```mbt check
 ///|
 test "error handling" {
   // Function that can raise errors
@@ -280,7 +280,7 @@ try {
 
 Define custom error types with `suberror`:
 
-```moonbit
+```mbt check
 ///|
 suberror MyError
 
@@ -302,7 +302,7 @@ test "custom errors" {
 ### 1. **Immutability by Default**
 MoonBit variables are immutable unless explicitly marked as mutable:
 
-```moonbit
+```mbt check
 ///|
 test "mutability" {
   let _x = 10 // immutable
@@ -317,7 +317,7 @@ test "mutability" {
 ### 2. **No Null or Undefined**
 Use `Option[T]` instead:
 
-```moonbit
+```mbt check
 ///|
 test "no null" {
   let value : Int? = Some(42)
@@ -330,7 +330,7 @@ test "no null" {
 ### 3. **Type Inference**
 MoonBit has strong type inference:
 
-```moonbit
+```mbt check
 ///|
 test "type inference" {
   let x = 42 // inferred as Int
@@ -345,7 +345,7 @@ test "type inference" {
 ### 4. **Expression-Based**
 Everything is an expression in MoonBit:
 
-```moonbit
+```mbt check
 ///|
 test "expressions" {
   let result = if true { 10 } else { 20 }
@@ -363,7 +363,7 @@ test "expressions" {
 ### 5. **Tuple Types**
 Native tuple support:
 
-```moonbit
+```mbt check
 ///|
 test "tuples" {
   let pair : (Int, String) = (42, "answer")

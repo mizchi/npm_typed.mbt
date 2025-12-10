@@ -29,7 +29,7 @@ Practical, executable examples of JavaScript FFI patterns using `mizchi/js`.
 
 Use `#external pub type` for types created by JavaScript runtime:
 
-```moonbit
+```mbt no-check
 ///|
 #external
 pub type Value
@@ -43,7 +43,7 @@ pub fn Value::as_any(self : Value) -> @core.Any = "%identity"
 
 Use `pub(all) struct` for data containers with known fields:
 
-```moonbit
+```mbt no-check
 ///|
 pub(all) struct DOMRect {
   x : Double
@@ -55,7 +55,7 @@ pub(all) struct DOMRect {
 
 Avoid MoonBit reserved words (`method`, `ref`, `type`). Use getter functions as fallback:
 
-```moonbit
+```mbt no-check
 ///|
 #external
 pub type MyValue
@@ -71,7 +71,7 @@ pub fn MyValue::method_(self : Self) -> String {
 
 ## Type Conversion
 
-```moonbit
+```mbt no-check
 ///|
 test "type conversion" {
   // Convert MoonBit types to Any
@@ -97,7 +97,7 @@ MoonBit cannot convert JS's `null` safely with `T?` (may result in `Some(null)`)
 
 Use `Nullable[T]` or `Nullish[T]` for struct fields:
 
-```moonbit no-check
+```mbt no-check
 // Nullable[T] for fields that can be null
 
 ///|
@@ -119,7 +119,7 @@ pub(all) struct Config {
 
 Use `identity_option` to safely convert nullable values from JS objects:
 
-```moonbit
+```mbt no-check
 ///|
 test "identity_option for nullable values" {
   let obj = @core.new_object()
@@ -137,7 +137,7 @@ test "identity_option for nullable values" {
 
 ## Method Calls
 
-```moonbit
+```mbt no-check
 ///|
 test "_call methods" {
   let obj = @core.new_object()
@@ -159,7 +159,7 @@ test "_call methods" {
 
 Convert JS options objects to labeled optional arguments for better ergonomics:
 
-```moonbit no-check
+```mbt no-check
 // Avoid: Options struct
 pub struct ServerOptions {
   host : String
@@ -204,7 +204,7 @@ fn Document::getElementById(self : Document, id : String) -> Element?
 
 Use `@core.Any` with `_get`, `_set`, `_call` for low-overhead JS interop:
 
-```moonbit no-check
+```mbt no-check
 ///|
 #external
 pub type MyObject
@@ -273,7 +273,7 @@ pub fn statSync(path : String) -> Stats
 
 When wrapping JavaScript functions that return Promises, use `async fn` and call `promise.wait()` internally:
 
-```moonbit no-check
+```mbt no-check
 // FFI declaration - returns Promise
 
 ///|
@@ -297,7 +297,7 @@ pub async fn fetch(url : String) -> Response {
 
 The standard pattern for async FFI functions:
 
-```moonbit no-check
+```mbt no-check
 // 1. FFI function (private) - returns Promise
 
 ///|

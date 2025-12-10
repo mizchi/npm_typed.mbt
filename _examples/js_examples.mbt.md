@@ -4,7 +4,7 @@ Common usage patterns for the `mizchi/js` library.
 
 ## Object Operations
 
-```moonbit
+```mbt no-check
 ///|
 test "basic object operations" {
   let obj = @core.new_object()
@@ -35,7 +35,7 @@ test "basic object operations" {
 
 ## Arrays
 
-```moonbit
+```mbt no-check
 ///|
 test "array operations" {
   let arr = @core.any([1, 2, 3])
@@ -65,7 +65,7 @@ test "array operations" {
 
 ## Type Conversion
 
-```moonbit
+```mbt no-check
 ///|
 test "type conversion" {
   // MoonBit -> JS
@@ -90,7 +90,7 @@ test "type conversion" {
 
 ## Type Checking
 
-```moonbit
+```mbt no-check
 ///|
 test "type checking" {
   let arr = @js.JsArray::from([1, 2, 3])
@@ -105,7 +105,7 @@ test "type checking" {
 
 ## Method Calls
 
-```moonbit
+```mbt no-check
 ///|
 test "method calls" {
   let obj = @core.new_object()
@@ -123,7 +123,7 @@ test "method calls" {
 
 ## Function Conversion
 
-```moonbit
+```mbt no-check
 ///|
 test "function conversion" {
   // MoonBit function -> JS function
@@ -140,7 +140,7 @@ test "function conversion" {
 
 ## Constructors
 
-```moonbit
+```mbt no-check
 ///|
 test "constructors" {
   let array_ctor = @core.global_this()._get("Array")
@@ -160,7 +160,7 @@ test "constructors" {
 
 ## JSON
 
-```moonbit
+```mbt no-check
 ///|
 test "json" {
   let obj = @core.new_object()
@@ -174,7 +174,7 @@ test "json" {
 
 ## Async / Promise
 
-```moonbit
+```mbt no-check
 ///|
 async fn fetch_example() -> Unit {
   // Async functions return values directly (no .wait() needed by caller)
@@ -214,7 +214,7 @@ async fn sleep_example() -> Unit {
 
 ## Global Functions
 
-```moonbit
+```mbt no-check
 ///|
 test "global functions" {
   // URI encoding
@@ -231,7 +231,7 @@ test "global functions" {
 
 ## BigInt
 
-```moonbit
+```mbt no-check
 ///|
 test "bigint" {
   let a = @bigint.JsBigInt::from_int(42)

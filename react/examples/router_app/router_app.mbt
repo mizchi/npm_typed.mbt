@@ -164,7 +164,7 @@ fn app(props : AppProps) -> @react.Element {
   let (input_text, set_text) = useState("")
   let on_change : @dom.ChangeEventHandler = useCallback(
     ev => {
-      let target : @dom.HTMLTextAreaElement = identity(ev.target().as_any())
+      let target = @dom.HTMLTextAreaElement::cast_from_element(ev.target())
       let value : String = target.value
       set_text(value)
       println("Textarea changed: \{value}")

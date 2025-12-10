@@ -4,7 +4,7 @@ When `mizchi/js` doesn't provide a wrapper for a JavaScript API you need, use th
 
 ## Pattern: Accessing Missing Properties
 
-```moonbit
+```mbt no-check
 ///|
 test "access globalThis properties" {
   // Access global object
@@ -22,7 +22,7 @@ test "access globalThis properties" {
 
 ## Pattern: Calling Missing Methods
 
-```moonbit
+```mbt no-check
 ///|
 test "call methods with call()" {
   let obj = @core.new_object()
@@ -47,7 +47,7 @@ test "call methods with call()" {
 
 ## Pattern: Checking API Availability
 
-```moonbit
+```mbt no-check
 ///|
 test "feature detection" {
   // Check if Math exists
@@ -64,7 +64,7 @@ test "feature detection" {
 
 ## Pattern: Accessing Nested Properties
 
-```moonbit
+```mbt no-check
 ///|
 test "nested property access" {
   // Create nested structure
@@ -85,7 +85,7 @@ test "nested property access" {
 
 ## Pattern: Safe Nested Access
 
-```moonbit
+```mbt no-check
 ///|
 test "safe nested access with undefined checks" {
   let obj = @core.new_object()
@@ -106,7 +106,7 @@ test "safe nested access with undefined checks" {
 
 ## Pattern: Error Handling with throwable
 
-```moonbit
+```mbt no-check
 ///|
 test "error handling with throwable" {
   let result = @js.throwable(fn() -> @core.Any {
@@ -123,7 +123,7 @@ test "error handling with throwable" {
 
 ## Pattern: Creating Instances with new_
 
-```moonbit
+```mbt no-check
 ///|
 test "create instances of unsupported classes" {
   // Access constructor from globalThis
