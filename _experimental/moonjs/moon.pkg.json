@@ -8,7 +8,7 @@
     "mizchi/js/node/path",
     "mizchi/js/node/child_process",
     "mizchi/js/node/readline",
-    "mizchi/js/_experimental/moon_api",
+    "mizchi/npm_typed/_experimental/moon_api",
     "mizchi/npm_typed/chalk",
     "mizchi/npm_typed/ink",
     "mizchi/npm_typed/ink_ui",
