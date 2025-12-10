@@ -9,13 +9,12 @@
   "repository": "https://github.com/mizchi/npm_typed.mbt",
   "license": "MIT",
   "keywords": [
+    "js",
     "npm",
     "react",
-    "hono",
-    "zod",
     "ai",
     "ffi"
   ],
-  "description": "Typed npm package bindings for MoonBit",
+  "description": "Typed npm library bindings(40+) for js backend",
   "preferred-target": "js"
 }
