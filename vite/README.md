@@ -431,8 +431,192 @@ Note: `defineConfig()` returns `@core.Any` directly, so you typically don't need
 - `ResolvedConfig` - Resolved Vite configuration
 - `RollupOutput` - Build output from Rollup
 
+## Environment API (Vite 6+)
+
+Vite 6 introduces the Environment API for multi-environment support. This allows you to configure and run code in different environments (client, SSR, edge workers, etc.).
+
+### Accessing Environments
+
+```moonbit
+let server = @vite.createServer()!
+
+// Get specific environments
+let client = server.client()
+let ssr = server.ssr()
+
+// Or by name
+let custom = server.getEnvironment("edge")
+
+// Get all environments
+let envs = server.environments()
+```
+
+### DevEnvironment Properties
+
+```moonbit
+let env = server.ssr()
+
+// Basic properties
+let name = env.name()           // "ssr"
+let mode = env.mode()           // "development"
+let config = env.config()       // Resolved config
+let plugins = env.plugins()     // Resolved plugins
+
+// Module system
+let graph = env.moduleGraph()
+let hot = env.hot()
+let container = env.pluginContainer()
+```
+
+### Module Transformation
+
+```moonbit
+let env = server.client()
+
+// Transform a module
+let result = env.transformRequest("/src/main.ts")!
+match result {
+  Some(r) => {
+    let code = r.code()
+    let map = r.map()
+    let etag = r.etag()
+  }
+  None => println("Module not found")
+}
+
+// Warmup request (low priority)
+env.warmupRequest("/src/utils.ts")
+```
+
+### ModuleGraph
+
+```moonbit
+let graph = env.moduleGraph()
+
+// Get module by URL (async)
+let mod = graph.getModuleByUrl("/src/app.ts")!
+
+// Get module by ID (sync)
+let mod2 = graph.getModuleById("/absolute/path/to/file.ts")
+
+// Invalidate for HMR
+match mod {
+  Some(m) => graph.invalidateModule(m)
+  None => ()
+}
+```
+
+### ModuleNode
+
+```moonbit
+match graph.getModuleById(id) {
+  Some(node) => {
+    let url = node.url()             // Import URL
+    let id = node.id()               // Resolved ID (optional)
+    let file = node.file()           // File path (optional)
+    let type_ = node.moduleType()    // "js", "css", etc.
+
+    // Dependencies
+    let importers = node.importers()         // Who imports this
+    let imported = node.importedModules()    // What this imports
+  }
+  None => ()
+}
+```
+
+### RunnableDevEnvironment & ModuleRunner
+
+For environments that can run modules directly (like SSR):
+
+```moonbit
+let env = server.ssr()
+
+// Check if runnable
+if env.isRunnable() {
+  let runner = env.runner()
+
+  // Import and execute a module
+  let module = runner.importModule("/src/server.ts")!
+
+  // Cache management
+  runner.clearCache()
+
+  // Cleanup
+  runner.close()!
+}
+
+// Or create a runner explicitly
+let runner = @vite.createServerModuleRunner(env)
+```
+
+### FetchableDevEnvironment
+
+For environments that use fetch-based communication:
+
+```moonbit
+let env = server.getEnvironment("edge")
+
+if env.isFetchable() {
+  let request = // ... create Request object
+  let response = env.fetch(request)!
+}
+```
+
+### HotChannel (HMR)
+
+```moonbit
+let hot = env.hot()
+
+// Send HMR updates
+hot.send(@vite.createFullReloadPayload())
+hot.send(@vite.createUpdatePayload(updates))
+hot.send(@vite.createPrunePayload(["./old-module.ts"]))
+hot.send(@vite.createCustomPayload("my-event", data~=Some(myData)))
+
+// Listen for events
+hot.on("custom", fn(payload) {
+  @js.log(payload)
+})
+```
+
+### HMR Payload Helpers
+
+```moonbit
+// Full page reload
+let reload = @vite.createFullReloadPayload(path~=Some("/src/app.ts"))
+
+// Module updates
+let update = @vite.createUpdatePayload([
+  // update objects
+])
+
+// Prune unused modules
+let prune = @vite.createPrunePayload(["/src/old.ts"])
+
+// Custom events
+let custom = @vite.createCustomPayload("my-event", data~=Some(@core.any({ "key": "value" })))
+```
+
+### Custom Environment Configuration
+
+```moonbit
+let options = @vite.EnvironmentOptions::{
+  consumer: Some("server"),
+  resolve: None,
+  dev: None,
+  build: None
+}
+
+let config = @vite.defineConfig(
+  environments~=Some(@core.any({
+    "edge": options.to_any()
+  }))
+)
+```
+
 ## References
 
 - [Vite JavaScript API](https://ja.vite.dev/guide/api-javascript)
 - [Vite Plugin API](https://ja.vite.dev/guide/api-plugin)
 - [Vite Configuration](https://ja.vite.dev/config/)
+- [Vite Environment API](https://ja.vite.dev/guide/api-environment)
