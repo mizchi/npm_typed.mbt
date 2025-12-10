@@ -7,3 +7,4 @@ onlyBuiltDependencies:
   - workerd
 packages:
   - '*'
+  - 'react/examples/*'

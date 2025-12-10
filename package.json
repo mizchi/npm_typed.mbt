@@ -1,9 +1,6 @@
 {
   "private": true,
-  "scripts": {
-    "build": "vite build",
-    "dev:spa": "vite dev"
-  },
+  "scripts": {},
   "devDependencies": {
     "@anthropic-ai/claude-code": "^2.0.64",
     "@ai-sdk/anthropic": "2.0.43",

@@ -528,6 +528,22 @@ importers:
         specifier: ^19.0.0
         version: 19.2.0
 
+  react/examples/router_app:
+    dependencies:
+      react:
+        specifier: ^19.0.0
+        version: 19.2.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.2.0(react@19.2.0)
+      react-router:
+        specifier: ^7.0.0
+        version: 7.9.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+    devDependencies:
+      vite:
+        specifier: ^8.0.0-beta.0
+        version: 8.0.0-beta.1(@types/node@24.10.1)(esbuild@0.25.12)(terser@5.44.1)(tsx@4.21.0)
+
   react_dom:
     dependencies:
       react-dom:
