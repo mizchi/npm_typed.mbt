@@ -5,9 +5,6 @@
 ///|
 test "Queries type exists" {
   // Queries type should be available
-  fn(_q : @pptr_testing_library.Queries) -> Unit {
-    ()
-  }
-  |> ignore
+  (fn(_q : @pptr_testing_library.Queries) -> Unit { () }) |> ignore
   inspect(true, content="true")
 }

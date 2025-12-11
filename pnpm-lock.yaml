@@ -224,6 +224,9 @@ importers:
       rolldown:
         specifier: 1.0.0-beta.53
         version: 1.0.0-beta.53
+      rollup:
+        specifier: ^4.53.3
+        version: 4.53.3
       semver:
         specifier: ^7.7.3
         version: 7.7.3
@@ -515,6 +518,8 @@ importers:
       '@playwright/test':
         specifier: ^1.0.0
         version: 1.57.0
+
+  pptr_testing_library: {}
 
   preact:
     dependencies:

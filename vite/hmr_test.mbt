@@ -51,7 +51,7 @@ test "createCustomPayload without data" {
 test "createCustomPayload with data" {
   let data = @core.new_object()
   data["key"] = @core.any("value")
-  let payload = createCustomPayload("my-event", data=data)
+  let payload = createCustomPayload("my-event", data~)
   let type_ : String = payload["type"].cast()
   let event : String = payload["event"].cast()
   inspect(type_, content="custom")

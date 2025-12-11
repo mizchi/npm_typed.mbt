@@ -5,7 +5,7 @@
 test "environmentOptions with all fields" {
   let resolve = @core.new_object()
   resolve["alias"] = @core.any({ "/src": "/source" })
-  let obj = @vite.environmentOptions(consumer="server", resolve=resolve)
+  let obj = @vite.environmentOptions(consumer="server", resolve~)
   let consumer : String = obj["consumer"].cast()
   inspect(consumer, content="server")
   assert_false(@core.is_nullish(obj["resolve"]))
