@@ -20,32 +20,6 @@ pub type SVGTemplateResult
 ///|
 pub fn SVGTemplateResult::to_any(self : SVGTemplateResult) -> @core.Any = "%identity"
 
-///|
-/// RenderOptions - options for render function
-pub(all) struct RenderOptions {
-  /// The host element for scoped styles
-  host : @core.Any?
-  /// Render before this node
-  renderBefore : @core.Any?
-  /// CreationScope - document or ShadowRoot
-  creationScope : @core.Any?
-}
-
-///|
-pub fn RenderOptions::to_any(self : RenderOptions) -> @core.Any {
-  let opts = @core.new_object()
-  if self.host is Some(v) {
-    opts["host"] = v
-  }
-  if self.renderBefore is Some(v) {
-    opts["renderBefore"] = v
-  }
-  if self.creationScope is Some(v) {
-    opts["creationScope"] = v
-  }
-  opts
-}
-
 ///| FFI Functions
 
 ///|
@@ -134,11 +108,19 @@ pub fn LitHtml::render(
   self : LitHtml,
   value : TemplateResult,
   container : @core.Any,
-  options? : RenderOptions,
+  host? : @core.Any,
+  renderBefore? : @core.Any,
+  creationScope? : @core.Any,
 ) -> @core.Any {
-  let opts = match options {
-    Some(o) => o.to_any()
-    None => @core.undefined()
+  let opts = @core.new_object()
+  if host is Some(v) {
+    opts["host"] = v
+  }
+  if renderBefore is Some(v) {
+    opts["renderBefore"] = v
+  }
+  if creationScope is Some(v) {
+    opts["creationScope"] = v
   }
   ffi_render(self, value.to_any(), container, opts)
 }

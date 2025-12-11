@@ -40,17 +40,6 @@ async test "LitHtml::noChange - returns noChange symbol" {
 }
 
 ///|
-test "RenderOptions::to_any - converts options" {
-  let opts : @lit_html.RenderOptions = {
-    host: None,
-    renderBefore: None,
-    creationScope: None,
-  }
-  let any = opts.to_any()
-  inspect(@core.typeof_(any), content="object")
-}
-
-///|
 async test "import_class_map - imports classMap directive" {
   let classMapModule = @lit_html.import_class_map()
   inspect(@core.typeof_(classMapModule.to_any()), content="object")
