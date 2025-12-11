@@ -2,7 +2,8 @@
 /// Vite Plugin API support
 /// See: https://ja.vite.dev/guide/api-plugin
 
-///| Re-export Rollup-compatible types from rollup_types
+///|
+/// Re-export Rollup-compatible types from rollup_types
 pub using @rollup_types {
   type Plugin,
   type ResolveIdHook,

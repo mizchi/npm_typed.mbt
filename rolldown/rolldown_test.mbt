@@ -118,7 +118,9 @@ test "Input::to_any - Multiple" {
 
 ///|
 test "External::to_any - Modules" {
-  let external : @rollup_types.External = @rollup_types.Modules(["lodash", "react"])
+  let external : @rollup_types.External = @rollup_types.Modules([
+    "lodash", "react",
+  ])
   let any = external.to_any()
   let arr : Array[String] = any.cast()
   inspect(arr.length(), content="2")

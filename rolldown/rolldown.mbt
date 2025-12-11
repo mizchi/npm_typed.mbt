@@ -2,7 +2,8 @@
 /// Rolldown - Fast Rust bundler for JavaScript with Rollup-compatible API
 /// https://rolldown.rs/
 
-///| Re-export types from rollup_types
+///|
+/// Re-export types from rollup_types
 /// Note: enum constructors (Single, Multiple, Named, Modules, Fn) cannot be re-exported
 /// Use @rollup_types.Single, @rollup_types.Modules, etc. directly
 pub using @rollup_types {
@@ -76,7 +77,8 @@ extern "js" fn ffi_build(options : @core.Any) -> @core.Promise[RolldownOutput] =
 extern "js" fn ffi_watch(options : @core.Any) -> @core.Promise[Watcher] =
   #| (options) => import("rolldown").then(m => m.watch(options))
 
-///| Helper function to build input options object
+///|
+/// Helper function to build input options object
 fn build_input_options(
   input : Input,
   external : External?,
