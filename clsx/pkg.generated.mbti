@@ -6,21 +6,13 @@ import(
 )
 
 // Values
-pub fn clsx(Array[@core.Any]) -> String
-
-pub fn clsx_lite(Array[@core.Any]) -> String
-
-pub fn clsx_lite_strs(Array[String]) -> String
+pub fn clsx(Array[String]) -> String
 
 pub fn clsx_obj(@core.Any) -> String
 
-pub fn clsx_str(String) -> String
-
-pub fn clsx_strs(Array[String]) -> String
+pub fn clsx_raw(Array[@core.Any]) -> String
 
 pub fn clsx_with(String, @core.Any) -> String
-
-pub async fn init_clsx_lite() -> Unit
 
 // Errors
 

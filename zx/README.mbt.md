@@ -172,11 +172,19 @@ Built-in implementations:
 
 ```mbt nocheck
 // Using different types as arguments
+///|
 let name = "file.txt"
+
+///|
 let lines = 10
+
+///|
 let verbose = true
+
+///|
 let flags = ["-l", "-a"]
 
+///|
 let output = @zx.zx("head -n ${@0} ${@1}", args=[@zx.arg(lines), @zx.arg(name)]).run()
 
 // Custom types can implement ToZxArg trait

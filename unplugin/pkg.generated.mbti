@@ -6,9 +6,11 @@ import(
 )
 
 // Values
-pub fn[UserOptions] createUnplugin((UserOptions, UnpluginContextMeta) -> UnpluginOptions) -> (UserOptions) -> UnpluginInstance
+pub fn[UserOptions] createUnplugin((UserOptions, UnpluginContextMeta) -> @core.Any) -> (UserOptions) -> UnpluginInstance
 
-pub fn createUnpluginSimple((UnpluginContextMeta) -> UnpluginOptions) -> () -> UnpluginInstance
+pub fn createUnpluginSimple((UnpluginContextMeta) -> @core.Any) -> () -> UnpluginInstance
+
+pub fn options(name~ : String, enforce? : String, buildStart? : () -> Unit, buildEnd? : () -> Unit, transform? : (String, String) -> String?, transformFilter? : HookFilter, load? : (String) -> String?, loadFilter? : HookFilter, resolveId? : (String, String?, @core.Any) -> String?, watchChange? : (String, @core.Any) -> Unit, writeBundle? : () -> Unit, vite? : @core.Any, rollup? : @core.Any, webpack? : (@core.Any) -> Unit, rspack? : (@core.Any) -> Unit, esbuild? : @core.Any, farm? : @core.Any, rolldown? : @core.Any, bun? : @core.Any) -> @core.Any
 
 pub fn resolve_external(String) -> @core.Any
 
@@ -65,30 +67,6 @@ pub fn UnpluginInstance::to_any(Self) -> @core.Any
 pub fn UnpluginInstance::vite(Self) -> @core.Any
 pub fn UnpluginInstance::webpack(Self) -> @core.Any
 
-pub(all) struct UnpluginOptions {
-  name : String
-  enforce : String?
-  buildStart : (() -> Unit)?
-  buildEnd : (() -> Unit)?
-  transform : ((String, String) -> String?)?
-  transformFilter : HookFilter?
-  load : ((String) -> String?)?
-  loadFilter : HookFilter?
-  resolveId : ((String, String?, @core.Any) -> String?)?
-  watchChange : ((String, @core.Any) -> Unit)?
-  writeBundle : (() -> Unit)?
-  vite : @core.Any?
-  rollup : @core.Any?
-  webpack : ((@core.Any) -> Unit)?
-  rspack : ((@core.Any) -> Unit)?
-  esbuild : @core.Any?
-  farm : @core.Any?
-  rolldown : @core.Any?
-  bun : @core.Any?
-}
-pub fn UnpluginOptions::new(String, enforce? : String, buildStart? : () -> Unit, buildEnd? : () -> Unit, transform? : (String, String) -> String?, transformFilter? : HookFilter, load? : (String) -> String?, loadFilter? : HookFilter, resolveId? : (String, String?, @core.Any) -> String?, watchChange? : (String, @core.Any) -> Unit, writeBundle? : () -> Unit, vite? : @core.Any, rollup? : @core.Any, webpack? : (@core.Any) -> Unit, rspack? : (@core.Any) -> Unit, esbuild? : @core.Any, farm? : @core.Any, rolldown? : @core.Any, bun? : @core.Any) -> Self
-pub fn UnpluginOptions::to_any(Self) -> @core.Any
-
 // Type aliases
 pub type BuildEndHook = () -> Unit
 
@@ -102,7 +80,9 @@ pub type TransformHook = (String, String) -> String?
 
 pub using @core {type Any as TransformResult}
 
-pub type UnpluginFactory[UserOptions] = (UserOptions, UnpluginContextMeta) -> UnpluginOptions
+pub type UnpluginFactory[UserOptions] = (UserOptions, UnpluginContextMeta) -> @core.Any
+
+pub using @core {type Any as UnpluginOptions}
 
 pub type WatchChangeHook = (String, @core.Any) -> Unit
 

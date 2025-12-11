@@ -1,0 +1,72 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/framer_motion"
+
+import(
+  "mizchi/js/browser/dom"
+  "mizchi/js/core"
+)
+
+// Values
+pub fn animate(@core.Any, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+
+pub fn animate_element(@dom.Element, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+
+pub fn animate_html_element(@dom.HTMLElement, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+
+pub fn animate_selector(String, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+
+pub fn animationControls() -> AnimationControls
+
+pub fn cancel(AnimationPlaybackControls) -> Unit
+
+pub fn complete(AnimationPlaybackControls) -> Unit
+
+pub fn delay(() -> Unit, Double) -> () -> Unit
+
+pub fn inView(@core.Any, (@core.Any) -> Unit, options? : @core.Any) -> () -> Unit
+
+pub fn inView_element(@dom.Element, (@core.Any) -> Unit, options? : @core.Any) -> () -> Unit
+
+pub fn inView_selector(String, (@core.Any) -> Unit, options? : @core.Any) -> () -> Unit
+
+pub fn mix(Double, Double, Double) -> Double
+
+pub fn motionValue(@core.Any) -> @core.Any
+
+pub fn mv_get(@core.Any) -> @core.Any
+
+pub fn mv_on(@core.Any, String, (@core.Any) -> Unit) -> () -> Unit
+
+pub fn mv_set(@core.Any, @core.Any) -> Unit
+
+pub fn pause(AnimationPlaybackControls) -> Unit
+
+pub fn play(AnimationPlaybackControls) -> Unit
+
+pub fn scroll((@core.Any) -> Unit) -> () -> Unit
+
+pub fn stagger(Double, options? : @core.Any) -> @core.Any
+
+pub fn start(AnimationControls, @core.Any) -> @core.Promise[Unit]
+
+pub fn stop(AnimationPlaybackControls) -> Unit
+
+pub fn stop_controls(AnimationControls) -> Unit
+
+pub fn then_(AnimationPlaybackControls, () -> Unit) -> @core.Promise[Unit]
+
+pub fn transform(@core.Any, Array[Double], Array[@core.Any]) -> @core.Any
+
+// Errors
+
+// Types and methods
+#external
+pub type AnimationControls
+
+#external
+pub type AnimationPlaybackControls
+
+// Type aliases
+
+// Traits
+

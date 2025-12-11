@@ -1,0 +1,44 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/zustand"
+
+import(
+  "mizchi/js/core"
+)
+
+// Values
+pub fn[T] createStore((SetFn[T], GetFn[T], @core.Any) -> T) -> Store[T]
+
+pub fn[T] get(GetFn[T]) -> T
+
+pub fn[T] getInitialState(Store[T]) -> T
+
+pub fn[T] getState(Store[T]) -> T
+
+pub fn[T] replaceState(Store[T], T) -> Unit
+
+pub fn[T] set(SetFn[T], (T) -> T) -> Unit
+
+pub fn[T] setState(Store[T], (T) -> T) -> Unit
+
+pub fn[T] set_partial(SetFn[T], T) -> Unit
+
+pub fn[T] subscribe(Store[T], (T, T) -> Unit) -> () -> Unit
+
+pub fn[T, U] subscribe_selector(Store[T], (T) -> U, (U, U) -> Unit) -> () -> Unit
+
+// Errors
+
+// Types and methods
+#external
+pub type GetFn[_]
+
+#external
+pub type SetFn[_]
+
+#external
+pub type Store[_]
+
+// Type aliases
+
+// Traits
+

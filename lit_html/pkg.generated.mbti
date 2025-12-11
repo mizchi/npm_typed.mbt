@@ -20,28 +20,6 @@ pub fn html(String, args? : Array[@core.Any]) -> TemplateResult
 
 pub fn ifDefined(@core.Any) -> @core.Any
 
-pub async fn init_all() -> Unit
-
-pub async fn init_choose() -> Unit
-
-pub async fn init_guard() -> Unit
-
-pub async fn init_join() -> Unit
-
-pub async fn init_keyed() -> Unit
-
-pub async fn init_lit_html() -> Unit
-
-pub async fn init_map() -> Unit
-
-pub async fn init_range() -> Unit
-
-pub async fn init_repeat() -> Unit
-
-pub async fn init_until() -> Unit
-
-pub async fn init_when() -> Unit
-
 pub fn join(Array[@core.Any], @core.Any) -> @core.Any
 
 pub fn keyed(@core.Any, TemplateResult) -> @core.Any

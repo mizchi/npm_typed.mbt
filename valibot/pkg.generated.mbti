@@ -6,95 +6,93 @@ import(
 )
 
 // Values
-pub fn any_() -> Schema
+pub fn any_() -> Schema[@core.Any]
 
-pub fn array(Schema) -> Schema
+pub fn[T] array(Schema[T]) -> Schema[Array[T]]
 
-pub fn bigint() -> Schema
+pub fn boolean() -> Schema[Bool]
 
-pub fn boolean() -> Schema
+pub fn email() -> Action
 
-pub fn date() -> Schema
+pub fn endsWith(String) -> Action
 
-pub fn email() -> @core.Any
+pub fn finite() -> Action
 
-pub fn endsWith(String) -> @core.Any
+pub fn includes(String) -> Action
 
-pub fn finite() -> @core.Any
+pub fn integer() -> Action
 
-pub fn includes(String) -> @core.Any
+pub fn[T] is_(Schema[T], @core.Any) -> Bool
 
-pub fn integer() -> @core.Any
+pub fn length(Int) -> Action
 
-pub fn intersect(@core.Any) -> Schema
+pub fn literal_bool(Bool) -> Schema[Bool]
 
-pub fn is_(Schema, @core.Any) -> Bool
+pub fn literal_int(Int) -> Schema[Int]
 
-pub fn length(Int) -> @core.Any
+pub fn literal_string(String) -> Schema[String]
 
-pub fn literal(@core.Any) -> Schema
+pub fn maxLength(Int) -> Action
 
-pub fn maxLength(Int) -> @core.Any
+pub fn maxValue(Double) -> Action
 
-pub fn maxValue(Double) -> @core.Any
+pub fn minLength(Int) -> Action
 
-pub fn minLength(Int) -> @core.Any
+pub fn minValue(Double) -> Action
 
-pub fn minValue(Double) -> @core.Any
+pub fn[T] nullable(Schema[T]) -> Schema[T?]
 
-pub fn null_() -> Schema
+pub fn number() -> Schema[Int]
 
-pub fn nullable(Schema) -> Schema
+pub fn number_double() -> Schema[Double]
 
-pub fn nullish(Schema) -> Schema
+pub fn object(@core.Any) -> Schema[@core.Any]
 
-pub fn number() -> Schema
+pub fn[T] object_typed(@core.Any) -> Schema[T]
 
-pub fn object(@core.Any) -> Schema
+pub fn[T] optional(Schema[T]) -> Schema[T?]
 
-pub fn optional(Schema) -> Schema
+pub fn[T] parse(Schema[T], @core.Any) -> T
 
-pub fn options() -> @core.Any
+pub fn picklist(Array[String]) -> Schema[String]
 
-pub fn parse(Schema, @core.Any) -> @core.Any
+pub fn[T] pipe(Schema[T], Array[Action]) -> Schema[T]
 
-pub fn picklist(@core.Any) -> Schema
+pub fn[V] record(Schema[V]) -> Schema[@core.Any]
 
-pub fn pipe(Schema, @core.Any) -> Schema
+pub fn regex(@core.Any) -> Action
 
-pub fn record(Schema, Schema) -> Schema
-
-pub fn regex(@core.Any) -> @core.Any
-
-pub fn safeParse(Schema, @core.Any) -> SafeParseResult
+pub fn[T] safeParse(Schema[T], @core.Any) -> SafeParseResult[T]
 
 pub fn shape() -> @core.Any
 
-pub fn startsWith(String) -> @core.Any
+pub fn startsWith(String) -> Action
 
-pub fn string_() -> Schema
+pub fn string_() -> Schema[String]
 
-pub fn toLowerCase() -> @core.Any
+pub fn toLowerCase() -> Action
 
-pub fn toUpperCase() -> @core.Any
+pub fn toUpperCase() -> Action
 
-pub fn trim() -> @core.Any
+pub fn trim() -> Action
 
-pub fn tuple(@core.Any) -> Schema
+pub fn tuple(Array[@core.Any]) -> Schema[@core.Any]
 
-pub fn undefined_() -> Schema
+pub fn union(Array[@core.Any]) -> Schema[@core.Any]
 
-pub fn union(@core.Any) -> Schema
+pub fn unknown() -> Schema[@core.Any]
 
-pub fn unknown() -> Schema
+pub fn url() -> Action
 
-pub fn url() -> @core.Any
-
-pub fn uuid() -> @core.Any
+pub fn uuid() -> Action
 
 // Errors
 
 // Types and methods
+#external
+pub type Action
+pub fn Action::to_any(Self) -> @core.Any
+
 #external
 pub type Issue
 pub fn Issue::expected(Self) -> String?
@@ -107,19 +105,17 @@ pub fn Issue::to_any(Self) -> @core.Any
 pub fn Issue::type_(Self) -> String
 
 #external
-pub type SafeParseResult
-pub fn SafeParseResult::issues(Self) -> @core.Any
-pub fn SafeParseResult::output(Self) -> @core.Any
-pub fn SafeParseResult::success(Self) -> Bool
-pub fn SafeParseResult::to_any(Self) -> @core.Any
+pub type SafeParseResult[_]
+pub fn[T] SafeParseResult::issues(Self[T]) -> Array[Issue]
+pub fn[T] SafeParseResult::output(Self[T]) -> T
+pub fn[T] SafeParseResult::output_option(Self[T]) -> T?
+pub fn[T] SafeParseResult::success(Self[T]) -> Bool
+pub fn[T] SafeParseResult::to_any(Self[T]) -> @core.Any
+pub fn[T] SafeParseResult::typed(Self[T]) -> Bool
 
 #external
-pub type Schema
-pub fn Schema::to_any(Self) -> @core.Any
-
-#external
-pub type ValiError
-pub fn ValiError::to_any(Self) -> @core.Any
+pub type Schema[_]
+pub fn[T] Schema::to_any(Self[T]) -> @core.Any
 
 // Type aliases
 
