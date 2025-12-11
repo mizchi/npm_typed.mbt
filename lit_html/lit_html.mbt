@@ -20,64 +20,19 @@ pub type SVGTemplateResult
 ///|
 pub fn SVGTemplateResult::to_any(self : SVGTemplateResult) -> @core.Any = "%identity"
 
-///| Module cache - async import with global cache
+///| Core Functions - html and svg with #module
 
 ///|
-extern "js" fn ffi_get_lit_html() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_html ?? (globalThis.__lit_html = import("lit-html"))
+#module("lit-html")
+extern "js" fn ffi_html_fn() -> @core.Any = "html"
 
 ///|
-extern "js" fn ffi_get_repeat() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_repeat ?? (globalThis.__lit_repeat = import("lit-html/directives/repeat.js"))
-
-///|
-extern "js" fn ffi_get_until() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_until ?? (globalThis.__lit_until = import("lit-html/directives/until.js"))
-
-///|
-extern "js" fn ffi_get_guard() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_guard ?? (globalThis.__lit_guard = import("lit-html/directives/guard.js"))
-
-///|
-extern "js" fn ffi_get_when() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_when ?? (globalThis.__lit_when = import("lit-html/directives/when.js"))
-
-///|
-extern "js" fn ffi_get_choose() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_choose ?? (globalThis.__lit_choose = import("lit-html/directives/choose.js"))
-
-///|
-extern "js" fn ffi_get_map() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_map ?? (globalThis.__lit_map = import("lit-html/directives/map.js"))
-
-///|
-extern "js" fn ffi_get_join() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_join ?? (globalThis.__lit_join = import("lit-html/directives/join.js"))
-
-///|
-extern "js" fn ffi_get_range() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_range ?? (globalThis.__lit_range = import("lit-html/directives/range.js"))
-
-///|
-extern "js" fn ffi_get_keyed() -> @core.Promise[@core.Any] =
-  #| () => globalThis.__lit_keyed ?? (globalThis.__lit_keyed = import("lit-html/directives/keyed.js"))
-
-///| Initialization - call once before using html/svg/nothing/noChange
-
-///|
-/// Initialize lit-html module (call once at app startup)
-pub async fn init_lit_html() -> Unit {
-  ffi_get_lit_html().wait() |> ignore
-}
-
-///| Core Functions - html and svg need spread operator
-
-///|
-extern "js" fn ffi_html(
+extern "js" fn ffi_call_html(
+  html_fn : @core.Any,
   strings : @core.TemplateStringsArray,
   values : Array[@core.Any],
 ) -> TemplateResult =
-  #| (strings, values) => globalThis.__lit_html.html(strings, ...values)
+  #| (html_fn, strings, values) => html_fn(strings, ...values)
 
 ///|
 /// Create HTML template using tagged template syntax
@@ -88,15 +43,24 @@ extern "js" fn ffi_html(
 /// let tmpl = html("<div>${@0}</div>", args=[@core.any("Hello")])
 /// ```
 pub fn html(template : String, args? : Array[@core.Any] = []) -> TemplateResult {
-  @core.tag(fn(strings, values) { ffi_html(strings, values) }, template, args)
+  @core.tag(
+    fn(strings, values) { ffi_call_html(ffi_html_fn(), strings, values) },
+    template,
+    args,
+  )
 }
 
 ///|
-extern "js" fn ffi_svg(
+#module("lit-html")
+extern "js" fn ffi_svg_fn() -> @core.Any = "svg"
+
+///|
+extern "js" fn ffi_call_svg(
+  svg_fn : @core.Any,
   strings : @core.TemplateStringsArray,
   values : Array[@core.Any],
 ) -> SVGTemplateResult =
-  #| (strings, values) => globalThis.__lit_html.svg(strings, ...values)
+  #| (svg_fn, strings, values) => svg_fn(strings, ...values)
 
 ///|
 /// Create SVG template using tagged template syntax
@@ -104,7 +68,11 @@ pub fn svg(
   template : String,
   args? : Array[@core.Any] = [],
 ) -> SVGTemplateResult {
-  @core.tag(fn(strings, values) { ffi_svg(strings, values) }, template, args)
+  @core.tag(
+    fn(strings, values) { ffi_call_svg(ffi_svg_fn(), strings, values) },
+    template,
+    args,
+  )
 }
 
 ///|
@@ -141,8 +109,8 @@ pub fn render(
 ///| Special Values - these are symbols
 
 ///|
-extern "js" fn ffi_nothing() -> @core.Any =
-  #| () => globalThis.__lit_html.nothing
+#module("lit-html")
+extern "js" fn ffi_nothing() -> @core.Any = "nothing"
 
 ///|
 /// nothing - renders nothing (removes content)
@@ -151,8 +119,8 @@ pub fn nothing() -> @core.Any {
 }
 
 ///|
-extern "js" fn ffi_noChange() -> @core.Any =
-  #| () => globalThis.__lit_html.noChange
+#module("lit-html")
+extern "js" fn ffi_noChange() -> @core.Any = "noChange"
 
 ///|
 /// noChange - signals no update needed
@@ -254,21 +222,11 @@ pub fn createRef() -> @core.Any {
   ffi_createRef()
 }
 
-///| Directives with complex signatures - need async init
+///| Directives with spread arguments - using #module + _invoke
 
 ///|
-/// Initialize repeat directive (call before using repeat)
-pub async fn init_repeat() -> Unit {
-  ffi_get_repeat().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_repeat(
-  items : @core.Any,
-  keyFn : @core.Any,
-  template : @core.Any,
-) -> @core.Any =
-  #| (items, keyFn, template) => globalThis.__lit_repeat.repeat(items, keyFn, template)
+#module("lit-html/directives/repeat.js")
+extern "js" fn ffi_repeat_fn() -> @core.Any = "repeat"
 
 ///|
 /// repeat directive - efficiently renders lists with keys
@@ -277,43 +235,28 @@ pub fn repeat(
   keyFn : (@core.Any) -> @core.Any,
   template : (@core.Any, Int) -> TemplateResult,
 ) -> @core.Any {
-  ffi_repeat(
+  ffi_repeat_fn()._invoke([
     @core.any(items),
     @core.any(keyFn),
     @core.any(fn(item : @core.Any, index : @core.Any) {
       template(item, index.cast())
     }),
-  )
+  ])
 }
 
 ///|
-/// Initialize until directive (call before using until)
-pub async fn init_until() -> Unit {
-  ffi_get_until().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_until(values : Array[@core.Any]) -> @core.Any =
-  #| (values) => globalThis.__lit_until.until(...values)
+#module("lit-html/directives/until.js")
+extern "js" fn ffi_until_fn() -> @core.Any = "until"
 
 ///|
 /// until directive - renders placeholder until promise resolves
 pub fn until(values : Array[@core.Any]) -> @core.Any {
-  ffi_until(values)
+  ffi_until_fn()._invoke(values)
 }
 
 ///|
-/// Initialize guard directive (call before using guard_)
-pub async fn init_guard() -> Unit {
-  ffi_get_guard().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_guard(
-  deps : Array[@core.Any],
-  valueFn : @core.Any,
-) -> @core.Any =
-  #| (deps, valueFn) => globalThis.__lit_guard.guard(deps, valueFn)
+#module("lit-html/directives/guard.js")
+extern "js" fn ffi_guard_fn() -> @core.Any = "guard"
 
 ///|
 /// guard directive - only re-renders when dependencies change
@@ -321,22 +264,15 @@ pub fn guard_(
   deps : Array[@core.Any],
   valueFn : () -> TemplateResult,
 ) -> @core.Any {
-  ffi_guard(deps, @core.any(fn() { valueFn().to_any() }))
+  ffi_guard_fn()._invoke([
+    deps |> @core.any,
+    @core.any(fn() { valueFn().to_any() }),
+  ])
 }
 
 ///|
-/// Initialize when directive (call before using when)
-pub async fn init_when() -> Unit {
-  ffi_get_when().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_when(
-  condition : Bool,
-  trueCase : @core.Any,
-  falseCase : @core.Any,
-) -> @core.Any =
-  #| (condition, trueCase, falseCase) => globalThis.__lit_when.when(condition, trueCase, falseCase)
+#module("lit-html/directives/when.js")
+extern "js" fn ffi_when_fn() -> @core.Any = "when"
 
 ///|
 /// when directive - conditional rendering
@@ -349,22 +285,16 @@ pub fn when(
     Some(f) => @core.any(fn() { f().to_any() })
     None => @core.undefined()
   }
-  ffi_when(condition, @core.any(fn() { trueCase().to_any() }), false_fn)
+  ffi_when_fn()._invoke([
+    @core.any(condition),
+    @core.any(fn() { trueCase().to_any() }),
+    false_fn,
+  ])
 }
 
 ///|
-/// Initialize choose directive (call before using choose)
-pub async fn init_choose() -> Unit {
-  ffi_get_choose().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_choose(
-  value : @core.Any,
-  cases : @core.Any,
-  defaultCase : @core.Any,
-) -> @core.Any =
-  #| (value, cases, defaultCase) => globalThis.__lit_choose.choose(value, cases, defaultCase)
+#module("lit-html/directives/choose.js")
+extern "js" fn ffi_choose_fn() -> @core.Any = "choose"
 
 ///|
 extern "js" fn ffi_make_case_pair(
@@ -394,18 +324,12 @@ pub fn choose(
     Some(f) => @core.any(fn() { f().to_any() })
     None => @core.undefined()
   }
-  ffi_choose(value, js_cases, default_fn)
+  ffi_choose_fn()._invoke([value, js_cases, default_fn])
 }
 
 ///|
-/// Initialize map directive (call before using map_)
-pub async fn init_map() -> Unit {
-  ffi_get_map().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_map(items : @core.Any, f : @core.Any) -> @core.Any =
-  #| (items, f) => globalThis.__lit_map.map(items, f)
+#module("lit-html/directives/map.js")
+extern "js" fn ffi_map_fn() -> @core.Any = "map"
 
 ///|
 /// map directive - transform items to templates
@@ -413,74 +337,43 @@ pub fn map_(
   items : Array[@core.Any],
   f : (@core.Any, Int) -> TemplateResult,
 ) -> @core.Any {
-  ffi_map(
+  ffi_map_fn()._invoke([
     @core.any(items),
     @core.any(fn(item : @core.Any, index : @core.Any) { f(item, index.cast()) }),
-  )
+  ])
 }
 
 ///|
-/// Initialize join directive (call before using join)
-pub async fn init_join() -> Unit {
-  ffi_get_join().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_join(items : @core.Any, joiner : @core.Any) -> @core.Any =
-  #| (items, joiner) => globalThis.__lit_join.join(items, joiner)
+#module("lit-html/directives/join.js")
+extern "js" fn ffi_join_fn() -> @core.Any = "join"
 
 ///|
 /// join directive - join items with separator
 pub fn join(items : Array[@core.Any], joiner : @core.Any) -> @core.Any {
-  ffi_join(@core.any(items), joiner)
+  ffi_join_fn()._invoke([@core.any(items), joiner])
 }
 
 ///|
-/// Initialize range directive (call before using range)
-pub async fn init_range() -> Unit {
-  ffi_get_range().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_range(start : Int, end : Int, step : Int) -> @core.Any =
-  #| (start, end, step) => globalThis.__lit_range.range(start, end, step)
+#module("lit-html/directives/range.js")
+extern "js" fn ffi_range_fn() -> @core.Any = "range"
 
 ///|
 /// range directive - generate sequence of numbers
 pub fn range(start : Int, end? : Int, step? : Int = 1) -> @core.Any {
   match end {
-    Some(e) => ffi_range(start, e, step)
-    None => ffi_range(0, start, step)
+    Some(e) =>
+      ffi_range_fn()._invoke([@core.any(start), @core.any(e), @core.any(step)])
+    None =>
+      ffi_range_fn()._invoke([@core.any(0), @core.any(start), @core.any(step)])
   }
 }
 
 ///|
-/// Initialize keyed directive (call before using keyed)
-pub async fn init_keyed() -> Unit {
-  ffi_get_keyed().wait() |> ignore
-}
-
-///|
-extern "js" fn ffi_keyed(key : @core.Any, value : @core.Any) -> @core.Any =
-  #| (key, value) => globalThis.__lit_keyed.keyed(key, value)
+#module("lit-html/directives/keyed.js")
+extern "js" fn ffi_keyed_fn() -> @core.Any = "keyed"
 
 ///|
 /// keyed directive - force re-render when key changes
 pub fn keyed(key : @core.Any, value : TemplateResult) -> @core.Any {
-  ffi_keyed(key, value.to_any())
-}
-
-///|
-/// Initialize all directives at once
-pub async fn init_all() -> Unit {
-  init_lit_html()
-  init_repeat()
-  init_until()
-  init_guard()
-  init_when()
-  init_choose()
-  init_map()
-  init_join()
-  init_range()
-  init_keyed()
+  ffi_keyed_fn()._invoke([key, value.to_any()])
 }
