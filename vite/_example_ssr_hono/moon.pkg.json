@@ -1,0 +1,10 @@
+{
+  "import": [
+    "mizchi/js",
+    "mizchi/js/core",
+    "mizchi/js/web/http",
+    "mizchi/npm_typed/vite",
+    "mizchi/npm_typed/hono"
+  ],
+  "is-main": true
+}

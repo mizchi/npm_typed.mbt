@@ -211,3 +211,67 @@ pub fn ViteDevServer::client(self : ViteDevServer) -> DevEnvironment {
 pub fn ViteDevServer::ssr(self : ViteDevServer) -> DevEnvironment {
   ffi_server_get_environment(self, "ssr")
 }
+
+///| SSR Methods
+
+///|
+extern "js" fn ffi_server_transform_index_html(
+  server : ViteDevServer,
+  url : String,
+  html : String,
+) -> @js.Promise[String] =
+  #| (server, url, html) => server.transformIndexHtml(url, html)
+
+///|
+extern "js" fn ffi_server_ssr_load_module(
+  server : ViteDevServer,
+  url : String,
+) -> @js.Promise[@core.Any] =
+  #| (server, url) => server.ssrLoadModule(url)
+
+///|
+extern "js" fn ffi_server_ssr_fix_stack_trace(
+  server : ViteDevServer,
+  error : @core.Any,
+) -> Unit =
+  #| (server, error) => server.ssrFixStacktrace(error)
+
+///|
+extern "js" fn ffi_server_middlewares(server : ViteDevServer) -> @core.Any =
+  #| (server) => server.middlewares
+
+///|
+/// Transform index.html with Vite's transformations (HMR injection, plugin transforms)
+/// See: https://vite.dev/guide/ssr
+pub async fn ViteDevServer::transformIndexHtml(
+  self : ViteDevServer,
+  url : String,
+  html : String,
+) -> String {
+  ffi_server_transform_index_html(self, url, html).wait()
+}
+
+///|
+/// Load a module for SSR (development only)
+/// Deprecated in Vite 6+, use environment.runner.import() instead
+pub async fn ViteDevServer::ssrLoadModule(
+  self : ViteDevServer,
+  url : String,
+) -> @core.Any {
+  ffi_server_ssr_load_module(self, url).wait()
+}
+
+///|
+/// Fix stack trace for SSR errors
+pub fn ViteDevServer::ssrFixStacktrace(
+  self : ViteDevServer,
+  error : @core.Any,
+) -> Unit {
+  ffi_server_ssr_fix_stack_trace(self, error)
+}
+
+///|
+/// Get the Connect middleware instance
+pub fn ViteDevServer::middlewares(self : ViteDevServer) -> @core.Any {
+  ffi_server_middlewares(self)
+}

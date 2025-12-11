@@ -221,6 +221,9 @@ importers:
       react-router:
         specifier: 7.9.4
         version: 7.9.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      rolldown:
+        specifier: 1.0.0-beta.53
+        version: 1.0.0-beta.53
       semver:
         specifier: ^7.7.3
         version: 7.7.3
@@ -579,6 +582,8 @@ importers:
       react-router:
         specifier: ^7.0.0
         version: 7.9.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+
+  rolldown: {}
 
   semver:
     dependencies:
