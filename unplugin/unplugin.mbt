@@ -143,51 +143,13 @@ pub type WriteBundleHook = () -> Unit
 ///| UnpluginOptions
 
 ///|
-/// Options for creating an unplugin
-pub(all) struct UnpluginOptions {
-  /// Plugin name (required)
-  name : String
-  /// Plugin ordering: "pre" | "post" | undefined
-  enforce : String?
-  /// Build start hook
-  buildStart : BuildStartHook?
-  /// Build end hook
-  buildEnd : BuildEndHook?
-  /// Transform hook
-  transform : TransformHook?
-  /// Transform with filter
-  transformFilter : HookFilter?
-  /// Load hook
-  load : LoadHook?
-  /// Load with filter
-  loadFilter : HookFilter?
-  /// ResolveId hook
-  resolveId : ResolveIdHook?
-  /// Watch change hook
-  watchChange : WatchChangeHook?
-  /// Write bundle hook
-  writeBundle : WriteBundleHook?
-  /// Vite-specific plugin options
-  vite : @core.Any?
-  /// Rollup-specific plugin options
-  rollup : @core.Any?
-  /// Webpack-specific function (receives compiler)
-  webpack : ((@core.Any) -> Unit)?
-  /// Rspack-specific function (receives compiler)
-  rspack : ((@core.Any) -> Unit)?
-  /// Esbuild-specific options
-  esbuild : @core.Any?
-  /// Farm-specific plugin options
-  farm : @core.Any?
-  /// Rolldown-specific plugin options
-  rolldown : @core.Any?
-  /// Bun-specific plugin options
-  bun : @core.Any?
-}
+/// Options type alias for unplugin (opaque JS object)
+pub type UnpluginOptions = @core.Any
 
 ///|
-pub fn UnpluginOptions::new(
-  name : String,
+/// Create unplugin options with labeled arguments
+pub fn options(
+  name~ : String,
   enforce? : String,
   buildStart? : BuildStartHook,
   buildEnd? : BuildEndHook,
@@ -207,45 +169,20 @@ pub fn UnpluginOptions::new(
   rolldown? : @core.Any,
   bun? : @core.Any,
 ) -> UnpluginOptions {
-  {
-    name,
-    enforce,
-    buildStart,
-    buildEnd,
-    transform,
-    transformFilter,
-    load,
-    loadFilter,
-    resolveId,
-    watchChange,
-    writeBundle,
-    vite,
-    rollup,
-    webpack,
-    rspack,
-    esbuild,
-    farm,
-    rolldown,
-    bun,
-  }
-}
-
-///|
-pub fn UnpluginOptions::to_any(self : UnpluginOptions) -> @core.Any {
   let obj = @core.new_object()
-  obj["name"] = @core.any(self.name)
-  if self.enforce is Some(v) {
+  obj["name"] = @core.any(name)
+  if enforce is Some(v) {
     obj["enforce"] = @core.any(v)
   }
-  if self.buildStart is Some(v) {
+  if buildStart is Some(v) {
     obj["buildStart"] = @core.any(@js.from_fn0(v))
   }
-  if self.buildEnd is Some(v) {
+  if buildEnd is Some(v) {
     obj["buildEnd"] = @core.any(@js.from_fn0(v))
   }
   // Transform with optional filter
-  if self.transform is Some(handler) {
-    if self.transformFilter is Some(filter) {
+  if transform is Some(handler) {
+    if transformFilter is Some(filter) {
       let hook = @core.new_object()
       hook["filter"] = filter.to_any()
       hook["handler"] = @core.any(@js.from_fn2(handler))
@@ -255,8 +192,8 @@ pub fn UnpluginOptions::to_any(self : UnpluginOptions) -> @core.Any {
     }
   }
   // Load with optional filter
-  if self.load is Some(handler) {
-    if self.loadFilter is Some(filter) {
+  if load is Some(handler) {
+    if loadFilter is Some(filter) {
       let hook = @core.new_object()
       hook["filter"] = filter.to_any()
       hook["handler"] = @core.any(@js.from_fn1(handler))
@@ -265,37 +202,37 @@ pub fn UnpluginOptions::to_any(self : UnpluginOptions) -> @core.Any {
       obj["load"] = @core.any(@js.from_fn1(handler))
     }
   }
-  if self.resolveId is Some(v) {
+  if resolveId is Some(v) {
     obj["resolveId"] = @core.any(@js.from_fn3(v))
   }
-  if self.watchChange is Some(v) {
+  if watchChange is Some(v) {
     obj["watchChange"] = @core.any(@js.from_fn2(v))
   }
-  if self.writeBundle is Some(v) {
+  if writeBundle is Some(v) {
     obj["writeBundle"] = @core.any(@js.from_fn0(v))
   }
-  if self.vite is Some(v) {
+  if vite is Some(v) {
     obj["vite"] = @core.any(v)
   }
-  if self.rollup is Some(v) {
+  if rollup is Some(v) {
     obj["rollup"] = @core.any(v)
   }
-  if self.webpack is Some(v) {
+  if webpack is Some(v) {
     obj["webpack"] = @core.any(@js.from_fn1(v))
   }
-  if self.rspack is Some(v) {
+  if rspack is Some(v) {
     obj["rspack"] = @core.any(@js.from_fn1(v))
   }
-  if self.esbuild is Some(v) {
+  if esbuild is Some(v) {
     obj["esbuild"] = @core.any(v)
   }
-  if self.farm is Some(v) {
+  if farm is Some(v) {
     obj["farm"] = @core.any(v)
   }
-  if self.rolldown is Some(v) {
+  if rolldown is Some(v) {
     obj["rolldown"] = @core.any(v)
   }
-  if self.bun is Some(v) {
+  if bun is Some(v) {
     obj["bun"] = @core.any(v)
   }
   obj
@@ -380,8 +317,7 @@ pub fn[UserOptions] createUnplugin(
   let js_factory = fn(options : @core.Any, meta : @core.Any) -> @core.Any {
     let user_options : UserOptions = @core.identity(options)
     let context_meta = meta_from_js(meta)
-    let unplugin_options = factory(user_options, context_meta)
-    unplugin_options.to_any()
+    factory(user_options, context_meta)
   }
   let instance = ffi_create_unplugin(js_factory)
   fn(options : UserOptions) -> UnpluginInstance {
@@ -396,8 +332,7 @@ pub fn createUnpluginSimple(
 ) -> () -> UnpluginInstance {
   let js_factory = fn(_options : @core.Any, meta : @core.Any) -> @core.Any {
     let context_meta = meta_from_js(meta)
-    let unplugin_options = factory(context_meta)
-    unplugin_options.to_any()
+    factory(context_meta)
   }
   let instance = ffi_create_unplugin(js_factory)
   fn() -> UnpluginInstance { instance._invoke([]) |> @core.identity }
