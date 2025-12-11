@@ -14,11 +14,36 @@ pub fn ViteDevServer::to_any(self : ViteDevServer) -> @core.Any = "%identity"
 
 ///|
 /// DevEnvironment - development environment instance
-#external
-pub type DevEnvironment
+/// https://vite.dev/guide/api-environment
+pub(all) struct DevEnvironment {
+  /// Environment name (e.g., "client", "ssr")
+  name : String
+  /// Resolved config for this environment
+  config : @core.Any
+  /// Mode (development/production)
+  mode : String
+  /// Resolved plugins for this environment
+  plugins : @core.Any
+  /// HMR hot channel
+  hot : HotChannel
+  /// Module graph
+  moduleGraph : ModuleGraph
+  /// Plugin container
+  pluginContainer : PluginContainer
+}
 
 ///|
 pub fn DevEnvironment::to_any(self : DevEnvironment) -> @core.Any = "%identity"
+
+///|
+extern "js" fn ffi_dev_environment_from_any(env : @core.Any) -> DevEnvironment =
+  #| (e) => ({ name: e.name, config: e.config, mode: e.mode, plugins: e.plugins, hot: e.hot, moduleGraph: e.moduleGraph, pluginContainer: e.pluginContainer })
+
+///|
+/// Parse a DevEnvironment from Any
+pub fn DevEnvironment::from_any(env : @core.Any) -> DevEnvironment {
+  ffi_dev_environment_from_any(env)
+}
 
 ///|
 /// ModuleGraph - tracks import relationships between modules
@@ -62,11 +87,34 @@ pub fn ModuleRunner::to_any(self : ModuleRunner) -> @core.Any = "%identity"
 
 ///|
 /// TransformResult - result of module transformation
-#external
-pub type TransformResult
+/// https://vite.dev/guide/api-environment-instances
+pub(all) struct TransformResult {
+  /// The transformed code
+  code : String
+  /// Source map (can be null)
+  map : @core.Any
+  /// ETag for caching
+  etag : String
+  /// Static dependencies
+  deps : Array[String]
+  /// Dynamic import dependencies
+  dynamicDeps : Array[String]
+}
 
 ///|
 pub fn TransformResult::to_any(self : TransformResult) -> @core.Any = "%identity"
+
+///|
+extern "js" fn ffi_transform_result_from_any(
+  result : @core.Any,
+) -> TransformResult =
+  #| (r) => ({ code: r.code || '', map: r.map || null, etag: r.etag || '', deps: r.deps || [], dynamicDeps: r.dynamicDeps || [] })
+
+///|
+/// Parse a TransformResult from Any
+pub fn TransformResult::from_any(result : @core.Any) -> TransformResult {
+  ffi_transform_result_from_any(result)
+}
 
 ///|
 /// FetchResult - result of module fetch
@@ -202,13 +250,13 @@ pub fn ViteDevServer::getEnvironment(
 
 ///|
 /// Get the client environment
-pub fn ViteDevServer::client(self : ViteDevServer) -> DevEnvironment {
+pub fn ViteDevServer::client(self : Self) -> DevEnvironment {
   ffi_server_get_environment(self, "client")
 }
 
 ///|
 /// Get the SSR environment
-pub fn ViteDevServer::ssr(self : ViteDevServer) -> DevEnvironment {
+pub fn ViteDevServer::ssr(self : Self) -> DevEnvironment {
   ffi_server_get_environment(self, "ssr")
 }
 
@@ -244,7 +292,7 @@ extern "js" fn ffi_server_middlewares(server : ViteDevServer) -> @core.Any =
 /// Transform index.html with Vite's transformations (HMR injection, plugin transforms)
 /// See: https://vite.dev/guide/ssr
 pub async fn ViteDevServer::transformIndexHtml(
-  self : ViteDevServer,
+  self : Self,
   url : String,
   html : String,
 ) -> String {
@@ -255,7 +303,7 @@ pub async fn ViteDevServer::transformIndexHtml(
 /// Load a module for SSR (development only)
 /// Deprecated in Vite 6+, use environment.runner.import() instead
 pub async fn ViteDevServer::ssrLoadModule(
-  self : ViteDevServer,
+  self : Self,
   url : String,
 ) -> @core.Any {
   ffi_server_ssr_load_module(self, url).wait()
@@ -263,10 +311,7 @@ pub async fn ViteDevServer::ssrLoadModule(
 
 ///|
 /// Fix stack trace for SSR errors
-pub fn ViteDevServer::ssrFixStacktrace(
-  self : ViteDevServer,
-  error : @core.Any,
-) -> Unit {
+pub fn ViteDevServer::ssrFixStacktrace(self : Self, error : @core.Any) -> Unit {
   ffi_server_ssr_fix_stack_trace(self, error)
 }
 

@@ -50,8 +50,8 @@ fn ssr_example() -> Unit {
 
       // Access the SSR environment
       let ssr_env = server.ssr()
-      println("✓ SSR environment: \{ssr_env.name()}")
-      println("  Mode: \{ssr_env.mode()}")
+      println("✓ SSR environment: \{ssr_env.name}")
+      println("  Mode: \{ssr_env.mode}")
 
       // Check if environment is runnable (has a runner)
       if ssr_env.isRunnable() {
@@ -77,7 +77,7 @@ fn ssr_example() -> Unit {
 
       // Demonstrate module graph access
       println("\n--- Module Graph ---")
-      let _ = ssr_env.moduleGraph()
+      let _ = ssr_env.moduleGraph
       println("✓ Module graph accessed")
 
       // Close the server

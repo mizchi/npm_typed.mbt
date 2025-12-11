@@ -96,18 +96,18 @@ fn run_ssr_server() -> Unit {
       // Demonstrate Environment API access
       let ssr_env = vite.ssr()
       println("\nSSR Environment:")
-      println("  Name: \{ssr_env.name()}")
-      println("  Mode: \{ssr_env.mode()}")
+      println("  Name: \{ssr_env.name}")
+      println("  Mode: \{ssr_env.mode}")
       println("  Runnable: \{ssr_env.isRunnable()}")
       println("  Fetchable: \{ssr_env.isFetchable()}")
 
       // Access module graph
-      let graph = ssr_env.moduleGraph()
+      let graph = ssr_env.moduleGraph
       ignore(graph)
       println("  ModuleGraph: available")
 
       // Access hot channel for HMR
-      let hot = ssr_env.hot()
+      let hot = ssr_env.hot
       ignore(hot)
       println("  HotChannel: available")
 
