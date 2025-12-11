@@ -1,0 +1,72 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/rolldown"
+
+import(
+  "mizchi/js/core"
+  "mizchi/npm_typed/rollup_types"
+)
+
+// Values
+pub async fn build(input~ : @rollup_types.Input, output? : @core.Any, external? : @rollup_types.External, plugins? : Array[@core.Any], resolve? : @core.Any, platform? : String, cwd? : String, treeshake? : @core.Any) -> RolldownOutput
+
+pub fn define_plugin(String, buildStart? : (@core.Any) -> Unit, resolveId? : (String, String?, @core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, renderChunk? : (String, @core.Any, @core.Any) -> String?, generateBundle? : (@core.Any, @core.Any) -> Unit, writeBundle? : (@core.Any, @core.Any) -> Unit, buildEnd? : (@core.Any?) -> Unit, closeBundle? : () -> Unit) -> @core.Any
+
+pub fn outputOptions(file? : String, dir? : String, format? : String, entryFileNames? : String, chunkFileNames? : String, assetFileNames? : String, sourcemap? : @core.Any, minify? : @core.Any, banner? : String, footer? : String, intro? : String, outro? : String, globals? : @core.Any, advancedChunks? : @core.Any) -> @core.Any
+
+pub async fn rolldown(input~ : @rollup_types.Input, external? : @rollup_types.External, plugins? : Array[@core.Any], resolve? : @core.Any, platform? : String, cwd? : String, treeshake? : @core.Any) -> RolldownBuild
+
+pub async fn watch(input~ : @rollup_types.Input, external? : @rollup_types.External, plugins? : Array[@core.Any], resolve? : @core.Any, platform? : String, cwd? : String, treeshake? : @core.Any) -> Watcher
+
+// Errors
+
+// Types and methods
+#external
+pub type RolldownBuild
+pub async fn RolldownBuild::close(Self) -> Unit
+pub async fn RolldownBuild::generate(Self, @core.Any) -> RolldownOutput
+pub fn RolldownBuild::to_any(Self) -> @core.Any
+pub async fn RolldownBuild::write(Self, @core.Any) -> RolldownOutput
+
+pub(all) struct RolldownOutput {
+  output : Array[@core.Any]
+}
+pub fn RolldownOutput::from_any(@core.Any) -> Self
+pub fn RolldownOutput::to_any(Self) -> @core.Any
+
+#external
+pub type Watcher
+pub async fn Watcher::close(Self) -> Unit
+pub fn Watcher::on(Self, String, (@core.Any) -> Unit) -> Self
+pub fn Watcher::to_any(Self) -> @core.Any
+
+// Type aliases
+pub type BuildEndHook = (@core.Any?) -> Unit
+
+pub type BuildStartHook = (@core.Any) -> Unit
+
+pub type CloseBundleHook = () -> Unit
+
+pub using @rollup_types {type External}
+
+pub type GenerateBundleHook = (@core.Any, @core.Any) -> Unit
+
+pub using @rollup_types {type Input}
+
+pub type LoadHook = (String) -> String?
+
+pub using @rollup_types {type OutputAsset}
+
+pub using @rollup_types {type OutputChunk}
+
+pub using @core {type Any as Plugin}
+
+pub type RenderChunkHook = (String, @core.Any, @core.Any) -> String?
+
+pub type ResolveIdHook = (String, String?, @core.Any) -> String?
+
+pub type TransformHook = (String, String) -> String?
+
+pub type WriteBundleHook = (@core.Any, @core.Any) -> Unit
+
+// Traits
+

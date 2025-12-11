@@ -1,0 +1,72 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/rollup_types"
+
+import(
+  "mizchi/js/core"
+)
+
+// Values
+pub fn define_plugin(String, buildStart? : (@core.Any) -> Unit, resolveId? : (String, String?, @core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, renderChunk? : (String, @core.Any, @core.Any) -> String?, generateBundle? : (@core.Any, @core.Any) -> Unit, writeBundle? : (@core.Any, @core.Any) -> Unit, buildEnd? : (@core.Any?) -> Unit, closeBundle? : () -> Unit) -> @core.Any
+
+pub fn plugins(Array[@core.Any]) -> @core.Any
+
+// Errors
+
+// Types and methods
+pub(all) enum External {
+  Modules(Array[String])
+  Fn((String, String, Bool) -> Bool)
+}
+pub fn External::to_any(Self) -> @core.Any
+
+pub(all) enum Input {
+  Single(String)
+  Multiple(Array[String])
+  Named(@core.Any)
+}
+pub fn Input::to_any(Self) -> @core.Any
+
+pub(all) struct OutputAsset {
+  fileName : String
+  source : @core.Any
+  type_ : String
+  name : String?
+}
+pub fn OutputAsset::from_any(@core.Any) -> Self
+pub fn OutputAsset::to_any(Self) -> @core.Any
+
+pub(all) struct OutputChunk {
+  fileName : String
+  code : String
+  isEntry : Bool
+  name : String
+  map : @core.Any
+  moduleIds : Array[String]
+}
+pub fn OutputChunk::from_any(@core.Any) -> Self
+pub fn OutputChunk::to_any(Self) -> @core.Any
+pub fn OutputChunk::type_(Self) -> String
+
+// Type aliases
+pub type BuildEndHook = (@core.Any?) -> Unit
+
+pub type BuildStartHook = (@core.Any) -> Unit
+
+pub type CloseBundleHook = () -> Unit
+
+pub type GenerateBundleHook = (@core.Any, @core.Any) -> Unit
+
+pub type LoadHook = (String) -> String?
+
+pub using @core {type Any as Plugin}
+
+pub type RenderChunkHook = (String, @core.Any, @core.Any) -> String?
+
+pub type ResolveIdHook = (String, String?, @core.Any) -> String?
+
+pub type TransformHook = (String, String) -> String?
+
+pub type WriteBundleHook = (@core.Any, @core.Any) -> Unit
+
+// Traits
+

@@ -1,0 +1,88 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/pptr_testing_library"
+
+import(
+  "mizchi/js/core"
+  "mizchi/npm_typed/puppeteer"
+)
+
+// Values
+#alias(find_by_role)
+pub async fn findByRole(@puppeteer.ElementHandle, String, name? : String, hidden? : Bool) -> @puppeteer.ElementHandle
+
+#alias(find_by_test_id)
+pub async fn findByTestId(@puppeteer.ElementHandle, String) -> @puppeteer.ElementHandle
+
+#alias(find_by_text)
+pub async fn findByText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle
+
+#alias(get_all_by_role)
+pub async fn getAllByRole(@puppeteer.ElementHandle, String, name? : String, hidden? : Bool) -> Array[@puppeteer.ElementHandle]
+
+#alias(get_all_by_text)
+pub async fn getAllByText(@puppeteer.ElementHandle, String, exact? : Bool) -> Array[@puppeteer.ElementHandle]
+
+#alias(get_by_alt_text)
+pub async fn getByAltText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle
+
+#alias(get_by_display_value)
+pub async fn getByDisplayValue(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle
+
+#alias(get_by_label_text)
+pub async fn getByLabelText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle
+
+#alias(get_by_placeholder_text)
+pub async fn getByPlaceholderText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle
+
+#alias(get_by_role)
+pub async fn getByRole(@puppeteer.ElementHandle, String, name? : String, hidden? : Bool) -> @puppeteer.ElementHandle
+
+#alias(get_by_test_id)
+pub async fn getByTestId(@puppeteer.ElementHandle, String) -> @puppeteer.ElementHandle
+
+#alias(get_by_text)
+pub async fn getByText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle
+
+#alias(get_by_title)
+pub async fn getByTitle(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle
+
+pub async fn getDocument(@puppeteer.Page) -> @puppeteer.ElementHandle
+
+#alias(get_queries_for_element)
+pub fn getQueriesForElement(@puppeteer.ElementHandle) -> Queries
+
+#alias(query_by_alt_text)
+pub async fn queryByAltText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle?
+
+#alias(query_by_display_value)
+pub async fn queryByDisplayValue(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle?
+
+#alias(query_by_label_text)
+pub async fn queryByLabelText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle?
+
+#alias(query_by_placeholder_text)
+pub async fn queryByPlaceholderText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle?
+
+#alias(query_by_role)
+pub async fn queryByRole(@puppeteer.ElementHandle, String, name? : String, hidden? : Bool) -> @puppeteer.ElementHandle?
+
+#alias(query_by_test_id)
+pub async fn queryByTestId(@puppeteer.ElementHandle, String) -> @puppeteer.ElementHandle?
+
+#alias(query_by_text)
+pub async fn queryByText(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle?
+
+#alias(query_by_title)
+pub async fn queryByTitle(@puppeteer.ElementHandle, String, exact? : Bool) -> @puppeteer.ElementHandle?
+
+// Errors
+
+// Types and methods
+#external
+pub type Queries
+pub fn Queries::to_any(Self) -> @core.Any
+
+// Type aliases
+
+// Traits
+

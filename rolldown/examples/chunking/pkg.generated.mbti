@@ -1,10 +1,7 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mizchi/npm_typed/vite/examples/basic"
+package "mizchi/npm_typed/rolldown/examples/chunking"
 
 // Values
-pub fn config_example() -> Unit
-
-pub fn plugin_example() -> Unit
 
 // Errors
 

@@ -6,13 +6,25 @@ import(
 )
 
 // Values
+pub fn createCustomPayload(String, data? : @core.Any) -> @core.Any
+
+pub fn createFullReloadPayload(path? : String) -> @core.Any
+
+pub fn createPrunePayload(Array[String]) -> @core.Any
+
 pub async fn createServer(root? : String, base? : String, mode? : String, logLevel? : String, clearScreen? : Bool, server? : @core.Any, plugins? : @core.Any) -> ViteDevServer
+
+pub fn createServerModuleRunner(DevEnvironment) -> ModuleRunner
 
 pub async fn createServerWithConfig(@core.Any) -> ViteDevServer
 
+pub fn createUpdatePayload(Array[@core.Any]) -> @core.Any
+
 pub fn defineConfig(root? : String, base? : String, mode? : String, logLevel? : String, clearScreen? : Bool, server? : @core.Any, build? : @core.Any, preview? : @core.Any, optimizeDeps? : @core.Any, plugins? : @core.Any, publicDir? : String, cacheDir? : String, resolve? : @core.Any, css? : @core.Any, json? : @core.Any, esbuild? : @core.Any, assetsInclude? : @core.Any, envDir? : String, envPrefix? : String) -> @core.Any
 
-pub fn define_plugin(String, enforce? : String, apply? : String, config? : (@core.Any) -> Unit, configResolved? : (@core.Any) -> Unit, configureServer? : (@core.Any) -> Unit, configurePreviewServer? : (@core.Any) -> Unit, transformIndexHtml? : (@core.Any) -> @core.Any, handleHotUpdate? : (@core.Any) -> Unit, options? : (@core.Any) -> Unit, buildStart? : (@core.Any) -> Unit, resolveId? : (String, String?, @core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, buildEnd? : (@core.Any?) -> Unit, closeBundle? : () -> Unit) -> @core.Any
+pub fn define_plugin(String, enforce? : String, apply? : String, config? : (@core.Any, @core.Any) -> @core.Any?, configResolved? : (@core.Any) -> Unit, configureServer? : (@core.Any) -> Unit, configurePreviewServer? : (@core.Any) -> Unit, transformIndexHtml? : (String, @core.Any) -> @core.Any, handleHotUpdate? : (@core.Any) -> Unit, options? : (@core.Any) -> Unit, buildStart? : (@core.Any) -> Unit, resolveId? : (String, String?, @core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, buildEnd? : (@core.Any?) -> Unit, closeBundle? : () -> Unit) -> @core.Any
+
+pub fn environmentOptions(consumer? : String, resolve? : @core.Any, dev? : @core.Any, build? : @core.Any) -> @core.Any
 
 // Errors
 
@@ -40,13 +52,21 @@ pub(all) struct Config {
 }
 pub impl Show for Config
 
-#external
-pub type DevEnvironment
+pub(all) struct DevEnvironment {
+  name : String
+  config : @core.Any
+  mode : String
+  plugins : @core.Any
+  hot : HotChannel
+  moduleGraph : ModuleGraph
+  pluginContainer : PluginContainer
+}
+pub async fn DevEnvironment::fetch(Self, @core.Any) -> @core.Any
 pub async fn DevEnvironment::fetchModule(Self, String, importer? : String) -> FetchResult
-pub fn DevEnvironment::hot(Self) -> HotChannel
-pub fn DevEnvironment::moduleGraph(Self) -> ModuleGraph
-pub fn DevEnvironment::name(Self) -> String
-pub fn DevEnvironment::pluginContainer(Self) -> PluginContainer
+pub fn DevEnvironment::from_any(@core.Any) -> Self
+pub fn DevEnvironment::isFetchable(Self) -> Bool
+pub fn DevEnvironment::isRunnable(Self) -> Bool
+pub fn DevEnvironment::runner(Self) -> ModuleRunner
 pub fn DevEnvironment::to_any(Self) -> @core.Any
 pub async fn DevEnvironment::transformRequest(Self, String) -> TransformResult?
 pub fn DevEnvironment::warmupRequest(Self, String) -> Unit
@@ -91,10 +111,16 @@ pub fn ModuleRunner::to_any(Self) -> @core.Any
 pub type PluginContainer
 pub fn PluginContainer::to_any(Self) -> @core.Any
 
-#external
-pub type TransformResult
+pub(all) struct TransformResult {
+  code : String
+  map : @core.Any
+  etag : String
+  deps : Array[String]
+  dynamicDeps : Array[String]
+}
 pub fn TransformResult::code(Self) -> String
 pub fn TransformResult::etag(Self) -> String?
+pub fn TransformResult::from_any(@core.Any) -> Self
 pub fn TransformResult::map(Self) -> @core.Any
 pub fn TransformResult::to_any(Self) -> @core.Any
 
@@ -105,19 +131,31 @@ pub async fn ViteDevServer::close(Self) -> Unit
 pub fn ViteDevServer::environments(Self) -> @core.Any
 pub fn ViteDevServer::getEnvironment(Self, String) -> DevEnvironment
 pub async fn ViteDevServer::listen(Self, port? : Int) -> Self
+pub fn ViteDevServer::middlewares(Self) -> @core.Any
 pub fn ViteDevServer::printUrls(Self) -> Unit
 pub fn ViteDevServer::resolvedUrls(Self) -> @core.Any
 pub fn ViteDevServer::ssr(Self) -> DevEnvironment
+pub fn ViteDevServer::ssrFixStacktrace(Self, @core.Any) -> Unit
+pub async fn ViteDevServer::ssrLoadModule(Self, String) -> @core.Any
 pub fn ViteDevServer::to_any(Self) -> @core.Any
+pub async fn ViteDevServer::transformIndexHtml(Self, String, String) -> String
 
 // Type aliases
 pub type BuildEndHook = (@core.Any?) -> Unit
 
 pub type BuildStartHook = (@core.Any) -> Unit
 
+pub type CloseBundleHook = () -> Unit
+
+pub type ConfigHook = (@core.Any, @core.Any) -> @core.Any?
+
 pub type ConfigResolvedHook = (@core.Any) -> Unit
 
+pub type ConfigurePreviewServerHook = (@core.Any) -> Unit
+
 pub type ConfigureServerHook = (@core.Any) -> Unit
+
+pub type HandleHotUpdateHook = (@core.Any) -> Unit
 
 pub type LoadHook = (String) -> String?
 
@@ -126,6 +164,8 @@ pub using @core {type Any as Plugin}
 pub type ResolveIdHook = (String, String?, @core.Any) -> String?
 
 pub type TransformHook = (String, String) -> String?
+
+pub type TransformIndexHtmlHook = (String, @core.Any) -> @core.Any
 
 // Traits
 

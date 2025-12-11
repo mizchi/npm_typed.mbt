@@ -1,0 +1,91 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/lit_html"
+
+import(
+  "mizchi/js/core"
+)
+
+// Values
+pub fn cache(TemplateResult) -> @core.Any
+
+pub fn choose(@core.Any, Array[(@core.Any, () -> TemplateResult)], defaultCase? : () -> TemplateResult) -> @core.Any
+
+pub fn classMap(@core.Any) -> @core.Any
+
+pub fn createRef() -> @core.Any
+
+pub fn guard_(Array[@core.Any], () -> TemplateResult) -> @core.Any
+
+pub fn html(String, args? : Array[@core.Any]) -> TemplateResult
+
+pub fn ifDefined(@core.Any) -> @core.Any
+
+pub async fn init_all() -> Unit
+
+pub async fn init_choose() -> Unit
+
+pub async fn init_guard() -> Unit
+
+pub async fn init_join() -> Unit
+
+pub async fn init_keyed() -> Unit
+
+pub async fn init_lit_html() -> Unit
+
+pub async fn init_map() -> Unit
+
+pub async fn init_range() -> Unit
+
+pub async fn init_repeat() -> Unit
+
+pub async fn init_until() -> Unit
+
+pub async fn init_when() -> Unit
+
+pub fn join(Array[@core.Any], @core.Any) -> @core.Any
+
+pub fn keyed(@core.Any, TemplateResult) -> @core.Any
+
+pub fn live(@core.Any) -> @core.Any
+
+pub fn map_(Array[@core.Any], (@core.Any, Int) -> TemplateResult) -> @core.Any
+
+pub fn noChange() -> @core.Any
+
+pub fn nothing() -> @core.Any
+
+pub fn range(Int, end? : Int, step? : Int) -> @core.Any
+
+pub fn ref_((@core.Any) -> Unit) -> @core.Any
+
+pub fn render(TemplateResult, @core.Any, host? : @core.Any, renderBefore? : @core.Any, creationScope? : @core.Any) -> @core.Any
+
+pub fn repeat(Array[@core.Any], (@core.Any) -> @core.Any, (@core.Any, Int) -> TemplateResult) -> @core.Any
+
+pub fn styleMap(@core.Any) -> @core.Any
+
+pub fn svg(String, args? : Array[@core.Any]) -> SVGTemplateResult
+
+pub fn unsafeHTML(String) -> @core.Any
+
+pub fn unsafeSVG(String) -> @core.Any
+
+pub fn until(Array[@core.Any]) -> @core.Any
+
+pub fn when(Bool, () -> TemplateResult, falseCase? : () -> TemplateResult) -> @core.Any
+
+// Errors
+
+// Types and methods
+#external
+pub type SVGTemplateResult
+pub fn SVGTemplateResult::to_any(Self) -> @core.Any
+
+#external
+pub type TemplateResult
+pub fn TemplateResult::to_any(Self) -> @core.Any
+
+// Type aliases
+
+// Traits
+
