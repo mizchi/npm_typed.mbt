@@ -1,185 +1,116 @@
 ///|
-async test "import_lit_html - imports lit-html module" {
-  let lit = @lit_html.import_lit_html()
-  inspect(@core.typeof_(lit.to_any()), content="object")
-}
-
-///|
-async test "LitHtml::html - creates TemplateResult" {
-  let lit = @lit_html.import_lit_html()
-  let tmpl = lit.html("<div>Hello</div>")
+test "html - creates TemplateResult" {
+  let tmpl = @lit_html.html("<div>Hello</div>")
   inspect(@core.typeof_(tmpl.to_any()), content="object")
 }
 
 ///|
-async test "LitHtml::html - with interpolation" {
-  let lit = @lit_html.import_lit_html()
-  let tmpl = lit.html("<div>${@0}</div>", args=[@core.any("World")])
+test "html - with interpolation" {
+  let tmpl = @lit_html.html("<div>${@0}</div>", args=[@core.any("World")])
   inspect(@core.typeof_(tmpl.to_any()), content="object")
 }
 
 ///|
-async test "LitHtml::svg - creates SVGTemplateResult" {
-  let lit = @lit_html.import_lit_html()
-  let tmpl = lit.svg("<circle cx=\"50\" cy=\"50\" r=\"40\"/>")
+test "svg - creates SVGTemplateResult" {
+  let tmpl = @lit_html.svg("<circle cx=\"50\" cy=\"50\" r=\"40\"/>")
   inspect(@core.typeof_(tmpl.to_any()), content="object")
 }
 
 ///|
-async test "LitHtml::nothing - returns nothing symbol" {
-  let lit = @lit_html.import_lit_html()
-  let nothing = lit.nothing()
+test "nothing - returns nothing symbol" {
+  let nothing = @lit_html.nothing()
   inspect(@core.typeof_(nothing), content="symbol")
 }
 
 ///|
-async test "LitHtml::noChange - returns noChange symbol" {
-  let lit = @lit_html.import_lit_html()
-  let noChange = lit.noChange()
+test "noChange - returns noChange symbol" {
+  let noChange = @lit_html.noChange()
   inspect(@core.typeof_(noChange), content="symbol")
 }
 
 ///|
-async test "import_class_map - imports classMap directive" {
-  let classMapModule = @lit_html.import_class_map()
-  inspect(@core.typeof_(classMapModule.to_any()), content="object")
-}
-
-///|
-async test "DirectiveModule::classMap - applies classes" {
-  let classMapModule = @lit_html.import_class_map()
+test "classMap - applies classes" {
   let classes = @core.new_object()
   classes["active"] = @core.any(true)
   classes["disabled"] = @core.any(false)
-  let result = classMapModule.classMap(classes)
+  let result = @lit_html.classMap(classes)
   inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_style_map - imports styleMap directive" {
-  let styleMapModule = @lit_html.import_style_map()
-  inspect(@core.typeof_(styleMapModule.to_any()), content="object")
-}
-
-///|
-async test "DirectiveModule::styleMap - applies styles" {
-  let styleMapModule = @lit_html.import_style_map()
+test "styleMap - applies styles" {
   let styles = @core.new_object()
   styles["color"] = @core.any("red")
   styles["fontSize"] = @core.any("14px")
-  let result = styleMapModule.styleMap(styles)
+  let result = @lit_html.styleMap(styles)
   inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_if_defined - imports ifDefined directive" {
-  let ifDefinedModule = @lit_html.import_if_defined()
-  inspect(@core.typeof_(ifDefinedModule.to_any()), content="object")
-}
-
-///|
-async test "DirectiveModule::ifDefined - with value" {
-  let ifDefinedModule = @lit_html.import_if_defined()
-  let result = ifDefinedModule.ifDefined(@core.any("some-value"))
+test "ifDefined - with value" {
+  let result = @lit_html.ifDefined(@core.any("some-value"))
   // ifDefined returns the value if defined
   inspect(@core.typeof_(result), content="string")
 }
 
 ///|
-async test "import_unsafe_html - imports unsafeHTML directive" {
-  let unsafeHtmlModule = @lit_html.import_unsafe_html()
-  inspect(@core.typeof_(unsafeHtmlModule.to_any()), content="object")
-}
-
-///|
-async test "DirectiveModule::unsafeHTML - renders HTML string" {
-  let unsafeHtmlModule = @lit_html.import_unsafe_html()
-  let result = unsafeHtmlModule.unsafeHTML("<strong>Bold</strong>")
+test "unsafeHTML - renders HTML string" {
+  let result = @lit_html.unsafeHTML("<strong>Bold</strong>")
   inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_cache - imports cache directive" {
-  let cacheModule = @lit_html.import_cache()
-  inspect(@core.typeof_(cacheModule.to_any()), content="object")
+test "unsafeSVG - renders SVG string" {
+  let result = @lit_html.unsafeSVG("<circle/>")
+  inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_ref - imports ref directive" {
-  let refModule = @lit_html.import_ref()
-  inspect(@core.typeof_(refModule.to_any()), content="object")
+test "cache - wraps template" {
+  let tmpl = @lit_html.html("<div>cached</div>")
+  let result = @lit_html.cache(tmpl)
+  inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "DirectiveModule::createRef - creates Ref object" {
-  let refModule = @lit_html.import_ref()
-  let ref_ = refModule.createRef()
+test "live - wraps value" {
+  let result = @lit_html.live(@core.any("value"))
+  inspect(@core.typeof_(result), content="object")
+}
+
+///|
+test "createRef - creates Ref object" {
+  let ref_ = @lit_html.createRef()
   inspect(@core.typeof_(ref_), content="object")
 }
 
 ///|
-async test "import_guard - imports guard directive" {
-  let guardModule = @lit_html.import_guard()
-  inspect(@core.typeof_(guardModule.to_any()), content="object")
-}
-
-///|
-async test "import_live - imports live directive" {
-  let liveModule = @lit_html.import_live()
-  inspect(@core.typeof_(liveModule.to_any()), content="object")
-}
-
-///|
-async test "DirectiveModule::live - wraps value" {
-  let liveModule = @lit_html.import_live()
-  let result = liveModule.live(@core.any("value"))
+test "keyed - wraps template with key" {
+  let tmpl = @lit_html.html("<div>item</div>")
+  let result = @lit_html.keyed(@core.any("key1"), tmpl)
   inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_when - imports when directive" {
-  let whenModule = @lit_html.import_when()
-  inspect(@core.typeof_(whenModule.to_any()), content="object")
+test "until - wraps values" {
+  let result = @lit_html.until([@core.any("loading...")])
+  inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_choose - imports choose directive" {
-  let chooseModule = @lit_html.import_choose()
-  inspect(@core.typeof_(chooseModule.to_any()), content="object")
+test "join - joins items" {
+  let result = @lit_html.join([@core.any("a"), @core.any("b")], @core.any(", "))
+  inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_map - imports map directive" {
-  let mapModule = @lit_html.import_map()
-  inspect(@core.typeof_(mapModule.to_any()), content="object")
+test "range - generates sequence" {
+  let result = @lit_html.range(5)
+  inspect(@core.typeof_(result), content="object")
 }
 
 ///|
-async test "import_join - imports join directive" {
-  let joinModule = @lit_html.import_join()
-  inspect(@core.typeof_(joinModule.to_any()), content="object")
-}
-
-///|
-async test "import_range - imports range directive" {
-  let rangeModule = @lit_html.import_range()
-  inspect(@core.typeof_(rangeModule.to_any()), content="object")
-}
-
-///|
-async test "import_repeat - imports repeat directive" {
-  let repeatModule = @lit_html.import_repeat()
-  inspect(@core.typeof_(repeatModule.to_any()), content="object")
-}
-
-///|
-async test "import_until - imports until directive" {
-  let untilModule = @lit_html.import_until()
-  inspect(@core.typeof_(untilModule.to_any()), content="object")
-}
-
-///|
-async test "import_keyed - imports keyed directive" {
-  let keyedModule = @lit_html.import_keyed()
-  inspect(@core.typeof_(keyedModule.to_any()), content="object")
+test "range - with start and end" {
+  let result = @lit_html.range(1, end=10, step=2)
+  inspect(@core.typeof_(result), content="object")
 }

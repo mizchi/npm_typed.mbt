@@ -2,8 +2,5 @@
   "supported-targets": ["js"],
   "import": [
     "mizchi/js/core"
-  ],
-  "test-import": [
-    "moonbitlang/async"
   ]
 }
