@@ -2,7 +2,27 @@
 /// Rolldown - Fast Rust bundler for JavaScript with Rollup-compatible API
 /// https://rolldown.rs/
 
-///| Types
+///| Re-export types from rollup_types
+/// Note: enum constructors (Single, Multiple, Named, Modules, Fn) cannot be re-exported
+/// Use @rollup_types.Single, @rollup_types.Modules, etc. directly
+pub using @rollup_types {
+  type Input,
+  type External,
+  type Plugin,
+  type OutputChunk,
+  type OutputAsset,
+  type ResolveIdHook,
+  type LoadHook,
+  type TransformHook,
+  type BuildStartHook,
+  type BuildEndHook,
+  type RenderChunkHook,
+  type GenerateBundleHook,
+  type WriteBundleHook,
+  type CloseBundleHook,
+}
+
+///| Rolldown-specific Types
 
 ///|
 /// RolldownBuild - represents a built bundle
@@ -33,128 +53,12 @@ pub fn RolldownOutput::from_any(o : @core.Any) -> RolldownOutput {
 }
 
 ///|
-/// OutputChunk - a generated chunk
-pub(all) struct OutputChunk {
-  /// Chunk file name
-  fileName : String
-  /// Generated code
-  code : String
-  /// Whether this is an entry chunk
-  isEntry : Bool
-  /// Chunk name
-  name : String
-  /// Chunk type (always "chunk")
-  type_ : String
-  /// Source map if generated
-  map : @core.Any
-  /// Module IDs included in this chunk
-  moduleIds : Array[String]
-}
-
-///|
-pub fn OutputChunk::to_any(self : OutputChunk) -> @core.Any = "%identity"
-
-///|
-extern "js" fn ffi_output_chunk_from_any(c : @core.Any) -> OutputChunk =
-  #| (c) => ({ fileName: c.fileName || '', code: c.code || '', isEntry: c.isEntry || false, name: c.name || '', type_: c.type || 'chunk', map: c.map || null, moduleIds: c.moduleIds || [] })
-
-///|
-/// Parse an OutputChunk from Any
-pub fn OutputChunk::from_any(c : @core.Any) -> OutputChunk {
-  ffi_output_chunk_from_any(c)
-}
-
-///|
-/// Get chunk type from raw Any (always "chunk")
-pub fn OutputChunk::type_(self : OutputChunk) -> String {
-  self.to_any()["type"].cast()
-}
-
-///|
-/// OutputAsset - a generated asset
-pub(all) struct OutputAsset {
-  /// Asset file name
-  fileName : String
-  /// Asset source content
-  source : @core.Any
-  /// Asset type (always "asset")
-  type_ : String
-  /// Asset name (optional)
-  name : String?
-}
-
-///|
-pub fn OutputAsset::to_any(self : OutputAsset) -> @core.Any = "%identity"
-
-///|
-extern "js" fn ffi_output_asset_from_any(a : @core.Any) -> OutputAsset =
-  #| (a) => ({ fileName: a.fileName || '', source: a.source, type_: a.type || 'asset', name: a.name || null })
-
-///|
-/// Parse an OutputAsset from Any
-pub fn OutputAsset::from_any(a : @core.Any) -> OutputAsset {
-  ffi_output_asset_from_any(a)
-}
-
-///|
-/// Get asset type from raw Any (always "asset")
-pub fn OutputAsset::type_(self : OutputAsset) -> String {
-  self.to_any()["type"].cast()
-}
-
-///|
 /// Watcher - watches for file changes
 #external
 pub type Watcher
 
 ///|
 pub fn Watcher::to_any(self : Watcher) -> @core.Any = "%identity"
-
-///|
-/// Plugin type
-pub type Plugin = @core.Any
-
-///| Hook callback types
-
-///|
-/// ResolveId hook callback
-/// (source: String, importer: String?, options: @core.Any) -> String? | @core.Any?
-pub type ResolveIdHook = (String, String?, @core.Any) -> String?
-
-///|
-/// Load hook callback
-/// (id: String) -> String? | @core.Any?
-pub type LoadHook = (String) -> String?
-
-///|
-/// Transform hook callback
-/// (code: String, id: String) -> String? | @core.Any?
-pub type TransformHook = (String, String) -> String?
-
-///|
-/// BuildStart hook callback
-/// (options: @core.Any) -> Unit
-pub type BuildStartHook = (@core.Any) -> Unit
-
-///|
-/// BuildEnd hook callback
-/// (error?: @core.Any) -> Unit
-pub type BuildEndHook = (@core.Any?) -> Unit
-
-///|
-/// RenderChunk hook callback
-/// (code: String, chunk: @core.Any, options: @core.Any) -> String? | @core.Any?
-pub type RenderChunkHook = (String, @core.Any, @core.Any) -> String?
-
-///|
-/// GenerateBundle hook callback
-/// (options: @core.Any, bundle: @core.Any) -> Unit
-pub type GenerateBundleHook = (@core.Any, @core.Any) -> Unit
-
-///|
-/// WriteBundle hook callback
-/// (options: @core.Any, bundle: @core.Any) -> Unit
-pub type WriteBundleHook = (@core.Any, @core.Any) -> Unit
 
 ///| FFI Functions
 
@@ -172,33 +76,23 @@ extern "js" fn ffi_build(options : @core.Any) -> @core.Promise[RolldownOutput] =
 extern "js" fn ffi_watch(options : @core.Any) -> @core.Promise[Watcher] =
   #| (options) => import("rolldown").then(m => m.watch(options))
 
-///| Main Functions
-
-///|
-/// Create a bundle for processing
-/// Returns a RolldownBuild that can be used to generate or write output
-pub async fn rolldown(options : @core.Any) -> RolldownBuild {
-  ffi_rolldown(options).wait()
-}
-
-///|
-/// Create input options object
-pub fn inputOptions(
-  input~ : @core.Any,
-  external? : @core.Any,
-  plugins? : @core.Any,
-  resolve? : @core.Any,
-  platform? : String,
-  cwd? : String,
-  treeshake? : @core.Any,
+///| Helper function to build input options object
+fn build_input_options(
+  input : Input,
+  external : External?,
+  plugins : Array[Plugin]?,
+  resolve : @core.Any?,
+  platform : String?,
+  cwd : String?,
+  treeshake : @core.Any?,
 ) -> @core.Any {
   let opts = @core.new_object()
-  opts["input"] = input
+  opts["input"] = input.to_any()
   if external is Some(v) {
-    opts["external"] = v
+    opts["external"] = v.to_any()
   }
   if plugins is Some(v) {
-    opts["plugins"] = v
+    opts["plugins"] = @core.any(v)
   }
   if resolve is Some(v) {
     opts["resolve"] = v
@@ -213,6 +107,26 @@ pub fn inputOptions(
     opts["treeshake"] = v
   }
   opts
+}
+
+///| Main Functions
+
+///|
+/// Create a bundle for processing with labeled arguments
+/// Returns a RolldownBuild that can be used to generate or write output
+pub async fn rolldown(
+  input~ : Input,
+  external? : External,
+  plugins? : Array[Plugin],
+  resolve? : @core.Any,
+  platform? : String,
+  cwd? : String,
+  treeshake? : @core.Any,
+) -> RolldownBuild {
+  let opts = build_input_options(
+    input, external, plugins, resolve, platform, cwd, treeshake,
+  )
+  ffi_rolldown(opts).wait()
 }
 
 ///|
@@ -280,54 +194,42 @@ pub fn outputOptions(
 }
 
 ///|
+/// Build with input and output options (typed version)
 /// Convenience function combining input and output options
-/// Writes output to disk by default
-pub async fn build(options : @core.Any) -> RolldownOutput {
-  ffi_build(options).wait()
-}
-
-///|
-/// Create build options with input and output
-pub fn buildOptions(
-  input~ : @core.Any,
+pub async fn build(
+  input~ : Input,
   output? : @core.Any,
-  external? : @core.Any,
-  plugins? : @core.Any,
+  external? : External,
+  plugins? : Array[Plugin],
   resolve? : @core.Any,
   platform? : String,
   cwd? : String,
   treeshake? : @core.Any,
-) -> @core.Any {
-  let opts = @core.new_object()
-  opts["input"] = input
+) -> RolldownOutput {
+  let opts = build_input_options(
+    input, external, plugins, resolve, platform, cwd, treeshake,
+  )
   if output is Some(v) {
     opts["output"] = v
   }
-  if external is Some(v) {
-    opts["external"] = v
-  }
-  if plugins is Some(v) {
-    opts["plugins"] = v
-  }
-  if resolve is Some(v) {
-    opts["resolve"] = v
-  }
-  if platform is Some(v) {
-    opts["platform"] = @core.any(v)
-  }
-  if cwd is Some(v) {
-    opts["cwd"] = @core.any(v)
-  }
-  if treeshake is Some(v) {
-    opts["treeshake"] = v
-  }
-  opts
+  ffi_build(opts).wait()
 }
 
 ///|
 /// Create a watcher for rebuilding on file changes
-pub async fn watch(options : @core.Any) -> Watcher {
-  ffi_watch(options).wait()
+pub async fn watch(
+  input~ : Input,
+  external? : External,
+  plugins? : Array[Plugin],
+  resolve? : @core.Any,
+  platform? : String,
+  cwd? : String,
+  treeshake? : @core.Any,
+) -> Watcher {
+  let opts = build_input_options(
+    input, external, plugins, resolve, platform, cwd, treeshake,
+  )
+  ffi_watch(opts).wait()
 }
 
 ///| RolldownBuild Methods
@@ -405,7 +307,7 @@ pub async fn Watcher::close(self : Watcher) -> Unit {
   ffi_watcher_close(self).wait()
 }
 
-///| Plugin Functions
+///| Plugin Functions (re-exported for convenience)
 
 ///|
 /// Create a Rolldown plugin with labeled arguments
@@ -420,36 +322,18 @@ pub fn define_plugin(
   generateBundle? : GenerateBundleHook,
   writeBundle? : WriteBundleHook,
   buildEnd? : BuildEndHook,
-  closeBundle? : () -> Unit,
+  closeBundle? : CloseBundleHook,
 ) -> Plugin {
-  let plugin = @core.new_object()
-  plugin["name"] = @core.any(name)
-  if buildStart is Some(v) {
-    plugin["buildStart"] = @core.any(@js.from_fn1(v))
-  }
-  if resolveId is Some(v) {
-    plugin["resolveId"] = @core.any(@js.from_fn3(v))
-  }
-  if load is Some(v) {
-    plugin["load"] = @core.any(@js.from_fn1(v))
-  }
-  if transform is Some(v) {
-    plugin["transform"] = @core.any(@js.from_fn2(v))
-  }
-  if renderChunk is Some(v) {
-    plugin["renderChunk"] = @core.any(@js.from_fn3(v))
-  }
-  if generateBundle is Some(v) {
-    plugin["generateBundle"] = @core.any(@js.from_fn2(v))
-  }
-  if writeBundle is Some(v) {
-    plugin["writeBundle"] = @core.any(@js.from_fn2(v))
-  }
-  if buildEnd is Some(v) {
-    plugin["buildEnd"] = @core.any(@js.from_fn1(v))
-  }
-  if closeBundle is Some(v) {
-    plugin["closeBundle"] = @core.any(@js.from_fn0(v))
-  }
-  plugin |> @core.identity
+  @rollup_types.define_plugin(
+    name,
+    buildStart?,
+    resolveId?,
+    load?,
+    transform?,
+    renderChunk?,
+    generateBundle?,
+    writeBundle?,
+    buildEnd?,
+    closeBundle?,
+  )
 }

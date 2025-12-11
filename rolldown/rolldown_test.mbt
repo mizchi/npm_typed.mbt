@@ -1,30 +1,4 @@
 ///|
-test "inputOptions - creates input options object" {
-  let opts = @rolldown.inputOptions(input=@core.any("src/main.js"))
-  inspect(@core.typeof_(opts), content="object")
-  inspect(opts["input"].cast() |> String::to_string, content="src/main.js")
-}
-
-///|
-test "inputOptions - with multiple entries" {
-  let entries = @core.new_object()
-  entries["main"] = @core.any("src/main.js")
-  entries["utils"] = @core.any("src/utils.js")
-  let opts = @rolldown.inputOptions(input=entries)
-  inspect(@core.typeof_(opts), content="object")
-  inspect(@core.typeof_(opts["input"]), content="object")
-}
-
-///|
-test "inputOptions - with platform option" {
-  let opts = @rolldown.inputOptions(
-    input=@core.any("src/main.js"),
-    platform="node",
-  )
-  inspect(opts["platform"].cast() |> String::to_string, content="node")
-}
-
-///|
 test "outputOptions - creates output options object" {
   let opts = @rolldown.outputOptions(file="dist/bundle.js", format="esm")
   inspect(@core.typeof_(opts), content="object")
@@ -46,23 +20,6 @@ test "outputOptions - with sourcemap" {
     sourcemap=@core.any(true),
   )
   inspect(opts["sourcemap"].cast() |> Bool::to_string, content="true")
-}
-
-///|
-test "buildOptions - creates build options with input and output" {
-  let output = @rolldown.outputOptions(file="dist/bundle.js", format="esm")
-  let opts = @rolldown.buildOptions(input=@core.any("src/main.js"), output~)
-  inspect(@core.typeof_(opts), content="object")
-  inspect(opts["input"].cast() |> String::to_string, content="src/main.js")
-  inspect(@core.typeof_(opts["output"]), content="object")
-}
-
-///|
-test "buildOptions - with external modules" {
-  let external = @core.new_array()
-  external._call("push", [@core.any("lodash"), @core.any("react")]) |> ignore
-  let opts = @rolldown.buildOptions(input=@core.any("src/main.js"), external~)
-  inspect(@core.typeof_(opts["external"]), content="object")
 }
 
 ///|
@@ -116,7 +73,7 @@ test "OutputChunk::from_any - creates struct from any" {
   obj["name"] = @core.any("main")
   obj["type"] = @core.any("chunk")
   obj["moduleIds"] = @core.any(([] : Array[String]))
-  let chunk = @rolldown.OutputChunk::from_any(obj)
+  let chunk = @rollup_types.OutputChunk::from_any(obj)
   inspect(chunk.fileName, content="main.js")
   inspect(chunk.code, content="console.log('hello')")
   inspect(chunk.isEntry, content="true")
@@ -130,7 +87,7 @@ test "OutputAsset::from_any - creates struct from any" {
   obj["source"] = @core.any("body { color: red; }")
   obj["type"] = @core.any("asset")
   obj["name"] = @core.any("style")
-  let asset = @rolldown.OutputAsset::from_any(obj)
+  let asset = @rollup_types.OutputAsset::from_any(obj)
   inspect(asset.fileName, content="style.css")
   inspect(asset.type_, content="asset")
 }
@@ -142,4 +99,27 @@ test "RolldownOutput::from_any - creates struct from any" {
   output["output"] = arr
   let result = @rolldown.RolldownOutput::from_any(output)
   inspect(result.output.length(), content="0")
+}
+
+///|
+test "Input::to_any - Single" {
+  let input : @rollup_types.Input = @rollup_types.Single("main.js")
+  let any = input.to_any()
+  inspect(any.cast() |> String::to_string, content="main.js")
+}
+
+///|
+test "Input::to_any - Multiple" {
+  let input : @rollup_types.Input = @rollup_types.Multiple(["a.js", "b.js"])
+  let any = input.to_any()
+  let arr : Array[String] = any.cast()
+  inspect(arr.length(), content="2")
+}
+
+///|
+test "External::to_any - Modules" {
+  let external : @rollup_types.External = @rollup_types.Modules(["lodash", "react"])
+  let any = external.to_any()
+  let arr : Array[String] = any.cast()
+  inspect(arr.length(), content="2")
 }

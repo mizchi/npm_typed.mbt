@@ -2,36 +2,23 @@
 /// Vite Plugin API support
 /// See: https://ja.vite.dev/guide/api-plugin
 
-///|
-/// Vite Plugin type
-pub type Plugin = @core.Any
+///| Re-export Rollup-compatible types from rollup_types
+pub using @rollup_types {
+  type Plugin,
+  type ResolveIdHook,
+  type LoadHook,
+  type TransformHook,
+  type BuildStartHook,
+  type BuildEndHook,
+  type CloseBundleHook,
+}
 
-///| Hook callback types
-
-///|
-/// ResolveId hook callback
-/// (source: String, importer: String?, options: @core.Any) -> String? | @core.Any?
-pub type ResolveIdHook = (String, String?, @core.Any) -> String?
-
-///|
-/// Load hook callback
-/// (id: String) -> String? | @core.Any?
-pub type LoadHook = (String) -> String?
+///| Vite-specific Hook callback types
 
 ///|
-/// Transform hook callback
-/// (code: String, id: String) -> String? | @core.Any?
-pub type TransformHook = (String, String) -> String?
-
-///|
-/// BuildStart hook callback
-/// (options: @core.Any) -> Unit
-pub type BuildStartHook = (@core.Any) -> Unit
-
-///|
-/// BuildEnd hook callback
-/// (error?: @core.Any) -> Unit
-pub type BuildEndHook = (@core.Any?) -> Unit
+/// Config hook callback
+/// (config: @core.Any, env: @core.Any) -> @core.Any | Unit
+pub type ConfigHook = (@core.Any, @core.Any) -> @core.Any?
 
 ///|
 /// ConfigResolved hook callback
@@ -40,40 +27,61 @@ pub type ConfigResolvedHook = (@core.Any) -> Unit
 
 ///|
 /// ConfigureServer hook callback
-/// (server: @core.Any) -> Unit
+/// (server: ViteDevServer) -> (() -> Unit)?
 pub type ConfigureServerHook = (@core.Any) -> Unit
 
 ///|
+/// ConfigurePreviewServer hook callback
+/// (server: PreviewServer) -> (() -> Unit)?
+pub type ConfigurePreviewServerHook = (@core.Any) -> Unit
+
+///|
+/// TransformIndexHtml hook callback
+/// (html: String, ctx: @core.Any) -> String | @core.Any
+pub type TransformIndexHtmlHook = (String, @core.Any) -> @core.Any
+
+///|
+/// HandleHotUpdate hook callback
+/// (ctx: HmrContext) -> Unit | Array[@core.Any]?
+pub type HandleHotUpdateHook = (@core.Any) -> Unit
+
+///|
 /// Create a Vite plugin with labeled arguments
+/// Extends Rollup plugin with Vite-specific hooks
 /// See: https://ja.vite.dev/guide/api-plugin
 pub fn define_plugin(
   name : String,
+  // Vite-specific options
   enforce? : String,
   apply? : String,
-  config? : (@core.Any) -> Unit,
+  // Vite-specific hooks
+  config? : ConfigHook,
   configResolved? : ConfigResolvedHook,
   configureServer? : ConfigureServerHook,
-  configurePreviewServer? : (@core.Any) -> Unit,
-  transformIndexHtml? : (@core.Any) -> @core.Any,
-  handleHotUpdate? : (@core.Any) -> Unit,
+  configurePreviewServer? : ConfigurePreviewServerHook,
+  transformIndexHtml? : TransformIndexHtmlHook,
+  handleHotUpdate? : HandleHotUpdateHook,
+  // Rollup-compatible hooks
   options? : (@core.Any) -> Unit,
   buildStart? : BuildStartHook,
   resolveId? : ResolveIdHook,
   load? : LoadHook,
   transform? : TransformHook,
   buildEnd? : BuildEndHook,
-  closeBundle? : () -> Unit,
+  closeBundle? : CloseBundleHook,
 ) -> Plugin {
   let plugin = @core.new_object()
   plugin["name"] = @core.any(name)
+  // Vite-specific options
   if enforce is Some(v) {
     plugin["enforce"] = @core.any(v)
   }
   if apply is Some(v) {
     plugin["apply"] = @core.any(v)
   }
+  // Vite-specific hooks
   if config is Some(v) {
-    plugin["config"] = @core.any(@js.from_fn1(v))
+    plugin["config"] = @core.any(@js.from_fn2(v))
   }
   if configResolved is Some(v) {
     plugin["configResolved"] = @core.any(@js.from_fn1(v))
@@ -85,11 +93,12 @@ pub fn define_plugin(
     plugin["configurePreviewServer"] = @core.any(@js.from_fn1(v))
   }
   if transformIndexHtml is Some(v) {
-    plugin["transformIndexHtml"] = @core.any(@js.from_fn1(v))
+    plugin["transformIndexHtml"] = @core.any(@js.from_fn2(v))
   }
   if handleHotUpdate is Some(v) {
     plugin["handleHotUpdate"] = @core.any(@js.from_fn1(v))
   }
+  // Rollup-compatible hooks
   if options is Some(v) {
     plugin["options"] = @core.any(@js.from_fn1(v))
   }

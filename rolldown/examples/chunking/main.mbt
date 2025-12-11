@@ -17,7 +17,7 @@ fn run_chunking_example() -> Unit {
   @js.run_async(async fn() -> Unit noraise {
     println("=== Rolldown Code Splitting Example ===\n")
 
-    // Define input with multiple entries
+    // Define input with multiple entries using Named input type
     let entries = @core.new_object()
     entries["main"] = @core.any("./fixtures/main.js")
     entries["admin"] = @core.any("./fixtures/admin.js")
@@ -33,10 +33,8 @@ fn run_chunking_example() -> Unit {
     // Build with code splitting
     println("Building with multiple entries...")
     let bundle = @rolldown.rolldown(
-      @rolldown.inputOptions(
-        input=entries,
-        cwd="/Users/mizchi/mizchi/npm_typed.mbt/rolldown/examples/chunking",
-      ),
+      input=@rollup_types.Named(entries),
+      cwd="/Users/mizchi/mizchi/npm_typed.mbt/rolldown/examples/chunking",
     ) catch {
       e => {
         println("Build failed: \{e}")
@@ -64,7 +62,7 @@ fn run_chunking_example() -> Unit {
       let item : @core.Any = output[i]
       let type_ : String = item["type"].cast()
       if type_ == "chunk" {
-        let chunk = @rolldown.OutputChunk::from_any(item)
+        let chunk = @rollup_types.OutputChunk::from_any(item)
         let file_name = chunk.fileName
         let is_entry = chunk.isEntry
         let name = chunk.name

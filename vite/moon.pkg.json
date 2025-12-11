@@ -1,6 +1,7 @@
 {
   "import": [
     "mizchi/js",
-    "mizchi/js/core"
+    "mizchi/js/core",
+    "mizchi/npm_typed/rollup_types"
   ]
 }
