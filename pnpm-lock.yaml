@@ -290,6 +290,9 @@ importers:
       zustand:
         specifier: ^5.0.9
         version: 5.0.9(immer@11.0.1)(react@19.2.0)
+      zx:
+        specifier: ^8.8.5
+        version: 8.8.5
 
   ai:
     dependencies:
@@ -708,6 +711,12 @@ importers:
         version: 4.1.13
 
   zustand: {}
+
+  zx:
+    dependencies:
+      zx:
+        specifier: ^8.0.0
+        version: 8.8.5
 
 packages:
 
@@ -5637,6 +5646,11 @@ packages:
         optional: true
       use-sync-external-store:
         optional: true
+
+  zx@8.8.5:
+    resolution: {integrity: sha512-SNgDF5L0gfN7FwVOdEFguY3orU5AkfFZm9B5YSHog/UDHv+lvmd82ZAsOenOkQixigwH2+yyH198AwNdKhj+RA==}
+    engines: {node: '>= 12.17.0'}
+    hasBin: true
 
 snapshots:
 
@@ -10885,3 +10899,5 @@ snapshots:
     optionalDependencies:
       immer: 11.0.1
       react: 19.2.0
+
+  zx@8.8.5: {}

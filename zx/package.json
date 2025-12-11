@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "peerDependencies": {
+    "zx": "^8.0.0"
+  }
+}
