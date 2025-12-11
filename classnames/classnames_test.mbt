@@ -9,7 +9,11 @@ test "classNames - with conditional" {
   let is_active = true
   let result = @classnames.classNames([
     "foo",
-    if is_active { "bar" } else { "" },
+    if is_active {
+      "bar"
+    } else {
+      ""
+    },
     "baz",
   ])
   inspect(result, content="foo bar baz")

@@ -28,7 +28,9 @@ test "boolean - creates typed boolean schema" {
 
 ///|
 test "array - creates typed array schema" {
-  let schema : @valibot.Schema[Array[String]] = @valibot.array(@valibot.string_())
+  let schema : @valibot.Schema[Array[String]] = @valibot.array(
+    @valibot.string_(),
+  )
   let result : Array[String] = @valibot.parse(
     schema,
     @core.any(["a", "b", "c"]),
@@ -79,7 +81,9 @@ test "literal_int - creates int literal schema" {
 
 ///|
 test "picklist - creates enum-like schema" {
-  let schema : @valibot.Schema[String] = @valibot.picklist(["red", "green", "blue"])
+  let schema : @valibot.Schema[String] = @valibot.picklist([
+    "red", "green", "blue",
+  ])
   let result = @valibot.safeParse(schema, @core.any("red"))
   inspect(result.success(), content="true")
   let result_fail = @valibot.safeParse(schema, @core.any("yellow"))
@@ -125,10 +129,10 @@ test "is_ - type guard returns false for invalid" {
 
 ///|
 test "pipe - chain actions with schema" {
-  let schema : @valibot.Schema[String] = @valibot.pipe(
-    @valibot.string_(),
-    [@valibot.minLength(3), @valibot.maxLength(10)],
-  )
+  let schema : @valibot.Schema[String] = @valibot.pipe(@valibot.string_(), [
+    @valibot.minLength(3),
+    @valibot.maxLength(10),
+  ])
   // Valid
   let result1 = @valibot.safeParse(schema, @core.any("hello"))
   inspect(result1.success(), content="true")
@@ -142,10 +146,9 @@ test "pipe - chain actions with schema" {
 
 ///|
 test "email action - validates email format" {
-  let schema : @valibot.Schema[String] = @valibot.pipe(
-    @valibot.string_(),
-    [@valibot.email()],
-  )
+  let schema : @valibot.Schema[String] = @valibot.pipe(@valibot.string_(), [
+    @valibot.email(),
+  ])
   let result1 = @valibot.safeParse(schema, @core.any("test@example.com"))
   inspect(result1.success(), content="true")
   let result2 = @valibot.safeParse(schema, @core.any("invalid"))
@@ -154,10 +157,10 @@ test "email action - validates email format" {
 
 ///|
 test "minValue/maxValue - validates number range" {
-  let schema : @valibot.Schema[Int] = @valibot.pipe(
-    @valibot.number(),
-    [@valibot.minValue(0.0), @valibot.maxValue(100.0)],
-  )
+  let schema : @valibot.Schema[Int] = @valibot.pipe(@valibot.number(), [
+    @valibot.minValue(0.0),
+    @valibot.maxValue(100.0),
+  ])
   let result1 = @valibot.safeParse(schema, @core.any(50))
   inspect(result1.success(), content="true")
   let result2 = @valibot.safeParse(schema, @core.any(-1))
@@ -180,7 +183,7 @@ test "object - untyped object schema" {
 }
 
 ///|
-struct User {
+priv struct User {
   name : String
   age : Int
 }
@@ -194,7 +197,9 @@ test "object_typed - typed object schema" {
   let input = @core.new_object()
   input["name"] = @core.any("Alice")
   input["age"] = @core.any(30)
-  let result : @valibot.SafeParseResult[User] = @valibot.safeParse(schema, input)
+  let result : @valibot.SafeParseResult[User] = @valibot.safeParse(
+    schema, input,
+  )
   inspect(result.success(), content="true")
   let user : User = result.output()
   inspect(user.name, content="Alice")

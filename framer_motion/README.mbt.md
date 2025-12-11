@@ -42,12 +42,18 @@ inspect(@framer_motion.mix(0.0, 100.0, 0.5), content="50")
 
 ```moonbit
 // With selector
+
+///|
 let controls = animate_selector(".box", keyframes, options~)
 
 // With DOM Element
+
+///|
 let controls = animate_element(element, keyframes, options~)
 
 // Raw version (accepts any)
+
+///|
 let controls = animate(@core.any(".box"), keyframes, options~)
 ```
 
@@ -55,9 +61,13 @@ let controls = animate(@core.any(".box"), keyframes, options~)
 
 ```moonbit
 // With selector
+
+///|
 let cleanup = inView_selector(".box", fn(entry) { ... }, options~)
 
 // With DOM Element
+
+///|
 let cleanup = inView_element(element, fn(entry) { ... }, options~)
 ```
 
@@ -87,15 +97,23 @@ let cleanup = mv_on(x, "change", fn(v) { ... })
 
 ```moonbit
 // Mix values
+
+///|
 let value = mix(0.0, 100.0, 0.5) // => 50.0
 
 // Stagger animations
+
+///|
 let delay = stagger(0.1)
 
 // Delay callback
+
+///|
 let cancel = delay(fn() { ... }, 1.0)
 
 // Transform values between ranges
+
+///|
 let result = transform(value, [0.0, 100.0], [@core.any(0), @core.any(1)])
 ```
 

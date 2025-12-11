@@ -7,11 +7,7 @@ test "clsx - strings" {
 ///|
 test "clsx - with conditional" {
   let is_active = true
-  let result = @clsx.clsx([
-    "foo",
-    if is_active { "bar" } else { "" },
-    "baz",
-  ])
+  let result = @clsx.clsx(["foo", if is_active { "bar" } else { "" }, "baz"])
   inspect(result, content="foo bar baz")
 }
 

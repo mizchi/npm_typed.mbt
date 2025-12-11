@@ -219,7 +219,11 @@ pub fn inView_selector(
   callback : (@core.Any) -> Unit,
   options? : @core.Any,
 ) -> () -> Unit {
-  ffi_inView(@core.any(selector), callback, options.unwrap_or(@core.undefined()))
+  ffi_inView(
+    @core.any(selector),
+    callback,
+    options.unwrap_or(@core.undefined()),
+  )
 }
 
 ///| Delay utility

@@ -16,11 +16,13 @@ extern "js" fn ffi_produce(
 ///
 /// Example:
 /// ```moonbit
-/// struct State { mut name: String }
+/// struct State {
+///   mut name : String
+/// }
+///
 /// let state = { name: "Alice" }
-/// let next = produce(state, fn(draft) {
-///   draft.name = "Bob"
-/// })
+///
+/// let next = produce(state, fn(draft) { draft.name = "Bob" })
 /// ```
 pub fn[T] produce(base : T, recipe : (T) -> Unit) -> T {
   @core.identity(
@@ -41,9 +43,8 @@ extern "js" fn ffi_produce_curried(
 ///
 /// Example:
 /// ```moonbit
-/// let updater = produce_curried(fn(draft : State) {
-///   draft.name = "Bob"
-/// })
+/// let updater = produce_curried(fn(draft : State) { draft.name = "Bob" })
+///
 /// let next = updater(state)
 /// ```
 pub fn[T] produce_curried(recipe : (T) -> Unit) -> (T) -> T {
@@ -136,6 +137,6 @@ extern "js" fn ffi_freeze(obj : @core.Any, deep : Bool) -> @core.Any = "freeze"
 
 ///|
 /// Recursively freeze an object
-pub fn[T] freeze(obj : T, deep~ : Bool = true) -> T {
+pub fn[T] freeze(obj : T, deep? : Bool = true) -> T {
   @core.identity(ffi_freeze(@core.any(obj), deep))
 }

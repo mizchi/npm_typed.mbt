@@ -22,12 +22,17 @@ extern "js" fn ffi_createStore(
 ///
 /// Example:
 /// ```moonbit
-/// struct CounterState { mut count: Int }
+/// struct CounterState {
+///   mut count : Int
+/// }
+///
 /// let store : Store[CounterState] = createStore(fn(_set, _get, _api) {
 ///   { count: 0 }
 /// })
 /// ```
-pub fn[T] createStore(initializer : (SetFn[T], GetFn[T], @core.Any) -> T) -> Store[T] {
+pub fn[T] createStore(
+  initializer : (SetFn[T], GetFn[T], @core.Any) -> T,
+) -> Store[T] {
   @core.identity(
     ffi_createStore(fn(set, get, api) {
       let set_fn : SetFn[T] = @core.identity(set)
