@@ -1,0 +1,127 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/valibot"
+
+import(
+  "mizchi/js/core"
+)
+
+// Values
+pub fn any_() -> Schema
+
+pub fn array(Schema) -> Schema
+
+pub fn bigint() -> Schema
+
+pub fn boolean() -> Schema
+
+pub fn date() -> Schema
+
+pub fn email() -> @core.Any
+
+pub fn endsWith(String) -> @core.Any
+
+pub fn finite() -> @core.Any
+
+pub fn includes(String) -> @core.Any
+
+pub fn integer() -> @core.Any
+
+pub fn intersect(@core.Any) -> Schema
+
+pub fn is_(Schema, @core.Any) -> Bool
+
+pub fn length(Int) -> @core.Any
+
+pub fn literal(@core.Any) -> Schema
+
+pub fn maxLength(Int) -> @core.Any
+
+pub fn maxValue(Double) -> @core.Any
+
+pub fn minLength(Int) -> @core.Any
+
+pub fn minValue(Double) -> @core.Any
+
+pub fn null_() -> Schema
+
+pub fn nullable(Schema) -> Schema
+
+pub fn nullish(Schema) -> Schema
+
+pub fn number() -> Schema
+
+pub fn object(@core.Any) -> Schema
+
+pub fn optional(Schema) -> Schema
+
+pub fn options() -> @core.Any
+
+pub fn parse(Schema, @core.Any) -> @core.Any
+
+pub fn picklist(@core.Any) -> Schema
+
+pub fn pipe(Schema, @core.Any) -> Schema
+
+pub fn record(Schema, Schema) -> Schema
+
+pub fn regex(@core.Any) -> @core.Any
+
+pub fn safeParse(Schema, @core.Any) -> SafeParseResult
+
+pub fn shape() -> @core.Any
+
+pub fn startsWith(String) -> @core.Any
+
+pub fn string_() -> Schema
+
+pub fn toLowerCase() -> @core.Any
+
+pub fn toUpperCase() -> @core.Any
+
+pub fn trim() -> @core.Any
+
+pub fn tuple(@core.Any) -> Schema
+
+pub fn undefined_() -> Schema
+
+pub fn union(@core.Any) -> Schema
+
+pub fn unknown() -> Schema
+
+pub fn url() -> @core.Any
+
+pub fn uuid() -> @core.Any
+
+// Errors
+
+// Types and methods
+#external
+pub type Issue
+pub fn Issue::expected(Self) -> String?
+pub fn Issue::input(Self) -> @core.Any
+pub fn Issue::kind(Self) -> String
+pub fn Issue::message(Self) -> String
+pub fn Issue::path(Self) -> @core.Any
+pub fn Issue::received(Self) -> String?
+pub fn Issue::to_any(Self) -> @core.Any
+pub fn Issue::type_(Self) -> String
+
+#external
+pub type SafeParseResult
+pub fn SafeParseResult::issues(Self) -> @core.Any
+pub fn SafeParseResult::output(Self) -> @core.Any
+pub fn SafeParseResult::success(Self) -> Bool
+pub fn SafeParseResult::to_any(Self) -> @core.Any
+
+#external
+pub type Schema
+pub fn Schema::to_any(Self) -> @core.Any
+
+#external
+pub type ValiError
+pub fn ValiError::to_any(Self) -> @core.Any
+
+// Type aliases
+
+// Traits
+
