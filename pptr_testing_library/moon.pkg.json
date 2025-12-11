@@ -1,0 +1,7 @@
+{
+  "supported-targets": ["js"],
+  "import": [
+    "mizchi/js/core",
+    "mizchi/npm_typed/puppeteer"
+  ]
+}
