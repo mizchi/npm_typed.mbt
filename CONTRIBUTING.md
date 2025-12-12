@@ -2,6 +2,8 @@
 
 MoonBit FFI bindings for npm packages.
 
+> **Want to contribute a new library?** See our [Community Contribution Guide](_docs/guideline.md) ([日本語](_docs/guideline.ja.md) | [中文](_docs/guideline.cn.md))
+
 ## Quick Start
 
 ```bash
