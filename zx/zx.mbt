@@ -12,7 +12,7 @@
 /// ```moonbit
 /// let name = "hello"
 /// let count = 42
-/// @zx.zx("echo ${@0} ${@1}", args=[name.to_zx_arg(), count.to_zx_arg()])
+/// @zx.tagged("echo ${@0} ${@1}", args=[name.to_zx_arg(), count.to_zx_arg()])
 /// ```
 pub trait ToZxArg {
   to_zx_arg(Self) -> @core.Any
@@ -52,7 +52,7 @@ pub impl ToZxArg for Array[String] with to_zx_arg(self) {
 /// ```moonbit
 /// let name = "hello"
 /// let count = 42
-/// @zx.zx("echo ${@0} ${@1}", args=[@zx.arg(name), @zx.arg(count)])
+/// @zx.tagged("echo ${@0} ${@1}", args=[@zx.arg(name), @zx.arg(count)])
 /// ```
 pub fn[T : ToZxArg] arg(value : T) -> @core.Any {
   value.to_zx_arg()
@@ -337,13 +337,13 @@ extern "js" fn ffi_call_dollar(
 
 ///|
 /// Execute shell command using tagged template syntax
-/// MoonBit では $ は変数として使えないので zx を使用
+/// MoonBit では $ は変数として使えないので tagged を使用
 ///
 /// Example:
 /// ```moonbit
-/// let result = @zx.zx("echo ${@0}", args=[@core.any("hello")])
+/// let result = @zx.tagged("echo ${@0}", args=[@core.any("hello")])
 /// ```
-pub fn zx(cmd : String, args? : Array[@core.Any] = []) -> ProcessPromise {
+pub fn tagged(cmd : String, args? : Array[@core.Any] = []) -> ProcessPromise {
   @core.tag(
     fn(strings, values) { ffi_call_dollar(get_dollar(), strings, values) },
     cmd,
@@ -360,11 +360,14 @@ pub fn zx(cmd : String, args? : Array[@core.Any] = []) -> ProcessPromise {
 ///
 /// Example:
 /// ```moonbit
-/// let output = @zx.exec("echo hello")
+/// let output = @zx.execa("echo hello")
 /// println(output.text())
 /// ```
-pub async fn exec(cmd : String, args? : Array[@core.Any] = []) -> ProcessOutput {
-  zx(cmd, args~).to_promise().wait()
+pub async fn execa(
+  cmd : String,
+  args? : Array[@core.Any] = [],
+) -> ProcessOutput {
+  tagged(cmd, args~).to_promise().wait()
 }
 
 ///| Utility Functions

@@ -12,7 +12,7 @@ pub fn cd(String) -> Unit
 
 pub fn echo(Array[@core.Any]) -> Unit
 
-pub async fn exec(String, args? : Array[@core.Any]) -> ProcessOutput
+pub async fn execa(String, args? : Array[@core.Any]) -> ProcessOutput
 
 pub fn get_verbose() -> Bool
 
@@ -32,13 +32,13 @@ pub fn sleep(Int) -> @core.Promise[Unit]
 
 pub fn stdin() -> @core.Promise[String]
 
+pub fn tagged(String, args? : Array[@core.Any]) -> ProcessPromise
+
 pub fn use_bash() -> Unit
 
 pub fn use_powershell() -> Unit
 
 pub fn which(String) -> @core.Promise[String]
-
-pub fn zx(String, args? : Array[@core.Any]) -> ProcessPromise
 
 // Errors
 
