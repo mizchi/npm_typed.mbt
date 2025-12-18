@@ -5,8 +5,8 @@
 ///| Main classnames function
 
 ///|
-#module("classnames")
-extern "js" fn ffi_classNames(args : Array[@core.Any]) -> String = "default"
+extern "js" fn ffi_classNames(args : Array[@core.Any]) -> String =
+  #| (args) => require('classnames')(...args)
 
 ///|
 /// Construct className string from multiple strings
