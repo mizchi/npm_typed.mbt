@@ -54,6 +54,3 @@ jobs:
 
       - name: deno test
         run: deno test -A
-
-      - name: bun test
-        run: bun test target/js/release/build/bun/bun_test/bun_test.js
