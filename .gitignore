@@ -16,6 +16,9 @@ bisect.coverage
 .env
 .minio-data
 test-results
+playwright-report
+# MoonBit built test files (symlinks to target/)
+*_mbt.spec.js
 tmp
 .jj
 *.heapsnapshot
