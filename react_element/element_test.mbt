@@ -106,7 +106,7 @@ test "a element with href" {
 ///|
 test "img element" {
   let render_to_string = get_render_to_string()
-  let element = img(src="image.png", alt="Test image", width=100, height=200, [])
+  let element = img(src="image.png", alt="Test image", width=100, height=200)
   let html = render_to_string(element)
   inspect(
     html,
@@ -150,7 +150,7 @@ test "select with option elements" {
 test "form element" {
   let render_to_string = get_render_to_string()
   let element = form(method_="post", [
-    label(["Name:"], "name"),
+    label(["Name:"], htmlFor="name"),
     input(type_="text", id="name", name="name"),
   ])
   let html = render_to_string(element)

@@ -1,0 +1,12 @@
+{
+  "supported-targets": [
+    "js"
+  ],
+  "import": [
+    "mizchi/js",
+    "mizchi/js/core",
+    "mizchi/js/browser/dom",
+    "mizchi/npm_typed/vue"
+  ],
+  "warn-list": "-25"
+}

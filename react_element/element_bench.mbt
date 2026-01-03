@@ -68,19 +68,19 @@ fn create_complex_component() -> @react.Element {
         div(class="product-grid", [
           // Product cards
           div(class="product-card", [
-            img(src="/product1.jpg", alt="Product 1", []),
+            img(src="/product1.jpg", alt="Product 1"),
             h3(["Product 1"]),
             p(["Description of product 1 with some details."]),
             button(type_="button", ["Add to Cart"]),
           ]),
           div(class="product-card", [
-            img(src="/product2.jpg", alt="Product 2", []),
+            img(src="/product2.jpg", alt="Product 2"),
             h3(["Product 2"]),
             p(["Description of product 2 with some details."]),
             button(type_="button", ["Add to Cart"]),
           ]),
           div(class="product-card", [
-            img(src="/product3.jpg", alt="Product 3", []),
+            img(src="/product3.jpg", alt="Product 3"),
             h3(["Product 3"]),
             p(["Description of product 3 with some details."]),
             button(type_="button", ["Add to Cart"]),
@@ -130,7 +130,7 @@ test "benchmark: create complex component" (b : @bench.T) {
 fn create_form_component() -> @react.Element {
   form([
     div([
-      label(["First Name:"], "firstName"),
+      label(["First Name:"], htmlFor="firstName"),
       input(
         type_="text",
         id="firstName",
@@ -139,7 +139,7 @@ fn create_form_component() -> @react.Element {
       ),
     ]),
     div([
-      label(["Last Name:"], "lastName"),
+      label(["Last Name:"], htmlFor="lastName"),
       input(
         type_="text",
         id="lastName",
@@ -148,15 +148,15 @@ fn create_form_component() -> @react.Element {
       ),
     ]),
     div([
-      label(["Email:"], "email"),
+      label(["Email:"], htmlFor="email"),
       input(type_="email", id="email", name="email", placeholder="Enter email"),
     ]),
     div([
-      label(["Message:"], "message"),
+      label(["Message:"], htmlFor="message"),
       textarea(id="message", placeholder="Enter your message", []),
     ]),
     div([
-      label(["Country:"], "country"),
+      label(["Country:"], htmlFor="country"),
       select(id="country", name="country", [
         option(value="us", ["USA"]),
         option(value="ca", ["Canada"]),

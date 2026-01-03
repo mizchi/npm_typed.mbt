@@ -1,0 +1,545 @@
+{
+  "$schema": "./schema.json",
+  "commonProps": [
+    { "name": "id", "type": "String", "jsName": "id" },
+    { "name": "class", "type": "String", "jsName": "className" },
+    { "name": "style", "type": "Map[String, String]", "jsName": "style" },
+    { "name": "tab_index", "type": "Int", "jsName": "tabIndex" }
+  ],
+  "commonEvents": [
+    { "name": "on_click", "jsName": "onClick", "eventType": "Mouse" },
+    { "name": "on_change", "jsName": "onChange", "eventType": "Change" },
+    { "name": "on_keydown", "jsName": "onKeyDown", "eventType": "Keyboard" },
+    { "name": "on_keyup", "jsName": "onKeyUp", "eventType": "Keyboard" },
+    { "name": "on_focus", "jsName": "onFocus", "eventType": "Focus" },
+    { "name": "on_blur", "jsName": "onBlur", "eventType": "Focus" },
+    { "name": "on_drag", "jsName": "onDrag", "eventType": "Drag" },
+    { "name": "on_dragstart", "jsName": "onDragStart", "eventType": "Drag" },
+    { "name": "on_dragend", "jsName": "onDragEnd", "eventType": "Drag" },
+    { "name": "on_dragleave", "jsName": "onDragLeave", "eventType": "Drag" },
+    { "name": "on_dragenter", "jsName": "onDragEnter", "eventType": "Drag" },
+    { "name": "on_dragover", "jsName": "onDragOver", "eventType": "Drag" },
+    { "name": "on_drop", "jsName": "onDrop", "eventType": "Drag" }
+  ],
+  "elements": {
+    "div": {
+      "tagName": "div",
+      "domType": "HTMLDivElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "span": {
+      "tagName": "span",
+      "domType": "HTMLSpanElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "p": {
+      "tagName": "p",
+      "domType": "HTMLParagraphElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "pre": {
+      "tagName": "pre",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "code": {
+      "tagName": "code",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "blockquote": {
+      "tagName": "blockquote",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "nav": {
+      "tagName": "nav",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "main_": {
+      "tagName": "main",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "header": {
+      "tagName": "header",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "footer": {
+      "tagName": "footer",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "section": {
+      "tagName": "section",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "article": {
+      "tagName": "article",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "aside": {
+      "tagName": "aside",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "details": {
+      "tagName": "details",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "summary": {
+      "tagName": "summary",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "h1": {
+      "tagName": "h1",
+      "domType": "HTMLHeadingElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "h2": {
+      "tagName": "h2",
+      "domType": "HTMLHeadingElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "h3": {
+      "tagName": "h3",
+      "domType": "HTMLHeadingElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "h4": {
+      "tagName": "h4",
+      "domType": "HTMLHeadingElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "h5": {
+      "tagName": "h5",
+      "domType": "HTMLHeadingElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "h6": {
+      "tagName": "h6",
+      "domType": "HTMLHeadingElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "ul": {
+      "tagName": "ul",
+      "domType": "HTMLUListElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "ol": {
+      "tagName": "ol",
+      "domType": "HTMLOListElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "li": {
+      "tagName": "li",
+      "domType": "HTMLLIElement",
+      "hasChildren": true,
+      "props": []
+    },
+    "a": {
+      "tagName": "a",
+      "domType": "HTMLAnchorElement",
+      "hasChildren": true,
+      "props": [
+        { "name": "href", "type": "String", "jsName": "href" },
+        { "name": "target", "type": "String", "jsName": "target" },
+        { "name": "download", "type": "String", "jsName": "download" }
+      ]
+    },
+    "button": {
+      "tagName": "button",
+      "domType": "HTMLButtonElement",
+      "hasChildren": true,
+      "props": [
+        { "name": "type_", "type": "String", "jsName": "type" },
+        { "name": "disabled", "type": "Bool", "jsName": "disabled" }
+      ]
+    },
+    "input": {
+      "tagName": "input",
+      "domType": "HTMLInputElement",
+      "hasChildren": false,
+      "props": [
+        { "name": "type_", "type": "String", "jsName": "type" },
+        { "name": "name", "type": "String", "jsName": "name" },
+        { "name": "value", "type": "String", "jsName": "value" },
+        { "name": "default_value", "type": "String", "jsName": "defaultValue" },
+        { "name": "placeholder", "type": "String", "jsName": "placeholder" },
+        { "name": "checked", "type": "Bool", "jsName": "checked" },
+        { "name": "disabled", "type": "Bool", "jsName": "disabled" },
+        { "name": "readonly_", "type": "Bool", "jsName": "readOnly" },
+        { "name": "required", "type": "Bool", "jsName": "required" },
+        { "name": "min", "type": "String", "jsName": "min" },
+        { "name": "max", "type": "String", "jsName": "max" },
+        { "name": "step", "type": "String", "jsName": "step" },
+        { "name": "pattern", "type": "String", "jsName": "pattern" },
+        { "name": "autocomplete", "type": "String", "jsName": "autoComplete" }
+      ]
+    },
+    "textarea": {
+      "tagName": "textarea",
+      "domType": "HTMLTextAreaElement",
+      "hasChildren": true,
+      "props": [
+        { "name": "name", "type": "String", "jsName": "name" },
+        { "name": "value", "type": "String", "jsName": "value" },
+        { "name": "default_value", "type": "String", "jsName": "defaultValue" },
+        { "name": "placeholder", "type": "String", "jsName": "placeholder" },
+        { "name": "rows", "type": "Int", "jsName": "rows" },
+        { "name": "columns", "type": "Int", "jsName": "cols" },
+        { "name": "spellcheck", "type": "Bool", "jsName": "spellCheck" },
+        { "name": "disabled", "type": "Bool", "jsName": "disabled" },
+        { "name": "readonly_", "type": "Bool", "jsName": "readOnly" },
+        { "name": "required", "type": "Bool", "jsName": "required" }
+      ]
+    },
+    "form": {
+      "tagName": "form",
+      "domType": "HTMLFormElement",
+      "hasChildren": true,
+      "props": [
+        { "name": "method_", "type": "String", "jsName": "method" },
+        { "name": "action_str", "type": "String", "jsName": "action" },
+        { "name": "enc_type", "type": "String", "jsName": "encType" },
+        { "name": "name", "type": "String", "jsName": "name" },
+        { "name": "disabled", "type": "Bool", "jsName": "disabled" }
+      ],
+      "customEvents": [
+        { "name": "on_submit", "jsName": "onSubmit", "handlerType": "(@dom.FormEvent) -> Unit" }
+      ],
+      "customCallbacks": [
+        { "name": "action", "jsName": "action", "handlerType": "(@http.FormData) -> Unit" }
+      ]
+    },
+    "select": {
+      "tagName": "select",
+      "domType": "HTMLSelectElement",
+      "hasChildren": true,
+      "props": [
+        { "name": "name", "type": "String", "jsName": "name" },
+        { "name": "multiple", "type": "Bool", "jsName": "multiple" },
+        { "name": "disabled", "type": "Bool", "jsName": "disabled" },
+        { "name": "required", "type": "Bool", "jsName": "required" }
+      ]
+    },
+    "option": {
+      "tagName": "option",
+      "domType": "HTMLOptionElement",
+      "hasChildren": true,
+      "props": [
+        { "name": "value", "type": "String", "jsName": "value", "required": true },
+        { "name": "selected", "type": "Bool", "jsName": "selected" },
+        { "name": "disabled", "type": "Bool", "jsName": "disabled" }
+      ]
+    },
+    "label": {
+      "tagName": "label",
+      "domType": "HTMLLabelElement",
+      "hasChildren": true,
+      "props": [
+        { "name": "htmlFor", "type": "String", "jsName": "htmlFor" }
+      ]
+    },
+    "img": {
+      "tagName": "img",
+      "domType": "HTMLImageElement",
+      "hasChildren": false,
+      "props": [
+        { "name": "src", "type": "String", "jsName": "src", "required": true },
+        { "name": "alt", "type": "String", "jsName": "alt" },
+        { "name": "width", "type": "Int", "jsName": "width" },
+        { "name": "height", "type": "Int", "jsName": "height" },
+        { "name": "srcset", "type": "String", "jsName": "srcSet" },
+        { "name": "sizes", "type": "String", "jsName": "sizes" },
+        { "name": "loading", "type": "String", "jsName": "loading" },
+        { "name": "crossorigin", "type": "String", "jsName": "crossOrigin" },
+        { "name": "decoding", "type": "String", "jsName": "decoding" },
+        { "name": "fetchpriority", "type": "String", "jsName": "fetchPriority" }
+      ]
+    },
+    "video": {
+      "tagName": "video",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "src", "type": "String", "jsName": "src" },
+        { "name": "controls", "type": "Bool", "jsName": "controls" },
+        { "name": "autoplay", "type": "Bool", "jsName": "autoPlay" },
+        { "name": "loop_", "type": "Bool", "jsName": "loop" },
+        { "name": "muted", "type": "Bool", "jsName": "muted" },
+        { "name": "poster", "type": "String", "jsName": "poster" },
+        { "name": "width", "type": "Int", "jsName": "width" },
+        { "name": "height", "type": "Int", "jsName": "height" }
+      ]
+    },
+    "audio": {
+      "tagName": "audio",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "src", "type": "String", "jsName": "src" },
+        { "name": "controls", "type": "Bool", "jsName": "controls" },
+        { "name": "autoplay", "type": "Bool", "jsName": "autoPlay" },
+        { "name": "loop_", "type": "Bool", "jsName": "loop" },
+        { "name": "muted", "type": "Bool", "jsName": "muted" }
+      ]
+    },
+    "source": {
+      "tagName": "source",
+      "domType": "Element",
+      "hasChildren": false,
+      "props": [
+        { "name": "src", "type": "String", "jsName": "src", "required": true },
+        { "name": "type_", "type": "String", "jsName": "type" },
+        { "name": "srcset", "type": "String", "jsName": "srcSet" },
+        { "name": "sizes", "type": "String", "jsName": "sizes" },
+        { "name": "media", "type": "String", "jsName": "media" }
+      ]
+    },
+    "iframe": {
+      "tagName": "iframe",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "src", "type": "String", "jsName": "src", "required": true },
+        { "name": "width", "type": "Int", "jsName": "width" },
+        { "name": "height", "type": "Int", "jsName": "height" },
+        { "name": "sandbox", "type": "String", "jsName": "sandbox" },
+        { "name": "allowfullscreen", "type": "Bool", "jsName": "allowFullScreen" },
+        { "name": "loading", "type": "String", "jsName": "loading" }
+      ]
+    },
+    "hr": {
+      "tagName": "hr",
+      "domType": "Element",
+      "hasChildren": false,
+      "props": []
+    },
+    "br": {
+      "tagName": "br",
+      "domType": "Element",
+      "hasChildren": false,
+      "props": []
+    },
+    "table": {
+      "tagName": "table",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "thead": {
+      "tagName": "thead",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "tbody": {
+      "tagName": "tbody",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "tfoot": {
+      "tagName": "tfoot",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "tr": {
+      "tagName": "tr",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "th": {
+      "tagName": "th",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "colspan", "type": "Int", "jsName": "colSpan" },
+        { "name": "rowspan", "type": "Int", "jsName": "rowSpan" },
+        { "name": "scope", "type": "String", "jsName": "scope" }
+      ]
+    },
+    "td": {
+      "tagName": "td",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "colspan", "type": "Int", "jsName": "colSpan" },
+        { "name": "rowspan", "type": "Int", "jsName": "rowSpan" }
+      ]
+    },
+    "canvas": {
+      "tagName": "canvas",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "width", "type": "Int", "jsName": "width" },
+        { "name": "height", "type": "Int", "jsName": "height" }
+      ]
+    },
+    "progress": {
+      "tagName": "progress",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "value", "type": "Double", "jsName": "value" },
+        { "name": "max", "type": "Double", "jsName": "max" }
+      ]
+    },
+    "meter": {
+      "tagName": "meter",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "value", "type": "Double", "jsName": "value" },
+        { "name": "min", "type": "Double", "jsName": "min" },
+        { "name": "max", "type": "Double", "jsName": "max" },
+        { "name": "low", "type": "Double", "jsName": "low" },
+        { "name": "high", "type": "Double", "jsName": "high" },
+        { "name": "optimum", "type": "Double", "jsName": "optimum" }
+      ]
+    },
+    "dialog": {
+      "tagName": "dialog",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "open_", "type": "Bool", "jsName": "open" }
+      ]
+    },
+    "strong": {
+      "tagName": "strong",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "em": {
+      "tagName": "em",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "small": {
+      "tagName": "small",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "mark": {
+      "tagName": "mark",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "del": {
+      "tagName": "del",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "ins": {
+      "tagName": "ins",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "sub": {
+      "tagName": "sub",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "sup": {
+      "tagName": "sup",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "abbr": {
+      "tagName": "abbr",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "title", "type": "String", "jsName": "title" }
+      ]
+    },
+    "time_": {
+      "tagName": "time",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "datetime", "type": "String", "jsName": "dateTime" }
+      ]
+    },
+    "data_": {
+      "tagName": "data",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "value", "type": "String", "jsName": "value" }
+      ]
+    },
+    "fieldset": {
+      "tagName": "fieldset",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "disabled", "type": "Bool", "jsName": "disabled" },
+        { "name": "name", "type": "String", "jsName": "name" }
+      ]
+    },
+    "legend": {
+      "tagName": "legend",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "datalist": {
+      "tagName": "datalist",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": []
+    },
+    "output": {
+      "tagName": "output",
+      "domType": "Element",
+      "hasChildren": true,
+      "props": [
+        { "name": "for_", "type": "String", "jsName": "htmlFor" },
+        { "name": "name", "type": "String", "jsName": "name" }
+      ]
+    }
+  }
+}

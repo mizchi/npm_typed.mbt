@@ -7,6 +7,7 @@
     "mizchi/js/core",
     "mizchi/js/node/sqlite",
     "mizchi/npm_typed/hono",
+    "mizchi/npm_typed/hono_element",
     "mizchi/npm_typed/better_auth",
     "mizchi/npm_typed/zod"
   ]

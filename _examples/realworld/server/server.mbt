@@ -15,7 +15,9 @@ type App = @hono.Hono[Env, ExecutionContext]
 type Ctx = @hono.Context[Env, ExecutionContext]
 
 ///|
-using @hono {h}
+using @hono_element {
+  div, span, p, h1, strong, a, form, input, button, label, nav, main_
+}
 
 // ============ Database ============
 
@@ -213,55 +215,33 @@ priv struct LayoutProps {
 
 ///|
 fn default_layout(props : LayoutProps) -> @hono.JSXNode {
-  h(
+  @hono.jsx(
     "html",
     [
-      h("head", [
-        h("title", [props.title]),
-        h("meta", [], props={ "charset": @core.any("UTF-8") }),
+      @hono.jsx("head", [
+        @hono.jsx("title", [props.title]),
+        @hono.jsx("meta", [], props={ "charset": @core.any("UTF-8") }),
         props.hono_css.style_component(),
       ]),
-      h(
+      @hono.jsx(
         "body",
         [
-          h(
-            "nav",
+          nav(
             [
-              h(
-                "div",
+              div(
                 [
-                  h("strong", ["Realworld TODO"]),
-                  h(
-                    "a",
-                    ["Home"],
-                    props={ "href": @core.any("/") },
-                    class=props.styles.nav_link,
-                  ),
+                  strong(["Realworld TODO"]),
+                  a(["Home"], href="/", class=props.styles.nav_link),
                   match props.user {
                     Some(user) =>
-                      h("span", [
-                        h("span", ["Welcome, ", user.email()]),
-                        h(
-                          "a",
-                          [" | Logout"],
-                          props={ "href": @core.any("/auth/logout") },
-                          class=props.styles.nav_link,
-                        ),
+                      span([
+                        span(["Welcome, ", user.email()]),
+                        a([" | Logout"], href="/auth/logout", class=props.styles.nav_link),
                       ])
                     None =>
-                      h("span", [
-                        h(
-                          "a",
-                          ["Login"],
-                          props={ "href": @core.any("/auth/login") },
-                          class=props.styles.nav_link,
-                        ),
-                        h(
-                          "a",
-                          ["Register"],
-                          props={ "href": @core.any("/auth/register") },
-                          class=props.styles.nav_link,
-                        ),
+                      span([
+                        a(["Login"], href="/auth/login", class=props.styles.nav_link),
+                        a(["Register"], href="/auth/register", class=props.styles.nav_link),
                       ])
                   },
                 ],
@@ -270,7 +250,7 @@ fn default_layout(props : LayoutProps) -> @hono.JSXNode {
             ],
             class=props.styles.nav,
           ),
-          h("main", props.children, class=props.styles.container),
+          main_(props.children, class=props.styles.container),
         ],
         class=props.styles.body,
       ),
@@ -306,31 +286,20 @@ pub async fn create_app(
           styles,
           hono_css,
           children: [
-            h(
-              "div",
+            div(
               [
-                h("h1", ["My TODOs"]),
+                h1(["My TODOs"]),
                 // Add TODO form
-                h(
-                  "form",
+                form(
                   [
-                    h(
-                      "input",
-                      [],
-                      props={
-                        "type": @core.any("text"),
-                        "name": @core.any("title"),
-                        "placeholder": @core.any("Add a new TODO..."),
-                        "required": @core.any(true),
-                      },
+                    input(
+                      type_="text",
+                      name="title",
+                      placeholder="Add a new TODO...",
+                      required=true,
                       class=styles.input,
                     ),
-                    h(
-                      "button",
-                      ["Add"],
-                      props={ "type": @core.any("submit") },
-                      class=styles.button,
-                    ),
+                    button(["Add"], type_="submit", class=styles.button),
                   ],
                   props={
                     "method": @core.any("POST"),
@@ -340,71 +309,55 @@ pub async fn create_app(
               ],
               class=styles.card,
             ),
-            h(
-              "div",
+            div(
               todos.map(fn(todo) {
                 let id : Int = todo._get("id").cast()
                 let title : String = todo._get("title").cast()
                 let completed : Int = todo._get("completed").cast()
-                h(
-                  "div",
+                div(
                   [
-                    h("input", [], props={
-                      "type": @core.any("checkbox"),
-                      "checked": @core.any(completed == 1),
-                      "onchange": @core.any("this.form.submit()"),
-                      "form": @core.any("toggle-" + id.to_string()),
-                    }),
-                    h("span", [title], props={
-                      "style": @core.any(
-                        if completed == 1 {
-                          "text-decoration: line-through; color: #888;"
-                        } else {
-                          ""
-                        },
-                      ),
-                    }),
-                    h(
-                      "form",
-                      [
-                        h("input", [], props={
-                          "type": @core.any("hidden"),
-                          "name": @core.any("completed"),
-                          "value": @core.any(
-                            if completed == 1 {
-                              "false"
-                            } else {
-                              "true"
-                            },
-                          ),
-                        }),
-                      ],
+                    input(
+                      type_="checkbox",
+                      checked=(completed == 1),
                       props={
-                        "id": @core.any("toggle-" + id.to_string()),
+                        "onchange": @core.any("this.form.submit()"),
+                        "form": @core.any("toggle-" + id.to_string()),
+                      },
+                    ),
+                    span(
+                      [title],
+                      style=if completed == 1 {
+                        { "text-decoration": "line-through", "color": "#888" }
+                      } else {
+                        {}
+                      },
+                    ),
+                    form(
+                      [
+                        input(
+                          type_="hidden",
+                          name="completed",
+                          value=if completed == 1 { "false" } else { "true" },
+                        ),
+                      ],
+                      id="toggle-" + id.to_string(),
+                      props={
                         "method": @core.any("POST"),
                         "action": @core.any(
                           "/todos/" + id.to_string() + "/toggle",
                         ),
-                        "style": @core.any("display: none;"),
                       },
+                      style={ "display": "none" },
                     ),
-                    h(
-                      "form",
-                      [
-                        h(
-                          "button",
-                          ["Delete"],
-                          props={ "type": @core.any("submit") },
-                          class=styles.button_danger,
-                        ),
-                      ],
+                    form(
+                      [button(["Delete"], type_="submit", class=styles.button_danger)],
                       props={
                         "method": @core.any("POST"),
                         "action": @core.any(
                           "/todos/" + id.to_string() + "/delete",
                         ),
-                        "style": @core.any("margin-left: auto;"),
                       },
+                      style={ "margin-left": "auto" },
                     ),
                   ],
                   class=styles.todo_item,
@@ -486,54 +439,34 @@ pub async fn create_app(
       styles,
       hono_css,
       children: [
-        h(
-          "div",
+        div(
           [
-            h("h1", ["Login"]),
-            h(
-              "form",
+            h1(["Login"]),
+            form(
               [
-                h("div", [
-                  h("label", ["Email"]),
-                  h(
-                    "input",
-                    [],
-                    props={
-                      "type": @core.any("email"),
-                      "name": @core.any("email"),
-                      "required": @core.any(true),
-                    },
+                div([
+                  label(["Email"]),
+                  input(type_="email", name="email", required=true, class=styles.input),
+                ]),
+                div([
+                  label(["Password"]),
+                  input(
+                    type_="password",
+                    name="password",
+                    required=true,
                     class=styles.input,
                   ),
                 ]),
-                h("div", [
-                  h("label", ["Password"]),
-                  h(
-                    "input",
-                    [],
-                    props={
-                      "type": @core.any("password"),
-                      "name": @core.any("password"),
-                      "required": @core.any(true),
-                    },
-                    class=styles.input,
-                  ),
-                ]),
-                h(
-                  "button",
-                  ["Login"],
-                  props={ "type": @core.any("submit") },
-                  class=styles.button,
-                ),
+                button(["Login"], type_="submit", class=styles.button),
               ],
               props={
                 "method": @core.any("POST"),
                 "action": @core.any("/auth/login"),
               },
             ),
-            h("p", [
+            p([
               "Don't have an account? ",
-              h("a", ["Register"], props={ "href": @core.any("/auth/register") }),
+              a(["Register"], href="/auth/register"),
             ]),
           ],
           class=styles.card,
@@ -566,12 +499,11 @@ pub async fn create_app(
         styles,
         hono_css,
         children: [
-          h(
-            "div",
+          div(
             [
-              h("h1", ["Login Failed"]),
-              h("p", [error_msg]),
-              h("a", ["Try again"], props={ "href": @core.any("/auth/login") }),
+              h1(["Login Failed"]),
+              p([error_msg]),
+              a(["Try again"], href="/auth/login"),
             ],
             class=styles.card,
           ),
@@ -591,68 +523,39 @@ pub async fn create_app(
       styles,
       hono_css,
       children: [
-        h(
-          "div",
+        div(
           [
-            h("h1", ["Register"]),
-            h(
-              "form",
+            h1(["Register"]),
+            form(
               [
-                h("div", [
-                  h("label", ["Name"]),
-                  h(
-                    "input",
-                    [],
-                    props={
-                      "type": @core.any("text"),
-                      "name": @core.any("name"),
-                      "required": @core.any(true),
-                    },
+                div([
+                  label(["Name"]),
+                  input(type_="text", name="name", required=true, class=styles.input),
+                ]),
+                div([
+                  label(["Email"]),
+                  input(type_="email", name="email", required=true, class=styles.input),
+                ]),
+                div([
+                  label(["Password"]),
+                  input(
+                    type_="password",
+                    name="password",
+                    required=true,
+                    props={ "minlength": @core.any(8) },
                     class=styles.input,
                   ),
                 ]),
-                h("div", [
-                  h("label", ["Email"]),
-                  h(
-                    "input",
-                    [],
-                    props={
-                      "type": @core.any("email"),
-                      "name": @core.any("email"),
-                      "required": @core.any(true),
-                    },
-                    class=styles.input,
-                  ),
-                ]),
-                h("div", [
-                  h("label", ["Password"]),
-                  h(
-                    "input",
-                    [],
-                    props={
-                      "type": @core.any("password"),
-                      "name": @core.any("password"),
-                      "required": @core.any(true),
-                      "minlength": @core.any(8),
-                    },
-                    class=styles.input,
-                  ),
-                ]),
-                h(
-                  "button",
-                  ["Register"],
-                  props={ "type": @core.any("submit") },
-                  class=styles.button,
-                ),
+                button(["Register"], type_="submit", class=styles.button),
               ],
               props={
                 "method": @core.any("POST"),
                 "action": @core.any("/auth/register"),
               },
             ),
-            h("p", [
+            p([
               "Already have an account? ",
-              h("a", ["Login"], props={ "href": @core.any("/auth/login") }),
+              a(["Login"], href="/auth/login"),
             ]),
           ],
           class=styles.card,
@@ -677,14 +580,11 @@ pub async fn create_app(
         styles,
         hono_css,
         children: [
-          h(
-            "div",
+          div(
             [
-              h("h1", ["Registration Failed"]),
-              h("p", [error_msg]),
-              h("a", ["Try again"], props={
-                "href": @core.any("/auth/register"),
-              }),
+              h1(["Registration Failed"]),
+              p([error_msg]),
+              a(["Try again"], href="/auth/register"),
             ],
             class=styles.card,
           ),
