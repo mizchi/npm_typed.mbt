@@ -1,7 +1,3 @@
-Under development
-
-----
-
 # @playwright/test Bindings
 
 MoonBit bindings for [@playwright/test](https://playwright.dev/docs/api/class-test), the Playwright Test framework.
@@ -75,11 +71,13 @@ async fn main {
 
 ### PageAssertions
 
+- `not_()` - Negate the following assertion
 - `toHaveTitle(title, timeout?)` - Assert page title
 - `toHaveURL(url, timeout?)` - Assert page URL
 
 ### LocatorAssertions
 
+- `not_()` - Negate the following assertion
 - `toBeVisible(timeout?)` - Assert element is visible
 - `toBeHidden(timeout?)` - Assert element is hidden
 - `toBeEnabled(timeout?)` - Assert element is enabled
@@ -92,6 +90,7 @@ async fn main {
 - `toHaveAttribute(name, value, timeout?)` - Assert attribute
 - `toHaveClass(class_, timeout?)` - Assert CSS class
 - `toHaveCount(count, timeout?)` - Assert element count
+- `toHaveCSS(name, value, timeout?)` - Assert CSS property value
 
 ### TestInfo
 

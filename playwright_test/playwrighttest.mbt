@@ -72,12 +72,19 @@ pub extern "js" fn expect_fn() -> Expect =
 ///|
 /// Define a test case
 /// Call test function directly (test is callable)
+/// Note: Wraps callback to use destructuring pattern for Playwright test runner
+/// and converts CPS-style async callback to Promise for Playwright compatibility
 pub extern "js" fn Test::run(
   self : Test,
   name : String,
   callback : @core.Any,
 ) -> Unit =
-  #| (t, name, callback) => t(name, callback)
+  #| (t, name, callback) => t(name, async ({ page, context, browser, browserName, request }) => {
+  #|   const fixtures = { page, context, browser, browserName, request };
+  #|   return new Promise((resolve, reject) => {
+  #|     callback(fixtures, resolve, reject);
+  #|   });
+  #| })
 
 ///|
 /// Define a test describe block
@@ -167,6 +174,13 @@ pub fn Expect::locator(
 ///| Page Assertions
 
 ///|
+/// Negate the following page assertion
+/// Usage: expect.page(page).not_().toHaveURL("/login")
+pub fn PageAssertions::not_(self : PageAssertions) -> PageAssertions {
+  self.to_any()["not"].cast()
+}
+
+///|
 /// Assert page has expected title
 pub async fn PageAssertions::toHaveTitle(
   self : PageAssertions,
@@ -205,6 +219,13 @@ pub async fn PageAssertions::toHaveURL(
 }
 
 ///| Locator Assertions
+
+///|
+/// Negate the following locator assertion
+/// Usage: expect.locator(locator).not_().toBeVisible()
+pub fn LocatorAssertions::not_(self : LocatorAssertions) -> LocatorAssertions {
+  self.to_any()["not"].cast()
+}
 
 ///|
 /// Assert locator is visible
@@ -437,6 +458,26 @@ pub async fn LocatorAssertions::toBeFocused(
   let promise : @js.Promise[Unit] = self
     .to_any()
     ._call("toBeFocused", [options])
+    .cast()
+  promise.wait()
+}
+
+///|
+/// Assert locator has expected CSS property value
+pub async fn LocatorAssertions::toHaveCSS(
+  self : LocatorAssertions,
+  name : String,
+  value : String,
+  timeout? : Int,
+) -> Unit {
+  let entries : Array[(String, @core.Any)] = []
+  if timeout is Some(v) {
+    entries.push(("timeout", @core.any(v)))
+  }
+  let options = @core.from_entries(entries)
+  let promise : @js.Promise[Unit] = self
+    .to_any()
+    ._call("toHaveCSS", [@core.any(name), @core.any(value), options])
     .cast()
   promise.wait()
 }
