@@ -514,6 +514,8 @@ importers:
         specifier: ^2.0.0
         version: 2.12.4(@types/node@25.0.3)(typescript@5.9.3)
 
+  npm_types: {}
+
   oxc_minify:
     dependencies:
       oxc-minify:
