@@ -23,6 +23,7 @@ pub fn Expect::value(Self, @core.Any) -> @core.Any
 
 #external
 pub type LocatorAssertions
+pub fn LocatorAssertions::not_(Self) -> Self
 pub async fn LocatorAssertions::toBeChecked(Self, checked? : Bool, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toBeDisabled(Self, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toBeEnabled(Self, timeout? : Int) -> Unit
@@ -31,6 +32,7 @@ pub async fn LocatorAssertions::toBeHidden(Self, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toBeVisible(Self, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toContainText(Self, String, ignoreCase? : Bool, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toHaveAttribute(Self, String, String, timeout? : Int) -> Unit
+pub async fn LocatorAssertions::toHaveCSS(Self, String, String, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toHaveClass(Self, String, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toHaveCount(Self, Int, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toHaveText(Self, String, ignoreCase? : Bool, timeout? : Int) -> Unit
@@ -39,6 +41,7 @@ pub fn LocatorAssertions::to_any(Self) -> @core.Any
 
 #external
 pub type PageAssertions
+pub fn PageAssertions::not_(Self) -> Self
 pub async fn PageAssertions::toHaveTitle(Self, String, timeout? : Int) -> Unit
 pub async fn PageAssertions::toHaveURL(Self, String, timeout? : Int) -> Unit
 pub fn PageAssertions::to_any(Self) -> @core.Any

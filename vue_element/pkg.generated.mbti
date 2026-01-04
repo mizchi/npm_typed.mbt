@@ -1,0 +1,148 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/vue_element"
+
+import(
+  "mizchi/js/browser/dom"
+  "mizchi/js/core"
+  "mizchi/npm_typed/vue"
+)
+
+// Values
+pub fn a(Array[&@vue.VueNode], href? : String, target? : String, download? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn abbr(Array[&@vue.VueNode], title? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn article(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn aside(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn audio(Array[&@vue.VueNode], src? : String, controls? : Bool, autoplay? : Bool, loop_? : Bool, muted? : Bool, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn blockquote(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn br(props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String, children? : Array[&@vue.VueNode]) -> @vue.VNode
+
+pub fn button(Array[&@vue.VueNode], type_? : String, disabled? : Bool, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn canvas(Array[&@vue.VueNode], width? : Int, height? : Int, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn code(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn data_(Array[&@vue.VueNode], value? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn datalist(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn del(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn details(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn dialog(Array[&@vue.VueNode], open_? : Bool, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn div(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn em(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn fieldset(Array[&@vue.VueNode], disabled? : Bool, name? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn footer(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn form(Array[&@vue.VueNode], method_? : String, action_str? : String, enc_type? : String, name? : String, disabled? : Bool, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn h1(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn h2(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn h3(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn h4(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn h5(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn h6(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn header(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn hr(props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String, children? : Array[&@vue.VueNode]) -> @vue.VNode
+
+pub fn iframe(Array[&@vue.VueNode], src~ : String, width? : Int, height? : Int, sandbox? : String, allowfullscreen? : Bool, loading? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn img(src~ : String, alt? : String, width? : Int, height? : Int, srcset? : String, sizes? : String, loading? : String, crossorigin? : String, decoding? : String, fetchpriority? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String, children? : Array[&@vue.VueNode]) -> @vue.VNode
+
+pub fn input(type_? : String, name? : String, value? : String, default_value? : String, placeholder? : String, checked? : Bool, disabled? : Bool, readonly_? : Bool, required? : Bool, min? : String, max? : String, step? : String, pattern? : String, autocomplete? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String, children? : Array[&@vue.VueNode]) -> @vue.VNode
+
+pub fn ins(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn label(Array[&@vue.VueNode], htmlFor? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn legend(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn li(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn main_(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn mark(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn meter(Array[&@vue.VueNode], value? : Double, min? : Double, max? : Double, low? : Double, high? : Double, optimum? : Double, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn nav(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn ol(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn option(Array[&@vue.VueNode], value~ : String, selected? : Bool, disabled? : Bool, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn output(Array[&@vue.VueNode], for_? : String, name? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn p(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn pre(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn progress(Array[&@vue.VueNode], value? : Double, max? : Double, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn section(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn select(Array[&@vue.VueNode], name? : String, multiple? : Bool, disabled? : Bool, required? : Bool, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn small(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn source(src~ : String, type_? : String, srcset? : String, sizes? : String, media? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String, children? : Array[&@vue.VueNode]) -> @vue.VNode
+
+pub fn span(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn strong(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn sub(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn summary(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn sup(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn table(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn tbody(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn td(Array[&@vue.VueNode], colspan? : Int, rowspan? : Int, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn textarea(Array[&@vue.VueNode], name? : String, value? : String, default_value? : String, placeholder? : String, rows? : Int, columns? : Int, spellcheck? : Bool, disabled? : Bool, readonly_? : Bool, required? : Bool, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn tfoot(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn th(Array[&@vue.VueNode], colspan? : Int, rowspan? : Int, scope? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn thead(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn time_(Array[&@vue.VueNode], datetime? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn tr(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn ul(Array[&@vue.VueNode], props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+pub fn video(Array[&@vue.VueNode], src? : String, controls? : Bool, autoplay? : Bool, loop_? : Bool, muted? : Bool, poster? : String, width? : Int, height? : Int, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @vue.Ref[@dom.Element], key? : String) -> @vue.VNode
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

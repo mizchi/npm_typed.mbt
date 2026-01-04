@@ -39,7 +39,7 @@ pub fn fragment(Array[&ReactNode], key? : String) -> Element
 
 pub fn init_react_from_module(@core.Any) -> Unit
 
-pub async fn init_react_symbols() -> Unit
+pub fn init_react_symbols() -> Unit
 
 pub fn jsx(@core.Any, Array[&ReactNode], props? : Map[String, @core.Any], style? : Map[String, String], ref_? : ReactRef[@dom.Element], key? : String) -> Element
 

@@ -1,0 +1,147 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/hono_element"
+
+import(
+  "mizchi/js/core"
+  "mizchi/npm_typed/hono"
+)
+
+// Values
+pub fn a(Array[&@hono.HonoNode], href? : String, target? : String, download? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn abbr(Array[&@hono.HonoNode], title? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn article(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn aside(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn audio(Array[&@hono.HonoNode], src? : String, controls? : Bool, autoplay? : Bool, loop_? : Bool, muted? : Bool, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn blockquote(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn br(props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String, children? : Array[&@hono.HonoNode]) -> @hono.JSXNode
+
+pub fn button(Array[&@hono.HonoNode], type_? : String, disabled? : Bool, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn canvas(Array[&@hono.HonoNode], width? : Int, height? : Int, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn code(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn data_(Array[&@hono.HonoNode], value? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn datalist(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn del(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn details(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn dialog(Array[&@hono.HonoNode], open_? : Bool, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn div(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn em(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn fieldset(Array[&@hono.HonoNode], disabled? : Bool, name? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn footer(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn form(Array[&@hono.HonoNode], method_? : String, action_str? : String, enc_type? : String, name? : String, disabled? : Bool, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn h1(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn h2(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn h3(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn h4(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn h5(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn h6(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn header(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn hr(props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String, children? : Array[&@hono.HonoNode]) -> @hono.JSXNode
+
+pub fn iframe(Array[&@hono.HonoNode], src~ : String, width? : Int, height? : Int, sandbox? : String, allowfullscreen? : Bool, loading? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn img(src~ : String, alt? : String, width? : Int, height? : Int, srcset? : String, sizes? : String, loading? : String, crossorigin? : String, decoding? : String, fetchpriority? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String, children? : Array[&@hono.HonoNode]) -> @hono.JSXNode
+
+pub fn input(type_? : String, name? : String, value? : String, default_value? : String, placeholder? : String, checked? : Bool, disabled? : Bool, readonly_? : Bool, required? : Bool, min? : String, max? : String, step? : String, pattern? : String, autocomplete? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String, children? : Array[&@hono.HonoNode]) -> @hono.JSXNode
+
+pub fn ins(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn label(Array[&@hono.HonoNode], htmlFor? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn legend(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn li(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn main_(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn mark(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn meter(Array[&@hono.HonoNode], value? : Double, min? : Double, max? : Double, low? : Double, high? : Double, optimum? : Double, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn nav(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn ol(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn option(Array[&@hono.HonoNode], value~ : String, selected? : Bool, disabled? : Bool, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn output(Array[&@hono.HonoNode], for_? : String, name? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn p(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn pre(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn progress(Array[&@hono.HonoNode], value? : Double, max? : Double, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn section(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn select(Array[&@hono.HonoNode], name? : String, multiple? : Bool, disabled? : Bool, required? : Bool, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn small(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn source(src~ : String, type_? : String, srcset? : String, sizes? : String, media? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String, children? : Array[&@hono.HonoNode]) -> @hono.JSXNode
+
+pub fn span(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn strong(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn sub(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn summary(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn sup(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn table(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn tbody(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn td(Array[&@hono.HonoNode], colspan? : Int, rowspan? : Int, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn textarea(Array[&@hono.HonoNode], name? : String, value? : String, default_value? : String, placeholder? : String, rows? : Int, columns? : Int, spellcheck? : Bool, disabled? : Bool, readonly_? : Bool, required? : Bool, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn tfoot(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn th(Array[&@hono.HonoNode], colspan? : Int, rowspan? : Int, scope? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn thead(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn time_(Array[&@hono.HonoNode], datetime? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn tr(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn ul(Array[&@hono.HonoNode], props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+pub fn video(Array[&@hono.HonoNode], src? : String, controls? : Bool, autoplay? : Bool, loop_? : Bool, muted? : Bool, poster? : String, width? : Int, height? : Int, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+
