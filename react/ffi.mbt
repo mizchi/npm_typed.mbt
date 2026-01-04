@@ -93,7 +93,7 @@ extern "js" fn ffi_react_profiler() -> @core.Any =
 
 ///|
 /// @deprecated Temporarily disabled - no-op
-pub async fn init_react_symbols() -> Unit {
+pub fn init_react_symbols() -> Unit {
   // No-op
 }
 

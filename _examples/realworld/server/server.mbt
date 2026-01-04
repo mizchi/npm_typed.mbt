@@ -175,7 +175,7 @@ extern "js" fn ffi_sqlite_adapter(db : @sqlite.DatabaseSync) -> @core.Any =
 
 ///|
 /// Get current user from session using database lookup
-async fn get_session_user(
+fn get_session_user(
   db : @sqlite.DatabaseSync,
   c : Ctx,
 ) -> @better_auth.User? {
