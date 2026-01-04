@@ -99,7 +99,7 @@ test "PackageJSON with dependencies" {
   inspect(pkg.version, content="2.0.0")
   inspect(pkg.description, content="Some(\"A sample application\")")
   inspect(pkg.license, content="Some(\"MIT\")")
-  inspect(pkg.dependencies.is_empty(), content="false")
+  inspect(not(pkg.dependencies is None), content="true")
 }
 
 ///|
