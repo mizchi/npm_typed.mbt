@@ -21,7 +21,9 @@ pub extern "js" fn ZodError::as_any(self : ZodError) -> @core.Any =
   #| (x) => x
 
 ///|
-pub suberror ZodParseError ZodError
+pub suberror ZodParseError {
+  ZodParseError(ZodError)
+}
 
 ///|
 /// SafeParseResult - result of safeParse (internal)

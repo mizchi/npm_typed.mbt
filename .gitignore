@@ -26,3 +26,4 @@ tmp
 dist/
 dist-minified/
 test-build/
+_build

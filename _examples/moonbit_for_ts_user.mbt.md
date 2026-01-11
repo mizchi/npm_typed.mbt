@@ -244,7 +244,7 @@ test "error handling" {
 
   // Try-catch expression
   let result1 = divide(0) catch {
-    Failure(msg) => {
+    Failure::Failure(msg) => {
       // Check that error message contains expected text
       assert_true(msg.contains("Division by zero"))
       assert_true(msg.contains("FAILED"))

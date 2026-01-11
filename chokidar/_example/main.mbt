@@ -7,9 +7,9 @@ fn main {
   // Ignore dotfiles with regex pattern
   let watcher = @chokidar.watch(
     ".",
-    ignored?=Some(@core.any("/(^|[\/\\])\\../")),
-    persistent?=Some(true),
-    ignoreInitial?=Some(true),
+    ignored=@core.any("/(^|[\/\\])\\.../"),
+    persistent=true,
+    ignoreInitial=true,
   )
 
   // Set up event handlers

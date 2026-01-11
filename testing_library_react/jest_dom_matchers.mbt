@@ -7,7 +7,9 @@
 
 ///|
 /// Error type for matcher failures
-pub suberror ExpectError String
+pub suberror ExpectError {
+  ExpectError(String)
+}
 
 ///|
 /// Matcher result { pass: Bool, message: () -> String }

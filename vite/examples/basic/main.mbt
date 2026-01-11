@@ -15,9 +15,9 @@ fn dev_server_example() -> Unit {
     // Create and start development server
     println("Creating development server...")
     let server = @vite.createServer(
-      root?=Some("."),
-      logLevel?=Some("info"),
-      clearScreen?=Some(false),
+      root=".",
+      logLevel="info",
+      clearScreen=false,
     ) catch {
       e => {
         println("Failed to create server: \{e}")
