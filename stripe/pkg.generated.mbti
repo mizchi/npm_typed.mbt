@@ -1,0 +1,230 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/stripe"
+
+import(
+  "mizchi/js/core"
+)
+
+// Values
+pub const EVENT_CHECKOUT_SESSION_COMPLETED : String = "checkout.session.completed"
+
+pub const EVENT_CHECKOUT_SESSION_EXPIRED : String = "checkout.session.expired"
+
+pub const EVENT_CUSTOMER_SUBSCRIPTION_CREATED : String = "customer.subscription.created"
+
+pub const EVENT_CUSTOMER_SUBSCRIPTION_DELETED : String = "customer.subscription.deleted"
+
+pub const EVENT_CUSTOMER_SUBSCRIPTION_UPDATED : String = "customer.subscription.updated"
+
+pub const EVENT_INVOICE_PAID : String = "invoice.paid"
+
+pub const EVENT_INVOICE_PAYMENT_FAILED : String = "invoice.payment_failed"
+
+pub const EVENT_PAYMENT_INTENT_FAILED : String = "payment_intent.payment_failed"
+
+pub const EVENT_PAYMENT_INTENT_SUCCEEDED : String = "payment_intent.succeeded"
+
+pub fn checkout_mode_to_string(CheckoutMode) -> String
+
+pub fn checkout_params_to_any(CheckoutSessionCreateParams) -> @core.Any
+
+pub fn customer_create_params_to_any(CustomerCreateParams) -> @core.Any
+
+pub fn price_billing_scheme_to_string(PriceBillingScheme) -> String
+
+pub fn price_create_params_to_any(PriceCreateParams) -> @core.Any
+
+pub fn price_interval_to_string(PriceInterval) -> String
+
+pub fn product_create_params_to_any(ProductCreateParams) -> @core.Any
+
+pub fn stripe_config_to_any(StripeConfig) -> @core.Any
+
+pub fn subscription_create_params_to_any(SubscriptionCreateParams) -> @core.Any
+
+// Errors
+pub suberror WebhookSignatureVerificationError {
+  WebhookSignatureVerificationError(String)
+}
+
+// Types and methods
+pub(all) enum CheckoutMode {
+  Payment
+  Setup
+  Subscription
+}
+
+#external
+pub type CheckoutSession
+pub fn CheckoutSession::as_any(Self) -> @core.Any
+pub fn CheckoutSession::customer(Self) -> String?
+pub fn CheckoutSession::customer_details(Self) -> CustomerDetails?
+pub fn CheckoutSession::customer_email(Self) -> String?
+pub fn CheckoutSession::id(Self) -> String
+pub fn CheckoutSession::payment_status(Self) -> String
+pub fn CheckoutSession::status(Self) -> String
+pub fn CheckoutSession::subscription(Self) -> String?
+pub fn CheckoutSession::url(Self) -> String?
+
+pub(all) struct CheckoutSessionCreateParams {
+  mode : CheckoutMode
+  line_items : Array[LineItem]
+  success_url : String
+  cancel_url : String
+  customer_email : String?
+  client_reference_id : String?
+  metadata : Map[String, String]?
+}
+
+#external
+pub type Customer
+pub fn Customer::as_any(Self) -> @core.Any
+pub fn Customer::created(Self) -> Int
+pub fn Customer::email(Self) -> String?
+pub fn Customer::id(Self) -> String
+pub fn Customer::name(Self) -> String?
+
+pub(all) struct CustomerCreateParams {
+  email : String?
+  name : String?
+  description : String?
+  metadata : Map[String, String]?
+}
+
+#external
+pub type CustomerDetails
+pub fn CustomerDetails::as_any(Self) -> @core.Any
+pub fn CustomerDetails::email(Self) -> String?
+pub fn CustomerDetails::name(Self) -> String?
+
+#external
+pub type Event
+pub fn Event::api_version(Self) -> String?
+pub fn Event::as_any(Self) -> @core.Any
+pub fn Event::created(Self) -> Int
+pub fn Event::data(Self) -> EventData
+pub fn Event::event_type(Self) -> String
+pub fn Event::id(Self) -> String
+
+#external
+pub type EventData
+pub fn EventData::as_any(Self) -> @core.Any
+pub fn EventData::object(Self) -> @core.Any
+pub fn EventData::previous_attributes(Self) -> @core.Any?
+
+pub(all) struct LineItem {
+  price : String
+  quantity : Int
+}
+
+#external
+pub type Price
+pub fn Price::active(Self) -> Bool
+pub fn Price::as_any(Self) -> @core.Any
+pub fn Price::currency(Self) -> String
+pub fn Price::id(Self) -> String
+pub fn Price::product(Self) -> String
+pub fn Price::unit_amount(Self) -> Int?
+
+pub(all) enum PriceBillingScheme {
+  PerUnit
+  Tiered
+}
+
+pub(all) struct PriceCreateParams {
+  product : String
+  currency : String
+  unit_amount : Int?
+  billing_scheme : PriceBillingScheme?
+  recurring : PriceRecurring?
+  metadata : Map[String, String]?
+}
+
+pub(all) enum PriceInterval {
+  Day
+  Week
+  Month
+  Year
+}
+
+pub(all) struct PriceRecurring {
+  interval : PriceInterval
+  interval_count : Int?
+}
+
+#external
+pub type Product
+pub fn Product::active(Self) -> Bool
+pub fn Product::as_any(Self) -> @core.Any
+pub fn Product::description(Self) -> String?
+pub fn Product::id(Self) -> String
+pub fn Product::name(Self) -> String
+
+pub(all) struct ProductCreateParams {
+  name : String
+  description : String?
+  active : Bool?
+  metadata : Map[String, String]?
+}
+
+#external
+pub type Stripe
+pub fn Stripe::as_any(Self) -> @core.Any
+pub async fn Stripe::checkout_sessions_create(Self, CheckoutSessionCreateParams) -> CheckoutSession
+pub async fn Stripe::checkout_sessions_retrieve(Self, String) -> CheckoutSession
+pub async fn Stripe::customers_create(Self, CustomerCreateParams) -> Customer
+pub async fn Stripe::customers_delete(Self, String) -> @core.Any
+pub async fn Stripe::customers_retrieve(Self, String) -> Customer
+pub async fn Stripe::customers_update(Self, String, CustomerCreateParams) -> Customer
+pub async fn Stripe::new(String, config? : StripeConfig) -> Self
+pub async fn Stripe::prices_create(Self, PriceCreateParams) -> Price
+pub async fn Stripe::prices_retrieve(Self, String) -> Price
+pub async fn Stripe::products_create(Self, ProductCreateParams) -> Product
+pub async fn Stripe::products_retrieve(Self, String) -> Product
+pub async fn Stripe::subscriptions_cancel(Self, String) -> Subscription
+pub async fn Stripe::subscriptions_create(Self, SubscriptionCreateParams) -> Subscription
+pub async fn Stripe::subscriptions_retrieve(Self, String) -> Subscription
+pub async fn Stripe::subscriptions_update(Self, String, SubscriptionUpdateParams) -> Subscription
+pub fn Stripe::webhooks_construct_event(Self, String, String, String) -> Event raise WebhookSignatureVerificationError
+pub async fn Stripe::webhooks_construct_event_async(Self, String, String, String) -> Event raise WebhookSignatureVerificationError
+
+pub(all) struct StripeConfig {
+  api_version : String?
+  max_network_retries : Int?
+  timeout : Int?
+}
+
+#external
+pub type Subscription
+pub fn Subscription::as_any(Self) -> @core.Any
+pub fn Subscription::cancel_at_period_end(Self) -> Bool
+pub fn Subscription::canceled_at(Self) -> Int?
+pub fn Subscription::current_period_end(Self) -> Int
+pub fn Subscription::current_period_start(Self) -> Int
+pub fn Subscription::customer(Self) -> String
+pub fn Subscription::id(Self) -> String
+pub fn Subscription::status(Self) -> String
+
+pub(all) struct SubscriptionCreateParams {
+  customer : String
+  items : Array[SubscriptionItem]
+  payment_behavior : String?
+  default_payment_method : String?
+  metadata : Map[String, String]?
+}
+
+pub(all) struct SubscriptionItem {
+  price : String
+  quantity : Int?
+}
+
+pub(all) struct SubscriptionUpdateParams {
+  cancel_at_period_end : Bool?
+  default_payment_method : String?
+  metadata : Map[String, String]?
+}
+
+// Type aliases
+
+// Traits
+
