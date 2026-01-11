@@ -21,7 +21,7 @@ test "PostgrestResponse::error returns None when null" {
   obj["status"] = @core.any(200)
   obj["statusText"] = @core.any("OK")
   let response : @supabase.PostgrestResponse = obj.cast()
-  inspect!(response.error() is None, content="true")
+  inspect(response.error() is None, content="true")
 }
 
 test "PostgrestResponse::error returns Some when error exists" {
@@ -34,7 +34,7 @@ test "PostgrestResponse::error returns Some when error exists" {
   obj["status"] = @core.any(404)
   obj["statusText"] = @core.any("Not Found")
   let response : @supabase.PostgrestResponse = obj.cast()
-  inspect!(response.error() is Some(_), content="true")
+  inspect(response.error() is Some(_), content="true")
 }
 
 test "PostgrestResponse::status returns status code" {
@@ -45,7 +45,7 @@ test "PostgrestResponse::status returns status code" {
   obj["status"] = @core.any(200)
   obj["statusText"] = @core.any("OK")
   let response : @supabase.PostgrestResponse = obj.cast()
-  inspect!(response.status(), content="200")
+  inspect(response.status(), content="200")
 }
 
 test "PostgrestResponse::count returns count when present" {
@@ -57,7 +57,7 @@ test "PostgrestResponse::count returns count when present" {
   obj["statusText"] = @core.any("OK")
   obj["count"] = @core.any(42)
   let response : @supabase.PostgrestResponse = obj.cast()
-  inspect!(response.count(), content="Some(42)")
+  inspect(response.count(), content="Some(42)")
 }
 
 test "AuthResponse::user returns user data" {
@@ -72,7 +72,7 @@ test "AuthResponse::user returns user data" {
   obj["error"] = @core.null()
   let response : @supabase.AuthResponse = obj.cast()
   let u = response.user()
-  inspect!(u is Some(_), content="true")
+  inspect(u is Some(_), content="true")
 }
 
 test "AuthResponse::error returns None when no error" {
@@ -83,7 +83,7 @@ test "AuthResponse::error returns None when no error" {
   obj["data"] = data
   obj["error"] = @core.null()
   let response : @supabase.AuthResponse = obj.cast()
-  inspect!(response.error() is None, content="true")
+  inspect(response.error() is None, content="true")
 }
 
 test "SessionResponse::session returns session data" {
@@ -97,7 +97,7 @@ test "SessionResponse::session returns session data" {
   obj["error"] = @core.null()
   let response : @supabase.SessionResponse = obj.cast()
   let s = response.session()
-  inspect!(s is Some(_), content="true")
+  inspect(s is Some(_), content="true")
 }
 
 test "UserResponse::user returns user when present" {
@@ -109,7 +109,7 @@ test "UserResponse::user returns user when present" {
   obj["data"] = data
   obj["error"] = @core.null()
   let response : @supabase.UserResponse = obj.cast()
-  inspect!(response.user() is Some(_), content="true")
+  inspect(response.user() is Some(_), content="true")
 }
 
 test "UserResponse::user returns None when not present" {
@@ -119,5 +119,5 @@ test "UserResponse::user returns None when not present" {
   obj["data"] = data
   obj["error"] = @core.null()
   let response : @supabase.UserResponse = obj.cast()
-  inspect!(response.user() is None, content="true")
+  inspect(response.user() is None, content="true")
 }
