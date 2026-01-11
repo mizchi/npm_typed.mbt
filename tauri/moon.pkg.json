@@ -1,0 +1,7 @@
+{
+  "import": [
+    "mizchi/js",
+    "mizchi/js/core",
+    "mizchi/npm_typed/tauri/dpi"
+  ]
+}

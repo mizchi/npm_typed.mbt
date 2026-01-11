@@ -1,0 +1,326 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/tauri"
+
+import(
+  "mizchi/js/core"
+  "mizchi/npm_typed/tauri/dpi"
+)
+
+// Values
+pub const TAURI_EVENT_DRAG_DROP : String = "tauri://drag-drop"
+
+pub const TAURI_EVENT_DRAG_ENTER : String = "tauri://drag-enter"
+
+pub const TAURI_EVENT_DRAG_LEAVE : String = "tauri://drag-leave"
+
+pub const TAURI_EVENT_DRAG_OVER : String = "tauri://drag-over"
+
+pub const TAURI_EVENT_WEBVIEW_CREATED : String = "tauri://webview-created"
+
+pub const TAURI_EVENT_WINDOW_BLUR : String = "tauri://blur"
+
+pub const TAURI_EVENT_WINDOW_CLOSE_REQUESTED : String = "tauri://close-requested"
+
+pub const TAURI_EVENT_WINDOW_CREATED : String = "tauri://window-created"
+
+pub const TAURI_EVENT_WINDOW_DESTROYED : String = "tauri://destroyed"
+
+pub const TAURI_EVENT_WINDOW_FOCUS : String = "tauri://focus"
+
+pub const TAURI_EVENT_WINDOW_MOVED : String = "tauri://move"
+
+pub const TAURI_EVENT_WINDOW_RESIZED : String = "tauri://resize"
+
+pub const TAURI_EVENT_WINDOW_SCALE_FACTOR_CHANGED : String = "tauri://scale-change"
+
+pub const TAURI_EVENT_WINDOW_THEME_CHANGED : String = "tauri://theme-changed"
+
+pub async fn app_cache_dir() -> String
+
+pub async fn app_config_dir() -> String
+
+pub async fn app_data_dir() -> String
+
+pub async fn app_local_data_dir() -> String
+
+pub async fn app_log_dir() -> String
+
+pub async fn audio_dir() -> String
+
+pub async fn available_monitors() -> Array[Monitor]
+
+pub async fn basename(String, ext? : String) -> String
+
+pub fn bundle_type_from_string(String) -> BundleType
+
+pub fn bundle_type_to_string(BundleType) -> String
+
+pub async fn cache_dir() -> String
+
+pub async fn config_dir() -> String
+
+pub fn convert_file_src(String, protocol? : String) -> String
+
+pub async fn current_monitor() -> Monitor?
+
+pub fn cursor_icon_to_string(CursorIcon) -> String
+
+pub async fn cursor_position() -> @dpi.PhysicalPosition
+
+pub async fn data_dir() -> String
+
+pub fn delimiter() -> String
+
+pub async fn desktop_dir() -> String
+
+pub async fn dirname(String) -> String
+
+pub async fn document_dir() -> String
+
+pub async fn download_dir() -> String
+
+pub async fn emit(String, payload? : @core.Any) -> Unit
+
+pub async fn emit_to(String, String, payload? : @core.Any) -> Unit
+
+pub async fn executable_dir() -> String
+
+pub async fn extname(String) -> String
+
+pub async fn get_all_windows() -> Array[Window]
+
+pub async fn get_bundle_type() -> BundleType
+
+pub async fn get_by_label(String) -> Window?
+
+pub fn get_current_window() -> Window
+
+pub async fn get_focused_window() -> Window?
+
+pub async fn get_identifier() -> String
+
+pub async fn get_name() -> String
+
+pub async fn get_tauri_version() -> String
+
+pub async fn get_version() -> String
+
+pub async fn hide() -> Unit
+
+pub async fn home_dir() -> String
+
+pub async fn invoke(String, args? : @core.Any) -> @core.Any
+
+pub async fn invoke_with_headers(String, @core.Any, @core.Any) -> @core.Any
+
+pub async fn is_absolute(String) -> Bool
+
+pub fn is_tauri() -> Bool
+
+pub async fn join(Array[String]) -> String
+
+pub async fn listen(String, (Event) -> Unit, options? : ListenOptions) -> UnlistenFn
+
+pub async fn local_data_dir() -> String
+
+pub async fn normalize(String) -> String
+
+pub async fn once(String, (Event) -> Unit, options? : ListenOptions) -> UnlistenFn
+
+pub fn permission_state_from_string(String) -> PermissionState
+
+pub fn permission_state_to_string(PermissionState) -> String
+
+pub async fn picture_dir() -> String
+
+pub async fn primary_monitor() -> Monitor?
+
+pub async fn public_dir() -> String
+
+pub fn resize_direction_to_string(ResizeDirection) -> String
+
+pub async fn resolve(Array[String]) -> String
+
+pub async fn resolve_resource(String) -> String
+
+pub async fn resource_dir() -> String
+
+pub async fn runtime_dir() -> String
+
+pub fn sep() -> String
+
+pub async fn set_dock_visibility(Bool) -> Unit
+
+pub async fn set_theme(theme? : Theme) -> Unit
+
+pub async fn show() -> Unit
+
+pub async fn temp_dir() -> String
+
+pub async fn template_dir() -> String
+
+pub fn theme_from_string(String) -> Theme
+
+pub fn theme_to_string(Theme) -> String
+
+pub async fn video_dir() -> String
+
+// Errors
+
+// Types and methods
+pub(all) enum BundleType {
+  App
+  AppImage
+  Deb
+  Msi
+  Nsis
+  Rpm
+}
+
+#external
+pub type Channel
+pub fn Channel::as_any(Self) -> @core.Any
+pub fn Channel::id(Self) -> Int
+pub async fn Channel::new() -> Self
+pub fn Channel::on_message(Self, (@core.Any) -> Unit) -> Unit
+
+pub(all) enum CursorIcon {
+  Default
+  Crosshair
+  Hand
+  Arrow
+  Move
+  Text
+  Wait
+  Help
+  Progress
+  NotAllowed
+  ContextMenu
+  Cell
+  VerticalText
+  Alias
+  Copy
+  NoDrop
+  Grab
+  Grabbing
+  AllScroll
+  ZoomIn
+  ZoomOut
+  EResize
+  NResize
+  NeResize
+  NwResize
+  SResize
+  SeResize
+  SwResize
+  WResize
+  EwResize
+  NsResize
+  NeswResize
+  NwseResize
+  ColResize
+  RowResize
+}
+
+#external
+pub type Event
+pub fn Event::as_any(Self) -> @core.Any
+pub fn Event::event(Self) -> String
+pub fn Event::id(Self) -> Int
+pub fn Event::payload(Self) -> @core.Any
+
+pub(all) struct ListenOptions {
+  target : String?
+}
+
+#external
+pub type Monitor
+pub fn Monitor::as_any(Self) -> @core.Any
+pub fn Monitor::name(Self) -> String?
+pub fn Monitor::position(Self) -> @dpi.PhysicalPosition
+pub fn Monitor::scale_factor(Self) -> Double
+pub fn Monitor::size(Self) -> @dpi.PhysicalSize
+
+pub(all) enum PermissionState {
+  Granted
+  Denied
+  Prompt
+  PromptWithRationale
+}
+
+pub(all) enum ResizeDirection {
+  North
+  South
+  East
+  West
+  NorthEast
+  NorthWest
+  SouthEast
+  SouthWest
+}
+
+#external
+pub type Resource
+pub fn Resource::as_any(Self) -> @core.Any
+pub async fn Resource::close(Self) -> Unit
+pub fn Resource::rid(Self) -> Int
+
+pub(all) enum Theme {
+  Light
+  Dark
+}
+
+#external
+pub type UnlistenFn
+pub fn UnlistenFn::as_any(Self) -> @core.Any
+pub fn UnlistenFn::unlisten(Self) -> Unit
+
+#external
+pub type Window
+pub fn Window::as_any(Self) -> @core.Any
+pub async fn Window::center(Self) -> Unit
+pub async fn Window::close(Self) -> Unit
+pub async fn Window::hide(Self) -> Unit
+pub async fn Window::inner_position(Self) -> @dpi.PhysicalPosition
+pub async fn Window::inner_size(Self) -> @dpi.PhysicalSize
+pub async fn Window::is_decorated(Self) -> Bool
+pub async fn Window::is_focused(Self) -> Bool
+pub async fn Window::is_fullscreen(Self) -> Bool
+pub async fn Window::is_maximized(Self) -> Bool
+pub async fn Window::is_minimized(Self) -> Bool
+pub async fn Window::is_resizable(Self) -> Bool
+pub async fn Window::is_visible(Self) -> Bool
+pub fn Window::label(Self) -> String
+pub async fn Window::maximize(Self) -> Unit
+pub async fn Window::minimize(Self) -> Unit
+pub async fn Window::outer_position(Self) -> @dpi.PhysicalPosition
+pub async fn Window::outer_size(Self) -> @dpi.PhysicalSize
+pub async fn Window::scale_factor(Self) -> Double
+pub async fn Window::set_always_on_bottom(Self, Bool) -> Unit
+pub async fn Window::set_always_on_top(Self, Bool) -> Unit
+pub async fn Window::set_cursor_grab(Self, Bool) -> Unit
+pub async fn Window::set_cursor_icon(Self, CursorIcon) -> Unit
+pub async fn Window::set_cursor_position(Self, @dpi.Position) -> Unit
+pub async fn Window::set_cursor_visible(Self, Bool) -> Unit
+pub async fn Window::set_decorations(Self, Bool) -> Unit
+pub async fn Window::set_focus(Self) -> Unit
+pub async fn Window::set_fullscreen(Self, Bool) -> Unit
+pub async fn Window::set_ignore_cursor_events(Self, Bool) -> Unit
+pub async fn Window::set_max_size(Self, size? : @dpi.Size) -> Unit
+pub async fn Window::set_min_size(Self, size? : @dpi.Size) -> Unit
+pub async fn Window::set_position(Self, @dpi.Position) -> Unit
+pub async fn Window::set_resizable(Self, Bool) -> Unit
+pub async fn Window::set_size(Self, @dpi.Size) -> Unit
+pub async fn Window::set_title(Self, String) -> Unit
+pub async fn Window::show(Self) -> Unit
+pub async fn Window::start_dragging(Self) -> Unit
+pub async fn Window::start_resize_dragging(Self, ResizeDirection) -> Unit
+pub async fn Window::theme(Self) -> Theme?
+pub async fn Window::title(Self) -> String
+pub async fn Window::toggle_maximize(Self) -> Unit
+pub async fn Window::unmaximize(Self) -> Unit
+
+// Type aliases
+
+// Traits
+
