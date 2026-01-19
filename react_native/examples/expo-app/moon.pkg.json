@@ -1,0 +1,14 @@
+{
+  "supported-targets": ["js"],
+  "import": [
+    "mizchi/js/core",
+    "mizchi/npm_typed/react",
+    "mizchi/npm_typed/react_native"
+  ],
+  "link": {
+    "js": {
+      "exports": ["app"],
+      "format": "esm"
+    }
+  }
+}
