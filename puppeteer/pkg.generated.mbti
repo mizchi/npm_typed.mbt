@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/puppeteer"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub async fn launch(headless? : Bool, args? : Array[String], executablePath? : String, devtools? : Bool, timeout? : Int, userDataDir? : String, dumpio? : Bool, env? : @core.Any, pipe? : Bool, ignoreDefaultArgs? : Bool, waitForInitialPage? : Bool, debuggingPort? : Int, handleSIGHUP? : Bool, handleSIGINT? : Bool, handleSIGTERM? : Bool) -> Browser

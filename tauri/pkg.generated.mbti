@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/tauri"
 
-import(
-  "mizchi/js/core"
-  "mizchi/npm_typed/tauri/dpi"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/tauri/dpi",
+}
 
 // Values
 pub const TAURI_EVENT_DRAG_DROP : String = "tauri://drag-drop"

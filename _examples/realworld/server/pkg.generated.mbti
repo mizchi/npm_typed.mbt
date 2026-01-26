@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/_examples/realworld/server"
 
-import(
-  "mizchi/js/node/sqlite"
-  "mizchi/npm_typed/better_auth"
-  "mizchi/npm_typed/hono"
-)
+import {
+  "mizchi/js/node/sqlite",
+  "mizchi/npm_typed/better_auth",
+  "mizchi/npm_typed/hono",
+}
 
 // Values
 pub async fn create_app(@sqlite.DatabaseSync, @better_auth.Auth) -> @hono.Hono[Unit, Unit]

@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/date_fns"
 
-import(
-  "mizchi/js/builtins/date"
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/builtins/date",
+  "mizchi/js/core",
+}
 
 // Values
 pub fn add(&DateArgs, years? : Int, months? : Int, weeks? : Int, days? : Int, hours? : Int, minutes? : Int, seconds? : Int) -> @date.Date

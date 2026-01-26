@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/stripe"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub const EVENT_CHECKOUT_SESSION_COMPLETED : String = "checkout.session.completed"

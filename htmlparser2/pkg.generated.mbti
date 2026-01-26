@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/htmlparser2"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub fn createParser(@core.Any, xmlMode? : Bool, decodeEntities? : Bool, lowerCaseTags? : Bool, lowerCaseAttributeNames? : Bool) -> Parser

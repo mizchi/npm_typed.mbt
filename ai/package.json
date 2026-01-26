@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/ai",
   "private": true,
   "peerDependencies": {
     "ai": "^6.0.0-beta.0"

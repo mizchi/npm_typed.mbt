@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/htmlparser2",
   "private": true,
   "peerDependencies": {
     "htmlparser2": "^10.0.0"

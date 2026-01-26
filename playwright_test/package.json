@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/playwright_test",
   "private": true,
   "peerDependencies": {
     "@playwright/test": "^1.0.0"

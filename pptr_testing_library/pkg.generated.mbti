@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/pptr_testing_library"
 
-import(
-  "mizchi/js/core"
-  "mizchi/npm_typed/puppeteer"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/puppeteer",
+}
 
 // Values
 #alias(find_by_role)

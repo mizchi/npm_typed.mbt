@@ -1,5 +1,5 @@
 {
+  "name": "@npm_typed/classnames",
   "private": true,
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }

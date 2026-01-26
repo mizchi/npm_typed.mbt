@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/execa",
   "private": true,
   "peerDependencies": {
     "execa": "^9.0.0"

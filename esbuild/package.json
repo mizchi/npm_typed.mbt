@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/esbuild",
   "private": true,
   "peerDependencies": {
     "esbuild": "~0.27.0"

@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/helmet",
   "private": true,
   "peerDependencies": {
     "helmet": "^8.0.0"

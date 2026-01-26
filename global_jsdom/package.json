@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/global_jsdom",
   "private": true,
   "peerDependencies": {
     "global-jsdom": "^27.0.0"

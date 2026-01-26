@@ -1,5 +1,5 @@
 {
+  "name": "@npm_typed/zustand",
   "private": true,
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }

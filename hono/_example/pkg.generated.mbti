@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/hono/_example"
 
-import(
-  "mizchi/npm_typed/hono"
-)
+import {
+  "mizchi/npm_typed/hono",
+}
 
 // Values
 pub async fn create_app() -> @hono.Hono[Unit, Unit]

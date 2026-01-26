@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/testing_library_preact",
   "private": true,
   "peerDependencies": {
     "@testing-library/preact": "^3.0.0"

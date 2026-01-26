@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/chalk",
   "private": true,
   "peerDependencies": {
     "chalk": "^5.0.0"

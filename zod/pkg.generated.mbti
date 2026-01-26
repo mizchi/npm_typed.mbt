@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/zod"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub fn any_() -> ZodSchema
@@ -73,7 +73,9 @@ pub fn unknown() -> ZodSchema
 pub fn void_() -> ZodSchema
 
 // Errors
-pub suberror ZodParseError ZodError
+pub suberror ZodParseError {
+  ZodParseError(ZodError)
+}
 
 // Types and methods
 #external

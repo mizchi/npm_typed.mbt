@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/_experimental/moonbit_lsp_api"
 
-import(
-  "mizchi/js/core"
-  "mizchi/js/node/child_process"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/js/node/child_process",
+}
 
 // Values
 pub const COMPLETION_KIND_CLASS : Int = 7

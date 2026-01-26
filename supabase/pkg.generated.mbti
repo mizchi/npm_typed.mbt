@@ -1,0 +1,150 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/supabase"
+
+import {
+  "mizchi/js/core",
+}
+
+// Values
+pub async fn create_client(String, String, options? : @core.Any) -> SupabaseClient
+
+// Errors
+
+// Types and methods
+#external
+pub type AuthClient
+pub fn AuthClient::as_any(Self) -> @core.Any
+pub async fn AuthClient::get_session(Self) -> SessionResponse
+pub async fn AuthClient::get_user(Self) -> UserResponse
+pub fn AuthClient::on_auth_state_change(Self, (@core.Any, @core.Any) -> Unit) -> @core.Any
+pub async fn AuthClient::refresh_session(Self) -> AuthResponse
+pub async fn AuthClient::reset_password_for_email(Self, String, options? : @core.Any) -> @core.Any
+pub async fn AuthClient::set_session(Self, String, String) -> AuthResponse
+pub async fn AuthClient::sign_in_with_oauth(Self, String, options? : @core.Any) -> AuthResponse
+pub async fn AuthClient::sign_in_with_otp(Self, email? : String, phone? : String, options? : @core.Any) -> AuthResponse
+pub async fn AuthClient::sign_in_with_password(Self, String, String) -> AuthResponse
+pub async fn AuthClient::sign_out(Self) -> @core.Any?
+pub async fn AuthClient::sign_up(Self, String, String) -> AuthResponse
+pub async fn AuthClient::sign_up_with_options(Self, String, String, @core.Any) -> AuthResponse
+pub async fn AuthClient::update_user(Self, @core.Any) -> UserResponse
+
+#external
+pub type AuthResponse
+pub fn AuthResponse::as_any(Self) -> @core.Any
+pub fn AuthResponse::error(Self) -> @core.Any?
+pub fn AuthResponse::session(Self) -> @core.Any?
+pub fn AuthResponse::user(Self) -> @core.Any?
+
+#external
+pub type FilterBuilder
+pub fn FilterBuilder::abort_signal(Self, @core.Any) -> Self
+pub fn FilterBuilder::as_any(Self) -> @core.Any
+pub fn FilterBuilder::contained_by(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::contains(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::eq(Self, String, @core.Any) -> Self
+pub async fn FilterBuilder::execute(Self) -> PostgrestResponse
+pub fn FilterBuilder::gt(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::gte(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::ilike(Self, String, String) -> Self
+pub fn FilterBuilder::in_(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::is_(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::like(Self, String, String) -> Self
+pub fn FilterBuilder::limit(Self, Int, foreign_table? : String) -> Self
+pub fn FilterBuilder::lt(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::lte(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::match_(Self, @core.Any) -> Self
+pub fn FilterBuilder::maybe_single(Self) -> Self
+pub fn FilterBuilder::neq(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::not(Self, String, String, @core.Any) -> Self
+pub fn FilterBuilder::or(Self, String, options? : @core.Any) -> Self
+pub fn FilterBuilder::order(Self, String, ascending? : Bool, nulls_first? : Bool, foreign_table? : String) -> Self
+pub fn FilterBuilder::overlaps(Self, String, @core.Any) -> Self
+pub fn FilterBuilder::range(Self, Int, Int, foreign_table? : String) -> Self
+pub fn FilterBuilder::range_adjacent(Self, String, String) -> Self
+pub fn FilterBuilder::range_gt(Self, String, String) -> Self
+pub fn FilterBuilder::range_gte(Self, String, String) -> Self
+pub fn FilterBuilder::range_lt(Self, String, String) -> Self
+pub fn FilterBuilder::range_lte(Self, String, String) -> Self
+pub fn FilterBuilder::single(Self) -> Self
+pub fn FilterBuilder::text_search(Self, String, String, options? : @core.Any) -> Self
+
+#external
+pub type PostgrestResponse
+pub fn PostgrestResponse::as_any(Self) -> @core.Any
+pub fn PostgrestResponse::count(Self) -> Int?
+pub fn PostgrestResponse::data(Self) -> @core.Any
+pub fn PostgrestResponse::error(Self) -> @core.Any?
+pub fn PostgrestResponse::status(Self) -> Int
+pub fn PostgrestResponse::status_text(Self) -> String
+
+#external
+pub type QueryBuilder
+pub fn QueryBuilder::as_any(Self) -> @core.Any
+pub fn QueryBuilder::delete(Self, options? : @core.Any) -> FilterBuilder
+pub fn QueryBuilder::insert(Self, @core.Any, options? : @core.Any) -> FilterBuilder
+pub fn QueryBuilder::select(Self, columns? : String, options? : @core.Any) -> FilterBuilder
+pub fn QueryBuilder::update(Self, @core.Any, options? : @core.Any) -> FilterBuilder
+pub fn QueryBuilder::upsert(Self, @core.Any, options? : @core.Any) -> FilterBuilder
+
+#external
+pub type RealtimeChannel
+pub fn RealtimeChannel::as_any(Self) -> @core.Any
+pub fn RealtimeChannel::on_broadcast(Self, String, (@core.Any) -> Unit) -> Self
+pub fn RealtimeChannel::on_postgres_changes(Self, String, String, table? : String, filter? : String, (@core.Any) -> Unit) -> Self
+pub fn RealtimeChannel::on_presence(Self, String, (@core.Any) -> Unit) -> Self
+pub async fn RealtimeChannel::send(Self, @core.Any) -> @core.Any
+pub fn RealtimeChannel::subscribe(Self, callback? : (@core.Any) -> Unit) -> Self
+pub async fn RealtimeChannel::track(Self, @core.Any) -> @core.Any
+pub async fn RealtimeChannel::unsubscribe(Self) -> @core.Any
+pub async fn RealtimeChannel::untrack(Self) -> @core.Any
+
+#external
+pub type SessionResponse
+pub fn SessionResponse::as_any(Self) -> @core.Any
+pub fn SessionResponse::error(Self) -> @core.Any?
+pub fn SessionResponse::session(Self) -> @core.Any?
+
+#external
+pub type StorageBucket
+pub fn StorageBucket::as_any(Self) -> @core.Any
+pub async fn StorageBucket::copy(Self, String, String, options? : @core.Any) -> @core.Any
+pub async fn StorageBucket::create_signed_url(Self, String, Int, options? : @core.Any) -> @core.Any
+pub async fn StorageBucket::download(Self, String, options? : @core.Any) -> @core.Any
+pub fn StorageBucket::get_public_url(Self, String, options? : @core.Any) -> String
+pub async fn StorageBucket::list(Self, path? : String, options? : @core.Any) -> @core.Any
+pub async fn StorageBucket::move_(Self, String, String, options? : @core.Any) -> @core.Any
+pub async fn StorageBucket::remove(Self, Array[String]) -> @core.Any
+pub async fn StorageBucket::upload(Self, String, @core.Any, options? : @core.Any) -> @core.Any
+
+#external
+pub type StorageClient
+pub fn StorageClient::as_any(Self) -> @core.Any
+pub async fn StorageClient::create_bucket(Self, String, options? : @core.Any) -> @core.Any
+pub async fn StorageClient::delete_bucket(Self, String) -> @core.Any
+pub async fn StorageClient::empty_bucket(Self, String) -> @core.Any
+pub fn StorageClient::from(Self, String) -> StorageBucket
+pub async fn StorageClient::get_bucket(Self, String) -> @core.Any
+pub async fn StorageClient::list_buckets(Self) -> @core.Any
+
+#external
+pub type SupabaseClient
+pub fn SupabaseClient::as_any(Self) -> @core.Any
+pub fn SupabaseClient::auth(Self) -> AuthClient
+pub fn SupabaseClient::channel(Self, String, options? : @core.Any) -> RealtimeChannel
+pub fn SupabaseClient::from(Self, String) -> QueryBuilder
+pub async fn SupabaseClient::invoke(Self, String, options? : @core.Any) -> @core.Any
+pub async fn SupabaseClient::remove_all_channels(Self) -> @core.Any
+pub async fn SupabaseClient::remove_channel(Self, RealtimeChannel) -> @core.Any
+pub async fn SupabaseClient::rpc(Self, String, args? : @core.Any, options? : @core.Any) -> PostgrestResponse
+pub fn SupabaseClient::storage(Self) -> StorageClient
+
+#external
+pub type UserResponse
+pub fn UserResponse::as_any(Self) -> @core.Any
+pub fn UserResponse::error(Self) -> @core.Any?
+pub fn UserResponse::user(Self) -> @core.Any?
+
+// Type aliases
+
+// Traits
+

@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/better_auth",
   "private": true,
   "peerDependencies": {
     "better-auth": "^1.0.0"

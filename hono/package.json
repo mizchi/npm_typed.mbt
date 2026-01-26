@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/hono",
   "private": true,
   "peerDependencies": {
     "hono": "^4.0.0"

@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/execa"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub async fn execa(String, args? : Array[String], cwd? : String, input? : String, timeout? : Int, env? : @core.Any, shell? : Bool, options? : @core.Any) -> ExecaResult

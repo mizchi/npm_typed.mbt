@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/npm_types"
 
-import(
-  "moonbitlang/core/json"
-)
+import {
+  "moonbitlang/core/json",
+}
 
 // Values
 

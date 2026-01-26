@@ -1,5 +1,5 @@
 {
+  "name": "@npm_typed/immer",
   "private": true,
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }

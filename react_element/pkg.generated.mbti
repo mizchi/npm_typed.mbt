@@ -1,12 +1,12 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/react_element"
 
-import(
-  "mizchi/js/browser/dom"
-  "mizchi/js/core"
-  "mizchi/js/web/http"
-  "mizchi/npm_typed/react"
-)
+import {
+  "mizchi/js/browser/dom",
+  "mizchi/js/core",
+  "mizchi/js/web/http",
+  "mizchi/npm_typed/react",
+}
 
 // Values
 pub fn a(Array[&@react.ReactNode], href? : String, target? : String, download? : String, props? : @core.Any, id? : String, class? : String, style? : Map[String, String], tab_index? : Int, ref_? : @react.ReactRef[@dom.HTMLAnchorElement], key? : String, on_click? : (@dom.MouseEvent) -> Unit, on_change? : (@dom.ChangeEvent) -> Unit, on_keydown? : (@dom.KeyboardEvent) -> Unit, on_keyup? : (@dom.KeyboardEvent) -> Unit, on_focus? : (@dom.FocusEvent) -> Unit, on_blur? : (@dom.FocusEvent) -> Unit, on_drag? : (@dom.DragEvent) -> Unit, on_dragstart? : (@dom.DragEvent) -> Unit, on_dragend? : (@dom.DragEvent) -> Unit, on_dragleave? : (@dom.DragEvent) -> Unit, on_dragenter? : (@dom.DragEvent) -> Unit, on_dragover? : (@dom.DragEvent) -> Unit, on_drop? : (@dom.DragEvent) -> Unit) -> @react.Element

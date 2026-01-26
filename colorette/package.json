@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/colorette",
   "private": true,
   "peerDependencies": {
     "colorette": "^2.0.0"

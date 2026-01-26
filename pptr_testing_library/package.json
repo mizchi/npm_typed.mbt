@@ -1,5 +1,5 @@
 {
+  "name": "@npm_typed/pptr_testing_library",
   "private": true,
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }

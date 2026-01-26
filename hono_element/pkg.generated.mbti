@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/hono_element"
 
-import(
-  "mizchi/js/core"
-  "mizchi/npm_typed/hono"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/hono",
+}
 
 // Values
 pub fn a(Array[&@hono.HonoNode], href? : String, target? : String, download? : String, props? : Map[String, @core.Any], class? : &@hono.CssClassName, id? : String, style? : Map[String, String], key? : String) -> @hono.JSXNode

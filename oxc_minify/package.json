@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/oxc_minify",
   "private": true,
   "peerDependencies": {
     "oxc-minify": "~0.99.0"

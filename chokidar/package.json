@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/chokidar",
   "private": true,
   "peerDependencies": {
     "chokidar": "^5.0.0"

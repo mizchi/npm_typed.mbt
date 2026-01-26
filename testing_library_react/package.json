@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/testing_library_react",
   "private": true,
   "peerDependencies": {
     "@testing-library/react": "^16.0.0"

@@ -400,13 +400,15 @@ pub fn is_target_build() -> Bool {
 
 ///|
 /// Check if a given path is inside a target build directory
+/// Supports both legacy "target/js" and new "_build/js" directories
 pub fn is_target_build_path(file_path : String) -> Bool {
   let abs_path = @path.resolve([file_path])
   let moon_mod = find_moon_mod(abs_path)
   match moon_mod {
     Some(m) => {
       let target_js_dir = @path.join([m.root_dir, "target", "js"])
-      abs_path.has_prefix(target_js_dir)
+      let build_js_dir = @path.join([m.root_dir, "_build", "js"])
+      abs_path.has_prefix(target_js_dir) || abs_path.has_prefix(build_js_dir)
     }
     None => false
   }

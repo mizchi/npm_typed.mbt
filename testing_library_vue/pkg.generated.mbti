@@ -1,12 +1,12 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/testing_library_vue"
 
-import(
-  "mizchi/js/browser/dom"
-  "mizchi/js/core"
-  "mizchi/npm_typed/testing_library"
-  "mizchi/npm_typed/vue"
-)
+import {
+  "mizchi/js/browser/dom",
+  "mizchi/js/core",
+  "mizchi/npm_typed/testing_library",
+  "mizchi/npm_typed/vue",
+}
 
 // Values
 pub fn cleanup() -> Unit

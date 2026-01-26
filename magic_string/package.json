@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/magic_string",
   "private": true,
   "peerDependencies": {
     "magic-string": "~0.30.0"

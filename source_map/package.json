@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/source_map",
   "private": true,
   "peerDependencies": {
     "source-map": "~0.7.0"

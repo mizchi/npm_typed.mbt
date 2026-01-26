@@ -2,8 +2,6 @@ packages:
   - '*'
   - react/examples/*
 
-nodeLinker: hoisted
-
 onlyBuiltDependencies:
   - canvas
   - esbuild

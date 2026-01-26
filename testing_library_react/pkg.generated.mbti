@@ -1,12 +1,12 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/testing_library_react"
 
-import(
-  "mizchi/js/browser/dom"
-  "mizchi/js/core"
-  "mizchi/npm_typed/react"
-  "mizchi/npm_typed/testing_library"
-)
+import {
+  "mizchi/js/browser/dom",
+  "mizchi/js/core",
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/testing_library",
+}
 
 // Values
 pub fn act(() -> Unit) -> @core.Any
@@ -29,7 +29,9 @@ pub fn screen() -> @testing_library.Screen
 pub fn setup_matchers() -> Unit
 
 // Errors
-pub suberror ExpectError String
+pub suberror ExpectError {
+  ExpectError(String)
+}
 
 // Types and methods
 pub struct Expect {

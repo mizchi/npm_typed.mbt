@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/comlink"
 
-import(
-  "mizchi/js/core"
-  "mizchi/js/web/message"
-  "mizchi/js/web/worker"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/js/web/message",
+  "mizchi/js/web/worker",
+}
 
 // Values
 pub fn createEndpointSymbol() -> @core.Any

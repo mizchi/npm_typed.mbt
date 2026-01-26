@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/_examples/realworld/client"
 
-import(
-  "mizchi/js/core"
-  "mizchi/npm_typed/better_auth"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/better_auth",
+}
 
 // Values
 pub fn create_api_client(String) -> ApiClient

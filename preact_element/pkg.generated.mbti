@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/preact_element"
 
-import(
-  "mizchi/js/browser/dom"
-  "mizchi/js/core"
-  "mizchi/npm_typed/preact"
-)
+import {
+  "mizchi/js/browser/dom",
+  "mizchi/js/core",
+  "mizchi/npm_typed/preact",
+}
 
 // Values
 pub fn a(Array[&@preact.PreactNode], href? : String, target? : String, download? : String, props? : Map[String, @core.Any], id? : String, style? : Map[String, String], ref_? : @preact.Ref[@dom.Element], key? : String) -> @preact.VNode

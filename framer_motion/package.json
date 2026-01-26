@@ -1,5 +1,5 @@
 {
+  "name": "@npm_typed/framer_motion",
   "private": true,
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }

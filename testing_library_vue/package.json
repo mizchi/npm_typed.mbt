@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/testing_library_vue",
   "private": true,
   "peerDependencies": {
     "@testing-library/vue": "^8.0.0"

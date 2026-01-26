@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/yargs",
   "private": true,
   "peerDependencies": {
     "yargs": "^18.0.0"

@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/_experimental/zod_codegen"
 
-import(
-  "mizchi/js/core"
-  "mizchi/npm_typed/zod"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/zod",
+}
 
 // Values
 pub fn generate_all_types(JsonSchema, String, type_prefix? : String, struct_prefix? : String, struct_postfix? : String, add_docs? : Bool) -> Array[GeneratedType]

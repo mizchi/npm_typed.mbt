@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/jose",
   "private": true,
   "peerDependencies": {
     "jose": "^6.0.0"

@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/dotenv"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub fn config(path? : String, encoding? : String, debug? : Bool, override_existing? : Bool, quiet? : Bool) -> DotenvConfigOutput

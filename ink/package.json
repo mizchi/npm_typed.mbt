@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/ink",
   "private": true,
   "peerDependencies": {
     "ink": "^6.0.0"

@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/react_router"
 
-import(
-  "mizchi/js/core"
-  "mizchi/js/web/url"
-  "mizchi/npm_typed/react"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/js/web/url",
+  "mizchi/npm_typed/react",
+}
 
 // Values
 pub fn create_browser_router(Array[Route]) -> Router

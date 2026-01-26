@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/esbuild"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub async fn build(entry_points? : Array[String], outdir? : String, outfile? : String, bundle? : Bool, minify? : Bool, format? : Format, target? : String, platform? : Platform, sourcemap? : Bool, write? : Bool, external? : Array[String], definitions? : Array[(String, String)]) -> BuildResult

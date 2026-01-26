@@ -1,5 +1,5 @@
 {
+  "name": "@npm_typed/lit_html",
   "private": true,
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }

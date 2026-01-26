@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/react_dom"
 
-import(
-  "mizchi/js/browser/dom"
-  "mizchi/js/core"
-  "mizchi/npm_typed/react"
-)
+import {
+  "mizchi/js/browser/dom",
+  "mizchi/js/core",
+  "mizchi/npm_typed/react",
+}
 
 // Values
 #alias(create_portal)

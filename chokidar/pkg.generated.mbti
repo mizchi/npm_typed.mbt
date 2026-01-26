@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/chokidar"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub fn watch(String, persistent? : Bool, ignored? : @core.Any, ignoreInitial? : Bool, followSymlinks? : Bool, cwd? : String, disableGlobbing? : Bool, usePolling? : Bool, interval? : Int, binaryInterval? : Int, alwaysStat? : Bool, depth? : Int, awaitWriteFinish? : @core.Any, ignorePermissionErrors? : Bool, atomic_? : Bool) -> FSWatcher

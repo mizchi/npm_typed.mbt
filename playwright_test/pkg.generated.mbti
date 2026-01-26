@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/playwright_test"
 
-import(
-  "mizchi/js/core"
-  "mizchi/npm_typed/playwright"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/playwright",
+}
 
 // Values
 pub fn expect_fn() -> Expect

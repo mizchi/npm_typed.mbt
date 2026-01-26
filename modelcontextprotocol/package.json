@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/modelcontextprotocol",
   "private": true,
   "peerDependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"

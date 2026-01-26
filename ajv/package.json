@@ -1,4 +1,5 @@
 {
+  "name": "@npm_typed/ajv",
   "private": true,
   "peerDependencies": {
     "ajv": "^8.0.0"

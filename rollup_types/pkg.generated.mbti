@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/rollup_types"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub fn define_plugin(String, buildStart? : (@core.Any) -> Unit, resolveId? : (String, String?, @core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, renderChunk? : (String, @core.Any, @core.Any) -> String?, generateBundle? : (@core.Any, @core.Any) -> Unit, writeBundle? : (@core.Any, @core.Any) -> Unit, buildEnd? : (@core.Any?) -> Unit, closeBundle? : () -> Unit) -> @core.Any

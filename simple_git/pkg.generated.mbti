@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/simple_git"
 
-import(
-  "mizchi/js/core"
-)
+import {
+  "mizchi/js/core",
+}
 
 // Values
 pub fn simpleGit(base_dir? : String, binary? : String, maxConcurrentProcesses? : Int, trimmed? : Bool) -> SimpleGit

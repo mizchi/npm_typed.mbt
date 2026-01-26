@@ -6,13 +6,13 @@ on:
     branches:
       - main
     paths:
-      - 'src/npm/playwright/**'
-      - 'src/npm/playwright_test/**'
+      - 'playwright/**'
+      - 'playwright_test/**'
       - '.github/workflows/playwright.yaml'
   pull_request:
     paths:
-      - 'src/npm/playwright/**'
-      - 'src/npm/playwright_test/**'
+      - 'playwright/**'
+      - 'playwright_test/**'
       - '.github/workflows/playwright.yaml'
 
 jobs:
@@ -27,12 +27,12 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           run_install: false
-      - name: Install dependencies
-        run: pnpm install
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
       - name: Setup Moon
         uses: illusory0x0/setup-moonbit@v0.1.0
         with:
@@ -50,7 +50,7 @@ jobs:
         run: moon check --deny-warn
       - name: moon test playwright
         run: |
-          moon test --no-parallelize -p mizchi/js/npm/playwright
+          moon test --no-parallelize -p mizchi/npm_typed/playwright
         env:
           NODE_OPTIONS: "--experimental-wasm-modules --no-warnings=ExperimentalWarnings"
           PLAYWRIGHT_TEST: "1"
