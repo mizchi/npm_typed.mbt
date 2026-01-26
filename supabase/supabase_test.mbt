@@ -1,7 +1,6 @@
 ///|
 /// Tests for supabase bindings
 /// Note: These tests verify the API structure without actual Supabase connection
-
 test "PostgrestResponse::data returns data field" {
   let obj = @core.new_object()
   let data_arr : Array[@core.Any] = []
@@ -11,8 +10,10 @@ test "PostgrestResponse::data returns data field" {
   obj["statusText"] = @core.any("OK")
   let response : @supabase.PostgrestResponse = obj.cast()
   let _ = response.data()
+
 }
 
+///|
 test "PostgrestResponse::error returns None when null" {
   let obj = @core.new_object()
   let data_arr : Array[@core.Any] = []
@@ -24,6 +25,7 @@ test "PostgrestResponse::error returns None when null" {
   inspect(response.error() is None, content="true")
 }
 
+///|
 test "PostgrestResponse::error returns Some when error exists" {
   let obj = @core.new_object()
   obj["data"] = @core.null()
@@ -37,6 +39,7 @@ test "PostgrestResponse::error returns Some when error exists" {
   inspect(response.error() is Some(_), content="true")
 }
 
+///|
 test "PostgrestResponse::status returns status code" {
   let obj = @core.new_object()
   let data_arr : Array[@core.Any] = []
@@ -48,6 +51,7 @@ test "PostgrestResponse::status returns status code" {
   inspect(response.status(), content="200")
 }
 
+///|
 test "PostgrestResponse::count returns count when present" {
   let obj = @core.new_object()
   let data_arr : Array[@core.Any] = []
@@ -60,6 +64,7 @@ test "PostgrestResponse::count returns count when present" {
   inspect(response.count(), content="Some(42)")
 }
 
+///|
 test "AuthResponse::user returns user data" {
   let obj = @core.new_object()
   let data = @core.new_object()
@@ -75,6 +80,7 @@ test "AuthResponse::user returns user data" {
   inspect(u is Some(_), content="true")
 }
 
+///|
 test "AuthResponse::error returns None when no error" {
   let obj = @core.new_object()
   let data = @core.new_object()
@@ -86,6 +92,7 @@ test "AuthResponse::error returns None when no error" {
   inspect(response.error() is None, content="true")
 }
 
+///|
 test "SessionResponse::session returns session data" {
   let obj = @core.new_object()
   let data = @core.new_object()
@@ -100,6 +107,7 @@ test "SessionResponse::session returns session data" {
   inspect(s is Some(_), content="true")
 }
 
+///|
 test "UserResponse::user returns user when present" {
   let obj = @core.new_object()
   let data = @core.new_object()
@@ -112,6 +120,7 @@ test "UserResponse::user returns user when present" {
   inspect(response.user() is Some(_), content="true")
 }
 
+///|
 test "UserResponse::user returns None when not present" {
   let obj = @core.new_object()
   let data = @core.new_object()

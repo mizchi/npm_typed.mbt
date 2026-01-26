@@ -1,0 +1,9 @@
+import {
+  "mizchi/js/core",
+  "mizchi/js/node/path",
+  "mizchi/js/node/fs",
+}
+
+import "test" {
+  "mizchi/js/node/process",
+}

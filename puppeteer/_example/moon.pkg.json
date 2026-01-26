@@ -1,8 +1,0 @@
-{
-  "is-main": true,
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/puppeteer"
-  ]
-}

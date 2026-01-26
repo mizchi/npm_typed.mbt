@@ -1,0 +1,11 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/npm_typed/playwright",
+  "mizchi/npm_typed/playwright_test",
+}
+
+options(
+  "is-main": true,
+  "supported-targets": [ "js" ],
+)

@@ -1,0 +1,9 @@
+import {
+  "mizchi/js",
+  "mizchi/js/builtins/arraybuffer",
+  "mizchi/js/core",
+}
+
+import "test" {
+  "moonbitlang/async",
+}

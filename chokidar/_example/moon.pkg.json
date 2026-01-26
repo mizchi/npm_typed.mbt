@@ -1,8 +1,0 @@
-{
-  "is_main": true,
-  "import": [
-    "mizchi/js/core",
-    "mizchi/npm_typed/chokidar",
-    "mizchi/js/builtins/global"
-  ]
-}

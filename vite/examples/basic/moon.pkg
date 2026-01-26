@@ -1,0 +1,11 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/mbtconv",
+  "mizchi/npm_typed/vite",
+  "mizchi/js/builtins/global",
+}
+
+options(
+  "is-main": true,
+)

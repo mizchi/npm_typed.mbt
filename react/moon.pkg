@@ -1,0 +1,22 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/browser/dom",
+}
+
+import "test" {
+  "moonbitlang/async",
+  "mizchi/npm_typed/testing_library_react",
+  "mizchi/npm_typed/react_element",
+  "mizchi/npm_typed/react_dom_server",
+  "mizchi/npm_typed/global_jsdom",
+  "mizchi/npm_typed/testing_library",
+  "mizchi/js/web/streams",
+  "mizchi/js/web/encoding",
+  "mizchi/js/builtins/arraybuffer",
+}
+
+options(
+  "supported-targets": [ "js" ],
+  "warn-list": "-1-5-6",
+)

@@ -11,15 +11,7 @@ pub fn div(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "div",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("div", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -31,15 +23,7 @@ pub fn span(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "span",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("span", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -51,15 +35,7 @@ pub fn p(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "p",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("p", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -71,15 +47,7 @@ pub fn pre(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "pre",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("pre", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -91,15 +59,7 @@ pub fn code(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "code",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("code", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -111,15 +71,7 @@ pub fn blockquote(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "blockquote",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("blockquote", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -131,15 +83,7 @@ pub fn nav(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "nav",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("nav", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -151,15 +95,7 @@ pub fn main_(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "main",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("main", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -171,15 +107,7 @@ pub fn header(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "header",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("header", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -191,15 +119,7 @@ pub fn footer(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "footer",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("footer", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -211,15 +131,7 @@ pub fn section(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "section",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("section", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -231,15 +143,7 @@ pub fn article(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "article",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("article", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -251,15 +155,7 @@ pub fn aside(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "aside",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("aside", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -271,15 +167,7 @@ pub fn details(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "details",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("details", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -291,15 +179,7 @@ pub fn summary(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "summary",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("summary", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -311,15 +191,7 @@ pub fn h1(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "h1",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("h1", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -331,15 +203,7 @@ pub fn h2(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "h2",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("h2", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -351,15 +215,7 @@ pub fn h3(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "h3",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("h3", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -371,15 +227,7 @@ pub fn h4(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "h4",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("h4", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -391,15 +239,7 @@ pub fn h5(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "h5",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("h5", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -411,15 +251,7 @@ pub fn h6(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "h6",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("h6", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -431,15 +263,7 @@ pub fn ul(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "ul",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("ul", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -451,15 +275,7 @@ pub fn ol(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "ol",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("ol", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -471,15 +287,7 @@ pub fn li(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "li",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("li", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -507,15 +315,7 @@ pub fn a(
   if download is Some(v) {
     custom_props["download"] = v |> @core.any
   }
-  @hono.jsx(
-    "a",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("a", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -539,15 +339,7 @@ pub fn button(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @hono.jsx(
-    "button",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("button", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -683,15 +475,7 @@ pub fn textarea(
   if required is Some(v) {
     custom_props["required"] = v |> @core.any
   }
-  @hono.jsx(
-    "textarea",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("textarea", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -727,15 +511,7 @@ pub fn form(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @hono.jsx(
-    "form",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("form", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -767,15 +543,7 @@ pub fn select(
   if required is Some(v) {
     custom_props["required"] = v |> @core.any
   }
-  @hono.jsx(
-    "select",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("select", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -801,15 +569,7 @@ pub fn option(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @hono.jsx(
-    "option",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("option", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -829,15 +589,7 @@ pub fn label(
   if htmlFor is Some(v) {
     custom_props["htmlFor"] = v |> @core.any
   }
-  @hono.jsx(
-    "label",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("label", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -947,15 +699,7 @@ pub fn video(
   if height is Some(v) {
     custom_props["height"] = v |> @core.any
   }
-  @hono.jsx(
-    "video",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("video", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -991,15 +735,7 @@ pub fn audio(
   if muted is Some(v) {
     custom_props["muted"] = v |> @core.any
   }
-  @hono.jsx(
-    "audio",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("audio", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1079,15 +815,7 @@ pub fn iframe(
   if loading is Some(v) {
     custom_props["loading"] = v |> @core.any
   }
-  @hono.jsx(
-    "iframe",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("iframe", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1099,15 +827,7 @@ pub fn hr(
   key? : String,
   children? : Array[&@hono.HonoNode],
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "hr",
-    children.unwrap_or([]),
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("hr", children.unwrap_or([]), props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1119,15 +839,7 @@ pub fn br(
   key? : String,
   children? : Array[&@hono.HonoNode],
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "br",
-    children.unwrap_or([]),
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("br", children.unwrap_or([]), props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1139,15 +851,7 @@ pub fn table(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "table",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("table", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1159,15 +863,7 @@ pub fn thead(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "thead",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("thead", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1179,15 +875,7 @@ pub fn tbody(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "tbody",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("tbody", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1199,15 +887,7 @@ pub fn tfoot(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "tfoot",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("tfoot", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1219,15 +899,7 @@ pub fn tr(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "tr",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("tr", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1255,15 +927,7 @@ pub fn th(
   if scope is Some(v) {
     custom_props["scope"] = v |> @core.any
   }
-  @hono.jsx(
-    "th",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("th", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1287,15 +951,7 @@ pub fn td(
   if rowspan is Some(v) {
     custom_props["rowSpan"] = v |> @core.any
   }
-  @hono.jsx(
-    "td",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("td", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1319,15 +975,7 @@ pub fn canvas(
   if height is Some(v) {
     custom_props["height"] = v |> @core.any
   }
-  @hono.jsx(
-    "canvas",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("canvas", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1351,15 +999,7 @@ pub fn progress(
   if max is Some(v) {
     custom_props["max"] = v |> @core.any
   }
-  @hono.jsx(
-    "progress",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("progress", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1399,15 +1039,7 @@ pub fn meter(
   if optimum is Some(v) {
     custom_props["optimum"] = v |> @core.any
   }
-  @hono.jsx(
-    "meter",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("meter", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1427,15 +1059,7 @@ pub fn dialog(
   if open_ is Some(v) {
     custom_props["open"] = v |> @core.any
   }
-  @hono.jsx(
-    "dialog",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("dialog", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1447,15 +1071,7 @@ pub fn strong(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "strong",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("strong", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1467,15 +1083,7 @@ pub fn em(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "em",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("em", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1487,15 +1095,7 @@ pub fn small(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "small",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("small", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1507,15 +1107,7 @@ pub fn mark(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "mark",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("mark", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1527,15 +1119,7 @@ pub fn del(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "del",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("del", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1547,15 +1131,7 @@ pub fn ins(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "ins",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("ins", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1567,15 +1143,7 @@ pub fn sub(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "sub",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("sub", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1587,15 +1155,7 @@ pub fn sup(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "sup",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("sup", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1615,15 +1175,7 @@ pub fn abbr(
   if title is Some(v) {
     custom_props["title"] = v |> @core.any
   }
-  @hono.jsx(
-    "abbr",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("abbr", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1643,15 +1195,7 @@ pub fn time_(
   if datetime is Some(v) {
     custom_props["dateTime"] = v |> @core.any
   }
-  @hono.jsx(
-    "time",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("time", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1671,15 +1215,7 @@ pub fn data_(
   if value is Some(v) {
     custom_props["value"] = v |> @core.any
   }
-  @hono.jsx(
-    "data",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("data", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1703,15 +1239,7 @@ pub fn fieldset(
   if name is Some(v) {
     custom_props["name"] = v |> @core.any
   }
-  @hono.jsx(
-    "fieldset",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("fieldset", children, props=custom_props, style?, class?, id?, key?)
 }
 
 ///|
@@ -1723,15 +1251,7 @@ pub fn legend(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "legend",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("legend", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1743,15 +1263,7 @@ pub fn datalist(
   style? : Map[String, String],
   key? : String,
 ) -> @hono.JSXNode {
-  @hono.jsx(
-    "datalist",
-    children,
-    props?,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("datalist", children, props?, style?, class?, id?, key?)
 }
 
 ///|
@@ -1775,13 +1287,5 @@ pub fn output(
   if name is Some(v) {
     custom_props["name"] = v |> @core.any
   }
-  @hono.jsx(
-    "output",
-    children,
-    props=custom_props,
-    style?,
-    class?,
-    id?,
-    key?,
-  )
+  @hono.jsx("output", children, props=custom_props, style?, class?, id?, key?)
 }

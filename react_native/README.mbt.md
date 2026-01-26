@@ -49,10 +49,9 @@ let containerStyle : Style = style(
 
 ///|
 fn my_component() -> @react.Element {
-  view(
-    style=Some(StyleProp::from_style(containerStyle)),
-    children=[text(children=["Hello, React Native!"])],
-  )
+  view(style=Some(StyleProp::from_style(containerStyle)), children=[
+    text(children=["Hello, React Native!"]),
+  ])
 }
 ```
 
@@ -241,10 +240,7 @@ The original `StyleSheet::create` with `@core.any()` is still available:
 ```moonbit
 ///|
 let styles = @react_native.StyleSheet::create({
-  "container": {
-    "flex": @core.any(1),
-    "backgroundColor": @core.any("#fff"),
-  },
+  "container": { "flex": @core.any(1), "backgroundColor": @core.any("#fff") },
 })
 ```
 
@@ -398,9 +394,11 @@ fn themed_component() -> @react.Element {
     _ => "#fff"
   }
   @react_native.view(
-    style=Some(@react_native.StyleProp::from_style(
-      @react_native.style(flex=1, background_color=bg),
-    )),
+    style=Some(
+      @react_native.StyleProp::from_style(
+        @react_native.style(flex=1, background_color=bg),
+      ),
+    ),
     children=[],
   )
 }

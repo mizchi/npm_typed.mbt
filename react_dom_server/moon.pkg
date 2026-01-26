@@ -1,0 +1,10 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/web/streams",
+  "mizchi/npm_typed/react",
+}
+
+options(
+  "supported-targets": [ "js" ],
+)

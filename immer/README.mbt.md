@@ -24,9 +24,12 @@ Add to your `moon.pkg.json`:
 
 ## Basic Usage
 
-```mbt test
-// TODO: Add basic usage example
-inspect(true, content="true")
+```mbt check
+///|
+test {
+  // TODO: Add basic usage example
+  inspect(true, content="true")
+}
 ```
 
 ## See Also

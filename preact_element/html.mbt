@@ -18,14 +18,7 @@ pub fn div(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "div",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("div", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -44,14 +37,7 @@ pub fn span(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "span",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("span", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -70,14 +56,7 @@ pub fn p(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "p",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("p", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -96,14 +75,7 @@ pub fn pre(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "pre",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("pre", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -122,14 +94,7 @@ pub fn code(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "code",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("code", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -148,14 +113,7 @@ pub fn blockquote(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "blockquote",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("blockquote", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -174,14 +132,7 @@ pub fn nav(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "nav",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("nav", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -200,14 +151,7 @@ pub fn main_(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "main",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("main", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -226,14 +170,7 @@ pub fn header(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "header",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("header", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -252,14 +189,7 @@ pub fn footer(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "footer",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("footer", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -278,14 +208,7 @@ pub fn section(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "section",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("section", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -304,14 +227,7 @@ pub fn article(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "article",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("article", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -330,14 +246,7 @@ pub fn aside(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "aside",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("aside", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -356,14 +265,7 @@ pub fn details(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "details",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("details", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -382,14 +284,7 @@ pub fn summary(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "summary",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("summary", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -408,14 +303,7 @@ pub fn h1(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "h1",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("h1", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -434,14 +322,7 @@ pub fn h2(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "h2",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("h2", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -460,14 +341,7 @@ pub fn h3(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "h3",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("h3", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -486,14 +360,7 @@ pub fn h4(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "h4",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("h4", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -512,14 +379,7 @@ pub fn h5(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "h5",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("h5", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -538,14 +398,7 @@ pub fn h6(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "h6",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("h6", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -564,14 +417,7 @@ pub fn ul(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "ul",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("ul", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -590,14 +436,7 @@ pub fn ol(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "ol",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("ol", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -616,14 +455,7 @@ pub fn li(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "li",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("li", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -654,14 +486,7 @@ pub fn a(
   if download is Some(v) {
     custom_props["download"] = v |> @core.any
   }
-  @preact.h(
-    "a",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("a", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -688,14 +513,7 @@ pub fn button(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @preact.h(
-    "button",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("button", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -836,14 +654,7 @@ pub fn textarea(
   if required is Some(v) {
     custom_props["required"] = v |> @core.any
   }
-  @preact.h(
-    "textarea",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("textarea", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -882,14 +693,7 @@ pub fn form(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @preact.h(
-    "form",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("form", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -924,14 +728,7 @@ pub fn select(
   if required is Some(v) {
     custom_props["required"] = v |> @core.any
   }
-  @preact.h(
-    "select",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("select", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -960,14 +757,7 @@ pub fn option(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @preact.h(
-    "option",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("option", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -990,14 +780,7 @@ pub fn label(
   if htmlFor is Some(v) {
     custom_props["htmlFor"] = v |> @core.any
   }
-  @preact.h(
-    "label",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("label", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1112,14 +895,7 @@ pub fn video(
   if height is Some(v) {
     custom_props["height"] = v |> @core.any
   }
-  @preact.h(
-    "video",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("video", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1158,14 +934,7 @@ pub fn audio(
   if muted is Some(v) {
     custom_props["muted"] = v |> @core.any
   }
-  @preact.h(
-    "audio",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("audio", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1250,14 +1019,7 @@ pub fn iframe(
   if loading is Some(v) {
     custom_props["loading"] = v |> @core.any
   }
-  @preact.h(
-    "iframe",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("iframe", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1328,14 +1090,7 @@ pub fn table(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "table",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("table", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1354,14 +1109,7 @@ pub fn thead(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "thead",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("thead", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1380,14 +1128,7 @@ pub fn tbody(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "tbody",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("tbody", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1406,14 +1147,7 @@ pub fn tfoot(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "tfoot",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("tfoot", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1432,14 +1166,7 @@ pub fn tr(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "tr",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("tr", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1470,14 +1197,7 @@ pub fn th(
   if scope is Some(v) {
     custom_props["scope"] = v |> @core.any
   }
-  @preact.h(
-    "th",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("th", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1504,14 +1224,7 @@ pub fn td(
   if rowspan is Some(v) {
     custom_props["rowSpan"] = v |> @core.any
   }
-  @preact.h(
-    "td",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("td", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1538,14 +1251,7 @@ pub fn canvas(
   if height is Some(v) {
     custom_props["height"] = v |> @core.any
   }
-  @preact.h(
-    "canvas",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("canvas", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1572,14 +1278,7 @@ pub fn progress(
   if max is Some(v) {
     custom_props["max"] = v |> @core.any
   }
-  @preact.h(
-    "progress",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("progress", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1622,14 +1321,7 @@ pub fn meter(
   if optimum is Some(v) {
     custom_props["optimum"] = v |> @core.any
   }
-  @preact.h(
-    "meter",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("meter", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1652,14 +1344,7 @@ pub fn dialog(
   if open_ is Some(v) {
     custom_props["open"] = v |> @core.any
   }
-  @preact.h(
-    "dialog",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("dialog", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1678,14 +1363,7 @@ pub fn strong(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "strong",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("strong", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1704,14 +1382,7 @@ pub fn em(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "em",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("em", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1730,14 +1401,7 @@ pub fn small(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "small",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("small", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1756,14 +1420,7 @@ pub fn mark(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "mark",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("mark", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1782,14 +1439,7 @@ pub fn del(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "del",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("del", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1808,14 +1458,7 @@ pub fn ins(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "ins",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("ins", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1834,14 +1477,7 @@ pub fn sub(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "sub",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("sub", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1860,14 +1496,7 @@ pub fn sup(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "sup",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("sup", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1890,14 +1519,7 @@ pub fn abbr(
   if title is Some(v) {
     custom_props["title"] = v |> @core.any
   }
-  @preact.h(
-    "abbr",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("abbr", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1920,14 +1542,7 @@ pub fn time_(
   if datetime is Some(v) {
     custom_props["dateTime"] = v |> @core.any
   }
-  @preact.h(
-    "time",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("time", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1950,14 +1565,7 @@ pub fn data_(
   if value is Some(v) {
     custom_props["value"] = v |> @core.any
   }
-  @preact.h(
-    "data",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("data", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1984,14 +1592,7 @@ pub fn fieldset(
   if name is Some(v) {
     custom_props["name"] = v |> @core.any
   }
-  @preact.h(
-    "fieldset",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("fieldset", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -2010,14 +1611,7 @@ pub fn legend(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "legend",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("legend", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -2036,14 +1630,7 @@ pub fn datalist(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @preact.h(
-    "datalist",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("datalist", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -2070,12 +1657,5 @@ pub fn output(
   if name is Some(v) {
     custom_props["name"] = v |> @core.any
   }
-  @preact.h(
-    "output",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @preact.h("output", children, props=custom_props, style?, ref_?, key?)
 }

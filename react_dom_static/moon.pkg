@@ -1,0 +1,16 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/web/streams",
+  "mizchi/js/node/stream",
+  "mizchi/npm_typed/react",
+  "mizchi/js/builtins/error",
+}
+
+import "test" {
+  "mizchi/npm_typed/react_element",
+}
+
+options(
+  "supported-targets": [ "js" ],
+)

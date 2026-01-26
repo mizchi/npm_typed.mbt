@@ -16,9 +16,9 @@ npm install @supabase/supabase-js
 ### Creating a Client
 
 ```moonbit no-check
+///|
 let client = @supabase.create_client(
-  "https://your-project.supabase.co",
-  "your-anon-key",
+  "https://your-project.supabase.co", "your-anon-key",
 )
 ```
 

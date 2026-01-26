@@ -1,0 +1,9 @@
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/hono",
+}
+
+options(
+  "supported-targets": [ "js" ],
+  "warn-list": "-25",
+)

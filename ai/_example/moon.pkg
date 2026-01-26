@@ -1,0 +1,18 @@
+import {
+  "moonbitlang/async",
+  "mizchi/js",
+  "mizchi/js/node",
+  "mizchi/js/node/process",
+  "mizchi/js/node/tty",
+  "mizchi/npm_typed/ai",
+  "mizchi/js/core",
+  "mizchi/js/builtins/iterator",
+  "mizchi/js/builtins/json",
+}
+
+import "test" {
+}
+
+options(
+  "is-main": true,
+)

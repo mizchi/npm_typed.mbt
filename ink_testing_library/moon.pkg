@@ -1,0 +1,13 @@
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/react",
+}
+
+import "test" {
+  "mizchi/npm_typed/ink",
+  "moonbitlang/async",
+}
+
+options(
+  "supported-targets": [ "js" ],
+)

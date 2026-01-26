@@ -1,0 +1,11 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/builtins/object",
+  "mizchi/js/builtins/json",
+  "mizchi/npm_typed/zod",
+}
+
+options(
+  "supported-targets": [ "js" ],
+)

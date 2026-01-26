@@ -18,7 +18,9 @@ pub(all) struct StopConditionContext {
 ///|
 /// Stop condition function type
 /// Returns true if the agent loop should stop
-pub suberror StopCondition (StopConditionContext) -> Bool
+pub suberror StopCondition {
+  StopCondition((StopConditionContext) -> Bool)
+}
 
 ///|
 /// Create a stop condition that stops after a specific number of steps
@@ -145,7 +147,9 @@ pub fn PrepareStepResult::with_messages(
 
 ///|
 /// PrepareStep callback type
-pub suberror PrepareStep async (PrepareStepContext) -> PrepareStepResult
+pub suberror PrepareStep {
+  PrepareStep(async (PrepareStepContext) -> PrepareStepResult)
+}
 
 ///|
 /// Convert PrepareStepResult to JS options object

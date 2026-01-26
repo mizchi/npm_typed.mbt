@@ -66,8 +66,7 @@ pub fn FilterBuilder::as_any(self : FilterBuilder) -> @core.Any = "%identity"
 pub type PostgrestResponse
 
 ///|
-pub fn PostgrestResponse::as_any(self : PostgrestResponse) -> @core.Any =
-  "%identity"
+pub fn PostgrestResponse::as_any(self : PostgrestResponse) -> @core.Any = "%identity"
 
 ///|
 /// Get data from response
@@ -250,10 +249,7 @@ extern "js" fn ffi_create_client_with_options(
 ///
 /// Example:
 /// ```moonbit no-check
-/// let client = @supabase.create_client(
-///   "https://xxx.supabase.co",
-///   "your-anon-key",
-/// )
+/// let client = @supabase.create_client("https://xxx.supabase.co", "your-anon-key")
 /// ```
 pub async fn create_client(
   supabase_url : String,
@@ -490,7 +486,10 @@ pub fn AuthClient::on_auth_state_change(
 
 ///|
 /// Get a query builder for a table
-pub fn SupabaseClient::from(self : SupabaseClient, table : String) -> QueryBuilder {
+pub fn SupabaseClient::from(
+  self : SupabaseClient,
+  table : String,
+) -> QueryBuilder {
   self.as_any()._call("from", [@core.any(table)]).cast()
 }
 
@@ -870,10 +869,7 @@ pub fn FilterBuilder::range(
     Some(f) => options["foreignTable"] = @core.any(f)
     None => ()
   }
-  self
-  .as_any()
-  ._call("range", [@core.any(from), @core.any(to), options])
-  .cast()
+  self.as_any()._call("range", [@core.any(from), @core.any(to), options]).cast()
 }
 
 ///|
@@ -916,7 +912,10 @@ pub fn SupabaseClient::storage(self : SupabaseClient) -> StorageClient {
 
 ///|
 /// Get a storage bucket
-pub fn StorageClient::from(self : StorageClient, bucket : String) -> StorageBucket {
+pub fn StorageClient::from(
+  self : StorageClient,
+  bucket : String,
+) -> StorageBucket {
   self.as_any()._call("from", [@core.any(bucket)]).cast()
 }
 

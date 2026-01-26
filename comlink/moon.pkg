@@ -1,0 +1,6 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/web/worker",
+  "mizchi/js/web/message",
+}

@@ -1,0 +1,10 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/npm_typed/rolldown",
+  "mizchi/npm_typed/rollup_types",
+}
+
+options(
+  "is-main": true,
+)

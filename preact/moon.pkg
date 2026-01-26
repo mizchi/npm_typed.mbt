@@ -1,0 +1,14 @@
+import {
+  "mizchi/js/browser/dom",
+  "mizchi/js/core",
+}
+
+import "test" {
+  "mizchi/npm_typed/global_jsdom",
+  "moonbitlang/async",
+}
+
+options(
+  "supported-targets": [ "js" ],
+  "warn-list": "-1-5-6",
+)

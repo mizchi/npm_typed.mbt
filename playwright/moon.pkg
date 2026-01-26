@@ -1,0 +1,9 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+}
+
+import "test" {
+  "moonbitlang/async",
+  "mizchi/js/node/process",
+}

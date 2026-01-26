@@ -1,0 +1,9 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/npm_typed/better_auth",
+}
+
+options(
+  "supported-targets": [ "js" ],
+)

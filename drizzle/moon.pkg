@@ -1,0 +1,14 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/node",
+}
+
+import "test" {
+  "moonbitlang/async",
+}
+
+options(
+  "supported-targets": [ "js" ],
+  "warn-list": "-4-6-7-27",
+)

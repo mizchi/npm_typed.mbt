@@ -1,0 +1,10 @@
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/react_native",
+}
+
+options(
+  link: { "js": { "exports": [ "app" ], "format": "esm" } },
+  "supported-targets": [ "js" ],
+)

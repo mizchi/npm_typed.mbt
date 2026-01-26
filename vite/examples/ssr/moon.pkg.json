@@ -1,8 +1,0 @@
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/vite"
-  ],
-  "is-main": true
-}

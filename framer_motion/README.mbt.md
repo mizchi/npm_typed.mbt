@@ -31,9 +31,12 @@ Add to your `moon.pkg.json`:
 
 ## Basic Usage
 
-```mbt test
-// Basic API check
-inspect(@framer_motion.mix(0.0, 100.0, 0.5), content="50")
+```mbt check
+///|
+test {
+  // Basic API check
+  inspect(@framer_motion.mix(0.0, 100.0, 0.5), content="50")
+}
 ```
 
 ## API

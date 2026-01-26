@@ -1,0 +1,12 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+  "mizchi/js/browser/dom",
+  "mizchi/js/web/http",
+  "mizchi/npm_typed/react",
+}
+
+options(
+  "supported-targets": [ "js" ],
+  "warn-list": "-25",
+)

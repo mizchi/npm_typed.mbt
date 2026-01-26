@@ -16,7 +16,18 @@ type Ctx = @hono.Context[Env, ExecutionContext]
 
 ///|
 using @hono_element {
-  div, span, p, h1, strong, a, form, input, button, label, nav, main_
+  div,
+  span,
+  p,
+  h1,
+  strong,
+  a,
+  form,
+  input,
+  button,
+  label,
+  nav,
+  main_,
 }
 
 // ============ Database ============
@@ -175,10 +186,7 @@ extern "js" fn ffi_sqlite_adapter(db : @sqlite.DatabaseSync) -> @core.Any =
 
 ///|
 /// Get current user from session using database lookup
-fn get_session_user(
-  db : @sqlite.DatabaseSync,
-  c : Ctx,
-) -> @better_auth.User? {
+fn get_session_user(db : @sqlite.DatabaseSync, c : Ctx) -> @better_auth.User? {
   // Get session token from cookie
   let cookie = @hono.get_cookie(c, "better-auth.session_token")
   match cookie {
@@ -236,12 +244,24 @@ fn default_layout(props : LayoutProps) -> @hono.JSXNode {
                     Some(user) =>
                       span([
                         span(["Welcome, ", user.email()]),
-                        a([" | Logout"], href="/auth/logout", class=props.styles.nav_link),
+                        a(
+                          [" | Logout"],
+                          href="/auth/logout",
+                          class=props.styles.nav_link,
+                        ),
                       ])
                     None =>
                       span([
-                        a(["Login"], href="/auth/login", class=props.styles.nav_link),
-                        a(["Register"], href="/auth/register", class=props.styles.nav_link),
+                        a(
+                          ["Login"],
+                          href="/auth/login",
+                          class=props.styles.nav_link,
+                        ),
+                        a(
+                          ["Register"],
+                          href="/auth/register",
+                          class=props.styles.nav_link,
+                        ),
                       ])
                   },
                 ],
@@ -316,14 +336,10 @@ pub async fn create_app(
                 let completed : Int = todo._get("completed").cast()
                 div(
                   [
-                    input(
-                      type_="checkbox",
-                      checked=(completed == 1),
-                      props={
-                        "onchange": @core.any("this.form.submit()"),
-                        "form": @core.any("toggle-" + id.to_string()),
-                      },
-                    ),
+                    input(type_="checkbox", checked=completed == 1, props={
+                      "onchange": @core.any("this.form.submit()"),
+                      "form": @core.any("toggle-" + id.to_string()),
+                    }),
                     span(
                       [title],
                       style=if completed == 1 {
@@ -350,7 +366,13 @@ pub async fn create_app(
                       style={ "display": "none" },
                     ),
                     form(
-                      [button(["Delete"], type_="submit", class=styles.button_danger)],
+                      [
+                        button(
+                          ["Delete"],
+                          type_="submit",
+                          class=styles.button_danger,
+                        ),
+                      ],
                       props={
                         "method": @core.any("POST"),
                         "action": @core.any(
@@ -446,7 +468,12 @@ pub async fn create_app(
               [
                 div([
                   label(["Email"]),
-                  input(type_="email", name="email", required=true, class=styles.input),
+                  input(
+                    type_="email",
+                    name="email",
+                    required=true,
+                    class=styles.input,
+                  ),
                 ]),
                 div([
                   label(["Password"]),
@@ -530,11 +557,21 @@ pub async fn create_app(
               [
                 div([
                   label(["Name"]),
-                  input(type_="text", name="name", required=true, class=styles.input),
+                  input(
+                    type_="text",
+                    name="name",
+                    required=true,
+                    class=styles.input,
+                  ),
                 ]),
                 div([
                   label(["Email"]),
-                  input(type_="email", name="email", required=true, class=styles.input),
+                  input(
+                    type_="email",
+                    name="email",
+                    required=true,
+                    class=styles.input,
+                  ),
                 ]),
                 div([
                   label(["Password"]),
@@ -553,10 +590,7 @@ pub async fn create_app(
                 "action": @core.any("/auth/register"),
               },
             ),
-            p([
-              "Already have an account? ",
-              a(["Login"], href="/auth/login"),
-            ]),
+            p(["Already have an account? ", a(["Login"], href="/auth/login")]),
           ],
           class=styles.card,
         ),

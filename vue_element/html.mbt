@@ -18,14 +18,7 @@ pub fn div(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "div",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("div", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -44,14 +37,7 @@ pub fn span(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "span",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("span", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -70,14 +56,7 @@ pub fn p(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "p",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("p", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -96,14 +75,7 @@ pub fn pre(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "pre",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("pre", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -122,14 +94,7 @@ pub fn code(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "code",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("code", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -148,14 +113,7 @@ pub fn blockquote(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "blockquote",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("blockquote", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -174,14 +132,7 @@ pub fn nav(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "nav",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("nav", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -200,14 +151,7 @@ pub fn main_(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "main",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("main", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -226,14 +170,7 @@ pub fn header(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "header",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("header", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -252,14 +189,7 @@ pub fn footer(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "footer",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("footer", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -278,14 +208,7 @@ pub fn section(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "section",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("section", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -304,14 +227,7 @@ pub fn article(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "article",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("article", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -330,14 +246,7 @@ pub fn aside(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "aside",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("aside", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -356,14 +265,7 @@ pub fn details(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "details",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("details", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -382,14 +284,7 @@ pub fn summary(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "summary",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("summary", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -408,14 +303,7 @@ pub fn h1(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "h1",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("h1", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -434,14 +322,7 @@ pub fn h2(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "h2",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("h2", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -460,14 +341,7 @@ pub fn h3(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "h3",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("h3", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -486,14 +360,7 @@ pub fn h4(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "h4",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("h4", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -512,14 +379,7 @@ pub fn h5(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "h5",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("h5", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -538,14 +398,7 @@ pub fn h6(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "h6",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("h6", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -564,14 +417,7 @@ pub fn ul(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "ul",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("ul", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -590,14 +436,7 @@ pub fn ol(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "ol",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("ol", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -616,14 +455,7 @@ pub fn li(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "li",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("li", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -654,14 +486,7 @@ pub fn a(
   if download is Some(v) {
     custom_props["download"] = v |> @core.any
   }
-  @vue.h(
-    "a",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("a", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -688,14 +513,7 @@ pub fn button(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @vue.h(
-    "button",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("button", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -836,14 +654,7 @@ pub fn textarea(
   if required is Some(v) {
     custom_props["required"] = v |> @core.any
   }
-  @vue.h(
-    "textarea",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("textarea", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -882,14 +693,7 @@ pub fn form(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @vue.h(
-    "form",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("form", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -924,14 +728,7 @@ pub fn select(
   if required is Some(v) {
     custom_props["required"] = v |> @core.any
   }
-  @vue.h(
-    "select",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("select", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -960,14 +757,7 @@ pub fn option(
   if disabled is Some(v) {
     custom_props["disabled"] = v |> @core.any
   }
-  @vue.h(
-    "option",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("option", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -990,14 +780,7 @@ pub fn label(
   if htmlFor is Some(v) {
     custom_props["htmlFor"] = v |> @core.any
   }
-  @vue.h(
-    "label",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("label", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1054,14 +837,7 @@ pub fn img(
   if fetchpriority is Some(v) {
     custom_props["fetchPriority"] = v |> @core.any
   }
-  @vue.h(
-    "img",
-    children.unwrap_or([]),
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("img", children.unwrap_or([]), props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1112,14 +888,7 @@ pub fn video(
   if height is Some(v) {
     custom_props["height"] = v |> @core.any
   }
-  @vue.h(
-    "video",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("video", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1158,14 +927,7 @@ pub fn audio(
   if muted is Some(v) {
     custom_props["muted"] = v |> @core.any
   }
-  @vue.h(
-    "audio",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("audio", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1250,14 +1012,7 @@ pub fn iframe(
   if loading is Some(v) {
     custom_props["loading"] = v |> @core.any
   }
-  @vue.h(
-    "iframe",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("iframe", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1276,14 +1031,7 @@ pub fn hr(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "hr",
-    children.unwrap_or([]),
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("hr", children.unwrap_or([]), props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1302,14 +1050,7 @@ pub fn br(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "br",
-    children.unwrap_or([]),
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("br", children.unwrap_or([]), props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1328,14 +1069,7 @@ pub fn table(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "table",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("table", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1354,14 +1088,7 @@ pub fn thead(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "thead",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("thead", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1380,14 +1107,7 @@ pub fn tbody(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "tbody",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("tbody", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1406,14 +1126,7 @@ pub fn tfoot(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "tfoot",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("tfoot", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1432,14 +1145,7 @@ pub fn tr(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "tr",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("tr", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1470,14 +1176,7 @@ pub fn th(
   if scope is Some(v) {
     custom_props["scope"] = v |> @core.any
   }
-  @vue.h(
-    "th",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("th", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1504,14 +1203,7 @@ pub fn td(
   if rowspan is Some(v) {
     custom_props["rowSpan"] = v |> @core.any
   }
-  @vue.h(
-    "td",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("td", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1538,14 +1230,7 @@ pub fn canvas(
   if height is Some(v) {
     custom_props["height"] = v |> @core.any
   }
-  @vue.h(
-    "canvas",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("canvas", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1572,14 +1257,7 @@ pub fn progress(
   if max is Some(v) {
     custom_props["max"] = v |> @core.any
   }
-  @vue.h(
-    "progress",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("progress", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1622,14 +1300,7 @@ pub fn meter(
   if optimum is Some(v) {
     custom_props["optimum"] = v |> @core.any
   }
-  @vue.h(
-    "meter",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("meter", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1652,14 +1323,7 @@ pub fn dialog(
   if open_ is Some(v) {
     custom_props["open"] = v |> @core.any
   }
-  @vue.h(
-    "dialog",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("dialog", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1678,14 +1342,7 @@ pub fn strong(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "strong",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("strong", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1704,14 +1361,7 @@ pub fn em(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "em",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("em", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1730,14 +1380,7 @@ pub fn small(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "small",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("small", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1756,14 +1399,7 @@ pub fn mark(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "mark",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("mark", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1782,14 +1418,7 @@ pub fn del(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "del",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("del", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1808,14 +1437,7 @@ pub fn ins(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "ins",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("ins", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1834,14 +1456,7 @@ pub fn sub(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "sub",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("sub", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1860,14 +1475,7 @@ pub fn sup(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "sup",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("sup", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1890,14 +1498,7 @@ pub fn abbr(
   if title is Some(v) {
     custom_props["title"] = v |> @core.any
   }
-  @vue.h(
-    "abbr",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("abbr", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1920,14 +1521,7 @@ pub fn time_(
   if datetime is Some(v) {
     custom_props["dateTime"] = v |> @core.any
   }
-  @vue.h(
-    "time",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("time", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1950,14 +1544,7 @@ pub fn data_(
   if value is Some(v) {
     custom_props["value"] = v |> @core.any
   }
-  @vue.h(
-    "data",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("data", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -1984,14 +1571,7 @@ pub fn fieldset(
   if name is Some(v) {
     custom_props["name"] = v |> @core.any
   }
-  @vue.h(
-    "fieldset",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("fieldset", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -2010,14 +1590,7 @@ pub fn legend(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "legend",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("legend", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -2036,14 +1609,7 @@ pub fn datalist(
   if id is Some(id) {
     custom_props["id"] = id |> @core.any
   }
-  @vue.h(
-    "datalist",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("datalist", children, props=custom_props, style?, ref_?, key?)
 }
 
 ///|
@@ -2070,12 +1636,5 @@ pub fn output(
   if name is Some(v) {
     custom_props["name"] = v |> @core.any
   }
-  @vue.h(
-    "output",
-    children,
-    props=custom_props,
-    style?,
-    ref_?,
-    key?,
-  )
+  @vue.h("output", children, props=custom_props, style?, ref_?, key?)
 }

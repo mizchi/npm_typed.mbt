@@ -1,0 +1,12 @@
+import {
+  "mizchi/js",
+  "mizchi/js/core",
+}
+
+import "test" {
+  "mizchi/js/node",
+}
+
+options(
+  "supported-targets": [ "js" ],
+)

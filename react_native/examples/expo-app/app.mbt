@@ -44,10 +44,7 @@ let titleStyle : Style = style(
 )
 
 ///|
-let subtitleStyle : Style = style(
-  font_size=16.0,
-  color="#666",
-)
+let subtitleStyle : Style = style(font_size=16.0, color="#666")
 
 ///|
 let cardStyle : Style = style(
@@ -73,10 +70,7 @@ let cardTextStyle : Style = style(
 )
 
 ///|
-let emojiStyle : Style = style(
-  font_size=32.0,
-  margin_right=12.0,
-)
+let emojiStyle : Style = style(font_size=32.0, margin_right=12.0)
 
 ///|
 let rowStyle : Style = style(
@@ -94,10 +88,7 @@ let footerStyle : Style = style(
 )
 
 ///|
-let footerTextStyle : Style = style(
-  font_size=12.0,
-  color="#999",
-)
+let footerTextStyle : Style = style(font_size=12.0, color="#999")
 
 // ============================================================================
 // App Component

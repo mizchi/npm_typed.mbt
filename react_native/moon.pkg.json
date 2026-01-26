@@ -1,9 +1,0 @@
-{
-  "supported-targets": ["js"],
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/react"
-  ],
-  "warn-list": "-1-5-6"
-}
