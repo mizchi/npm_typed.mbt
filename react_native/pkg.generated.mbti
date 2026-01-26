@@ -1,0 +1,328 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mizchi/npm_typed/react_native"
+
+import(
+  "mizchi/js/core"
+  "mizchi/npm_typed/react"
+)
+
+// Values
+pub fn activity_indicator(animating? : Bool?, color? : String?, size? : String?, hidesWhenStopped? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn add_app_state_change_listener((AppStateStatus) -> Unit) -> Subscription
+
+pub fn add_appearance_change_listener((AppearanceChangeEvent) -> Unit) -> Subscription
+
+pub fn add_blur_listener(() -> Unit) -> Subscription
+
+pub fn add_dimensions_change_listener((DimensionsChangeEvent) -> Unit) -> Subscription
+
+pub fn add_focus_listener(() -> Unit) -> Subscription
+
+pub fn add_keyboard_did_hide_listener((KeyboardEvent) -> Unit) -> Subscription
+
+pub fn add_keyboard_did_show_listener((KeyboardEvent) -> Unit) -> Subscription
+
+pub fn add_keyboard_will_hide_listener((KeyboardEvent) -> Unit) -> Subscription
+
+pub fn add_keyboard_will_show_listener((KeyboardEvent) -> Unit) -> Subscription
+
+pub fn add_memory_warning_listener(() -> Unit) -> Subscription
+
+pub fn add_url_listener((URLEvent) -> Unit) -> Subscription
+
+pub fn alert(title~ : String, message? : String?, buttons? : Array[AlertButton], cancelable? : Bool, user_interface_style? : String?) -> Unit
+
+pub fn alert_prompt(title~ : String, message? : String?, callback? : ((String) -> Unit)?, default_value? : String?, keyboard_type? : String?) -> Unit
+
+pub fn alert_simple(String, message? : String?) -> Unit
+
+pub fn android_api_level() -> Int
+
+pub fn app_state_current() -> AppStateStatus
+
+pub fn app_state_is_available() -> Bool
+
+pub fn button(title~ : String, on_press? : (() -> Unit)?, color? : String?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub async fn can_open_url(String) -> Bool
+
+pub fn[T] flat_list(data~ : Array[T], render_item~ : (ListRenderItemInfo[T]) -> @react.Element, key_extractor? : ((T, Int) -> String)?, style? : StyleProp?, content_container_style? : StyleProp?, horizontal? : Bool?, inverted? : Bool?, num_columns? : Int?, initial_num_to_render? : Int?, max_to_render_per_batch? : Int?, window_size? : Int?, remove_clipped_subviews? : Bool?, scroll_enabled? : Bool?, shows_vertical_scroll_indicator? : Bool?, shows_horizontal_scroll_indicator? : Bool?, bounces? : Bool?, on_end_reached? : (() -> Unit)?, on_end_reached_threshold? : Double?, on_refresh? : (() -> Unit)?, refreshing? : Bool?, on_scroll? : ((ScrollEvent) -> Unit)?, list_header_component? : @react.Element?, list_footer_component? : @react.Element?, list_empty_component? : @react.Element?, item_separator_component? : (() -> @react.Element)?, extra_data? : @core.Any?, get_item_layout? : ((Array[T], Int) -> ItemLayout)?, keyboard_should_persist_taps? : String?, keyboard_dismiss_mode? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn font_scale() -> Double
+
+pub fn get_color_scheme() -> ColorScheme
+
+pub async fn get_initial_url() -> String?
+
+pub fn get_screen_dimensions() -> ScaledSize
+
+pub fn get_window_dimensions() -> ScaledSize
+
+pub fn image(source~ : ImageSource, style? : StyleProp?, resize_mode? : String?, on_load? : (() -> Unit)?, on_error? : (() -> Unit)?, on_load_start? : (() -> Unit)?, on_load_end? : (() -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn ios_version() -> String
+
+pub fn is_android() -> Bool
+
+pub fn is_ios() -> Bool
+
+pub fn is_macos() -> Bool
+
+pub fn is_testing() -> Bool
+
+pub fn is_tv() -> Bool
+
+pub fn is_web() -> Bool
+
+pub fn is_windows() -> Bool
+
+pub fn keyboard_avoiding_view(children? : Array[&@react.ReactNode], style? : StyleProp?, behavior? : String?, keyboard_vertical_offset? : Int?, enabled? : Bool?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn keyboard_dismiss() -> Unit
+
+pub fn keyboard_is_visible() -> Bool
+
+pub fn keyboard_metrics() -> KeyboardCoordinates?
+
+pub fn modal(children? : Array[&@react.ReactNode], visible? : Bool?, animation_type? : String?, transparent? : Bool?, presentation_style? : String?, on_request_close? : (() -> Unit)?, on_show? : (() -> Unit)?, on_dismiss? : (() -> Unit)?, status_bar_translucent? : Bool?, test_id? : String?, key? : String?) -> @react.Element
+
+pub async fn open_settings() -> Unit
+
+pub async fn open_url(String) -> Unit
+
+pub fn os() -> OS
+
+pub fn os_string() -> String
+
+pub fn pixel_ratio() -> Double
+
+pub fn pixel_size_for_layout(Double) -> Double
+
+pub fn pressable(children? : Array[&@react.ReactNode], style? : StyleProp?, on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn refresh_control(refreshing~ : Bool, on_refresh? : (() -> Unit)?, colors? : Array[String]?, progress_background_color? : String?, tint_color? : String?, title? : String?, title_color? : String?, key? : String?) -> @react.Element
+
+pub fn round_to_nearest_pixel(Double) -> Double
+
+pub fn safe_area_view(children? : Array[&@react.ReactNode], style? : StyleProp?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn scroll_view(children? : Array[&@react.ReactNode], style? : StyleProp?, content_container_style? : StyleProp?, horizontal? : Bool?, shows_vertical_scroll_indicator? : Bool?, shows_horizontal_scroll_indicator? : Bool?, scroll_enabled? : Bool?, paging_enabled? : Bool?, bounces? : Bool?, keyboard_should_persist_taps? : String?, keyboard_dismiss_mode? : String?, on_scroll? : ((ScrollEvent) -> Unit)?, on_scroll_begin_drag? : ((ScrollEvent) -> Unit)?, on_scroll_end_drag? : ((ScrollEvent) -> Unit)?, on_momentum_scroll_begin? : ((ScrollEvent) -> Unit)?, on_momentum_scroll_end? : ((ScrollEvent) -> Unit)?, refresh_control? : @react.Element?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn[T] section_list(sections~ : Array[Section[T]], render_item~ : (SectionListRenderItemInfo[T]) -> @react.Element, render_section_header? : ((Section[T]) -> @react.Element)?, render_section_footer? : ((Section[T]) -> @react.Element)?, key_extractor? : ((T, Int) -> String)?, style? : StyleProp?, content_container_style? : StyleProp?, stickySectionHeadersEnabled? : Bool?, inverted? : Bool?, initial_num_to_render? : Int?, on_end_reached? : (() -> Unit)?, on_end_reached_threshold? : Double?, on_refresh? : (() -> Unit)?, refreshing? : Bool?, list_header_component? : @react.Element?, list_footer_component? : @react.Element?, list_empty_component? : @react.Element?, item_separator_component? : (() -> @react.Element)?, section_separator_component? : (() -> @react.Element)?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn[T] select(ios? : T?, android? : T?, web? : T?, macos? : T?, windows? : T?, default? : T?) -> T?
+
+pub fn select_any(Map[String, @core.Any]) -> @core.Any
+
+pub async fn send_intent(String, extras? : Array[(String, @core.Any)]) -> Unit
+
+pub fn set_color_scheme(ColorScheme?) -> Unit
+
+pub fn status_bar(bar_style? : String?, hidden? : Bool?, background_color? : String?, translucent? : Bool?, animated? : Bool?, key? : String?) -> @react.Element
+
+pub fn switch_(value? : Bool?, on_value_change? : ((Bool) -> Unit)?, disabled? : Bool?, track_color? : (String, String)?, thumb_color? : String?, ios_background_color? : String?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn text(children? : Array[&@react.ReactNode], style? : StyleProp?, number_of_lines? : Int?, ellipsize_mode? : String?, selectable? : Bool?, on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn text_input(style? : StyleProp?, value? : String?, default_value? : String?, placeholder? : String?, placeholder_text_color? : String?, keyboard_type? : String?, return_key_type? : String?, auto_capitalize? : String?, auto_correct? : Bool?, auto_focus? : Bool?, secure_text_entry? : Bool?, multiline? : Bool?, number_of_lines? : Int?, max_length? : Int?, editable? : Bool?, on_change_text? : ((String) -> Unit)?, on_submit_editing? : ((TextInputSubmitEvent) -> Unit)?, on_focus? : (() -> Unit)?, on_blur? : (() -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn touchable_opacity(children? : Array[&@react.ReactNode], style? : StyleProp?, on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, active_opacity? : Double?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn version() -> @core.Any
+
+pub fn view(children? : Array[&@react.ReactNode], style? : StyleProp?, on_layout? : ((LayoutChangeEvent) -> Unit)?, on_press? : ((GestureResponderEvent) -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+// Errors
+
+// Types and methods
+pub struct AlertButton {
+  text : String
+  on_press : (() -> Unit)?
+  style : AlertButtonStyle
+  is_preferred : Bool
+}
+pub fn AlertButton::new(text~ : String, on_press? : (() -> Unit)?, style? : AlertButtonStyle, is_preferred? : Bool) -> Self
+pub fn AlertButton::to_any(Self) -> @core.Any
+
+pub(all) enum AlertButtonStyle {
+  Default
+  Cancel
+  Destructive
+}
+pub fn AlertButtonStyle::to_string(Self) -> String
+
+pub(all) enum AppStateStatus {
+  Active
+  Background
+  Inactive
+  Unknown
+  Extension
+}
+pub fn AppStateStatus::to_string(Self) -> String
+
+pub struct AppearanceChangeEvent {
+  color_scheme : ColorScheme
+}
+
+pub(all) enum ColorScheme {
+  Light
+  Dark
+  Unspecified
+}
+pub fn ColorScheme::to_string(Self) -> String
+
+pub struct DimensionsChangeEvent {
+  window : ScaledSize
+  screen : ScaledSize
+}
+
+#external
+pub type GestureResponderEvent
+pub fn GestureResponderEvent::as_any(Self) -> @core.Any
+pub fn GestureResponderEvent::native_event(Self) -> NativeEvent
+
+pub struct ImageSource {
+  // private fields
+}
+pub fn ImageSource::as_any(Self) -> @core.Any
+pub fn ImageSource::from_require(Int) -> Self
+pub fn ImageSource::uri(String, width? : Int?, height? : Int?) -> Self
+
+pub struct ItemLayout {
+  length : Double
+  offset : Double
+  index : Int
+}
+pub fn ItemLayout::new(length~ : Double, offset~ : Double, index~ : Int) -> Self
+
+pub(all) struct KeyboardCoordinates {
+  screen_x : Double
+  screen_y : Double
+  width : Double
+  height : Double
+}
+
+pub struct KeyboardEvent {
+  end_coordinates : KeyboardCoordinates
+  start_coordinates : KeyboardCoordinates?
+  duration : Double
+  easing : String
+}
+
+#external
+pub type Layout
+pub fn Layout::as_any(Self) -> @core.Any
+pub fn Layout::height(Self) -> Double
+pub fn Layout::width(Self) -> Double
+pub fn Layout::x(Self) -> Double
+pub fn Layout::y(Self) -> Double
+
+#external
+pub type LayoutChangeEvent
+pub fn LayoutChangeEvent::as_any(Self) -> @core.Any
+pub fn LayoutChangeEvent::layout(Self) -> Layout
+
+pub struct ListRenderItemInfo[T] {
+  item : T
+  index : Int
+  separators : Separators
+}
+
+#external
+pub type NativeEvent
+pub fn NativeEvent::as_any(Self) -> @core.Any
+
+#external
+pub type NativeScrollEvent
+pub fn NativeScrollEvent::as_any(Self) -> @core.Any
+pub fn NativeScrollEvent::content_offset(Self) -> (Double, Double)
+pub fn NativeScrollEvent::content_size(Self) -> (Double, Double)
+
+pub(all) enum OS {
+  IOS
+  Android
+  Windows
+  MacOS
+  Web
+  Other(String)
+}
+pub fn OS::to_string(Self) -> String
+
+pub(all) struct ScaledSize {
+  width : Double
+  height : Double
+  scale : Double
+  font_scale : Double
+}
+
+#external
+pub type ScrollEvent
+pub fn ScrollEvent::as_any(Self) -> @core.Any
+pub fn ScrollEvent::native_event(Self) -> NativeScrollEvent
+
+pub struct Section[T] {
+  title : String
+  data : Array[T]
+}
+pub fn[T] Section::new(title~ : String, data~ : Array[T]) -> Self[T]
+pub fn[T] Section::to_any(Self[T]) -> @core.Any
+
+pub struct SectionListRenderItemInfo[T] {
+  item : T
+  index : Int
+  section : @core.Any
+  separators : Separators
+}
+
+#external
+pub type Separators
+pub fn Separators::as_any(Self) -> @core.Any
+pub fn Separators::highlight(Self) -> Unit
+pub fn Separators::unhighlight(Self) -> Unit
+pub fn Separators::update_props(Self, String, @core.Any) -> Unit
+
+pub struct Style {
+  // private fields
+}
+pub fn Style::as_any(Self) -> @core.Any
+pub fn Style::from_any(@core.Any) -> Self
+
+pub struct StyleProp {
+  // private fields
+}
+pub fn StyleProp::as_any(Self) -> @core.Any
+pub fn StyleProp::from_style(Style) -> Self
+pub fn StyleProp::from_styles(Array[Style]) -> Self
+
+pub struct StyleSheet {
+}
+pub fn StyleSheet::absolute_fill() -> Style
+pub fn StyleSheet::absolute_fill_object() -> Style
+pub fn StyleSheet::create(Map[String, Map[String, @core.Any]]) -> Map[String, Style]
+pub fn StyleSheet::flatten(Array[Style]) -> Style
+pub fn StyleSheet::hairline_width() -> Double
+
+#external
+pub type Subscription
+pub fn Subscription::as_any(Self) -> @core.Any
+pub fn Subscription::remove(Self) -> Unit
+
+#external
+pub type TextInputChangeEvent
+pub fn TextInputChangeEvent::as_any(Self) -> @core.Any
+pub fn TextInputChangeEvent::text(Self) -> String
+
+#external
+pub type TextInputSubmitEvent
+pub fn TextInputSubmitEvent::as_any(Self) -> @core.Any
+pub fn TextInputSubmitEvent::text(Self) -> String
+
+pub struct URLEvent {
+  url : String
+}
+
+// Type aliases
+
+// Traits
+

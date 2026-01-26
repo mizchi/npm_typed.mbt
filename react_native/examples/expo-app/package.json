@@ -1,0 +1,24 @@
+{
+  "name": "expo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:mbt": "cd ../../.. && moon build --target js && cp _build/js/release/build/react_native/examples/expo-app/expo-app.js react_native/examples/expo-app/App.generated.js",
+    "build:mbt:min": "npm run build:mbt && terser App.generated.js -c -m -o App.generated.js",
+    "start": "npm run build:mbt && expo start",
+    "start:min": "npm run build:mbt:min && expo start",
+    "android": "npm run build:mbt && expo run:android",
+    "ios": "npm run build:mbt && expo run:ios",
+    "web": "npm run build:mbt && expo start --web"
+  },
+  "dependencies": {
+    "expo": "~54.0.31",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5"
+  },
+  "devDependencies": {
+    "terser": "^5.37.0"
+  },
+  "private": true
+}
