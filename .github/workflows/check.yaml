@@ -35,9 +35,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Setup Moon
-        uses: illusory0x0/setup-moonbit@v0.1.0
+        uses: chawyehsu/setup-moonup@v1
         with:
-          version: stable
+          moonbit-version: latest
       - name: moon version
         run: |
           moon version --all
