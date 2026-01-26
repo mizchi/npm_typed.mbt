@@ -85,10 +85,14 @@ pub fn text_delta_chunk(String) -> @core.Any
 pub fn tool_call_chunk(String, String, @core.Any) -> @core.Any
 
 // Errors
-pub suberror PrepareStep async (PrepareStepContext) -> PrepareStepResult
+pub suberror PrepareStep {
+  PrepareStep(async (PrepareStepContext) -> PrepareStepResult)
+}
 pub fn PrepareStep::as_any(Self) -> @core.Any
 
-pub suberror StopCondition (StopConditionContext) -> Bool
+pub suberror StopCondition {
+  StopCondition((StopConditionContext) -> Bool)
+}
 pub fn StopCondition::as_any(Self) -> @core.Any
 
 // Types and methods

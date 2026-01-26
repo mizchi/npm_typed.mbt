@@ -51,4 +51,4 @@ jobs:
         run: moon build --target js
 
       - name: deno test
-        run: deno test -A
+        run: deno test -A --ignore=.mooncakes

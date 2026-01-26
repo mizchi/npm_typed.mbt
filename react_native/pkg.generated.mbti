@@ -1,23 +1,33 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/react_native"
 
-import(
-  "mizchi/js/core"
-  "mizchi/npm_typed/react"
-)
+import {
+  "mizchi/js/core",
+  "mizchi/npm_typed/react",
+}
 
 // Values
 pub fn activity_indicator(animating? : Bool?, color? : String?, size? : String?, hidesWhenStopped? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn add_announcement_finished_listener((String, Bool) -> Unit) -> Subscription
 
 pub fn add_app_state_change_listener((AppStateStatus) -> Unit) -> Subscription
 
 pub fn add_appearance_change_listener((AppearanceChangeEvent) -> Unit) -> Subscription
 
+pub fn add_back_handler_listener(() -> Bool) -> Subscription
+
 pub fn add_blur_listener(() -> Unit) -> Subscription
+
+pub fn add_bold_text_changed_listener((Bool) -> Unit) -> Subscription
 
 pub fn add_dimensions_change_listener((DimensionsChangeEvent) -> Unit) -> Subscription
 
 pub fn add_focus_listener(() -> Unit) -> Subscription
+
+pub fn add_grayscale_changed_listener((Bool) -> Unit) -> Subscription
+
+pub fn add_invert_colors_changed_listener((Bool) -> Unit) -> Subscription
 
 pub fn add_keyboard_did_hide_listener((KeyboardEvent) -> Unit) -> Subscription
 
@@ -29,6 +39,12 @@ pub fn add_keyboard_will_show_listener((KeyboardEvent) -> Unit) -> Subscription
 
 pub fn add_memory_warning_listener(() -> Unit) -> Subscription
 
+pub fn add_reduce_motion_changed_listener((Bool) -> Unit) -> Subscription
+
+pub fn add_reduce_transparency_changed_listener((Bool) -> Unit) -> Subscription
+
+pub fn add_screen_reader_changed_listener((Bool) -> Unit) -> Subscription
+
 pub fn add_url_listener((URLEvent) -> Unit) -> Subscription
 
 pub fn alert(title~ : String, message? : String?, buttons? : Array[AlertButton], cancelable? : Bool, user_interface_style? : String?) -> Unit
@@ -39,13 +55,49 @@ pub fn alert_simple(String, message? : String?) -> Unit
 
 pub fn android_api_level() -> Int
 
+pub fn animated_add(AnimatedValue, AnimatedValue) -> @core.Any
+
+pub fn animated_diff_clamp(AnimatedValue, Double, Double) -> @core.Any
+
+pub fn animated_divide(AnimatedValue, AnimatedValue) -> @core.Any
+
+pub fn animated_event(@core.Any, use_native_driver? : Bool, listener? : ((@core.Any) -> Unit)?) -> @core.Any
+
+pub fn animated_image(source~ : ImageSource, style? : @core.Any?, resize_mode? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn animated_modulo(AnimatedValue, Double) -> @core.Any
+
+pub fn animated_multiply(AnimatedValue, AnimatedValue) -> @core.Any
+
+pub fn animated_scroll_view(children? : Array[&@react.ReactNode], style? : @core.Any?, content_container_style? : @core.Any?, horizontal? : Bool?, on_scroll? : ((ScrollEvent) -> Unit)?, scroll_event_throttle? : Int?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn animated_subtract(AnimatedValue, AnimatedValue) -> @core.Any
+
+pub fn animated_text(children? : Array[&@react.ReactNode], style? : @core.Any?, number_of_lines? : Int?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn animated_view(children? : Array[&@react.ReactNode], style? : @core.Any?, on_layout? : ((LayoutChangeEvent) -> Unit)?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn announce_for_accessibility(String) -> Unit
+
+pub fn announce_for_accessibility_with_options(String, queue? : Bool) -> Unit
+
 pub fn app_state_current() -> AppStateStatus
 
 pub fn app_state_is_available() -> Bool
 
+pub fn back_handler_exit_app() -> Unit
+
 pub fn button(title~ : String, on_press? : (() -> Unit)?, color? : String?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
 pub async fn can_open_url(String) -> Bool
+
+pub fn decay(AnimatedValue, DecayConfig) -> CompositeAnimation
+
+pub fn delay(Int) -> CompositeAnimation
+
+pub fn dismiss_action_sheet() -> Unit
+
+pub fn drawer_layout_android(children? : Array[&@react.ReactNode], render_navigation_view~ : () -> @react.Element, drawer_width? : Int?, drawer_position? : String?, drawer_lock_mode? : String?, drawer_background_color? : String?, on_drawer_open? : (() -> Unit)?, on_drawer_close? : (() -> Unit)?, on_drawer_slide? : ((Double) -> Unit)?, on_drawer_state_changed? : ((String) -> Unit)?, keyboard_dismiss_mode? : String?, status_bar_background_color? : String?, test_id? : String?, key? : String?) -> @react.Element
 
 pub fn[T] flat_list(data~ : Array[T], render_item~ : (ListRenderItemInfo[T]) -> @react.Element, key_extractor? : ((T, Int) -> String)?, style? : StyleProp?, content_container_style? : StyleProp?, horizontal? : Bool?, inverted? : Bool?, num_columns? : Int?, initial_num_to_render? : Int?, max_to_render_per_batch? : Int?, window_size? : Int?, remove_clipped_subviews? : Bool?, scroll_enabled? : Bool?, shows_vertical_scroll_indicator? : Bool?, shows_horizontal_scroll_indicator? : Bool?, bounces? : Bool?, on_end_reached? : (() -> Unit)?, on_end_reached_threshold? : Double?, on_refresh? : (() -> Unit)?, refreshing? : Bool?, on_scroll? : ((ScrollEvent) -> Unit)?, list_header_component? : @react.Element?, list_footer_component? : @react.Element?, list_empty_component? : @react.Element?, item_separator_component? : (() -> @react.Element)?, extra_data? : @core.Any?, get_item_layout? : ((Array[T], Int) -> ItemLayout)?, keyboard_should_persist_taps? : String?, keyboard_dismiss_mode? : String?, test_id? : String?, key? : String?) -> @react.Element
 
@@ -55,19 +107,39 @@ pub fn get_color_scheme() -> ColorScheme
 
 pub async fn get_initial_url() -> String?
 
+pub async fn get_recommended_timeout_millis(Int) -> Int
+
 pub fn get_screen_dimensions() -> ScaledSize
 
 pub fn get_window_dimensions() -> ScaledSize
 
 pub fn image(source~ : ImageSource, style? : StyleProp?, resize_mode? : String?, on_load? : (() -> Unit)?, on_error? : (() -> Unit)?, on_load_start? : (() -> Unit)?, on_load_end? : (() -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
+pub fn image_background(children? : Array[&@react.ReactNode], source~ : ImageSource, style? : StyleProp?, image_style? : StyleProp?, resize_mode? : String?, on_load? : (() -> Unit)?, on_error? : (() -> Unit)?, on_load_start? : (() -> Unit)?, on_load_end? : (() -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn input_accessory_view(children? : Array[&@react.ReactNode], native_id~ : String, style? : StyleProp?, background_color? : String?, key? : String?) -> @react.Element
+
 pub fn ios_version() -> String
 
+pub async fn is_accessibility_service_enabled() -> Bool
+
 pub fn is_android() -> Bool
+
+pub async fn is_bold_text_enabled() -> Bool
+
+pub async fn is_grayscale_enabled() -> Bool
+
+pub async fn is_invert_colors_enabled() -> Bool
 
 pub fn is_ios() -> Bool
 
 pub fn is_macos() -> Bool
+
+pub async fn is_reduce_motion_enabled() -> Bool
+
+pub async fn is_reduce_transparency_enabled() -> Bool
+
+pub async fn is_screen_reader_enabled() -> Bool
 
 pub fn is_testing() -> Bool
 
@@ -85,6 +157,8 @@ pub fn keyboard_is_visible() -> Bool
 
 pub fn keyboard_metrics() -> KeyboardCoordinates?
 
+pub fn loop_(CompositeAnimation, iterations? : Int?, reset_before_iteration? : Bool) -> CompositeAnimation
+
 pub fn modal(children? : Array[&@react.ReactNode], visible? : Bool?, animation_type? : String?, transparent? : Bool?, presentation_style? : String?, on_request_close? : (() -> Unit)?, on_show? : (() -> Unit)?, on_dismiss? : (() -> Unit)?, status_bar_translucent? : Bool?, test_id? : String?, key? : String?) -> @react.Element
 
 pub async fn open_settings() -> Unit
@@ -94,6 +168,14 @@ pub async fn open_url(String) -> Unit
 pub fn os() -> OS
 
 pub fn os_string() -> String
+
+pub fn parallel(Array[CompositeAnimation], stop_together? : Bool) -> CompositeAnimation
+
+pub async fn permission_check(String) -> Bool
+
+pub async fn permission_request(String, rationale? : PermissionRationale?) -> PermissionResult
+
+pub async fn permissions_request_multiple(Array[String]) -> Map[String, PermissionResult]
 
 pub fn pixel_ratio() -> Double
 
@@ -117,9 +199,25 @@ pub fn select_any(Map[String, @core.Any]) -> @core.Any
 
 pub async fn send_intent(String, extras? : Array[(String, @core.Any)]) -> Unit
 
+pub fn sequence(Array[CompositeAnimation]) -> CompositeAnimation
+
+pub fn set_accessibility_focus(Int) -> Unit
+
 pub fn set_color_scheme(ColorScheme?) -> Unit
 
+pub async fn share(ShareContent, options? : ShareOptions?) -> ShareResult
+
+pub fn show_action_sheet(ActionSheetOptions, (Int) -> Unit) -> Unit
+
+pub fn show_share_action_sheet(ShareActionSheetOptions, (String) -> Unit, (Bool, String) -> Unit) -> Unit
+
+pub fn spring(AnimatedValue, SpringConfig) -> CompositeAnimation
+
+pub fn stagger(Int, Array[CompositeAnimation]) -> CompositeAnimation
+
 pub fn status_bar(bar_style? : String?, hidden? : Bool?, background_color? : String?, translucent? : Bool?, animated? : Bool?, key? : String?) -> @react.Element
+
+pub fn style(flex? : Int, flex_grow? : Int, flex_shrink? : Int, flex_basis? : Double, flex_direction? : FlexDirection, justify_content? : JustifyContent, align_items? : AlignItems, align_self? : AlignSelf, align_content? : AlignContent, flex_wrap? : FlexWrap, width? : Double, height? : Double, min_width? : Double, max_width? : Double, min_height? : Double, max_height? : Double, aspect_ratio? : Double, margin? : Double, margin_top? : Double, margin_right? : Double, margin_bottom? : Double, margin_left? : Double, margin_horizontal? : Double, margin_vertical? : Double, padding? : Double, padding_top? : Double, padding_right? : Double, padding_bottom? : Double, padding_left? : Double, padding_horizontal? : Double, padding_vertical? : Double, position? : Position, top? : Double, right? : Double, bottom? : Double, left? : Double, z_index? : Int, border_width? : Double, border_top_width? : Double, border_right_width? : Double, border_bottom_width? : Double, border_left_width? : Double, border_color? : String, border_top_color? : String, border_right_color? : String, border_bottom_color? : String, border_left_color? : String, border_radius? : Double, border_top_left_radius? : Double, border_top_right_radius? : Double, border_bottom_left_radius? : Double, border_bottom_right_radius? : Double, border_style? : BorderStyle, background_color? : String, opacity? : Double, color? : String, font_size? : Double, font_weight? : FontWeight, font_style? : FontStyle, font_family? : String, text_align? : TextAlign, text_align_vertical? : TextAlignVertical, text_decoration_line? : TextDecorationLine, text_transform? : TextTransform, line_height? : Double, letter_spacing? : Double, shadow_color? : String, shadow_offset_width? : Double, shadow_offset_height? : Double, shadow_opacity? : Double, shadow_radius? : Double, elevation? : Int, display? : Display, overflow? : Overflow, resize_mode? : ResizeMode, tint_color? : String, rotate? : String, scale? : Double, translate_x? : Double, translate_y? : Double) -> Style
 
 pub fn switch_(value? : Bool?, on_value_change? : ((Bool) -> Unit)?, disabled? : Bool?, track_color? : (String, String)?, thumb_color? : String?, ios_background_color? : String?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
@@ -127,15 +225,53 @@ pub fn text(children? : Array[&@react.ReactNode], style? : StyleProp?, number_of
 
 pub fn text_input(style? : StyleProp?, value? : String?, default_value? : String?, placeholder? : String?, placeholder_text_color? : String?, keyboard_type? : String?, return_key_type? : String?, auto_capitalize? : String?, auto_correct? : Bool?, auto_focus? : Bool?, secure_text_entry? : Bool?, multiline? : Bool?, number_of_lines? : Int?, max_length? : Int?, editable? : Bool?, on_change_text? : ((String) -> Unit)?, on_submit_editing? : ((TextInputSubmitEvent) -> Unit)?, on_focus? : (() -> Unit)?, on_blur? : (() -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
+pub fn timing(AnimatedValue, TimingConfig) -> CompositeAnimation
+
+pub fn toast_show(String, duration? : ToastDuration) -> Unit
+
+pub fn toast_show_with_gravity(String, duration? : ToastDuration, gravity? : ToastGravity) -> Unit
+
+pub fn toast_show_with_gravity_and_offset(String, duration? : ToastDuration, gravity? : ToastGravity, x_offset? : Int, y_offset? : Int) -> Unit
+
+pub fn touchable_highlight(children? : Array[&@react.ReactNode], style? : StyleProp?, on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, active_opacity? : Double?, underlay_color? : String?, on_hide_underlay? : (() -> Unit)?, on_show_underlay? : (() -> Unit)?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn touchable_native_feedback(children? : Array[&@react.ReactNode], on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, background? : @core.Any?, use_foreground? : Bool?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
 pub fn touchable_opacity(children? : Array[&@react.ReactNode], style? : StyleProp?, on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, active_opacity? : Double?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
+pub fn touchable_without_feedback(children? : Array[&@react.ReactNode], on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+
+pub fn use_color_scheme() -> ColorScheme
+
+pub fn use_window_dimensions() -> ScaledSize
+
 pub fn version() -> @core.Any
+
+pub fn vibrate(duration? : Int?, repeat? : Bool) -> Unit
+
+pub fn vibrate_pattern(Array[Int], repeat? : Bool) -> Unit
+
+pub fn vibration_cancel() -> Unit
 
 pub fn view(children? : Array[&@react.ReactNode], style? : StyleProp?, on_layout? : ((LayoutChangeEvent) -> Unit)?, on_press? : ((GestureResponderEvent) -> Unit)?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
 // Errors
 
 // Types and methods
+pub struct ActionSheetOptions {
+  options : Array[String]
+  cancel_button_index : Int?
+  destructive_button_index : Int?
+  title : String?
+  message : String?
+  anchor : Int?
+  tint_color : String?
+  cancel_button_tint_color : String?
+  user_interface_style : String?
+  disabled_button_indices : Array[Int]?
+}
+pub fn ActionSheetOptions::new(options~ : Array[String], cancel_button_index? : Int?, destructive_button_index? : Int?, title? : String?, message? : String?, anchor? : Int?, tint_color? : String?, cancel_button_tint_color? : String?, user_interface_style? : String?, disabled_button_indices? : Array[Int]?) -> Self
+
 pub struct AlertButton {
   text : String
   on_press : (() -> Unit)?
@@ -152,6 +288,65 @@ pub(all) enum AlertButtonStyle {
 }
 pub fn AlertButtonStyle::to_string(Self) -> String
 
+pub(all) enum AlignContent {
+  FlexStart
+  FlexEnd
+  Center
+  Stretch
+  SpaceBetween
+  SpaceAround
+}
+pub fn AlignContent::to_string(Self) -> String
+
+pub(all) enum AlignItems {
+  FlexStart
+  FlexEnd
+  Center
+  Stretch
+  Baseline
+}
+pub fn AlignItems::to_string(Self) -> String
+
+pub(all) enum AlignSelf {
+  Auto
+  FlexStart
+  FlexEnd
+  Center
+  Stretch
+  Baseline
+}
+pub fn AlignSelf::to_string(Self) -> String
+
+#external
+pub type AnimatedValue
+pub fn AnimatedValue::add_listener(Self, (Double) -> Unit) -> String
+pub fn AnimatedValue::as_any(Self) -> @core.Any
+pub fn AnimatedValue::extract_offset(Self) -> Unit
+pub fn AnimatedValue::flatten_offset(Self) -> Unit
+pub fn AnimatedValue::interpolate(Self, InterpolateConfig) -> @core.Any
+pub fn AnimatedValue::new(Double) -> Self
+pub fn AnimatedValue::remove_all_listeners(Self) -> Unit
+pub fn AnimatedValue::remove_listener(Self, String) -> Unit
+pub fn AnimatedValue::reset_animation(Self, callback? : ((Double) -> Unit)?) -> Unit
+pub fn AnimatedValue::set_offset(Self, Double) -> Unit
+pub fn AnimatedValue::set_value(Self, Double) -> Unit
+pub fn AnimatedValue::stop_animation(Self, callback? : ((Double) -> Unit)?) -> Unit
+
+#external
+pub type AnimatedValueXY
+pub fn AnimatedValueXY::as_any(Self) -> @core.Any
+pub fn AnimatedValueXY::extract_offset(Self) -> Unit
+pub fn AnimatedValueXY::flatten_offset(Self) -> Unit
+pub fn AnimatedValueXY::get_layout(Self) -> @core.Any
+pub fn AnimatedValueXY::get_translate_transform(Self) -> @core.Any
+pub fn AnimatedValueXY::new(x? : Double, y? : Double) -> Self
+pub fn AnimatedValueXY::set_offset(Self, Double, Double) -> Unit
+pub fn AnimatedValueXY::set_value(Self, Double, Double) -> Unit
+
+pub struct AnimationResult {
+  finished : Bool
+}
+
 pub(all) enum AppStateStatus {
   Active
   Background
@@ -165,6 +360,13 @@ pub struct AppearanceChangeEvent {
   color_scheme : ColorScheme
 }
 
+pub(all) enum BorderStyle {
+  Solid
+  Dotted
+  Dashed
+}
+pub fn BorderStyle::to_string(Self) -> String
+
 pub(all) enum ColorScheme {
   Light
   Dark
@@ -172,10 +374,90 @@ pub(all) enum ColorScheme {
 }
 pub fn ColorScheme::to_string(Self) -> String
 
+#external
+pub type CompositeAnimation
+pub fn CompositeAnimation::as_any(Self) -> @core.Any
+pub fn CompositeAnimation::reset(Self) -> Unit
+pub fn CompositeAnimation::start(Self, callback? : ((AnimationResult) -> Unit)?) -> Unit
+pub fn CompositeAnimation::stop(Self) -> Unit
+
+pub struct DecayConfig {
+  velocity : Double
+  deceleration : Double?
+  use_native_driver : Bool?
+}
+pub fn DecayConfig::new(velocity~ : Double, deceleration? : Double?, use_native_driver? : Bool?) -> Self
+
 pub struct DimensionsChangeEvent {
   window : ScaledSize
   screen : ScaledSize
 }
+
+pub(all) enum Display {
+  None
+  Flex
+}
+pub fn Display::to_string(Self) -> String
+
+pub(all) enum Easing {
+  Linear
+  Ease
+  EaseIn
+  EaseOut
+  EaseInOut
+  Quad
+  Cubic
+  Poly(Double)
+  Sin
+  Circle
+  Exp
+  Elastic(Double)
+  Back(Double)
+  Bounce
+  Bezier(Double, Double, Double, Double)
+}
+
+pub(all) enum Extrapolate {
+  Extend
+  Clamp
+  Identity
+}
+
+pub(all) enum FlexDirection {
+  Row
+  RowReverse
+  Column
+  ColumnReverse
+}
+pub fn FlexDirection::to_string(Self) -> String
+
+pub(all) enum FlexWrap {
+  NoWrap
+  Wrap
+  WrapReverse
+}
+pub fn FlexWrap::to_string(Self) -> String
+
+pub(all) enum FontStyle {
+  Normal
+  Italic
+}
+pub fn FontStyle::to_string(Self) -> String
+
+pub(all) enum FontWeight {
+  Normal
+  Bold
+  W100
+  W200
+  W300
+  W400
+  W500
+  W600
+  W700
+  W800
+  W900
+}
+pub fn FontWeight::to_string(Self) -> String
 
 #external
 pub type GestureResponderEvent
@@ -189,12 +471,31 @@ pub fn ImageSource::as_any(Self) -> @core.Any
 pub fn ImageSource::from_require(Int) -> Self
 pub fn ImageSource::uri(String, width? : Int?, height? : Int?) -> Self
 
+pub struct InterpolateConfig {
+  input_range : Array[Double]
+  output_range : Array[@core.Any]
+  extrapolate : Extrapolate?
+  extrapolate_left : Extrapolate?
+  extrapolate_right : Extrapolate?
+}
+pub fn InterpolateConfig::new(input_range~ : Array[Double], output_range~ : Array[@core.Any], extrapolate? : Extrapolate?, extrapolate_left? : Extrapolate?, extrapolate_right? : Extrapolate?) -> Self
+
 pub struct ItemLayout {
   length : Double
   offset : Double
   index : Int
 }
 pub fn ItemLayout::new(length~ : Double, offset~ : Double, index~ : Int) -> Self
+
+pub(all) enum JustifyContent {
+  FlexStart
+  FlexEnd
+  Center
+  SpaceBetween
+  SpaceAround
+  SpaceEvenly
+}
+pub fn JustifyContent::to_string(Self) -> String
 
 pub(all) struct KeyboardCoordinates {
   screen_x : Double
@@ -249,6 +550,43 @@ pub(all) enum OS {
 }
 pub fn OS::to_string(Self) -> String
 
+pub(all) enum Overflow {
+  Visible
+  Hidden
+  Scroll
+}
+pub fn Overflow::to_string(Self) -> String
+
+pub struct PermissionRationale {
+  title : String
+  message : String
+  button_positive : String?
+  button_negative : String?
+  button_neutral : String?
+}
+pub fn PermissionRationale::new(title~ : String, message~ : String, button_positive? : String?, button_negative? : String?, button_neutral? : String?) -> Self
+
+pub(all) enum PermissionResult {
+  Granted
+  Denied
+  NeverAskAgain
+}
+
+pub(all) enum Position {
+  Absolute
+  Relative
+}
+pub fn Position::to_string(Self) -> String
+
+pub(all) enum ResizeMode {
+  Cover
+  Contain
+  Stretch
+  Repeat
+  Center
+}
+pub fn ResizeMode::to_string(Self) -> String
+
 pub(all) struct ScaledSize {
   width : Double
   height : Double
@@ -282,6 +620,53 @@ pub fn Separators::highlight(Self) -> Unit
 pub fn Separators::unhighlight(Self) -> Unit
 pub fn Separators::update_props(Self, String, @core.Any) -> Unit
 
+pub struct ShareActionSheetOptions {
+  url : String?
+  message : String?
+  subject : String?
+  excluded_activity_types : Array[String]?
+}
+pub fn ShareActionSheetOptions::new(url? : String?, message? : String?, subject? : String?, excluded_activity_types? : Array[String]?) -> Self
+
+pub struct ShareContent {
+  message : String?
+  url : String?
+  title : String?
+}
+pub fn ShareContent::new(message? : String?, url? : String?, title? : String?) -> Self
+
+pub struct ShareOptions {
+  dialog_title : String?
+  exclude_activity_types : Array[String]?
+  tint_color : String?
+  subject : String?
+  anchor : Int?
+}
+pub fn ShareOptions::new(dialog_title? : String?, exclude_activity_types? : Array[String]?, tint_color? : String?, subject? : String?, anchor? : Int?) -> Self
+
+pub struct ShareResult {
+  action : String
+  activity_type : String?
+}
+
+pub struct SpringConfig {
+  to_value : Double
+  friction : Double?
+  tension : Double?
+  speed : Double?
+  bounciness : Double?
+  stiffness : Double?
+  damping : Double?
+  mass : Double?
+  overshoot_clamping : Bool?
+  rest_displacement_threshold : Double?
+  rest_speed_threshold : Double?
+  velocity : Double?
+  delay : Int?
+  use_native_driver : Bool?
+}
+pub fn SpringConfig::new(to_value~ : Double, friction? : Double?, tension? : Double?, speed? : Double?, bounciness? : Double?, stiffness? : Double?, damping? : Double?, mass? : Double?, overshoot_clamping? : Bool?, rest_displacement_threshold? : Double?, rest_speed_threshold? : Double?, velocity? : Double?, delay? : Int?, use_native_driver? : Bool?) -> Self
+
 pub struct Style {
   // private fields
 }
@@ -300,6 +685,7 @@ pub struct StyleSheet {
 pub fn StyleSheet::absolute_fill() -> Style
 pub fn StyleSheet::absolute_fill_object() -> Style
 pub fn StyleSheet::create(Map[String, Map[String, @core.Any]]) -> Map[String, Style]
+pub fn StyleSheet::create_typed(Map[String, Style]) -> Map[String, Style]
 pub fn StyleSheet::flatten(Array[Style]) -> Style
 pub fn StyleSheet::hairline_width() -> Double
 
@@ -307,6 +693,31 @@ pub fn StyleSheet::hairline_width() -> Double
 pub type Subscription
 pub fn Subscription::as_any(Self) -> @core.Any
 pub fn Subscription::remove(Self) -> Unit
+
+pub(all) enum TextAlign {
+  Auto
+  Left
+  Right
+  Center
+  Justify
+}
+pub fn TextAlign::to_string(Self) -> String
+
+pub(all) enum TextAlignVertical {
+  Auto
+  Top
+  Bottom
+  Center
+}
+pub fn TextAlignVertical::to_string(Self) -> String
+
+pub(all) enum TextDecorationLine {
+  None
+  Underline
+  LineThrough
+  UnderlineLineThrough
+}
+pub fn TextDecorationLine::to_string(Self) -> String
 
 #external
 pub type TextInputChangeEvent
@@ -317,6 +728,34 @@ pub fn TextInputChangeEvent::text(Self) -> String
 pub type TextInputSubmitEvent
 pub fn TextInputSubmitEvent::as_any(Self) -> @core.Any
 pub fn TextInputSubmitEvent::text(Self) -> String
+
+pub(all) enum TextTransform {
+  None
+  Capitalize
+  Uppercase
+  Lowercase
+}
+pub fn TextTransform::to_string(Self) -> String
+
+pub struct TimingConfig {
+  to_value : Double
+  duration : Int?
+  easing : Easing?
+  delay : Int?
+  use_native_driver : Bool?
+}
+pub fn TimingConfig::new(to_value~ : Double, duration? : Int?, easing? : Easing?, delay? : Int?, use_native_driver? : Bool?) -> Self
+
+pub(all) enum ToastDuration {
+  Short
+  Long
+}
+
+pub(all) enum ToastGravity {
+  Top
+  Bottom
+  Center
+}
 
 pub struct URLEvent {
   url : String

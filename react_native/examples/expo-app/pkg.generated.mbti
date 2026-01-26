@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "mizchi/npm_typed/react_native/examples/expo-app"
 
-import(
-  "mizchi/npm_typed/react"
-)
+import {
+  "mizchi/npm_typed/react",
+}
 
 // Values
 pub fn app() -> @react.Element
