@@ -78,3 +78,21 @@ pub fn StyleSheet::absolute_fill_object() -> Style {
 pub fn StyleSheet::hairline_width() -> Double {
   ffi_stylesheet_hairline_width()
 }
+
+///|
+/// StyleSheet.create_typed - Create optimized style objects with type-safe Style inputs
+/// Use this with the style() function for type-safe style definitions
+pub fn StyleSheet::create_typed(
+  styles : Map[String, Style],
+) -> Map[String, Style] {
+  let styles_obj = @core.new_object()
+  for name, style in styles {
+    styles_obj._set(name, style.as_any())
+  }
+  let result = ffi_stylesheet_create(styles_obj)
+  let output : Map[String, Style] = {}
+  for name, _ in styles {
+    output[name] = Style::from_any(result[name])
+  }
+  output
+}
