@@ -30,21 +30,28 @@ The most fundamental component for building UI:
 
 ```moonbit
 ///|
-let styles = @react_native.StyleSheet::create({
-  "container": {
-    "flex": @core.any(1),
-    "justifyContent": @core.any("center"),
-    "alignItems": @core.any("center"),
-  },
-})
+using @react_native {
+  type Style,
+  type StyleProp,
+  type AlignItems,
+  type JustifyContent,
+  view,
+  text,
+  style,
+}
+
+///|
+let containerStyle : Style = style(
+  flex=1,
+  justify_content=JustifyContent::Center,
+  align_items=AlignItems::Center,
+)
 
 ///|
 fn my_component() -> @react.Element {
-  @react_native.view(
-    style=Some(
-      @react_native.StyleProp::from_style(styles["container"].unwrap()),
-    ),
-    children=[@react_native.text(children=["Hello, React Native!"])],
+  view(
+    style=Some(StyleProp::from_style(containerStyle)),
+    children=[text(children=["Hello, React Native!"])],
   )
 }
 ```
@@ -55,18 +62,16 @@ Display text:
 
 ```moonbit
 ///|
-let styles = @react_native.StyleSheet::create({
-  "title": {
-    "fontSize": @core.any(24),
-    "fontWeight": @core.any("bold"),
-    "color": @core.any("#333333"),
-  },
-})
+let titleStyle : Style = @react_native.style(
+  font_size=24.0,
+  font_weight=@react_native.FontWeight::Bold,
+  color="#333333",
+)
 
 ///|
 fn styled_text() -> @react.Element {
   @react_native.text(
-    style=Some(@react_native.StyleProp::from_style(styles["title"].unwrap())),
+    style=Some(@react_native.StyleProp::from_style(titleStyle)),
     number_of_lines=2,
     ellipsize_mode="tail",
     children=["Styled Text"],
@@ -80,19 +85,17 @@ Display images:
 
 ```moonbit
 ///|
-let styles = @react_native.StyleSheet::create({
-  "image": {
-    "width": @core.any(200),
-    "height": @core.any(200),
-    "borderRadius": @core.any(10),
-  },
-})
+let imageStyle : @react_native.Style = @react_native.style(
+  width=200.0,
+  height=200.0,
+  border_radius=10.0,
+)
 
 ///|
 fn image_example() -> @react.Element {
   @react_native.image(
     source=@react_native.ImageSource::uri("https://example.com/image.png"),
-    style=Some(@react_native.StyleProp::from_style(styles["image"].unwrap())),
+    style=Some(@react_native.StyleProp::from_style(imageStyle)),
     resize_mode="cover",
   )
 }
@@ -104,14 +107,12 @@ Scrollable container:
 
 ```moonbit
 ///|
-let styles = @react_native.StyleSheet::create({
-  "scroll": { "flex": @core.any(1) },
-})
+let scrollStyle : @react_native.Style = @react_native.style(flex=1)
 
 ///|
 fn scroll_example() -> @react.Element {
   @react_native.scroll_view(
-    style=Some(@react_native.StyleProp::from_style(styles["scroll"].unwrap())),
+    style=Some(@react_native.StyleProp::from_style(scrollStyle)),
     shows_vertical_scroll_indicator=false,
     children=[
       @react_native.text(children=["Item 1"]),
@@ -143,13 +144,11 @@ Text input field:
 
 ```moonbit
 ///|
-let styles = @react_native.StyleSheet::create({
-  "input": {
-    "borderWidth": @core.any(1),
-    "borderColor": @core.any("#cccccc"),
-    "padding": @core.any(10),
-  },
-})
+let inputStyle : @react_native.Style = @react_native.style(
+  border_width=1.0,
+  border_color="#cccccc",
+  padding=10.0,
+)
 
 ///|
 fn input_example() -> @react.Element {
@@ -158,7 +157,7 @@ fn input_example() -> @react.Element {
     value=text,
     on_change_text=fn(new_text) { set_text(new_text) },
     placeholder="Enter text...",
-    style=Some(@react_native.StyleProp::from_style(styles["input"].unwrap())),
+    style=Some(@react_native.StyleProp::from_style(inputStyle)),
   )
 }
 ```
@@ -183,9 +182,61 @@ fn list_example() -> @react.Element {
 
 ## StyleSheet API
 
-### Using StyleSheet::create
+### Type-safe Style API (Recommended)
 
-Create optimized style objects like React Native's `StyleSheet.create()`:
+Use the `style()` function with named arguments for compile-time type checking:
+
+```moonbit
+///|
+using @react_native {
+  type Style,
+  type AlignItems,
+  type JustifyContent,
+  type FontWeight,
+  style,
+}
+
+///|
+let containerStyle : Style = style(
+  flex=1,
+  background_color="#fff",
+  align_items=AlignItems::Center,
+  justify_content=JustifyContent::Center,
+)
+
+///|
+let titleStyle : Style = style(
+  font_size=24.0,
+  font_weight=FontWeight::Bold,
+  color="#333",
+)
+```
+
+Available enums for style properties:
+
+| Category | Enums |
+|----------|-------|
+| Layout | `FlexDirection`, `JustifyContent`, `AlignItems`, `AlignSelf`, `AlignContent`, `FlexWrap` |
+| Position | `Position`, `Overflow`, `Display` |
+| Text | `TextAlign`, `TextAlignVertical`, `FontStyle`, `FontWeight`, `TextDecorationLine`, `TextTransform` |
+| Border | `BorderStyle` |
+| Image | `ResizeMode` |
+
+### Using StyleSheet::create_typed
+
+Combine `style()` with `StyleSheet::create_typed()` for optimized styles:
+
+```moonbit
+///|
+let styles = @react_native.StyleSheet::create_typed({
+  "container": style(flex=1, background_color="#fff"),
+  "title": style(font_size=24.0, font_weight=FontWeight::Bold),
+})
+```
+
+### Legacy API
+
+The original `StyleSheet::create` with `@core.any()` is still available:
 
 ```moonbit
 ///|
@@ -193,10 +244,7 @@ let styles = @react_native.StyleSheet::create({
   "container": {
     "flex": @core.any(1),
     "backgroundColor": @core.any("#fff"),
-    "alignItems": @core.any("center"),
-    "justifyContent": @core.any("center"),
   },
-  "title": { "fontSize": @core.any(24), "fontWeight": @core.any("bold") },
 })
 ```
 
@@ -335,6 +383,67 @@ fn get_theme() -> String {
 }
 ```
 
+## Hooks
+
+### useColorScheme
+
+Get the user's preferred color scheme:
+
+```moonbit
+///|
+fn themed_component() -> @react.Element {
+  let color_scheme = @react_native.use_color_scheme()
+  let bg = match color_scheme {
+    Dark => "#000"
+    _ => "#fff"
+  }
+  @react_native.view(
+    style=Some(@react_native.StyleProp::from_style(
+      @react_native.style(flex=1, background_color=bg),
+    )),
+    children=[],
+  )
+}
+```
+
+### useWindowDimensions
+
+Get current window dimensions (updates on resize):
+
+```moonbit
+///|
+fn responsive_component() -> @react.Element {
+  let dimensions = @react_native.use_window_dimensions()
+  @react_native.text(children=[
+    "Width: \{dimensions.width}, Height: \{dimensions.height}",
+  ])
+}
+```
+
+## Animated API
+
+### Basic Animation
+
+```moonbit
+///|
+fn fade_in_example() {
+  let opacity = @react_native.AnimatedValue::new(0.0)
+  let animation = @react_native.timing(
+    opacity,
+    @react_native.TimingConfig::new(to_value=1.0, duration=500),
+  )
+  animation.start(None)
+}
+```
+
+### Animated Components
+
+Use `animated_view`, `animated_text`, `animated_image` for animated styles.
+
+### Easing
+
+Available easing functions: `Linear`, `Ease`, `EaseIn`, `EaseOut`, `EaseInOut`, `Bounce`, `Elastic`, etc.
+
 ## Available Components
 
 | Component | Description |
@@ -342,10 +451,14 @@ fn get_theme() -> String {
 | `view` | Basic container component |
 | `text` | Text display component |
 | `image` | Image display component |
+| `image_background` | Image as background |
 | `scroll_view` | Scrollable container |
 | `flat_list` | Performant flat list |
 | `section_list` | Sectioned list |
 | `touchable_opacity` | Touchable with opacity feedback |
+| `touchable_highlight` | Touchable with highlight feedback |
+| `touchable_without_feedback` | Touchable without visual feedback |
+| `touchable_native_feedback` | Android native ripple effect |
 | `pressable` | Core pressable component |
 | `text_input` | Text input field |
 | `button` | Basic button |
@@ -356,12 +469,15 @@ fn get_theme() -> String {
 | `status_bar` | Status bar control |
 | `keyboard_avoiding_view` | Keyboard-aware container |
 | `refresh_control` | Pull-to-refresh |
+| `drawer_layout_android` | Android drawer layout |
+| `input_accessory_view` | iOS input accessory |
 
 ## Available APIs
 
 | API | Description |
 |-----|-------------|
 | `StyleSheet` | Style creation |
+| `style()` | Type-safe style function |
 | `Platform` | Platform detection |
 | `Dimensions` | Screen dimensions |
 | `Alert` | Alert dialogs |
@@ -370,3 +486,18 @@ fn get_theme() -> String {
 | `AppState` | App lifecycle |
 | `PixelRatio` | Pixel density |
 | `Appearance` | Color scheme |
+| `BackHandler` | Android back button |
+| `ToastAndroid` | Android toast messages |
+| `PermissionsAndroid` | Android permissions |
+| `ActionSheetIOS` | iOS action sheets |
+| `Share` | Share dialog |
+| `Vibration` | Device vibration |
+| `AccessibilityInfo` | Accessibility features |
+| `Animated` | Animation API |
+
+## Hooks
+
+| Hook | Description |
+|------|-------------|
+| `use_color_scheme` | Get color scheme preference |
+| `use_window_dimensions` | Get window dimensions |
