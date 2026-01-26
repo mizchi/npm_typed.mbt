@@ -51,4 +51,9 @@ jobs:
         run: moon build --target js
 
       - name: deno test
-        run: deno test -A --ignore=.mooncakes
+        run: |
+          if [ -n "$(find . -name '*.test.ts' -not -path './node_modules/*' -not -path './.mooncakes/*' 2>/dev/null)" ]; then
+            deno test -A --ignore=.mooncakes,node_modules
+          else
+            echo "No deno test files found, skipping"
+          fi
