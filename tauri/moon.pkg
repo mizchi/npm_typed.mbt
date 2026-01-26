@@ -3,3 +3,7 @@ import {
   "mizchi/js/core",
   "mizchi/npm_typed/tauri/dpi",
 }
+
+options(
+  "warn-list": "-1",
+)

@@ -2,3 +2,7 @@ import {
   "mizchi/js",
   "mizchi/js/core",
 }
+
+options(
+  "warn-list": "-24",
+)

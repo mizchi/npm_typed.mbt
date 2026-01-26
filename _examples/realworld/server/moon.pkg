@@ -6,6 +6,7 @@ import {
   "mizchi/npm_typed/hono_element",
   "mizchi/npm_typed/better_auth",
   "mizchi/npm_typed/zod",
+  "moonbitlang/core/strconv",
 }
 
 options(

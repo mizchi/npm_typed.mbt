@@ -27,21 +27,21 @@ type InternalPromptHandler = (@core.Any) -> @js.Promise[Array[Content]]
 /// MCP Server
 pub struct McpServer {
   info : ServerInfo
-  mut tools : @immut/hashmap.HashMap[String, (Tool, InternalToolHandler)]
-  mut resources : @immut/hashmap.HashMap[
+  mut tools : @hashmap.HashMap[String, (Tool, InternalToolHandler)]
+  mut resources : @hashmap.HashMap[
     String,
     (Resource, InternalResourceHandler),
   ]
-  mut prompts : @immut/hashmap.HashMap[String, (Prompt, InternalPromptHandler)]
+  mut prompts : @hashmap.HashMap[String, (Prompt, InternalPromptHandler)]
 }
 
 ///|
 pub fn McpServer::new(name : String, version : String) -> McpServer {
   {
     info: { name, version },
-    tools: @immut/hashmap.new(),
-    resources: @immut/hashmap.new(),
-    prompts: @immut/hashmap.new(),
+    tools: @hashmap.new(),
+    resources: @hashmap.new(),
+    prompts: @hashmap.new(),
   }
 }
 
