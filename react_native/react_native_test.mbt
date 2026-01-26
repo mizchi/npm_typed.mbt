@@ -386,3 +386,143 @@ test "AppStateStatus Unknown and Extension" {
     content="extension",
   )
 }
+
+// ============================================================================
+// Type-safe Style API Tests
+// ============================================================================
+
+///|
+test "FlexDirection to_string" {
+  inspect(@react_native.FlexDirection::Row.to_string(), content="row")
+  inspect(
+    @react_native.FlexDirection::RowReverse.to_string(),
+    content="row-reverse",
+  )
+  inspect(@react_native.FlexDirection::Column.to_string(), content="column")
+  inspect(
+    @react_native.FlexDirection::ColumnReverse.to_string(),
+    content="column-reverse",
+  )
+}
+
+///|
+test "JustifyContent to_string" {
+  inspect(
+    @react_native.JustifyContent::FlexStart.to_string(),
+    content="flex-start",
+  )
+  inspect(@react_native.JustifyContent::FlexEnd.to_string(), content="flex-end")
+  inspect(@react_native.JustifyContent::Center.to_string(), content="center")
+  inspect(
+    @react_native.JustifyContent::SpaceBetween.to_string(),
+    content="space-between",
+  )
+  inspect(
+    @react_native.JustifyContent::SpaceAround.to_string(),
+    content="space-around",
+  )
+  inspect(
+    @react_native.JustifyContent::SpaceEvenly.to_string(),
+    content="space-evenly",
+  )
+}
+
+///|
+test "AlignItems to_string" {
+  inspect(@react_native.AlignItems::FlexStart.to_string(), content="flex-start")
+  inspect(@react_native.AlignItems::FlexEnd.to_string(), content="flex-end")
+  inspect(@react_native.AlignItems::Center.to_string(), content="center")
+  inspect(@react_native.AlignItems::Stretch.to_string(), content="stretch")
+  inspect(@react_native.AlignItems::Baseline.to_string(), content="baseline")
+}
+
+///|
+test "Position to_string" {
+  inspect(@react_native.Position::Absolute.to_string(), content="absolute")
+  inspect(@react_native.Position::Relative.to_string(), content="relative")
+}
+
+///|
+test "FontWeight to_string" {
+  inspect(@react_native.FontWeight::Normal.to_string(), content="normal")
+  inspect(@react_native.FontWeight::Bold.to_string(), content="bold")
+  inspect(@react_native.FontWeight::W500.to_string(), content="500")
+}
+
+///|
+test "TextAlign to_string" {
+  inspect(@react_native.TextAlign::Left.to_string(), content="left")
+  inspect(@react_native.TextAlign::Center.to_string(), content="center")
+  inspect(@react_native.TextAlign::Right.to_string(), content="right")
+}
+
+///|
+test "BorderStyle to_string" {
+  inspect(@react_native.BorderStyle::Solid.to_string(), content="solid")
+  inspect(@react_native.BorderStyle::Dotted.to_string(), content="dotted")
+  inspect(@react_native.BorderStyle::Dashed.to_string(), content="dashed")
+}
+
+///|
+test "ResizeMode to_string" {
+  inspect(@react_native.ResizeMode::Cover.to_string(), content="cover")
+  inspect(@react_native.ResizeMode::Contain.to_string(), content="contain")
+  inspect(@react_native.ResizeMode::Stretch.to_string(), content="stretch")
+}
+
+///|
+test "style function creates Style" {
+  let s = @react_native.style(
+    flex=1,
+    flex_direction=@react_native.FlexDirection::Column,
+    justify_content=@react_native.JustifyContent::Center,
+    align_items=@react_native.AlignItems::Center,
+    background_color="#fff",
+  )
+  inspect(@core.is_undefined(s.as_any()), content="false")
+}
+
+///|
+test "style function with sizing" {
+  let s = @react_native.style(
+    width=100.0,
+    height=200.0,
+    padding=16.0,
+    margin=8.0,
+  )
+  inspect(@core.is_undefined(s.as_any()), content="false")
+}
+
+///|
+test "style function with text properties" {
+  let s = @react_native.style(
+    color="#333",
+    font_size=16.0,
+    font_weight=@react_native.FontWeight::Bold,
+    text_align=@react_native.TextAlign::Center,
+  )
+  inspect(@core.is_undefined(s.as_any()), content="false")
+}
+
+///|
+test "style function with border" {
+  let s = @react_native.style(
+    border_width=1.0,
+    border_color="#ccc",
+    border_radius=8.0,
+    border_style=@react_native.BorderStyle::Solid,
+  )
+  inspect(@core.is_undefined(s.as_any()), content="false")
+}
+
+///|
+test "style function with position" {
+  let s = @react_native.style(
+    position=@react_native.Position::Absolute,
+    top=0.0,
+    left=0.0,
+    right=0.0,
+    bottom=0.0,
+  )
+  inspect(@core.is_undefined(s.as_any()), content="false")
+}
