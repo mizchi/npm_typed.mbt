@@ -1,3 +1,9 @@
+packages:
+  - '*'
+  - react/examples/*
+
+nodeLinker: hoisted
+
 onlyBuiltDependencies:
   - canvas
   - esbuild
@@ -5,6 +11,3 @@ onlyBuiltDependencies:
   - puppeteer
   - sharp
   - workerd
-packages:
-  - '*'
-  - 'react/examples/*'
