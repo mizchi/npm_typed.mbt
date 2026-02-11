@@ -1,6 +1,6 @@
 {
   "name": "mizchi/npm_typed",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "deps": {
     "moonbitlang/async": "0.16.6",
     "mizchi/js": "0.10.14"
