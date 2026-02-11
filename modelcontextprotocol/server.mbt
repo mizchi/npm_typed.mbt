@@ -28,10 +28,7 @@ type InternalPromptHandler = (@core.Any) -> @js.Promise[Array[Content]]
 pub struct McpServer {
   info : ServerInfo
   mut tools : @hashmap.HashMap[String, (Tool, InternalToolHandler)]
-  mut resources : @hashmap.HashMap[
-    String,
-    (Resource, InternalResourceHandler),
-  ]
+  mut resources : @hashmap.HashMap[String, (Resource, InternalResourceHandler)]
   mut prompts : @hashmap.HashMap[String, (Prompt, InternalPromptHandler)]
 }
 
