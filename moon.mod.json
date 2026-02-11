@@ -3,7 +3,7 @@
   "version": "0.1.10",
   "deps": {
     "moonbitlang/async": "0.16.6",
-    "mizchi/js": "0.10.13"
+    "mizchi/js": "0.10.14"
   },
   "readme": "README.md",
   "repository": "https://github.com/mizchi/npm_typed.mbt",
