@@ -4,6 +4,4 @@ import {
   "mizchi/npm_typed/tauri/dpi",
 }
 
-options(
-  "warn-list": "-1",
-)
+warnings = "-1"

@@ -3,6 +3,4 @@ import {
   "mizchi/js/core",
 }
 
-options(
-  "warn-list": "-24",
-)
+warnings = "-24"
