@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.13] - 2026-04-09
+
+### Changed
+
+- Bumped `mizchi/js` dependency to `0.10.16`
+
+## [0.1.12] - 2026-04-09
+
+### Changed
+
+- Replaced legacy `supported-targets` manifests with `supported_targets`
+- Added explicit `supported_targets = "js"` to JS-only packages that depended on `mizchi/js`
+
 ## [0.1.4] - 2025-12-12
 
 ### Added

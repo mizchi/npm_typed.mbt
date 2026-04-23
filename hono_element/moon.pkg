@@ -3,7 +3,6 @@ import {
   "mizchi/npm_typed/hono",
 }
 
-options(
-  "supported-targets": [ "js" ],
-  "warn-list": "-25",
-)
+warnings = "-25"
+
+supported_targets = "js"

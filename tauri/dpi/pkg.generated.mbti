@@ -3,6 +3,7 @@ package "mizchi/npm_typed/tauri/dpi"
 
 import {
   "mizchi/js/core",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -13,38 +14,34 @@ import {
 pub(all) struct LogicalPosition {
   x : Double
   y : Double
-}
+} derive(ToJson, @debug.Debug)
 pub fn LogicalPosition::to_any(Self) -> @core.Any
 pub fn LogicalPosition::to_physical(Self, Double) -> PhysicalPosition
 pub impl Show for LogicalPosition
-pub impl ToJson for LogicalPosition
 
 pub(all) struct LogicalSize {
   width : Double
   height : Double
-}
+} derive(ToJson, @debug.Debug)
 pub fn LogicalSize::to_any(Self) -> @core.Any
 pub fn LogicalSize::to_physical(Self, Double) -> PhysicalSize
 pub impl Show for LogicalSize
-pub impl ToJson for LogicalSize
 
 pub(all) struct PhysicalPosition {
   x : Int
   y : Int
-}
+} derive(ToJson, @debug.Debug)
 pub fn PhysicalPosition::to_any(Self) -> @core.Any
 pub fn PhysicalPosition::to_logical(Self, Double) -> LogicalPosition
 pub impl Show for PhysicalPosition
-pub impl ToJson for PhysicalPosition
 
 pub(all) struct PhysicalSize {
   width : Int
   height : Int
-}
+} derive(ToJson, @debug.Debug)
 pub fn PhysicalSize::to_any(Self) -> @core.Any
 pub fn PhysicalSize::to_logical(Self, Double) -> LogicalSize
 pub impl Show for PhysicalSize
-pub impl ToJson for PhysicalSize
 
 pub(all) enum Position {
   Logical(LogicalPosition)

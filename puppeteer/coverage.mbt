@@ -17,7 +17,7 @@ pub fn Coverage::to_any(self : Coverage) -> @core.Any = "%identity"
 pub(all) struct CoverageRange {
   start : Int
   end : Int
-} derive(Show)
+} derive(Debug)
 
 ///|
 /// JSCoverageEntry type
@@ -25,7 +25,7 @@ pub(all) struct JSCoverageEntry {
   url : String
   text : String
   ranges : Array[@core.Any]
-} derive(Show)
+}
 
 ///|
 /// CSSCoverageEntry type
@@ -33,7 +33,7 @@ pub(all) struct CSSCoverageEntry {
   url : String
   text : String
   ranges : Array[@core.Any]
-} derive(Show)
+}
 
 ///| Page methods (coverage)
 

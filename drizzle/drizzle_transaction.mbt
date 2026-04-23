@@ -59,7 +59,7 @@ pub(all) enum PgIsolationLevel {
   ReadCommitted
   RepeatableRead
   Serializable
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn PgIsolationLevel::to_string(self : PgIsolationLevel) -> String {
@@ -76,7 +76,7 @@ pub fn PgIsolationLevel::to_string(self : PgIsolationLevel) -> String {
 pub(all) enum PgAccessMode {
   ReadOnly
   ReadWrite
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn PgAccessMode::to_string(self : PgAccessMode) -> String {
@@ -126,7 +126,7 @@ pub(all) enum SqliteBehavior {
   Deferred
   Immediate
   Exclusive
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn SqliteBehavior::to_string(self : SqliteBehavior) -> String {

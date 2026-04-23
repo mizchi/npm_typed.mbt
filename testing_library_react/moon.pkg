@@ -7,14 +7,12 @@ import {
   "mizchi/npm_typed/testing_library",
 }
 
-import "test" {
+import {
   "mizchi/npm_typed/global_jsdom",
   "mizchi/npm_typed/react_element",
   "mizchi/npm_typed/react_router",
   "mizchi/js/builtins/regexp",
   "moonbitlang/async",
-}
+} for "test"
 
-options(
-  "supported-targets": [ "js" ],
-)
+supported_targets = "js"

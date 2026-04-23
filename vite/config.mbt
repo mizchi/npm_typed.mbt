@@ -23,7 +23,14 @@ pub(all) struct Config {
   assetsInclude : @core.Any?
   envDir : String?
   envPrefix : String?
-} derive(Show)
+}
+
+///|
+pub impl Show for Config with output(self, logger) {
+  logger.write_string(
+    "Config(root=\{self.root}, base=\{self.base}, mode=\{self.mode})",
+  )
+}
 
 ///|
 #module("vite")

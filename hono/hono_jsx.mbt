@@ -161,7 +161,7 @@ pub fn HonoJsx::jsx(
   key? : String,
 ) -> JSXNode {
   let tag = @core.any(tag)
-  let children_arr = children.map(_.toHonoNode())
+  let children_arr = children.map(child => child.toHonoNode())
   let val = @core.new_object()
   if props is Some(props) {
     for k, v in props {
@@ -219,7 +219,7 @@ pub fn[T] HonoJsx::jsx_component(
   key? : String,
 ) -> JSXNode {
   let tag : @core.Any = @core.any(tag)
-  let children_any = children.map(_.toHonoNode())
+  let children_any = children.map(child => child.toHonoNode())
   let val : @core.Any = @core.any(props)
   if key is Some(k) {
     if @core.is_nullish(val) {
@@ -251,7 +251,7 @@ pub fn HonoJsx::fragment(
   children : Array[&HonoNode],
   key? : String,
 ) -> JSXNode {
-  let children_arr = children.map(_.toHonoNode())
+  let children_arr = children.map(child => child.toHonoNode())
   let val = @core.new_object()
   if key is Some(k) {
     val["key"] = @core.any(k)
@@ -324,7 +324,7 @@ pub fn[T] HonoJsx::context_provider(
   children : Array[&HonoNode],
   value~ : T,
 ) -> JSXNode {
-  let children_any = children.map(_.toHonoNode())
+  let children_any = children.map(child => child.toHonoNode())
   let props = @core.new_object()
   props["value"] = @core.any(value)
   let flat_children : @core.Any = if children_any.length() == 1 {
@@ -460,7 +460,7 @@ pub fn jsx(
   key? : String,
 ) -> JSXNode {
   let tag = @core.any(tag)
-  let children_arr = children.map(_.toHonoNode())
+  let children_arr = children.map(child => child.toHonoNode())
   let val = @core.new_object()
   if props is Some(props) {
     for k, v in props {
@@ -502,7 +502,7 @@ pub fn[T] jsx_component(
   key? : String,
 ) -> JSXNode {
   let tag : @core.Any = @core.any(tag)
-  let children_any = children.map(_.toHonoNode())
+  let children_any = children.map(child => child.toHonoNode())
   let val : @core.Any = @core.any(props)
   if key is Some(k) {
     if @core.is_nullish(val) {
@@ -531,7 +531,7 @@ pub fn[T] jsx_component(
 /// Fragment (legacy - prefer HonoJsx::fragment)
 /// Note: Requires init_jsx_runtime() to be called first
 pub fn fragment(children : Array[&HonoNode], key? : String) -> JSXNode {
-  let children_arr = children.map(_.toHonoNode())
+  let children_arr = children.map(child => child.toHonoNode())
   let val = @core.new_object()
   if key is Some(k) {
     val["key"] = @core.any(k)
@@ -602,7 +602,7 @@ pub fn[T] context_provider(
   children : Array[&HonoNode],
   value~ : T,
 ) -> JSXNode {
-  let children_any = children.map(_.toHonoNode())
+  let children_any = children.map(child => child.toHonoNode())
   let props = @core.new_object()
   props["value"] = @core.any(value)
   let flat_children : @core.Any = if children_any.length() == 1 {

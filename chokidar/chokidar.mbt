@@ -10,7 +10,7 @@ pub enum EventName {
   Change
   Unlink
   UnlinkDir
-} derive(Show, Eq)
+} derive(Debug, Eq)
 
 ///|
 pub fn EventName::from_string(s : String) -> EventName? {

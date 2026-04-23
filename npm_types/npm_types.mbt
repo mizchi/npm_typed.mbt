@@ -12,14 +12,14 @@ pub(all) struct Contact {
   name : String
   email : String? // Optional
   url : String? // Optional
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// PGP signature data
 pub(all) struct Signature {
   keyid : String
   sig : String
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Repository information
@@ -27,34 +27,34 @@ pub(all) struct Repository {
   url : String
   type_ : String? // Optional, "git", "svn", etc.
   directory : String? // Optional, subdirectory within repo
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Funding information
 pub(all) struct Funding {
   type_ : String
   url : String
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Deprecated license format (pre-SPDX)
 pub(all) struct DeprecatedLicense {
   type_ : String
   url : String
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Peer dependency metadata
 pub(all) struct PeerDependencyMeta {
   optional : Bool
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Binary file distribution info
 pub(all) struct BinDist {
   shasum : String
   tarball : String
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Distribution information for a package version
@@ -68,7 +68,7 @@ pub(all) struct Dist {
   unpacked_size : Int? // Size in bytes when unpacked
   npm_signature : String? // Legacy npm signature
   bin : Map[String, BinDist]? // Binary distributions
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Development engine dependency (for devEngines field)
@@ -76,7 +76,7 @@ pub(all) struct DevEngineDependency {
   name : String
   version : String? // Optional version constraint
   on_fail : String? // "ignore" | "warn" | "error" | "download"
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Development engines configuration
@@ -86,14 +86,14 @@ pub(all) struct DevEngines {
   libc : Array[DevEngineDependency]?
   runtime : Array[DevEngineDependency]?
   package_manager : Array[DevEngineDependency]?
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Bugs/issue tracker information
 pub(all) struct Bugs {
   email : String?
   url : String?
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 // =============================================================================
 // PackageJSON - package.json file structure
@@ -148,7 +148,7 @@ pub(all) struct PackageJSON {
   workspaces : Array[String]?
   // Deprecated fields
   licenses : Array[DeprecatedLicense]?
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 // =============================================================================
 // PackumentVersion - Registry metadata for a specific version
@@ -209,7 +209,7 @@ pub(all) struct PackumentVersion {
   git_head : String?
   readme : String?
   readme_filename : String?
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 // =============================================================================
 // Packument - Full registry response for a package
@@ -221,7 +221,7 @@ pub(all) struct PackumentTime {
   created : String // ISO date string
   modified : String // ISO date string
   versions : Map[String, String] // version -> ISO date
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Full registry response for a package
@@ -249,7 +249,7 @@ pub(all) struct Packument {
   // npm-specific optional
   cached : Bool? // _cached
   users : Map[String, Bool]? // deprecated star list
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 // =============================================================================
 // ManifestVersion - Abbreviated version for install operations
@@ -275,7 +275,7 @@ pub(all) struct ManifestVersion {
   optional_dependencies : Map[String, String]?
   peer_dependencies : Map[String, String]?
   deprecated : String?
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 ///|
 /// Abbreviated package manifest for install operations
@@ -287,7 +287,7 @@ pub(all) struct Manifest {
   versions : Map[String, ManifestVersion]
   // Optional
   cached : Bool?
-} derive(Show, Eq, ToJson, FromJson)
+} derive(Debug, Eq, ToJson, FromJson)
 
 // =============================================================================
 // Helper functions

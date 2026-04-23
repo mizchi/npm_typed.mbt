@@ -18,7 +18,7 @@ test "minify_sync - with filename" {
 test "minify - removes whitespace" {
   let input = "const    a    =    1    ;"
   let output = minify(input)
-  assert_true(not(output.contains("    ")))
+  assert_true(!output.contains("    "))
 }
 
 ///|

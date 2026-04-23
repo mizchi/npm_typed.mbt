@@ -1,10 +1,7 @@
-import {
-  "mizchi/js/core",
-  "mizchi/npm_typed/react",
-  "mizchi/npm_typed/react_native",
-}
+import { "mizchi/npm_typed/react", "mizchi/npm_typed/react_native" }
+
+supported_targets = "js"
 
 options(
   link: { "js": { "exports": [ "app" ], "format": "esm" } },
-  "supported-targets": [ "js" ],
 )

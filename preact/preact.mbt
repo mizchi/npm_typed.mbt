@@ -65,7 +65,7 @@ pub fn h(
   key? : String,
 ) -> VNode {
   let tag = @core.any(tag)
-  let children = @core.any(children.map(_.to_preact_node()))
+  let children = @core.any(children.map(child => child.to_preact_node()))
   let val = @core.new_object()
   if props is Some(props) {
     for k, v in props {
@@ -98,7 +98,7 @@ pub fn[T] component(
   key? : String,
 ) -> VNode {
   let tag = @core.any(tag)
-  let children = @core.any(children.map(_.to_preact_node()))
+  let children = @core.any(children.map(child => child.to_preact_node()))
   let val : @core.Any = @core.any(props)
   if key is Some(key) {
     if @core.is_nullish(val) {
@@ -115,7 +115,7 @@ pub fn[T] component(
 /// Preact.Fragment
 pub fn fragment(children : Array[&PreactNode], key? : String) -> VNode {
   let tag = get_fragment()
-  let children = @core.any(children.map(_.to_preact_node()))
+  let children = @core.any(children.map(child => child.to_preact_node()))
   let val = @core.new_object()
   if key is Some(key) {
     val["key"] = @core.any(key)
@@ -175,7 +175,7 @@ pub fn[T] provider(
   children : Array[&PreactNode],
   value~ : T,
 ) -> VNode {
-  let children = @core.any(children.map(_.to_preact_node()))
+  let children = @core.any(children.map(child => child.to_preact_node()))
   let props = @core.new_object()
   props["value"] = @core.any(value)
   ffi_h(ctx.as_any(), props, children).cast()

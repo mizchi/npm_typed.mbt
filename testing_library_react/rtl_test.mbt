@@ -30,7 +30,7 @@ test "testing-library/react" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 1"),
-  )..toHaveTextContent("Count: 1")
+  ).toHaveTextContent("Count: 1")
 }
 
 ///|
@@ -51,7 +51,7 @@ test "RenderResult methods" {
   result.rerender(@react.component(comp2, ()))
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Rerendered Content"),
-  )..toHaveTextContent("Rerendered Content")
+  ).toHaveTextContent("Rerendered Content")
   // Test unmount
   result.unmount()
 }
@@ -106,7 +106,7 @@ test "getByRole query" {
   // getByRole finds button
   @testing_library_react.expect(
     @testing_library_react.screen().getByRole("button"),
-  )..toHaveTextContent("Click me")
+  ).toHaveTextContent("Click me")
   // getByRole finds textbox (just verify it exists)
   @testing_library_react.screen().getByRole("textbox") |> ignore
 }
@@ -121,7 +121,7 @@ test "getByPlaceholderText query" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByPlaceholderText("Enter your name"),
-  )..toHaveAttribute("placeholder")
+  ).toHaveAttribute("placeholder")
 }
 
 ///|
@@ -134,7 +134,7 @@ test "getByDisplayValue query" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByDisplayValue("test value"),
-  )..toHaveValue("test value")
+  ).toHaveValue("test value")
 }
 
 ///|
@@ -172,7 +172,7 @@ test "fireEvent click on button" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Clicked!"),
-  )..toHaveTextContent("Clicked!")
+  ).toHaveTextContent("Clicked!")
 }
 
 ///|
@@ -202,7 +202,7 @@ test "fireEvent change on input" {
   @testing_library_react.fireEvent().change(input_el, event) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Value: hello"),
-  )..toHaveTextContent("Value: hello")
+  ).toHaveTextContent("Value: hello")
 }
 
 ///|
@@ -241,7 +241,7 @@ test "fireEvent submit on form" {
   @testing_library_react.fireEvent().submit(form_el) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Form submitted"),
-  )..toHaveTextContent("Form submitted")
+  ).toHaveTextContent("Form submitted")
 }
 
 ///|
@@ -268,11 +268,11 @@ test "fireEvent focus and blur on input" {
   @testing_library_react.fireEvent().focus(input_el) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Focused"),
-  )..toHaveTextContent("Focused")
+  ).toHaveTextContent("Focused")
   @testing_library_react.fireEvent().blur(input_el) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Not focused"),
-  )..toHaveTextContent("Not focused")
+  ).toHaveTextContent("Not focused")
 }
 
 ///|
@@ -301,7 +301,7 @@ test "fireEvent keyDown on input" {
   @testing_library_react.fireEvent().keyDown(input_el, event) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Key: Enter"),
-  )..toHaveTextContent("Key: Enter")
+  ).toHaveTextContent("Key: Enter")
 }
 
 ///|
@@ -510,14 +510,14 @@ test "useTransition hook" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 0"),
-  )..toHaveTextContent("Count: 0")
+  ).toHaveTextContent("Count: 0")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("Increment"),
   )
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 1"),
-  )..toHaveTextContent("Count: 1")
+  ).toHaveTextContent("Count: 1")
 }
 
 ///|
@@ -536,7 +536,7 @@ test "useDeferredValue hook" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Value: 0, Deferred: 0"),
-  )..toHaveTextContent("Value: 0, Deferred: 0")
+  ).toHaveTextContent("Value: 0, Deferred: 0")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("Update"),
   )
@@ -544,7 +544,7 @@ test "useDeferredValue hook" {
   // After update, both should eventually match
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Value: 1, Deferred: 1"),
-  )..toHaveTextContent("Value: 1, Deferred: 1")
+  ).toHaveTextContent("Value: 1, Deferred: 1")
 }
 
 ///|
@@ -572,14 +572,14 @@ test "useOptimistic hook" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Optimistic: 0"),
-  )..toHaveTextContent("Optimistic: 0")
+  ).toHaveTextContent("Optimistic: 0")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("Add"),
   )
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Optimistic: 1"),
-  )..toHaveTextContent("Optimistic: 1")
+  ).toHaveTextContent("Optimistic: 1")
 }
 
 ///|
@@ -609,7 +609,7 @@ test "useImperativeHandle hook" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Child"),
-  )..toHaveTextContent("Child")
+  ).toHaveTextContent("Child")
 }
 
 // =============================================================================
@@ -655,7 +655,7 @@ async test "react-router: basic routing with memory router" {
   @testing_library_react.render(@react_router.router_provider(router)) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Home Page"),
-  )..toHaveTextContent("Home Page")
+  ).toHaveTextContent("Home Page")
 }
 
 ///|
@@ -673,7 +673,7 @@ async test "react-router: navigate to different route" {
   @testing_library_react.render(@react_router.router_provider(router)) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("About Page"),
-  )..toHaveTextContent("About Page")
+  ).toHaveTextContent("About Page")
 }
 
 ///|
@@ -690,7 +690,7 @@ async test "react-router: route with params" {
   @testing_library_react.render(@react_router.router_provider(router)) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("User: 456"),
-  )..toHaveTextContent("User: 456")
+  ).toHaveTextContent("User: 456")
 }
 
 ///|
@@ -709,7 +709,7 @@ async test "react-router: Link component renders" {
   // Home page should render
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Home Page"),
-  )..toHaveTextContent("Home Page")
+  ).toHaveTextContent("Home Page")
 }
 
 ///|
@@ -735,5 +735,5 @@ async test "react-router: useLocation hook" {
   @testing_library_react.render(@react_router.router_provider(router)) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Path: /test/path"),
-  )..toHaveTextContent("Path: /test/path")
+  ).toHaveTextContent("Path: /test/path")
 }

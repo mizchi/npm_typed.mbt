@@ -7,10 +7,8 @@ import {
   "mizchi/js/builtins/error",
 }
 
-import "test" {
+import {
   "mizchi/npm_typed/react_element",
-}
+} for "test"
 
-options(
-  "supported-targets": [ "js" ],
-)
+supported_targets = "js"

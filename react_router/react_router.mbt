@@ -96,7 +96,7 @@ pub fn create_browser_router(routes : Array[Route]) -> Router {
     ._get("__ReactRouterApi")
     ._get("createBrowserRouter")
     .cast()
-  create_fn(routes.map(_.as_any()))
+  create_fn(routes.map(route => route.as_any()))
 }
 
 ///|
@@ -133,7 +133,7 @@ pub fn create_memory_router(
     }
     None => ()
   }
-  create_fn(routes.map(_.as_any()), opts)
+  create_fn(routes.map(route => route.as_any()), opts)
 }
 
 ///|

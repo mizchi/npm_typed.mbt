@@ -141,7 +141,7 @@ pub fn first_user_frame(frames : Array[StackFrame]) -> StackFrame? {
   for frame in frames {
     match frame.file_name {
       Some(name) =>
-        if not(name.contains("node_modules")) && not(name.has_prefix("node:")) {
+        if !name.contains("node_modules") && !name.has_prefix("node:") {
           return Some(frame)
         }
       None => ()

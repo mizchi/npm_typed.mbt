@@ -2,6 +2,8 @@ import {
   "mizchi/js/core",
 }
 
+supported_targets = "js"
+
 options(
   "is-main": true,
 )

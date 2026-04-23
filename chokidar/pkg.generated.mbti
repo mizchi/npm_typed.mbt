@@ -3,6 +3,7 @@ package "mizchi/npm_typed/chokidar"
 
 import {
   "mizchi/js/core",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -19,11 +20,9 @@ pub enum EventName {
   Change
   Unlink
   UnlinkDir
-}
+} derive(Eq, @debug.Debug)
 pub fn EventName::from_string(String) -> Self?
 pub fn EventName::to_string(Self) -> String
-pub impl Eq for EventName
-pub impl Show for EventName
 
 #external
 pub type FSWatcher

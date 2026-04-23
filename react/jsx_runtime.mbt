@@ -60,7 +60,7 @@ pub fn jsx(
       val["children"] = children[0].to_react_node()
     } else {
       // Multiple children - need array
-      val["children"] = @core.any(children.map(_.to_react_node()))
+      val["children"] = @core.any(children.map(child => child.to_react_node()))
     }
   }
   // key is passed as 3rd argument, not in props
@@ -98,7 +98,7 @@ pub fn jsx_fragment(children : Array[&ReactNode], key? : String) -> Element {
     if children_count == 1 {
       val["children"] = children[0].to_react_node()
     } else {
-      val["children"] = @core.any(children.map(_.to_react_node()))
+      val["children"] = @core.any(children.map(child => child.to_react_node()))
     }
   }
   let key_val : @core.Any = match key {

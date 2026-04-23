@@ -25,7 +25,7 @@ test "h creates VNode" {
   defer dispose()
   let vnode = h("div", ["Hello"])
   // VNode should be created
-  inspect(not(@core.is_nullish(vnode.as_any())), content="true")
+  inspect(!@core.is_nullish(vnode.as_any()), content="true")
 }
 
 ///|
@@ -33,7 +33,7 @@ test "h with props" {
   let dispose = setup()
   defer dispose()
   let vnode = h("button", ["Click me"], props={ "disabled": @core.any(true) })
-  inspect(not(@core.is_nullish(vnode.as_any())), content="true")
+  inspect(!@core.is_nullish(vnode.as_any()), content="true")
 }
 
 ///|
@@ -41,7 +41,7 @@ test "h with style" {
   let dispose = setup()
   defer dispose()
   let vnode = h("div", ["Styled"], style={ "color": "red", "fontSize": "16px" })
-  inspect(not(@core.is_nullish(vnode.as_any())), content="true")
+  inspect(!@core.is_nullish(vnode.as_any()), content="true")
 }
 
 ///|
@@ -49,7 +49,7 @@ test "fragment" {
   let dispose = setup()
   defer dispose()
   let vnode = fragment(["Hello", " ", "World"])
-  inspect(not(@core.is_nullish(vnode.as_any())), content="true")
+  inspect(!@core.is_nullish(vnode.as_any()), content="true")
 }
 
 ///|
@@ -60,7 +60,7 @@ test "component function" {
     h("div", ["Component content"])
   }
   let vnode = component(my_component, ())
-  inspect(not(@core.is_nullish(vnode.as_any())), content="true")
+  inspect(!@core.is_nullish(vnode.as_any()), content="true")
 }
 
 ///|

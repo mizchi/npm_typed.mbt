@@ -3,6 +3,7 @@ package "mizchi/npm_typed/puppeteer"
 
 import {
   "mizchi/js/core",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -33,7 +34,6 @@ pub(all) struct CSSCoverageEntry {
   text : String
   ranges : Array[@core.Any]
 }
-pub impl Show for CSSCoverageEntry
 
 pub(all) struct Cookie {
   name : String
@@ -44,8 +44,7 @@ pub(all) struct Cookie {
   httpOnly : Bool?
   secure : Bool?
   sameSite : String?
-}
-pub impl Show for Cookie
+} derive(@debug.Debug)
 
 #external
 pub type Coverage
@@ -60,8 +59,7 @@ pub fn Coverage::to_any(Self) -> @core.Any
 pub(all) struct CoverageRange {
   start : Int
   end : Int
-}
-pub impl Show for CoverageRange
+} derive(@debug.Debug)
 
 #external
 pub type ElementHandle
@@ -113,7 +111,6 @@ pub(all) struct JSCoverageEntry {
   text : String
   ranges : Array[@core.Any]
 }
-pub impl Show for JSCoverageEntry
 
 #external
 pub type Page

@@ -4,3 +4,5 @@ import {
   "mizchi/js/web/worker",
   "mizchi/js/web/message",
 }
+
+supported_targets = "js"

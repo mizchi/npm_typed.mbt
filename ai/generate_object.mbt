@@ -142,7 +142,7 @@ pub async fn generateObject(
     opts._set("system", s |> @core.any)
   }
   if messages is Some(msgs) {
-    opts._set("messages", msgs.map(_.as_any()) |> @core.any)
+    opts._set("messages", msgs.map(msg => msg.as_any()) |> @core.any)
   }
   if max_tokens is Some(t) {
     opts._set("maxTokens", t |> @core.any)
@@ -199,7 +199,7 @@ pub async fn generateObjectWithZod(
     opts._set("system", s |> @core.any)
   }
   if messages is Some(msgs) {
-    opts._set("messages", msgs.map(_.as_any()) |> @core.any)
+    opts._set("messages", msgs.map(msg => msg.as_any()) |> @core.any)
   }
   if max_tokens is Some(t) {
     opts._set("maxTokens", t |> @core.any)

@@ -20,14 +20,14 @@ test "useState_lazy" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 10"),
-  )..toHaveTextContent("Count: 10")
+  ).toHaveTextContent("Count: 10")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("increment"),
   )
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 11"),
-  )..toHaveTextContent("Count: 11")
+  ).toHaveTextContent("Count: 11")
 }
 
 ///|
@@ -49,7 +49,7 @@ test "useCallback" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 1"),
-  )..toHaveTextContent("Count: 1")
+  ).toHaveTextContent("Count: 1")
 }
 
 ///|
@@ -70,7 +70,7 @@ test "useEffect" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Mounted"),
-  )..toHaveTextContent("Mounted")
+  ).toHaveTextContent("Mounted")
 }
 
 ///|
@@ -91,7 +91,7 @@ test "useLayoutEffect" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Layout mounted"),
-  )..toHaveTextContent("Layout mounted")
+  ).toHaveTextContent("Layout mounted")
 }
 
 ///|
@@ -109,14 +109,14 @@ test "useMemo" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Doubled: 2"),
-  )..toHaveTextContent("Doubled: 2")
+  ).toHaveTextContent("Doubled: 2")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("increment"),
   )
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Doubled: 4"),
-  )..toHaveTextContent("Doubled: 4")
+  ).toHaveTextContent("Doubled: 4")
 }
 
 ///|
@@ -132,7 +132,7 @@ test "useRef with Some" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Ref test"),
-  )..toHaveTextContent("Ref test")
+  ).toHaveTextContent("Ref test")
 }
 
 ///|
@@ -146,7 +146,7 @@ test "useRef with None" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Ref None test"),
-  )..toHaveTextContent("Ref None test")
+  ).toHaveTextContent("Ref None test")
 }
 
 ///|
@@ -174,7 +174,7 @@ test "ReactRef::current and set_current" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("updated"),
-  )..toHaveTextContent("updated")
+  ).toHaveTextContent("updated")
 }
 
 ///|
@@ -200,7 +200,7 @@ test "ReactRef::current None case" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("no ref"),
-  )..toHaveTextContent("no ref")
+  ).toHaveTextContent("no ref")
 }
 
 ///|
@@ -232,7 +232,7 @@ test "ReactRef::set_current" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("custom value"),
-  )..toHaveTextContent("custom value")
+  ).toHaveTextContent("custom value")
 }
 
 ///|
@@ -248,7 +248,7 @@ test "useContext" {
   @testing_library_react.render(el) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Context value: 99"),
-  )..toHaveTextContent("Context value: 99")
+  ).toHaveTextContent("Context value: 99")
 }
 
 ///|
@@ -285,28 +285,28 @@ test "useReducer" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 1"),
-  )..toHaveTextContent("Count: 1")
+  ).toHaveTextContent("Count: 1")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("+"),
   )
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 2"),
-  )..toHaveTextContent("Count: 2")
+  ).toHaveTextContent("Count: 2")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("-"),
   )
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 1"),
-  )..toHaveTextContent("Count: 1")
+  ).toHaveTextContent("Count: 1")
   @testing_library_react.fireEvent().click(
     @testing_library_react.screen().getByText("reset"),
   )
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 0"),
-  )..toHaveTextContent("Count: 0")
+  ).toHaveTextContent("Count: 0")
 }
 
 ///|
@@ -314,7 +314,7 @@ test "useActionState" {
   init_jsdom()
   defer @testing_library_react.cleanup()
   let comp = (_props : Unit) => {
-    let action : async (Int, Int) -> Int noraise = async fn(
+    let action : async (Int, Int) -> Int noraise = fn(
       state,
       _delta,
     ) -> Int noraise {
@@ -330,7 +330,7 @@ test "useActionState" {
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("State: 0"),
-  )..toHaveTextContent("State: 0")
+  ).toHaveTextContent("State: 0")
 }
 
 ///|
@@ -354,5 +354,5 @@ test "startTransition" {
   |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Count: 1"),
-  )..toHaveTextContent("Count: 1")
+  ).toHaveTextContent("Count: 1")
 }

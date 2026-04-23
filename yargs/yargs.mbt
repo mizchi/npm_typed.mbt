@@ -499,5 +499,5 @@ pub fn Argv::script_name(self : Argv) -> String {
 ///|
 /// Check if a flag was provided
 pub fn Argv::has(self : Argv, key : String) -> Bool {
-  not(@core.is_nullish(self.as_any()[key]))
+  !@core.is_nullish(self.as_any()[key])
 }

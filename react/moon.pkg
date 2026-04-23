@@ -4,7 +4,7 @@ import {
   "mizchi/js/browser/dom",
 }
 
-import "test" {
+import {
   "moonbitlang/async",
   "mizchi/npm_typed/testing_library_react",
   "mizchi/npm_typed/react_element",
@@ -14,9 +14,8 @@ import "test" {
   "mizchi/js/web/streams",
   "mizchi/js/web/encoding",
   "mizchi/js/builtins/arraybuffer",
-}
+} for "test"
 
-options(
-  "supported-targets": [ "js" ],
-  "warn-list": "-1-5-6",
-)
+warnings = "-1-5-6"
+
+supported_targets = "js"

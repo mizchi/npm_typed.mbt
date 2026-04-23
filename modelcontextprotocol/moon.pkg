@@ -3,3 +3,5 @@ import {
   "mizchi/js/core",
   "moonbitlang/core/immut/hashmap",
 }
+
+supported_targets = "js"

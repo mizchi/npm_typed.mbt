@@ -10,8 +10,10 @@ import {
   "mizchi/npm_typed/react_router",
 }
 
+warnings = "-1-2"
+
+supported_targets = "js"
+
 options(
   "is-main": true,
-  "supported-targets": [ "js" ],
-  "warn-list": "-1-2",
 )

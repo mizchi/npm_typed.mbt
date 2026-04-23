@@ -4,6 +4,7 @@ package "mizchi/npm_typed/ai"
 import {
   "mizchi/js/builtins/iterator",
   "mizchi/js/core",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -159,10 +160,9 @@ pub(all) enum FinishReason {
   Error
   Other
   Unknown
-}
+} derive(Eq, @debug.Debug)
 pub fn FinishReason::from_string(String) -> Self
 pub fn FinishReason::to_string(Self) -> String
-pub impl Eq for FinishReason
 pub impl Show for FinishReason
 
 pub(all) struct GenerateImageResult {
@@ -413,9 +413,8 @@ pub(all) struct SourceDocument {
 pub(all) enum SourceType {
   Url
   Document
-}
+} derive(Eq, @debug.Debug)
 pub fn SourceType::from_string(String) -> Self
-pub impl Eq for SourceType
 pub impl Show for SourceType
 
 pub(all) struct SourceUrl {

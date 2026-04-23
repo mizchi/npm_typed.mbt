@@ -7,7 +7,7 @@
 pub(all) struct LogicalPosition {
   x : Double
   y : Double
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 pub fn LogicalPosition::to_physical(
@@ -15,6 +15,11 @@ pub fn LogicalPosition::to_physical(
   scale_factor : Double,
 ) -> PhysicalPosition {
   { x: (self.x * scale_factor).to_int(), y: (self.y * scale_factor).to_int() }
+}
+
+///|
+pub impl Show for LogicalPosition with output(self, logger) {
+  logger.write_string("{x: \{self.x}, y: \{self.y}}")
 }
 
 ///|
@@ -31,7 +36,7 @@ pub fn LogicalPosition::to_any(self : LogicalPosition) -> @core.Any {
 pub(all) struct PhysicalPosition {
   x : Int
   y : Int
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 pub fn PhysicalPosition::to_logical(
@@ -39,6 +44,11 @@ pub fn PhysicalPosition::to_logical(
   scale_factor : Double,
 ) -> LogicalPosition {
   { x: self.x.to_double() / scale_factor, y: self.y.to_double() / scale_factor }
+}
+
+///|
+pub impl Show for PhysicalPosition with output(self, logger) {
+  logger.write_string("{x: \{self.x}, y: \{self.y}}")
 }
 
 ///|
@@ -55,7 +65,7 @@ pub fn PhysicalPosition::to_any(self : PhysicalPosition) -> @core.Any {
 pub(all) struct LogicalSize {
   width : Double
   height : Double
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 pub fn LogicalSize::to_physical(
@@ -66,6 +76,11 @@ pub fn LogicalSize::to_physical(
     width: (self.width * scale_factor).to_int(),
     height: (self.height * scale_factor).to_int(),
   }
+}
+
+///|
+pub impl Show for LogicalSize with output(self, logger) {
+  logger.write_string("{width: \{self.width}, height: \{self.height}}")
 }
 
 ///|
@@ -82,7 +97,7 @@ pub fn LogicalSize::to_any(self : LogicalSize) -> @core.Any {
 pub(all) struct PhysicalSize {
   width : Int
   height : Int
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 pub fn PhysicalSize::to_logical(
@@ -93,6 +108,11 @@ pub fn PhysicalSize::to_logical(
     width: self.width.to_double() / scale_factor,
     height: self.height.to_double() / scale_factor,
   }
+}
+
+///|
+pub impl Show for PhysicalSize with output(self, logger) {
+  logger.write_string("{width: \{self.width}, height: \{self.height}}")
 }
 
 ///|

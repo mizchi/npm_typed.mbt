@@ -4,14 +4,12 @@ import {
   "mizchi/npm_typed/react",
 }
 
-import "test" {
+import {
   "mizchi/npm_typed/testing_library",
   "mizchi/js/builtins/global",
   "mizchi/npm_typed/react_element",
   "mizchi/npm_typed/testing_library_react",
   "mizchi/npm_typed/global_jsdom",
-}
+} for "test"
 
-options(
-  "supported-targets": [ "js" ],
-)
+supported_targets = "js"

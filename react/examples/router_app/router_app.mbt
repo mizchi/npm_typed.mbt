@@ -104,7 +104,7 @@ fn counter(_ : Unit) -> @react.Element {
 ///|
 fn async_counter(_ : Unit) -> @react.Element {
   let (count, dispatch, is_pending) = useActionState(
-    async fn(state : Int, action : CounterAction) -> Int noraise {
+    fn(state : Int, action : CounterAction) -> Int noraise {
       match action {
         Increment => state + 1
       }

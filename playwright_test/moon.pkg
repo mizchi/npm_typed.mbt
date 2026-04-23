@@ -3,3 +3,5 @@ import {
   "mizchi/js/core",
   "mizchi/npm_typed/playwright",
 }
+
+supported_targets = "js"

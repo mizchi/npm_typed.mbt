@@ -4,13 +4,13 @@
 ///|
 test "simpleGit constructor" {
   let git = @simple_git.simpleGit()
-  inspect(git.as_any() |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(git.as_any()), content="true")
 }
 
 ///|
 test "simpleGit with base_dir" {
   let git = @simple_git.simpleGit(base_dir=".")
-  inspect(git.as_any() |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(git.as_any()), content="true")
 }
 
 ///|
@@ -50,7 +50,7 @@ async test "git log latest" {
   let git = @simple_git.simpleGit(base_dir=".")
   let log = git.log(max_count=1)
   let latest = log.latest()
-  inspect(latest |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(latest), content="true")
 }
 
 ///|
@@ -94,7 +94,7 @@ async test "git getRemotes" {
   let git = @simple_git.simpleGit(base_dir=".")
   let remotes = git.getRemotes()
   // Should return array (may be empty if no remotes)
-  inspect(remotes |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(remotes), content="true")
 }
 
 ///|
@@ -102,7 +102,7 @@ async test "git tags" {
   let git = @simple_git.simpleGit(base_dir=".")
   let tags = git.tags()
   // Should return object (may have no tags)
-  inspect(tags |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(tags), content="true")
 }
 
 ///|

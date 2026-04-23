@@ -251,7 +251,7 @@ pub fn AuthResponse::token(self : AuthResponse) -> String {
 ///|
 /// Check if response has error
 pub fn AuthResponse::hasError(self : AuthResponse) -> Bool {
-  not(@core.is_nullish(self.to_any()["error"]))
+  !@core.is_nullish(self.to_any()["error"])
 }
 
 ///|

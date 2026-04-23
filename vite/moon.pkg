@@ -3,3 +3,5 @@ import {
   "mizchi/js/core",
   "mizchi/npm_typed/rollup_types",
 }
+
+supported_targets = "js"

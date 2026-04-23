@@ -134,7 +134,7 @@ pub fn[Env, ExecutionContext] get_all_cookies(
   for i = 0; i < keys.length(); i = i + 1 {
     let key = keys[i]
     let value = obj[key]
-    if not(@core.is_nullish(value)) {
+    if !@core.is_nullish(value) {
       result[key] = value.cast()
     }
   }

@@ -7,11 +7,9 @@ import {
   "mizchi/npm_typed/testing_library",
 }
 
-import "test" {
+import {
   "mizchi/npm_typed/global_jsdom",
   "moonbitlang/async",
-}
+} for "test"
 
-options(
-  "supported-targets": [ "js" ],
-)
+supported_targets = "js"
