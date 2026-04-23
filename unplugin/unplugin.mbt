@@ -25,7 +25,7 @@ pub enum Framework {
   Farm
   Rolldown
   Bun
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 /// Convert framework string to enum

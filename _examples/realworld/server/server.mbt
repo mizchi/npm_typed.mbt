@@ -295,7 +295,7 @@ pub async fn create_app(
 
   // Home page - TODO list
   app
-  .get("/", async fn(c) {
+  .get("/", fn(c) {
     let user = get_session_user(db, c)
     match user {
       Some(u) => {
@@ -424,7 +424,10 @@ pub async fn create_app(
           Some(id) => {
             let body = ffi_parse_body(c).wait()
             let completed : String = body._get("completed").cast()
-            toggle_todo(db, u.id(), @strconv.parse_int(id), completed == "true")
+            let todo_id = @string.parse_int(id) catch { _ => -1 }
+            if todo_id >= 0 {
+              toggle_todo(db, u.id(), todo_id, completed == "true")
+            }
           }
           None => ()
         }
@@ -435,12 +438,17 @@ pub async fn create_app(
   })
 
   // Delete TODO
-  .post("/todos/:id/delete", async fn(c) {
+  .post("/todos/:id/delete", fn(c) {
     let user = get_session_user(db, c)
     match user {
       Some(u) => {
         match c.req.param("id") {
-          Some(id) => delete_todo(db, u.id(), @strconv.parse_int(id))
+          Some(id) => {
+            let todo_id = @string.parse_int(id) catch { _ => -1 }
+            if todo_id >= 0 {
+              delete_todo(db, u.id(), todo_id)
+            }
+          }
           None => ()
         }
         c.redirect("/")
@@ -450,7 +458,7 @@ pub async fn create_app(
   })
 
   // Auth pages
-  .get("/auth/login", async fn(c) {
+  .get("/auth/login", fn(c) {
     let user = get_session_user(db, c)
     if user is Some(_) {
       return c.redirect("/")
@@ -507,7 +515,7 @@ pub async fn create_app(
     let email : String = body._get("email").cast()
     let password : String = body._get("password").cast()
     let response = auth.api().signInEmail(email~, password~)
-    if not(response.hasError()) {
+    if !response.hasError() {
       let token = response.token()
       @hono.set_cookie(
         c,
@@ -539,7 +547,7 @@ pub async fn create_app(
       c.html_jsx(content, status=401)
     }
   })
-  .get("/auth/register", async fn(c) {
+  .get("/auth/register", fn(c) {
     let user = get_session_user(db, c)
     if user is Some(_) {
       return c.redirect("/")
@@ -604,7 +612,7 @@ pub async fn create_app(
     let email : String = body._get("email").cast()
     let password : String = body._get("password").cast()
     let response = auth.api().signUpEmail(name~, email~, password~)
-    if not(response.hasError()) {
+    if !response.hasError() {
       c.redirect("/auth/login")
     } else {
       let error_msg = response.errorMessage().unwrap_or("Unknown error")
@@ -634,7 +642,7 @@ pub async fn create_app(
   })
 
   // API endpoints for client
-  .get("/api/todos", async fn(c) {
+  .get("/api/todos", fn(c) {
     let user = get_session_user(db, c)
     match user {
       Some(u) => {
@@ -676,13 +684,16 @@ pub async fn create_app(
       }
     }
   })
-  .delete("/api/todos/:id", async fn(c) {
+  .delete("/api/todos/:id", fn(c) {
     let user = get_session_user(db, c)
     match user {
       Some(u) =>
         match c.req.param("id") {
           Some(id) => {
-            delete_todo(db, u.id(), @strconv.parse_int(id))
+            let todo_id = @string.parse_int(id) catch { _ => -1 }
+            if todo_id >= 0 {
+              delete_todo(db, u.id(), todo_id)
+            }
             let obj = @core.new_object()
             obj["success"] = true |> @core.any
             c.json(obj)

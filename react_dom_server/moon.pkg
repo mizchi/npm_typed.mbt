@@ -5,6 +5,4 @@ import {
   "mizchi/npm_typed/react",
 }
 
-options(
-  "supported-targets": [ "js" ],
-)
+supported_targets = "js"

@@ -5,6 +5,8 @@ import {
   "mizchi/npm_typed/rollup_types",
 }
 
+supported_targets = "js"
+
 options(
   "is-main": true,
 )

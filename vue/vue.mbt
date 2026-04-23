@@ -49,7 +49,7 @@ pub fn h(
   key? : String,
 ) -> VNode {
   let tag = @core.any(tag)
-  let children = children.map(_.to_vue_node()) |> @core.any
+  let children = children.map(child => child.to_vue_node()) |> @core.any
   let val = @core.new_object()
   if props is Some(props) {
     for k, v in props {
@@ -82,7 +82,7 @@ pub fn[T] component(
   key? : String,
 ) -> VNode {
   let tag = @core.identity(tag)
-  let children = children.map(_.to_vue_node()) |> @core.any
+  let children = children.map(child => child.to_vue_node()) |> @core.any
   let val : @core.Any = props |> @core.identity
   if key is Some(key) {
     if @core.is_nullish(val) {
@@ -99,7 +99,7 @@ pub fn[T] component(
 /// Vue.Fragment
 pub fn fragment(children : Array[&VueNode], key? : String) -> VNode {
   let tag = get_fragment()
-  let children = children.map(_.to_vue_node()) |> @core.any
+  let children = children.map(child => child.to_vue_node()) |> @core.any
   let val = @core.new_object()
   if key is Some(key) {
     val._set("key", key |> @core.any)

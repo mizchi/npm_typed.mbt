@@ -4,7 +4,6 @@ import {
   "mizchi/npm_typed/preact",
 }
 
-options(
-  "supported-targets": [ "js" ],
-  "warn-list": "-25",
-)
+warnings = "-25"
+
+supported_targets = "js"

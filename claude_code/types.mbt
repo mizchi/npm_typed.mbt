@@ -12,7 +12,7 @@ pub(all) enum PermissionMode {
   BypassPermissions
   /// Plan mode - for planning without execution
   Plan
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn PermissionMode::to_string(self : PermissionMode) -> String {
@@ -44,7 +44,7 @@ pub(all) enum SettingSource {
   Project
   /// Local settings (.claude/settings.local.json)
   Local
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn SettingSource::to_string(self : SettingSource) -> String {
@@ -62,7 +62,7 @@ pub(all) enum ClaudeModel {
   Opus
   Haiku
   Custom(String)
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn ClaudeModel::to_string(self : ClaudeModel) -> String {

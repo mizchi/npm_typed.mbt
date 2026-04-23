@@ -13,7 +13,7 @@ test "render basic component" {
   let s = screen()
   let el = s.getByText("Hello World")
   inspect(
-    not(@core.is_nullish(el.as_element().as_any().cast())),
+    !@core.is_nullish(el.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -27,7 +27,7 @@ test "getByRole button" {
   let s = screen()
   let button = s.getByRole("button")
   inspect(
-    not(@core.is_nullish(button.as_element().as_any().cast())),
+    !@core.is_nullish(button.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -125,7 +125,7 @@ test "getByTestId finds element" {
   let s = screen()
   let el = s.getByTestId("my-test-id")
   inspect(
-    not(@core.is_nullish(el.as_element().as_any().cast())),
+    !@core.is_nullish(el.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -314,7 +314,7 @@ test "render result asFragment" {
   let vnode = @preact.h("div", ["Fragment Test"])
   let result = render(vnode)
   let frag = result.asFragment()
-  inspect(not(@core.is_nullish(frag)), content="true")
+  inspect(!@core.is_nullish(frag), content="true")
 }
 
 ///|
@@ -334,7 +334,7 @@ test "getByLabelText" {
   let s = screen()
   let input = s.getByLabelText("Username")
   inspect(
-    not(@core.is_nullish(input.as_element().as_any().cast())),
+    !@core.is_nullish(input.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -351,7 +351,7 @@ test "getByPlaceholderText" {
   let s = screen()
   let input = s.getByPlaceholderText("Enter your name")
   inspect(
-    not(@core.is_nullish(input.as_element().as_any().cast())),
+    !@core.is_nullish(input.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -369,7 +369,7 @@ test "getByDisplayValue" {
   let s = screen()
   let input = s.getByDisplayValue("current value")
   inspect(
-    not(@core.is_nullish(input.as_element().as_any().cast())),
+    !@core.is_nullish(input.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -386,7 +386,7 @@ test "getByAltText" {
   let s = screen()
   let img = s.getByAltText("Profile picture")
   inspect(
-    not(@core.is_nullish(img.as_element().as_any().cast())),
+    !@core.is_nullish(img.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -402,7 +402,7 @@ test "getByTitle" {
   let s = screen()
   let el = s.getByTitle("More information")
   inspect(
-    not(@core.is_nullish(el.as_element().as_any().cast())),
+    !@core.is_nullish(el.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -455,7 +455,7 @@ async test "findByText" {
   let s = screen()
   let el = s.findByText("Async content")
   inspect(
-    not(@core.is_nullish(el.as_element().as_any().cast())),
+    !@core.is_nullish(el.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -469,7 +469,7 @@ async test "findByRole" {
   let s = screen()
   let button = s.findByRole("button")
   inspect(
-    not(@core.is_nullish(button.as_element().as_any().cast())),
+    !@core.is_nullish(button.as_element().as_any().cast()),
     content="true",
   )
 }
@@ -485,7 +485,7 @@ async test "findByTestId" {
   let s = screen()
   let el = s.findByTestId("async-test")
   inspect(
-    not(@core.is_nullish(el.as_element().as_any().cast())),
+    !@core.is_nullish(el.as_element().as_any().cast()),
     content="true",
   )
 }

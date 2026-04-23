@@ -4,13 +4,13 @@
 ///|
 test "ignore constructor" {
   let ig = @ignore.ignore_module()
-  inspect(ig.as_any() |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(ig.as_any()), content="true")
 }
 
 ///|
 test "ignore with options" {
   let ig = @ignore.ignore_module(ignorecase=true)
-  inspect(ig.as_any() |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(ig.as_any()), content="true")
 }
 
 ///|

@@ -56,7 +56,7 @@ pub(all) enum FinishReason {
   Error
   Other
   Unknown
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn FinishReason::from_string(s : String) -> FinishReason {
@@ -82,6 +82,19 @@ pub fn FinishReason::to_string(self : FinishReason) -> String {
     Other => "other"
     Unknown => "unknown"
   }
+}
+
+///|
+pub impl Show for FinishReason with output(self, logger) {
+  logger.write_string(match self {
+    Stop => "Stop"
+    Length => "Length"
+    ContentFilter => "ContentFilter"
+    ToolCalls => "ToolCalls"
+    Error => "Error"
+    Other => "Other"
+    Unknown => "Unknown"
+  })
 }
 
 ///|
@@ -113,7 +126,7 @@ pub fn CallWarning::from_any(value : @core.Any) -> CallWarning {
 pub(all) enum SourceType {
   Url
   Document
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn SourceType::from_string(s : String) -> SourceType {
@@ -122,6 +135,14 @@ pub fn SourceType::from_string(s : String) -> SourceType {
     "document" => Document
     _ => Url
   }
+}
+
+///|
+pub impl Show for SourceType with output(self, logger) {
+  logger.write_string(match self {
+    Url => "Url"
+    Document => "Document"
+  })
 }
 
 ///|

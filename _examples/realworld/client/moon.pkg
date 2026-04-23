@@ -4,6 +4,4 @@ import {
   "mizchi/npm_typed/better_auth",
 }
 
-options(
-  "supported-targets": [ "js" ],
-)
+supported_targets = "js"

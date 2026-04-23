@@ -47,7 +47,7 @@ async fn run() -> Unit {
     ]
   })
   // Register tool call handler
-  server.set_tools_call_handler(async fn(name, args) {
+  server.set_tools_call_handler(fn(name, args) {
     if name == "greet" {
       let person_name : String = args._get("name").cast()
       [@mcp.Content::text("Hello, " + person_name + "!")]
@@ -72,7 +72,7 @@ async fn run() -> Unit {
     ]
   })
   // Register resource read handler
-  server.set_resources_read_handler(async fn(uri) {
+  server.set_resources_read_handler(fn(uri) {
     if uri == "file:///example.txt" {
       [@mcp.Content::text("This is example content.")]
     } else {
@@ -92,7 +92,7 @@ async fn run() -> Unit {
     ]
   })
   // Register prompt get handler
-  server.set_prompts_get_handler(async fn(name, args) {
+  server.set_prompts_get_handler(fn(name, args) {
     if name == "greeting-template" {
       let person_name : String = args._get("name")
         |> @core.identity_option()

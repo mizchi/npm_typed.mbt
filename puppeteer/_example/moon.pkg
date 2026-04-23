@@ -4,6 +4,8 @@ import {
   "mizchi/npm_typed/puppeteer",
 }
 
+supported_targets = "js"
+
 options(
   "is-main": true,
 )

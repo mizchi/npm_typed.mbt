@@ -5,13 +5,21 @@
 pub enum RequestId {
   String(String)
   Number(Int)
-} derive(Show, Eq)
+} derive(Debug, Eq)
 
 ///|
 pub fn RequestId::as_any(self : RequestId) -> @core.Any {
   match self {
     String(s) => @core.identity(s)
     Number(n) => @core.identity(n)
+  }
+}
+
+///|
+pub impl Show for RequestId with output(self, logger) {
+  match self {
+    String(s) => logger.write_string("String(\"" + s + "\")")
+    Number(n) => logger.write_string("Number(\{n})")
   }
 }
 

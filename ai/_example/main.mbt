@@ -30,7 +30,7 @@ async fn example_generate_text(model : @ai.Model) -> Unit {
     }
   }
   println("Text: \{result.text}")
-  println("Finish: \{result.finish_reason}")
+  println("Finish: \{result.finish_reason.to_string()}")
   println("Usage: \{format_usage(result.usage)}")
 }
 
@@ -46,12 +46,11 @@ async fn example_stream_text(model : @ai.Model) -> Unit {
 
   // Stream text chunks to stdout
   let iter = stream.textStream()
-  loop iter.next() {
-    Some(chunk) => {
-      @process.stdout().write(chunk |> @core.any) |> ignore
-      continue iter.next()
+  while true {
+    match iter.next() {
+      Some(chunk) => @process.stdout().write(chunk |> @core.any) |> ignore
+      None => break
     }
-    None => ()
   }
   println("")
 
@@ -68,7 +67,7 @@ async fn example_stream_text(model : @ai.Model) -> Unit {
       return
     }
   }
-  println("Finish: \{finish}, Tokens: \{usage.total_tokens}")
+  println("Finish: \{finish.to_string()}, Tokens: \{usage.total_tokens}")
 }
 
 ///|
@@ -78,16 +77,17 @@ async fn example_full_stream(model : @ai.Model) -> Unit {
   let stream = @ai.streamText(model~, prompt="Hi!", max_tokens=20)
   // Use typed fullStream() instead of fullStreamRaw()
   let iter = stream.fullStream()
-  loop iter.next() {
-    None => ()
-    Some(part) => {
-      // part is already TextStreamPart, no need for from_any
-      let text = match part.get_text() {
-        Some(t) => " -> \"\{t}\""
-        None => ""
+  while true {
+    match iter.next() {
+      None => break
+      Some(part) => {
+        // part is already TextStreamPart, no need for from_any
+        let text = match part.get_text() {
+          Some(t) => " -> \"\{t}\""
+          None => ""
+        }
+        println("[\{part.type_string()}]\{text}")
       }
-      println("[\{part.type_string()}]\{text}")
-      continue iter.next()
     }
   }
 }
@@ -109,8 +109,8 @@ pub(all) struct WeatherOutput {
 ///|
 /// Example: tools - function calling with typed tools
 async fn example_tools(model : @ai.Model) -> Unit {
-  // Create async typed tool with Tool::typed_async
-  let weather_tool = @ai.Tool::typed_async(
+  // This example is synchronous, so the typed tool is enough.
+  let weather_tool = @ai.Tool::typed(
     description="Get the current weather for a location",
     input_schema={
       "type": "object",
@@ -119,8 +119,7 @@ async fn example_tools(model : @ai.Model) -> Unit {
       },
       "required": ["location"],
     },
-    async fn(input : WeatherInput) -> WeatherOutput {
-      // Can perform async operations here (API calls, DB queries, etc.)
+    fn(input : WeatherInput) -> WeatherOutput {
       { location: input.location, temperature: 22, condition: "sunny" }
     },
   )

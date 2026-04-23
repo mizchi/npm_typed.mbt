@@ -4,6 +4,7 @@ package "mizchi/npm_typed/claude_code"
 import {
   "mizchi/js/builtins/iterator",
   "mizchi/js/core",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -47,10 +48,8 @@ pub(all) enum ClaudeModel {
   Opus
   Haiku
   Custom(String)
-}
+} derive(Eq, @debug.Debug)
 pub fn ClaudeModel::to_string(Self) -> String
-pub impl Eq for ClaudeModel
-pub impl Show for ClaudeModel
 
 pub(all) enum ContentBlock {
   Text(TextBlock)
@@ -97,11 +96,9 @@ pub(all) enum PermissionMode {
   AcceptEdits
   BypassPermissions
   Plan
-}
+} derive(Eq, @debug.Debug)
 pub fn PermissionMode::from_string(String) -> Self
 pub fn PermissionMode::to_string(Self) -> String
-pub impl Eq for PermissionMode
-pub impl Show for PermissionMode
 
 #external
 pub type Query
@@ -184,10 +181,8 @@ pub(all) enum SettingSource {
   User
   Project
   Local
-}
+} derive(Eq, @debug.Debug)
 pub fn SettingSource::to_string(Self) -> String
-pub impl Eq for SettingSource
-pub impl Show for SettingSource
 
 pub(all) struct TextBlock {
   text : String

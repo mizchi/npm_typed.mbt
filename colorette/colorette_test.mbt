@@ -79,5 +79,5 @@ test "nested styles return string" {
 test "is_color_supported_sync returns boolean" {
   // This should return a boolean (true or false depending on terminal)
   let supported = is_color_supported_sync()
-  inspect(supported || not(supported), content="true")
+  inspect(supported || !supported, content="true")
 }

@@ -35,7 +35,7 @@ fn OriginalPosition::from_any(obj : @core.Any) -> OriginalPosition {
 
 ///|
 pub fn OriginalPosition::is_found(self : OriginalPosition) -> Bool {
-  not(self.source is None)
+  !(self.source is None)
 }
 
 ///|

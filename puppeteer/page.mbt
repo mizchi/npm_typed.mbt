@@ -256,7 +256,7 @@ pub(all) struct Cookie {
   httpOnly : Bool?
   secure : Bool?
   sameSite : String?
-} derive(Show)
+} derive(Debug)
 
 ///|
 /// Page: Get cookies

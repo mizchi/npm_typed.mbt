@@ -4,3 +4,5 @@ import {
 }
 
 warnings = "-24"
+
+supported_targets = "js"

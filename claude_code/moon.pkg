@@ -8,7 +8,6 @@ import {
   "moonbitlang/async/js_async",
 }
 
-options(
-  "supported-targets": [ "js" ],
-  "warn-list": "-4-6-7-27",
-)
+warnings = "-4-6-7-27"
+
+supported_targets = "js"

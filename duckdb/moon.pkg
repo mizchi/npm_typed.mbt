@@ -3,10 +3,8 @@ import {
   "mizchi/js/core",
 }
 
-import "test" {
+import {
   "mizchi/js/node",
-}
+} for "test"
 
-options(
-  "supported-targets": [ "js" ],
-)
+supported_targets = "js"

@@ -123,7 +123,7 @@ fn assert_matcher(
   args : Array[@core.Any],
 ) -> Unit raise ExpectError {
   let result = call_matcher(element, matcher_name, args)
-  if not(result.pass()) {
+  if !result.pass() {
     raise ExpectError(result.message())
   }
 }

@@ -3,12 +3,11 @@ import {
   "mizchi/js/core",
 }
 
-import "test" {
+import {
   "mizchi/npm_typed/global_jsdom",
   "moonbitlang/async",
-}
+} for "test"
 
-options(
-  "supported-targets": [ "js" ],
-  "warn-list": "-1-5-6",
-)
+warnings = "-1-5-6"
+
+supported_targets = "js"

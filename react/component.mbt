@@ -16,8 +16,8 @@ pub fn[T] component(
   // Handle key: if props is undefined/null (e.g. Unit), create a new object
   let obj = if @core.is_nullish(val) { @core.new_object() } else { val }
   // Only set children if explicitly provided (non-empty)
-  if not(children.is_empty()) {
-    let children_arr = @core.any(children.map(_.to_react_node()))
+  if !children.is_empty() {
+    let children_arr = @core.any(children.map(child => child.to_react_node()))
     if children.length() == 1 {
       obj["children"] = children[0].to_react_node()
     } else {
@@ -41,11 +41,11 @@ pub fn[T] component(
 pub fn strict_mode(children : Array[&ReactNode]) -> Element {
   let tag = @core.any(get_strict_mode())
   let props = @core.new_object()
-  if not(children.is_empty()) {
+  if !children.is_empty() {
     if children.length() == 1 {
       props["children"] = children[0].to_react_node()
     } else {
-      props["children"] = @core.any(children.map(_.to_react_node()))
+      props["children"] = @core.any(children.map(child => child.to_react_node()))
     }
   }
   let key_val : @core.Any = @core.undefined()
@@ -68,11 +68,11 @@ pub fn suspense(children : Array[&ReactNode], fallback~ : Element) -> Element {
   let tag = get_suspense()
   let props = @core.new_object()
   props["fallback"] = fallback.as_any()
-  if not(children.is_empty()) {
+  if !children.is_empty() {
     if children.length() == 1 {
       props["children"] = children[0].to_react_node()
     } else {
-      props["children"] = @core.any(children.map(_.to_react_node()))
+      props["children"] = @core.any(children.map(child => child.to_react_node()))
     }
   }
   let key_val : @core.Any = @core.undefined()
@@ -93,11 +93,11 @@ pub fn[T] provider(
 ) -> Element {
   let props = @core.new_object()
   props["value"] = @core.any(value)
-  if not(children.is_empty()) {
+  if !children.is_empty() {
     if children.length() == 1 {
       props["children"] = children[0].to_react_node()
     } else {
-      props["children"] = @core.any(children.map(_.to_react_node()))
+      props["children"] = @core.any(children.map(child => child.to_react_node()))
     }
   }
   let key_val : @core.Any = @core.undefined()

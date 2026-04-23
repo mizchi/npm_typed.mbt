@@ -110,7 +110,7 @@ pub async fn generateText(
   let opts = @core.new_object()
   opts._set("model", model.as_any())
   if messages is Some(msgs) {
-    opts._set("messages", msgs.map(_.as_any()) |> @core.any)
+    opts._set("messages", msgs.map(msg => msg.as_any()) |> @core.any)
   }
   if prompt is Some(p) {
     opts._set("prompt", p |> @core.any)
@@ -177,7 +177,7 @@ pub fn streamText(
   let opts = @core.new_object()
   opts._set("model", model.as_any())
   if messages is Some(msgs) {
-    opts._set("messages", msgs.map(_.as_any()) |> @core.any)
+    opts._set("messages", msgs.map(msg => msg.as_any()) |> @core.any)
   }
   if prompt is Some(p) {
     opts._set("prompt", p |> @core.any)

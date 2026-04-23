@@ -99,7 +99,7 @@ pub fn SdkServer::set_tools_list_handler(
   let schema = ffi_list_tools_request_schema()
   let wrapped = fn(_request : @core.Any) -> @core.Any {
     let tools = handler()
-    let tools_arr : Array[@core.Any] = tools.map(_.as_any())
+    let tools_arr : Array[@core.Any] = tools.map(tool => tool.as_any())
     @core.from_entries([("tools", @core.any(tools_arr))])
   }
   ffi_set_handler(self |> @core.any, schema, wrapped)
@@ -126,7 +126,7 @@ pub fn SdkServer::set_tools_call_handler(
     let args = params["arguments"]
     let promise_handler = @js.promisify2(handler)
     promise_handler(name, args).then(fn(contents) {
-      let content_arr : Array[@core.Any] = contents.map(_.as_any())
+      let content_arr : Array[@core.Any] = contents.map(content => content.as_any())
       @js.Promise::resolve(
         @core.from_entries([("content", @core.any(content_arr))]),
       )
@@ -152,7 +152,7 @@ pub fn SdkServer::set_resources_list_handler(
   let schema = ffi_list_resources_request_schema()
   let wrapped = fn(_request : @core.Any) -> @core.Any {
     let resources = handler()
-    let resources_arr : Array[@core.Any] = resources.map(_.as_any())
+    let resources_arr : Array[@core.Any] = resources.map(resource => resource.as_any())
     @core.from_entries([("resources", @core.any(resources_arr))])
   }
   ffi_set_handler(self |> @core.any, schema, wrapped)
@@ -170,7 +170,7 @@ pub fn SdkServer::set_resources_read_handler(
     let uri : String = params["uri"].cast()
     let promise_handler = @js.promisify1(handler)
     promise_handler(uri).then(fn(contents) {
-      let content_arr : Array[@core.Any] = contents.map(_.as_any())
+      let content_arr : Array[@core.Any] = contents.map(content => content.as_any())
       @js.Promise::resolve(
         @core.from_entries([("contents", @core.any(content_arr))]),
       )
@@ -188,7 +188,7 @@ pub fn SdkServer::set_prompts_list_handler(
   let schema = ffi_list_prompts_request_schema()
   let wrapped = fn(_request : @core.Any) -> @core.Any {
     let prompts = handler()
-    let prompts_arr : Array[@core.Any] = prompts.map(_.as_any())
+    let prompts_arr : Array[@core.Any] = prompts.map(prompt => prompt.as_any())
     @core.from_entries([("prompts", @core.any(prompts_arr))])
   }
   ffi_set_handler(self |> @core.any, schema, wrapped)
@@ -237,7 +237,7 @@ pub fn PromptMessage::as_any(self : PromptMessage) -> @core.Any {
 
 ///|
 pub fn PromptResult::as_any(self : PromptResult) -> @core.Any {
-  let messages_arr : Array[@core.Any] = self.messages.map(_.as_any())
+  let messages_arr : Array[@core.Any] = self.messages.map(message => message.as_any())
   let entries : Array[(String, @core.Any)] = [
     ("messages", @core.any(messages_arr)),
   ]

@@ -3,6 +3,7 @@ package "mizchi/npm_typed/modelcontextprotocol"
 
 import {
   "mizchi/js/core",
+  "moonbitlang/core/debug",
   "moonbitlang/core/immut/hashmap",
 }
 
@@ -29,9 +30,8 @@ pub(all) struct CallToolResult {
 pub struct ClientInfo {
   name : String
   version : String
-}
+} derive(@debug.Debug)
 pub fn ClientInfo::from_js(@core.Any) -> Self?
-pub impl Show for ClientInfo
 
 pub struct Content {
   type_ : ContentType
@@ -39,12 +39,11 @@ pub struct Content {
   data : String?
   mime_type : String?
   uri : String?
-}
+} derive(@debug.Debug)
 pub fn Content::as_any(Self) -> @core.Any
 pub fn Content::image(String, String) -> Self
 pub fn Content::resource(String) -> Self
 pub fn Content::text(String) -> Self
-pub impl Show for Content
 
 pub(all) struct ContentResult {
   text : String?
@@ -58,9 +57,8 @@ pub enum ContentType {
   Text
   Image
   Resource
-}
+} derive(Eq, @debug.Debug)
 pub fn ContentType::to_string(Self) -> String
-pub impl Eq for ContentType
 pub impl Show for ContentType
 
 pub(all) struct GetPromptResult {
@@ -147,17 +145,15 @@ pub(all) struct Prompt {
   name : String
   description : String?
   arguments : Array[PromptArgument]
-}
+} derive(@debug.Debug)
 pub fn Prompt::as_any(Self) -> @core.Any
-pub impl Show for Prompt
 
 pub(all) struct PromptArgument {
   name : String
   description : String?
   required : Bool
-}
+} derive(@debug.Debug)
 pub fn PromptArgument::as_any(Self) -> @core.Any
-pub impl Show for PromptArgument
 
 pub(all) struct PromptArgumentInfo {
   name : String
@@ -196,10 +192,9 @@ pub(all) struct ReadResourceResult {
 pub enum RequestId {
   String(String)
   Number(Int)
-}
+} derive(Eq, @debug.Debug)
 pub fn RequestId::as_any(Self) -> @core.Any
 pub fn RequestId::from_js(@core.Any) -> Self?
-pub impl Eq for RequestId
 pub impl Show for RequestId
 
 pub(all) struct Resource {
@@ -207,9 +202,8 @@ pub(all) struct Resource {
   name : String
   description : String?
   mime_type : String?
-}
+} derive(@debug.Debug)
 pub fn Resource::as_any(Self) -> @core.Any
-pub impl Show for Resource
 
 pub(all) struct ResourceInfo {
   uri : String
@@ -251,16 +245,14 @@ pub struct ServerCapabilities {
   tools : Bool
   resources : Bool
   prompts : Bool
-}
+} derive(@debug.Debug)
 pub fn ServerCapabilities::as_any(Self) -> @core.Any
-pub impl Show for ServerCapabilities
 
 pub struct ServerInfo {
   name : String
   version : String
-}
+} derive(@debug.Debug)
 pub fn ServerInfo::as_any(Self) -> @core.Any
-pub impl Show for ServerInfo
 
 #external
 pub type StdioClientTransport

@@ -3,6 +3,7 @@ package "mizchi/npm_typed/drizzle"
 
 import {
   "mizchi/js/core",
+  "moonbitlang/core/debug",
 }
 
 // Values
@@ -249,10 +250,8 @@ pub(all) enum ForeignKeyAction {
   NoAction
   SetNull
   SetDefault
-}
+} derive(Eq, @debug.Debug)
 pub fn ForeignKeyAction::to_string(Self) -> String
-pub impl Eq for ForeignKeyAction
-pub impl Show for ForeignKeyAction
 
 #external
 pub type IndexBuilder
@@ -264,10 +263,8 @@ pub fn IndexBuilder::on(Self, Array[Column]) -> Self
 pub(all) enum PgAccessMode {
   ReadOnly
   ReadWrite
-}
+} derive(Eq, @debug.Debug)
 pub fn PgAccessMode::to_string(Self) -> String
-pub impl Eq for PgAccessMode
-pub impl Show for PgAccessMode
 
 #external
 pub type PgIndexBuilder
@@ -283,10 +280,8 @@ pub(all) enum PgIsolationLevel {
   ReadCommitted
   RepeatableRead
   Serializable
-}
+} derive(Eq, @debug.Debug)
 pub fn PgIsolationLevel::to_string(Self) -> String
-pub impl Eq for PgIsolationLevel
-pub impl Show for PgIsolationLevel
 
 #external
 pub type PreparedQuery
@@ -348,10 +343,8 @@ pub(all) enum SqliteBehavior {
   Deferred
   Immediate
   Exclusive
-}
+} derive(Eq, @debug.Debug)
 pub fn SqliteBehavior::to_string(Self) -> String
-pub impl Eq for SqliteBehavior
-pub impl Show for SqliteBehavior
 
 #external
 pub type Table

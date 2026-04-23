@@ -10,8 +10,10 @@ import {
   "mizchi/js/builtins/json",
 }
 
-import "test" {
-}
+import {
+} for "test"
+
+supported_targets = "js"
 
 options(
   "is-main": true,

@@ -10,7 +10,7 @@ test "capture_stack_trace" {
   assert_true(frames.length() > 0)
   // First frame should have file info
   let first = frames[0]
-  assert_true(not(first.file_name is None))
+  assert_true(!(first.file_name is None))
 }
 
 ///|
@@ -88,6 +88,6 @@ test "first_user_frame" {
     },
   ]
   let user_frame = @error_stack_parser.first_user_frame(frames)
-  assert_true(not(user_frame is None))
+  assert_true(!(user_frame is None))
   inspect(user_frame.unwrap().function_name, content="Some(\"my_func\")")
 }

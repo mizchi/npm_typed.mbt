@@ -1,43 +1,43 @@
 ///|
 struct StatusResponse {
   status : String
-} derive(Show)
+} derive(Debug)
 
 ///|
 struct CreatedResponse {
   created : Bool
-} derive(Show)
+} derive(Debug)
 
 ///|
 struct MessageResponse {
   message : String
   count : Int
-} derive(Show)
+} derive(Debug)
 
 ///|
 struct UpdatedResponse {
   updated : Bool
-} derive(Show)
+} derive(Debug)
 
 ///|
 struct DeletedResponse {
   deleted : Bool
-} derive(Show)
+} derive(Debug)
 
 ///|
 struct PatchedResponse {
   patched : Bool
-} derive(Show)
+} derive(Debug)
 
 ///|
 struct IdResponse {
   id : Int
-} derive(Show)
+} derive(Debug)
 
 ///|
 struct UsersResponse {
   users : Array[String]
-} derive(Show)
+} derive(Debug)
 
 ///|
 async test "Hono::new creates instance" {

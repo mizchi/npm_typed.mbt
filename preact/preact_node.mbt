@@ -31,7 +31,7 @@ pub impl PreactNode for Bool with to_preact_node(self) {
 
 ///|
 pub impl PreactNode for Array[&PreactNode] with to_preact_node(self) {
-  @core.any(self.map(_.to_preact_node()))
+  @core.any(self.map(node => node.to_preact_node()))
 }
 
 ///|

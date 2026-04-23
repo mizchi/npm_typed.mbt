@@ -51,7 +51,7 @@ test "toHaveClass" {
   render(@react.component(comp, ())) |> ignore
   expect(screen().getByText("Test Class"))
   ..toHaveClass("greeting")
-  ..toHaveClass("active")
+  .toHaveClass("active")
 }
 
 ///|
@@ -63,7 +63,7 @@ test "toHaveAttribute" {
   expect(screen().get_by_placeholder_text("Enter name"))
   ..toHaveAttribute("type")
   ..toHaveAttributeValue("type", "text")
-  ..toHaveAttributeValue("placeholder", "Enter name")
+  .toHaveAttributeValue("placeholder", "Enter name")
 }
 
 ///|
@@ -116,5 +116,5 @@ test "chained matchers" {
   ..toHaveClass("btn")
   ..toHaveClass("primary")
   ..toHaveAttributeValue("type", "submit")
-  ..toBeEnabled()
+  .toBeEnabled()
 }

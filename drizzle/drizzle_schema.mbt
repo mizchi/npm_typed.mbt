@@ -246,7 +246,7 @@ pub(all) enum ForeignKeyAction {
   NoAction
   SetNull
   SetDefault
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub fn ForeignKeyAction::to_string(self : ForeignKeyAction) -> String {

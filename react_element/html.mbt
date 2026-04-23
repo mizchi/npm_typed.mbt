@@ -91,7 +91,9 @@ fn[T] common_node(
     if children_count == 1 {
       props._set("children", children[0].to_react_node())
     } else {
-      let children_js : @core.Any = @core.any(children.map(_.to_react_node()))
+      let children_js : @core.Any = @core.any(
+        children.map(child => child.to_react_node()),
+      )
       props._set("children", children_js)
     }
   }

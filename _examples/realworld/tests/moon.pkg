@@ -5,7 +5,8 @@ import {
   "mizchi/npm_typed/playwright_test",
 }
 
+supported_targets = "js"
+
 options(
   "is-main": true,
-  "supported-targets": [ "js" ],
 )

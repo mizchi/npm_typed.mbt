@@ -6,7 +6,7 @@ This guide helps TypeScript developers understand MoonBit language features thro
 
 Functions in MoonBit are similar to TypeScript but with explicit type annotations:
 
-```mbt check
+```moonbit nocheck
 // MoonBit function
 
 ///|
@@ -31,7 +31,7 @@ function add(a: number, b: number): number {
 
 MoonBit uses `Option[T]` (like TypeScript's `T | null`) and has a special `guard` statement for early returns:
 
-```mbt check
+```moonbit nocheck
 ///|
 test "guard and option types" {
   let opt_value : Int? = Some(10) // Int? is shorthand for Option[Int]
@@ -64,12 +64,12 @@ const v = optValue
 
 Structs are like TypeScript interfaces/classes with auto-implemented traits:
 
-```mbt check
+```moonbit nocheck
 ///|
 struct Point {
   x : Int
   y : Int
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 fn Point::new(x : Int, y : Int) -> Self {
@@ -117,7 +117,7 @@ const { y } = p2
 
 Enums are like TypeScript discriminated unions:
 
-```mbt check
+```moonbit nocheck
 ///|
 test "enum types" {
   enum Color {
@@ -125,7 +125,7 @@ test "enum types" {
     Green
     Blue
     Rgb(r~ : Int, g~ : Int, b~ : Int)
-  } derive(Eq, Show)
+  } derive(Eq, Debug)
   let c1 = Color::Red
   let c2 = Color::Green
   let c3 = Color::Rgb(r=255, g=0, b=0)

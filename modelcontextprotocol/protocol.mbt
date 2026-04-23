@@ -6,7 +6,7 @@ pub enum ContentType {
   Text
   Image
   Resource
-} derive(Show, Eq)
+} derive(Debug, Eq)
 
 ///|
 pub fn ContentType::to_string(self : ContentType) -> String {
@@ -18,6 +18,15 @@ pub fn ContentType::to_string(self : ContentType) -> String {
 }
 
 ///|
+pub impl Show for ContentType with output(self, logger) {
+  logger.write_string(match self {
+    Text => "Text"
+    Image => "Image"
+    Resource => "Resource"
+  })
+}
+
+///|
 /// Content Block
 pub struct Content {
   type_ : ContentType
@@ -25,7 +34,7 @@ pub struct Content {
   data : String?
   mime_type : String?
   uri : String?
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub fn Content::text(text : String) -> Content {
@@ -92,7 +101,7 @@ pub(all) struct Resource {
   name : String
   description : String?
   mime_type : String?
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub fn Resource::as_any(self : Resource) -> @core.Any {
@@ -115,14 +124,14 @@ pub(all) struct Prompt {
   name : String
   description : String?
   arguments : Array[PromptArgument]
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub(all) struct PromptArgument {
   name : String
   description : String?
   required : Bool
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub fn PromptArgument::as_any(self : PromptArgument) -> @core.Any {
@@ -158,7 +167,7 @@ pub struct ServerCapabilities {
   tools : Bool
   resources : Bool
   prompts : Bool
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub fn ServerCapabilities::as_any(self : ServerCapabilities) -> @core.Any {
@@ -180,7 +189,7 @@ pub fn ServerCapabilities::as_any(self : ServerCapabilities) -> @core.Any {
 pub struct ServerInfo {
   name : String
   version : String
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub fn ServerInfo::as_any(self : ServerInfo) -> @core.Any {
@@ -197,7 +206,7 @@ pub fn ServerInfo::as_any(self : ServerInfo) -> @core.Any {
 pub struct ClientInfo {
   name : String
   version : String
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub fn ClientInfo::from_js(js : @core.Any) -> ClientInfo? {

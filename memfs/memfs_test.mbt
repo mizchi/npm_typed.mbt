@@ -4,14 +4,14 @@
 ///|
 test "create volume" {
   let vol = @memfs.createVolume()
-  inspect(vol.as_any() |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(vol.as_any()), content="true")
 }
 
 ///|
 test "create memfs" {
   let (vol, fs) = @memfs.memfs()
-  inspect(vol.as_any() |> @core.is_nullish |> not, content="true")
-  inspect(fs.as_any() |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(vol.as_any()), content="true")
+  inspect(!@core.is_nullish(fs.as_any()), content="true")
 }
 
 ///|
@@ -124,7 +124,7 @@ test "volume toJSON" {
   let (vol, fs) = @memfs.memfs()
   fs.writeFileSync("/test.txt", "content")
   let json = vol.toJSON()
-  inspect(json |> @core.is_nullish |> not, content="true")
+  inspect(!@core.is_nullish(json), content="true")
 }
 
 ///|

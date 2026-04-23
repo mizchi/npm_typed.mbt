@@ -4,6 +4,8 @@ import {
   "mizchi/npm_typed/vite",
 }
 
+supported_targets = "js"
+
 options(
   "is-main": true,
 )

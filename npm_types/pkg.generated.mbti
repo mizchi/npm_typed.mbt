@@ -2,6 +2,7 @@
 package "mizchi/npm_typed/npm_types"
 
 import {
+  "moonbitlang/core/debug",
   "moonbitlang/core/json",
 }
 
@@ -13,51 +14,31 @@ import {
 pub(all) struct BinDist {
   shasum : String
   tarball : String
-}
-pub impl Eq for BinDist
-pub impl Show for BinDist
-pub impl ToJson for BinDist
-pub impl @json.FromJson for BinDist
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Bugs {
   email : String?
   url : String?
-}
-pub impl Eq for Bugs
-pub impl Show for Bugs
-pub impl ToJson for Bugs
-pub impl @json.FromJson for Bugs
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Contact {
   name : String
   email : String?
   url : String?
-}
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Contact::new(String) -> Self
 pub fn Contact::with_email_and_url(String, String, String) -> Self
-pub impl Eq for Contact
-pub impl Show for Contact
-pub impl ToJson for Contact
-pub impl @json.FromJson for Contact
 
 pub(all) struct DeprecatedLicense {
   type_ : String
   url : String
-}
-pub impl Eq for DeprecatedLicense
-pub impl Show for DeprecatedLicense
-pub impl ToJson for DeprecatedLicense
-pub impl @json.FromJson for DeprecatedLicense
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct DevEngineDependency {
   name : String
   version : String?
   on_fail : String?
-}
-pub impl Eq for DevEngineDependency
-pub impl Show for DevEngineDependency
-pub impl ToJson for DevEngineDependency
-pub impl @json.FromJson for DevEngineDependency
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct DevEngines {
   os : Array[DevEngineDependency]?
@@ -65,11 +46,7 @@ pub(all) struct DevEngines {
   libc : Array[DevEngineDependency]?
   runtime : Array[DevEngineDependency]?
   package_manager : Array[DevEngineDependency]?
-}
-pub impl Eq for DevEngines
-pub impl Show for DevEngines
-pub impl ToJson for DevEngines
-pub impl @json.FromJson for DevEngines
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Dist {
   shasum : String
@@ -80,20 +57,12 @@ pub(all) struct Dist {
   unpacked_size : Int?
   npm_signature : String?
   bin : Map[String, BinDist]?
-}
-pub impl Eq for Dist
-pub impl Show for Dist
-pub impl ToJson for Dist
-pub impl @json.FromJson for Dist
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Funding {
   type_ : String
   url : String
-}
-pub impl Eq for Funding
-pub impl Show for Funding
-pub impl ToJson for Funding
-pub impl @json.FromJson for Funding
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Manifest {
   name : String
@@ -101,11 +70,7 @@ pub(all) struct Manifest {
   modified : String
   versions : Map[String, ManifestVersion]
   cached : Bool?
-}
-pub impl Eq for Manifest
-pub impl Show for Manifest
-pub impl ToJson for Manifest
-pub impl @json.FromJson for Manifest
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct ManifestVersion {
   name : String
@@ -122,11 +87,7 @@ pub(all) struct ManifestVersion {
   optional_dependencies : Map[String, String]?
   peer_dependencies : Map[String, String]?
   deprecated : String?
-}
-pub impl Eq for ManifestVersion
-pub impl Show for ManifestVersion
-pub impl ToJson for ManifestVersion
-pub impl @json.FromJson for ManifestVersion
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct PackageJSON {
   name : String
@@ -165,12 +126,8 @@ pub(all) struct PackageJSON {
   publish_config : Map[String, String]?
   workspaces : Array[String]?
   licenses : Array[DeprecatedLicense]?
-}
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn PackageJSON::new(String, String) -> Self
-pub impl Eq for PackageJSON
-pub impl Show for PackageJSON
-pub impl ToJson for PackageJSON
-pub impl @json.FromJson for PackageJSON
 
 pub(all) struct Packument {
   id : String
@@ -192,21 +149,13 @@ pub(all) struct Packument {
   readme_filename : String?
   cached : Bool?
   users : Map[String, Bool]?
-}
-pub impl Eq for Packument
-pub impl Show for Packument
-pub impl ToJson for Packument
-pub impl @json.FromJson for Packument
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct PackumentTime {
   created : String
   modified : String
   versions : Map[String, String]
-}
-pub impl Eq for PackumentTime
-pub impl Show for PackumentTime
-pub impl ToJson for PackumentTime
-pub impl @json.FromJson for PackumentTime
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct PackumentVersion {
   name : String
@@ -256,40 +205,24 @@ pub(all) struct PackumentVersion {
   git_head : String?
   readme : String?
   readme_filename : String?
-}
-pub impl Eq for PackumentVersion
-pub impl Show for PackumentVersion
-pub impl ToJson for PackumentVersion
-pub impl @json.FromJson for PackumentVersion
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct PeerDependencyMeta {
   optional : Bool
-}
-pub impl Eq for PeerDependencyMeta
-pub impl Show for PeerDependencyMeta
-pub impl ToJson for PeerDependencyMeta
-pub impl @json.FromJson for PeerDependencyMeta
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 pub(all) struct Repository {
   url : String
   type_ : String?
   directory : String?
-}
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Repository::git(String) -> Self
 pub fn Repository::new(String) -> Self
-pub impl Eq for Repository
-pub impl Show for Repository
-pub impl ToJson for Repository
-pub impl @json.FromJson for Repository
 
 pub(all) struct Signature {
   keyid : String
   sig : String
-}
-pub impl Eq for Signature
-pub impl Show for Signature
-pub impl ToJson for Signature
-pub impl @json.FromJson for Signature
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 
 // Type aliases
 

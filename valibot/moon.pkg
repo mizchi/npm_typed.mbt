@@ -2,7 +2,6 @@ import {
   "mizchi/js/core",
 }
 
-options(
-  "supported-targets": [ "js" ],
-  "warn-list": "-9",
-)
+warnings = "-9"
+
+supported_targets = "js"
