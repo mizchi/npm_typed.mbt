@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.14] - 2026-04-23
+
+### Changed
+
+- Updated npm dependencies across the workspace
+- Bumped `moonbitlang/async` to `0.18.0`
+- Bumped `mizchi/js` dependency to `0.10.17`
+- Eliminated source warnings and regenerated MoonBit package metadata
+
 ## [0.1.13] - 2026-04-09
 
 ### Changed
