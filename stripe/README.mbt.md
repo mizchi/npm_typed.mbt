@@ -38,7 +38,6 @@ async fn main {
   let stripe_with_config = @stripe.Stripe::new("sk_test_xxx", config={
     api_version: Some("2024-12-18"),
   })
-
 }
 ```
 
@@ -104,7 +103,6 @@ async fn manage_customers {
   let updated = stripe.customers_update(customer.id(), {
     name: Some("Jane Doe"),
   })
-
 }
 ```
 
@@ -128,7 +126,6 @@ async fn manage_subscriptions {
 
   // Cancel immediately
   let canceled = stripe.subscriptions_cancel(subscription.id())
-
 }
 ```
 
@@ -152,7 +149,6 @@ async fn create_product_and_price {
     unit_amount: Some(1999), // $19.99
     recurring: Some({ interval: Month }),
   })
-
 }
 ```
 

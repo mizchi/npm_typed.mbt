@@ -590,8 +590,14 @@ pub fn ZodSchema::nonempty(self : Self) -> Self {
 
 ///|
 /// Object extend with additional properties
-pub fn ZodSchema::extend(self : Self, shape : @core.Any) -> Self {
+pub fn ZodSchema::extend_(self : Self, shape : @core.Any) -> Self {
   self.as_any()._call("extend", [shape]).cast()
+}
+
+///|
+/// Object extend with additional properties
+pub fn ZodSchema::extend(self : Self, shape : @core.Any) -> Self {
+  self.extend_(shape)
 }
 
 ///|

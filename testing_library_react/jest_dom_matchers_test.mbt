@@ -79,10 +79,12 @@ test "toBeInTheDocument" {
 test "toBeDisabled and toBeEnabled" {
   let dispose = setup()
   defer dispose()
-  let comp = _ => @react_element.div([
-    @react_element.button(disabled=true, ["Disabled Btn"]),
-    @react_element.button(["Enabled Btn"]),
-  ])
+  let comp = _ => {
+    @react_element.div([
+      @react_element.button(disabled=true, ["Disabled Btn"]),
+      @react_element.button(["Enabled Btn"]),
+    ])
+  }
   render(@react.component(comp, ())) |> ignore
   expect(screen().getByText("Disabled Btn")).toBeDisabled()
   expect(screen().getByText("Enabled Btn")).toBeEnabled()
@@ -92,11 +94,13 @@ test "toBeDisabled and toBeEnabled" {
 test "toHaveValue for input" {
   let dispose = setup()
   defer dispose()
-  let comp = _ => @react_element.input(
-    type_="text",
-    default_value="hello",
-    placeholder="value test",
-  )
+  let comp = _ => {
+    @react_element.input(
+      type_="text",
+      default_value="hello",
+      placeholder="value test",
+    )
+  }
   render(@react.component(comp, ())) |> ignore
   expect(screen().getByPlaceholderText("value test")).toHaveValue("hello")
 }
@@ -105,9 +109,9 @@ test "toHaveValue for input" {
 test "chained matchers" {
   let dispose = setup()
   defer dispose()
-  let comp = _ => @react_element.button(class="btn primary", type_="submit", [
-    "Submit",
-  ])
+  let comp = _ => {
+    @react_element.button(class="btn primary", type_="submit", ["Submit"])
+  }
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   // Chained matchers on same element
   expect(screen().getByText("Submit"))

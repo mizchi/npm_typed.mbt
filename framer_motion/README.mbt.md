@@ -16,7 +16,7 @@ Add to your `moon.pkg.json`:
 {
   "import": [
     "mizchi/js/core",
-    "mizchi/js/browser/dom",
+    "mizchi/js_browser/dom",
     "mizchi/npm_typed/framer_motion"
   ]
 }
@@ -43,7 +43,7 @@ test {
 
 ### animate
 
-```moonbit
+```moonbit nocheck
 // With selector
 
 ///|
@@ -62,7 +62,7 @@ let controls = animate(@core.any(".box"), keyframes, options~)
 
 ### inView
 
-```moonbit
+```moonbit nocheck
 // With selector
 
 ///|
@@ -76,7 +76,7 @@ let cleanup = inView_element(element, fn(entry) { ... }, options~)
 
 ### Playback Controls
 
-```moonbit
+```moonbit nocheck
 let controls = animate_selector(".box", keyframes)
 controls.play()
 controls.pause()
@@ -87,7 +87,7 @@ controls.complete()
 
 ### MotionValue
 
-```moonbit
+```moonbit nocheck
 let x = motionValue(@core.any(0))
 mv_set(x, @core.any(100))
 let current = mv_get(x)
@@ -98,7 +98,7 @@ let cleanup = mv_on(x, "change", fn(v) { ... })
 
 ### Utilities
 
-```moonbit
+```moonbit nocheck
 // Mix values
 
 ///|

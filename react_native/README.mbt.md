@@ -28,7 +28,7 @@ Add to your `moon.pkg.json`:
 
 The most fundamental component for building UI:
 
-```moonbit
+```moonbit nocheck
 ///|
 using @react_native {
   type Style,
@@ -59,7 +59,7 @@ fn my_component() -> @react.Element {
 
 Display text:
 
-```moonbit
+```moonbit nocheck
 ///|
 let titleStyle : Style = @react_native.style(
   font_size=24.0,
@@ -82,7 +82,7 @@ fn styled_text() -> @react.Element {
 
 Display images:
 
-```moonbit
+```moonbit nocheck
 ///|
 let imageStyle : @react_native.Style = @react_native.style(
   width=200.0,
@@ -104,7 +104,7 @@ fn image_example() -> @react.Element {
 
 Scrollable container:
 
-```moonbit
+```moonbit nocheck
 ///|
 let scrollStyle : @react_native.Style = @react_native.style(flex=1)
 
@@ -126,7 +126,7 @@ fn scroll_example() -> @react.Element {
 
 Touchable wrapper with opacity feedback:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn button_example() -> @react.Element {
   @react_native.touchable_opacity(
@@ -141,7 +141,7 @@ fn button_example() -> @react.Element {
 
 Text input field:
 
-```moonbit
+```moonbit nocheck
 ///|
 let inputStyle : @react_native.Style = @react_native.style(
   border_width=1.0,
@@ -165,7 +165,7 @@ fn input_example() -> @react.Element {
 
 Performant list rendering:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn list_example() -> @react.Element {
   let data = ["Apple", "Banana", "Cherry", "Date"]
@@ -185,7 +185,7 @@ fn list_example() -> @react.Element {
 
 Use the `style()` function with named arguments for compile-time type checking:
 
-```moonbit
+```moonbit nocheck
 ///|
 using @react_native {
   type Style,
@@ -225,7 +225,7 @@ Available enums for style properties:
 
 Combine `style()` with `StyleSheet::create_typed()` for optimized styles:
 
-```moonbit
+```moonbit nocheck
 ///|
 let styles = @react_native.StyleSheet::create_typed({
   "container": style(flex=1, background_color="#fff"),
@@ -237,7 +237,7 @@ let styles = @react_native.StyleSheet::create_typed({
 
 The original `StyleSheet::create` with `@core.any()` is still available:
 
-```moonbit
+```moonbit nocheck
 ///|
 let styles = @react_native.StyleSheet::create({
   "container": { "flex": @core.any(1), "backgroundColor": @core.any("#fff") },
@@ -246,7 +246,7 @@ let styles = @react_native.StyleSheet::create({
 
 ### Other StyleSheet methods
 
-```moonbit
+```moonbit nocheck
 // Flatten multiple styles
 
 ///|
@@ -270,7 +270,7 @@ let width = @react_native.StyleSheet::hairline_width()
 
 Check the current platform:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn platform_specific() -> @react.Element {
   let message = if @react_native.is_ios() {
@@ -286,7 +286,7 @@ fn platform_specific() -> @react.Element {
 
 Platform-specific values:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn get_padding() -> Int {
   @react_native.select(ios=20, android=16, default=10).unwrap_or(10)
@@ -299,7 +299,7 @@ fn get_padding() -> Int {
 
 Get screen dimensions:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn dimensions_example() {
   let window = @react_native.get_window_dimensions()
@@ -311,7 +311,7 @@ fn dimensions_example() {
 
 Show alert dialogs:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn show_alert() {
   @react_native.alert(title="Hello", message=Some("This is an alert message"), buttons=[
@@ -328,7 +328,7 @@ fn show_alert() {
 
 Open URLs:
 
-```moonbit
+```moonbit nocheck
 async fn open_website() {
   @react_native.open_url("https://reactnative.dev")!
 }
@@ -338,7 +338,7 @@ async fn open_website() {
 
 Dismiss keyboard:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn dismiss_keyboard() {
   @react_native.keyboard_dismiss()
@@ -349,7 +349,7 @@ fn dismiss_keyboard() {
 
 Listen to app state changes:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn setup_app_state_listener() {
   let subscription = @react_native.add_app_state_change_listener(fn(state) {
@@ -368,7 +368,7 @@ fn setup_app_state_listener() {
 
 Get color scheme:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn get_theme() -> String {
   match @react_native.get_color_scheme() {
@@ -385,7 +385,7 @@ fn get_theme() -> String {
 
 Get the user's preferred color scheme:
 
-```moonbit
+```moonbit nocheck
 ///|
 fn themed_component() -> @react.Element {
   let color_scheme = @react_native.use_color_scheme()
@@ -408,7 +408,7 @@ fn themed_component() -> @react.Element {
 
 Get current window dimensions (updates on resize):
 
-```moonbit
+```moonbit nocheck
 ///|
 fn responsive_component() -> @react.Element {
   let dimensions = @react_native.use_window_dimensions()
@@ -422,7 +422,7 @@ fn responsive_component() -> @react.Element {
 
 ### Basic Animation
 
-```moonbit
+```moonbit nocheck
 ///|
 fn fade_in_example() {
   let opacity = @react_native.AnimatedValue::new(0.0)

@@ -39,7 +39,7 @@ pub fn OriginalPosition::is_found(self : OriginalPosition) -> Bool {
 }
 
 ///|
-pub impl Show for OriginalPosition with output(self, logger) {
+pub impl Show for OriginalPosition with fn output(self, logger) {
   let source = self.source.unwrap_or("<unknown>")
   let line = self.line.unwrap_or(0)
   let column = self.column.unwrap_or(0)
@@ -77,7 +77,9 @@ pub async fn SourceMapConsumer::from_json(json : String) -> SourceMapConsumer {
 }
 
 ///|
-extern "js" fn ffi_create_consumer(json : String) -> @core.Promise[@core.Any] =
+extern "js" fn ffi_create_consumer(
+  json : String,
+) -> @js_async.Promise[@core.Any] =
   #|async (json) => {
   #|  const { SourceMapConsumer } = await import('source-map');
   #|  const rawMap = JSON.parse(json);
@@ -95,7 +97,7 @@ pub async fn SourceMapConsumer::from_raw(
 ///|
 extern "js" fn ffi_create_consumer_raw(
   raw_map : @core.Any,
-) -> @core.Promise[@core.Any] =
+) -> @js_async.Promise[@core.Any] =
   #|async (rawMap) => {
   #|  const { SourceMapConsumer } = await import('source-map');
   #|  return new SourceMapConsumer(rawMap);

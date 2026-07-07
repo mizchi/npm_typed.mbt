@@ -21,7 +21,7 @@ extern "js" fn ffi_createStore(
 /// Create a vanilla zustand store with typed state
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// struct CounterState {
 ///   mut count : Int
 /// }

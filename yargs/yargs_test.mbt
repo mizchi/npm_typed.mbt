@@ -8,15 +8,15 @@ test "yargs basic parsing" {
     .option("name", alias_="n", type_="string", description="Your name")
     .option("count", alias_="c", type_="number", description="Count")
     .parse()
-  inspect(argv.get_string("name"), content="Some(\"Alice\")")
-  inspect(argv.get_int("count"), content="Some(3)")
+  debug_inspect(argv.get_string("name"), content="Some(\"Alice\")")
+  debug_inspect(argv.get_int("count"), content="Some(3)")
 }
 
 ///|
 test "yargs boolean option" {
   let y = @yargs.yargs_with_args(["--verbose"])
   let argv = y.boolean("verbose").parse()
-  inspect(argv.get_bool("verbose"), content="Some(true)")
+  debug_inspect(argv.get_bool("verbose"), content="Some(true)")
 }
 
 ///|
@@ -27,22 +27,22 @@ test "yargs positional arguments" {
   inspect(positionals.length(), content="2")
   inspect(positionals[0], content="hello")
   inspect(positionals[1], content="world")
-  inspect(argv.get_bool("flag"), content="Some(true)")
+  debug_inspect(argv.get_bool("flag"), content="Some(true)")
 }
 
 ///|
 test "yargs default value" {
   let y = @yargs.yargs_with_args([])
   let argv = y.option("port", type_="number", default=@core.any(8080)).parse()
-  inspect(argv.get_int("port"), content="Some(8080)")
+  debug_inspect(argv.get_int("port"), content="Some(8080)")
 }
 
 ///|
 test "yargs alias" {
   let y = @yargs.yargs_with_args(["-v"])
   let argv = y.boolean("verbose").alias_("verbose", "v").parse()
-  inspect(argv.get_bool("verbose"), content="Some(true)")
-  inspect(argv.get_bool("v"), content="Some(true)")
+  debug_inspect(argv.get_bool("verbose"), content="Some(true)")
+  debug_inspect(argv.get_bool("v"), content="Some(true)")
 }
 
 ///|
@@ -65,7 +65,7 @@ test "yargs array option" {
 test "yargs count option" {
   let y = @yargs.yargs_with_args(["-v", "-v", "-v"])
   let argv = y.count("v").parse()
-  inspect(argv.get_int("v"), content="Some(3)")
+  debug_inspect(argv.get_int("v"), content="Some(3)")
 }
 
 ///|
@@ -75,7 +75,7 @@ test "yargs chaining" {
     .boolean("debug")
     .default("port", @core.any(3000))
     .parse()
-  inspect(argv.get_string("name"), content="Some(\"test\")")
-  inspect(argv.get_bool("debug"), content="Some(true)")
-  inspect(argv.get_int("port"), content="Some(3000)")
+  debug_inspect(argv.get_string("name"), content="Some(\"test\")")
+  debug_inspect(argv.get_bool("debug"), content="Some(true)")
+  debug_inspect(argv.get_int("port"), content="Some(3000)")
 }

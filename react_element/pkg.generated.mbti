@@ -2,9 +2,9 @@
 package "mizchi/npm_typed/react_element"
 
 import {
-  "mizchi/js/browser/dom",
   "mizchi/js/core",
   "mizchi/js/web/http",
+  "mizchi/js_browser/dom",
   "mizchi/npm_typed/react",
 }
 

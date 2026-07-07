@@ -137,7 +137,7 @@ pub fn Auth::handler(self : Auth) -> @core.Any {
 /// Provider trait - abstraction for auth providers
 pub trait Provider {
   /// Apply provider configuration to the auth config object
-  apply(Self, @core.Any) -> Unit
+  fn apply(Self, @core.Any) -> Unit
 }
 
 ///|
@@ -147,7 +147,7 @@ pub(all) struct EmailPassword {
 }
 
 ///|
-pub impl Provider for EmailPassword with apply(self, config) {
+pub impl Provider for EmailPassword with fn apply(self, config) {
   let obj = @core.new_object()
   obj["enabled"] = @core.any(self.enabled)
   config._set("emailAndPassword", obj)
@@ -161,7 +161,7 @@ pub(all) struct GitHub {
 }
 
 ///|
-pub impl Provider for GitHub with apply(self, config) {
+pub impl Provider for GitHub with fn apply(self, config) {
   let sp = get_or_create_social_providers(config)
   let obj = @core.new_object()
   obj["clientId"] = @core.any(self.client_id)
@@ -177,7 +177,7 @@ pub(all) struct Google {
 }
 
 ///|
-pub impl Provider for Google with apply(self, config) {
+pub impl Provider for Google with fn apply(self, config) {
   let sp = get_or_create_social_providers(config)
   let obj = @core.new_object()
   obj["clientId"] = @core.any(self.client_id)

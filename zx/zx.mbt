@@ -9,38 +9,38 @@
 /// Implement this trait for custom types to use them in `zx()` calls.
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let name = "hello"
 /// let count = 42
 /// @zx.tagged("echo ${@0} ${@1}", args=[name.to_zx_arg(), count.to_zx_arg()])
 /// ```
 pub trait ToZxArg {
-  to_zx_arg(Self) -> @core.Any
+  fn to_zx_arg(Self) -> @core.Any
 }
 
 ///|
-pub impl ToZxArg for String with to_zx_arg(self) {
+pub impl ToZxArg for String with fn to_zx_arg(self) {
   @core.any(self)
 }
 
 ///|
-pub impl ToZxArg for Int with to_zx_arg(self) {
+pub impl ToZxArg for Int with fn to_zx_arg(self) {
   @core.any(self)
 }
 
 ///|
-pub impl ToZxArg for Double with to_zx_arg(self) {
+pub impl ToZxArg for Double with fn to_zx_arg(self) {
   @core.any(self)
 }
 
 ///|
-pub impl ToZxArg for Bool with to_zx_arg(self) {
+pub impl ToZxArg for Bool with fn to_zx_arg(self) {
   @core.any(self)
 }
 
 ///|
 /// Array of strings - will be joined with spaces in shell
-pub impl ToZxArg for Array[String] with to_zx_arg(self) {
+pub impl ToZxArg for Array[String] with fn to_zx_arg(self) {
   @core.any(self)
 }
 
@@ -49,7 +49,7 @@ pub impl ToZxArg for Array[String] with to_zx_arg(self) {
 /// Use this to build args array for zx().
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let name = "hello"
 /// let count = 42
 /// @zx.tagged("echo ${@0} ${@1}", args=[@zx.arg(name), @zx.arg(count)])
@@ -71,7 +71,7 @@ pub fn ProcessPromise::to_any(self : ProcessPromise) -> @core.Any = "%identity"
 
 ///|
 /// ProcessPromise can be used as zx argument (for piping)
-pub impl ToZxArg for ProcessPromise with to_zx_arg(self) {
+pub impl ToZxArg for ProcessPromise with fn to_zx_arg(self) {
   self.to_any()
 }
 
@@ -103,7 +103,7 @@ pub fn ProcessOutput::to_any(self : ProcessOutput) -> @core.Any = "%identity"
 
 ///|
 /// ProcessOutput can be used as zx argument
-pub impl ToZxArg for ProcessOutput with to_zx_arg(self) {
+pub impl ToZxArg for ProcessOutput with fn to_zx_arg(self) {
   self.to_any()
 }
 
@@ -340,7 +340,7 @@ extern "js" fn ffi_call_dollar(
 /// MoonBit では $ は変数として使えないので tagged を使用
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let result = @zx.tagged("echo ${@0}", args=[@core.any("hello")])
 /// ```
 pub fn tagged(cmd : String, args? : Array[@core.Any] = []) -> ProcessPromise {
@@ -359,7 +359,7 @@ pub fn tagged(cmd : String, args? : Array[@core.Any] = []) -> ProcessPromise {
 /// Use this in async contexts for simpler code.
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let output = @zx.execa("echo hello")
 /// println(output.text())
 /// ```

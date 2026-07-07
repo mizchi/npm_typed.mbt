@@ -84,8 +84,10 @@ enum CounterAction {
 ///|
 fn counter(_ : Unit) -> @react.Element {
   let (count, dispatch) = useReducer(
-    (state : Int, action : CounterAction) => match action {
-      CounterAction::Increment => state + 1
+    (state : Int, action : CounterAction) => {
+      match action {
+        CounterAction::Increment => state + 1
+      }
     },
     0,
   )
@@ -112,10 +114,12 @@ fn async_counter(_ : Unit) -> @react.Element {
     0,
   )
   let on_click = useCallback(
-    _ => run_async(async fn() noraise {
-      @core.sleep(500)
-      @react.startTransition(() => dispatch(Increment))
-    }),
+    _ => {
+      run_async(async fn() noraise {
+        @core.sleep(500)
+        @react.startTransition(() => dispatch(Increment))
+      })
+    },
     [@core.any(count)],
   )
   button(on_click~, [
@@ -200,11 +204,11 @@ fn app(props : AppProps) -> @react.Element {
         ]),
         // ]
         ul(
-          props.items.mapi((idx, item) => createElement(
-            "li",
-            key=idx.to_string(),
-            [component(item_component, { name: item }, key=idx.to_string())],
-          )),
+          props.items.mapi((idx, item) => {
+            createElement("li", key=idx.to_string(), [
+              component(item_component, { name: item }, key=idx.to_string()),
+            ])
+          }),
         ),
         component(ctx_consumer, ()),
         component(counter, ()),
@@ -249,10 +253,9 @@ async fn main {
   // TODO: Remove when MoonBit adds native ESM support
   @react_router.init_global()
   guard @dom.document().getElementById("app") is Some(app_root)
-  let index = (_props : @react_router.RouteProps) => component(app, {
-    x: 42,
-    items: ["Item 1", "Item 2", "Item 3"],
-  })
+  let index = (_props : @react_router.RouteProps) => {
+    component(app, { x: 42, items: ["Item 1", "Item 2", "Item 3"] })
+  }
   let routes = @react_router.create_browser_router([
     Component(path="/", component=index),
     Element(

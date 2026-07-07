@@ -111,6 +111,6 @@ pub fn User::updatedAt(Self) -> String
 
 // Traits
 pub trait Provider {
-  apply(Self, @core.Any) -> Unit
+  fn apply(Self, @core.Any) -> Unit
 }
 

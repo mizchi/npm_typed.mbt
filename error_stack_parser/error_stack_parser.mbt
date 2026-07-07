@@ -29,7 +29,7 @@ fn StackFrame::from_any(obj : @core.Any) -> StackFrame {
 }
 
 ///|
-pub impl Show for StackFrame with output(self, logger) {
+pub impl Show for StackFrame with fn output(self, logger) {
   let fn_name = self.function_name.unwrap_or("<anonymous>")
   let file = self.file_name.unwrap_or("<unknown>")
   let line = self.line_number.unwrap_or(0)

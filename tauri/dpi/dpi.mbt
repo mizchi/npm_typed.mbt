@@ -18,7 +18,7 @@ pub fn LogicalPosition::to_physical(
 }
 
 ///|
-pub impl Show for LogicalPosition with output(self, logger) {
+pub impl Show for LogicalPosition with fn output(self, logger) {
   logger.write_string("{x: \{self.x}, y: \{self.y}}")
 }
 
@@ -47,7 +47,7 @@ pub fn PhysicalPosition::to_logical(
 }
 
 ///|
-pub impl Show for PhysicalPosition with output(self, logger) {
+pub impl Show for PhysicalPosition with fn output(self, logger) {
   logger.write_string("{x: \{self.x}, y: \{self.y}}")
 }
 
@@ -79,7 +79,7 @@ pub fn LogicalSize::to_physical(
 }
 
 ///|
-pub impl Show for LogicalSize with output(self, logger) {
+pub impl Show for LogicalSize with fn output(self, logger) {
   logger.write_string("{width: \{self.width}, height: \{self.height}}")
 }
 
@@ -111,7 +111,7 @@ pub fn PhysicalSize::to_logical(
 }
 
 ///|
-pub impl Show for PhysicalSize with output(self, logger) {
+pub impl Show for PhysicalSize with fn output(self, logger) {
   logger.write_string("{width: \{self.width}, height: \{self.height}}")
 }
 

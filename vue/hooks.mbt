@@ -140,7 +140,6 @@ pub async fn nextTick() -> Unit {
 #alias(next_tick_with_callback)
 pub fn nextTickCallback(callback : () -> Unit) -> Unit {
   let _ = ffi_next_tick(callback |> @js.any)
-
 }
 
 ///|

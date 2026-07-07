@@ -205,13 +205,13 @@ fn param_func2(a? : Int = 1, b? : Int) -> (Int, Int) {
 test "parameter styles" {
   // Named parameters
   let result1 = param_func(a=10, b=20)
-  assert_eq(result1, (10, 20))
+  assert_true(result1 == (10, 20))
 
   // Optional parameters
   let result2 = param_func2()
-  assert_eq(result2, (1, -1))
+  assert_true(result2 == (1, -1))
   let result3 = param_func2(a=5, b=15)
-  assert_eq(result3, (5, 15))
+  assert_true(result3 == (5, 15))
 }
 ```
 

@@ -13,36 +13,36 @@ pub fn JSXNode::as_any(self : JSXNode) -> @core.Any = "%identity"
 ///|
 /// HonoNode trait for JSX children
 pub trait HonoNode {
-  toHonoNode(Self) -> @core.Any
+  fn toHonoNode(Self) -> @core.Any
 }
 
 ///|
-pub impl HonoNode for JSXNode with toHonoNode(self) {
+pub impl HonoNode for JSXNode with fn toHonoNode(self) {
   self.as_any()
 }
 
 ///|
-pub impl HonoNode for String with toHonoNode(self) {
+pub impl HonoNode for String with fn toHonoNode(self) {
   @core.any(self)
 }
 
 ///|
-pub impl HonoNode for Int with toHonoNode(self) {
+pub impl HonoNode for Int with fn toHonoNode(self) {
   @core.any(self)
 }
 
 ///|
-pub impl HonoNode for Double with toHonoNode(self) {
+pub impl HonoNode for Double with fn toHonoNode(self) {
   @core.any(self)
 }
 
 ///|
-pub impl HonoNode for Bool with toHonoNode(self) {
+pub impl HonoNode for Bool with fn toHonoNode(self) {
   @core.any(self)
 }
 
 ///|
-pub impl[T : HonoNode] HonoNode for Array[T] with toHonoNode(self) {
+pub impl[T : HonoNode] HonoNode for Array[T] with fn toHonoNode(self) {
   @core.any(self.map(HonoNode::toHonoNode))
 }
 
@@ -355,7 +355,7 @@ pub type HtmlEscapedString
 pub fn HtmlEscapedString::as_any(self : HtmlEscapedString) -> @core.Any = "%identity"
 
 ///|
-pub impl HonoNode for HtmlEscapedString with toHonoNode(self) {
+pub impl HonoNode for HtmlEscapedString with fn toHonoNode(self) {
   self.as_any()
 }
 

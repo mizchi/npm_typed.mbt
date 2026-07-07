@@ -55,6 +55,5 @@ fn dev_server_example() -> Unit {
       },
       3000,
     )
-
   })
 }

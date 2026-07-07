@@ -30,28 +30,28 @@ test "JsonRpcRequest as_any" {
 test "Content::text creates text content" {
   let content = Content::text("Hello, world!")
   inspect(content.type_, content="Text")
-  inspect(content.text, content="Some(\"Hello, world!\")")
+  debug_inspect(content.text, content="Some(\"Hello, world!\")")
 }
 
 ///|
 test "Content::image creates image content" {
   let content = Content::image("base64data", "image/png")
   inspect(content.type_, content="Image")
-  inspect(content.data, content="Some(\"base64data\")")
-  inspect(content.mime_type, content="Some(\"image/png\")")
+  debug_inspect(content.data, content="Some(\"base64data\")")
+  debug_inspect(content.mime_type, content="Some(\"image/png\")")
 }
 
 ///|
 test "Content::resource creates resource content" {
   let content = Content::resource("file:///test.txt")
   inspect(content.type_, content="Resource")
-  inspect(content.uri, content="Some(\"file:///test.txt\")")
+  debug_inspect(content.uri, content="Some(\"file:///test.txt\")")
 }
 
 ///|
 test "RequestId conversions" {
   let js_str : @core.Any = @core.identity("abc")
-  inspect(RequestId::from_js(js_str), content="Some(String(\"abc\"))")
+  debug_inspect(RequestId::from_js(js_str), content="Some(String(\"abc\"))")
   let js_num : @core.Any = @core.identity(42)
-  inspect(RequestId::from_js(js_num), content="Some(Number(42))")
+  debug_inspect(RequestId::from_js(js_num), content="Some(Number(42))")
 }

@@ -541,14 +541,16 @@ priv struct PropsWithChildren {
 ///|
 test "component: props.children is accessible in component" {
   // Component that uses props.children
-  let comp = (props : PropsWithChildren) => @react.createElement("div", [
-    @react.createElement("h1", [props.title]),
-    // props.children if provided
-    match props.children {
-      Some(c) => c
-      None => @react.createElement("span", ["no children in props"])
-    },
-  ])
+  let comp = (props : PropsWithChildren) => {
+    @react.createElement("div", [
+      @react.createElement("h1", [props.title]),
+      // props.children if provided
+      match props.children {
+        Some(c) => c
+        None => @react.createElement("span", ["no children in props"])
+      },
+    ])
+  }
   // Pass children via props
   let el = @react.component(comp, {
     title: "Title",

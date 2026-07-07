@@ -73,5 +73,4 @@ pub async fn CDPSession::send_simple(
     ._call("send", [@core.any(method_)])
     |> @core.identity
   let _ = promise.wait()
-
 }

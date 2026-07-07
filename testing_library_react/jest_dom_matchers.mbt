@@ -34,11 +34,11 @@ fn MatcherResult::message(self : MatcherResult) -> String {
 
 ///|
 /// Cached jest-dom matchers module
-let jest_dom_matchers : Ref[@core.Any?] = Ref::new(None)
+let jest_dom_matchers : Ref[@core.Any?] = Ref(None)
 
 ///|
 /// Cached matcher context
-let matcher_context : Ref[@core.Any?] = Ref::new(None)
+let matcher_context : Ref[@core.Any?] = Ref(None)
 
 ///|
 /// Setup jest-dom matchers. Call once before using matchers.

@@ -868,7 +868,6 @@ pub fn Page::close_with_error_callback(
     on_error(e)
     @js.Promise::resolve(())
   })
-
 }
 
 ///|

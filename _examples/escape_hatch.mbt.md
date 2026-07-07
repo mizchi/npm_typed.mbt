@@ -98,7 +98,6 @@ test "safe nested access with undefined checks" {
     let api = config._get("api")
     if !@js.is_undefined(api) {
       let _ = api._get("endpoint")
-
     }
   }
 }

@@ -18,12 +18,14 @@ pub fn ContentType::to_string(self : ContentType) -> String {
 }
 
 ///|
-pub impl Show for ContentType with output(self, logger) {
-  logger.write_string(match self {
-    Text => "Text"
-    Image => "Image"
-    Resource => "Resource"
-  })
+pub impl Show for ContentType with fn output(self, logger) {
+  logger.write_string(
+    match self {
+      Text => "Text"
+      Image => "Image"
+      Resource => "Resource"
+    },
+  )
 }
 
 ///|

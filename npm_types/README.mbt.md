@@ -46,7 +46,7 @@ Add to your `moon.pkg.json`:
 test {
   let contact = @npm_types.Contact::new("Alice")
   inspect(contact.name, content="Alice")
-  inspect(contact.email, content="None")
+  debug_inspect(contact.email, content="None")
 }
 ```
 
@@ -55,7 +55,7 @@ test {
 test {
   let repo = @npm_types.Repository::git("https://github.com/example/repo.git")
   inspect(repo.url, content="https://github.com/example/repo.git")
-  inspect(repo.type_, content="Some(\"git\")")
+  debug_inspect(repo.type_, content="Some(\"git\")")
 }
 ```
 
@@ -81,8 +81,8 @@ test {
   let json = contact.to_json()
   match json {
     Object(map) => {
-      inspect(map["name"], content="String(\"Bob\")")
-      inspect(map["email"], content="String(\"bob@example.com\")")
+      debug_inspect(map["name"], content="String(\"Bob\")")
+      debug_inspect(map["email"], content="String(\"bob@example.com\")")
     }
     _ => fail("expected object")
   }

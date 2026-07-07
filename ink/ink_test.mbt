@@ -419,7 +419,6 @@ async test "testing library stdin" {
   defer result.unmount()
   // Just verify stdin is accessible
   let _stdin = result.stdin()
-
 }
 
 ///|
@@ -431,7 +430,6 @@ async test "testing library stdout" {
   defer result.unmount()
   // Verify stdout is accessible
   let _stdout = result.stdout()
-
 }
 
 ///|
@@ -443,5 +441,4 @@ async test "testing library stderr" {
   defer result.unmount()
   // Verify stderr is accessible
   let _stderr = result.stderr()
-
 }

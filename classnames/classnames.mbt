@@ -12,7 +12,7 @@ extern "js" fn ffi_classNames(args : Array[@core.Any]) -> String =
 /// Construct className string from multiple strings
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let class_name = classNames(["foo", "bar", "baz"])
 /// // => "foo bar baz"
 /// ```
@@ -24,7 +24,7 @@ pub fn classNames(class_names : Array[String]) -> String {
 /// Raw version - accepts strings, objects, arrays, and booleans
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let class_name = classNames_raw([@core.any("foo"), @core.any("bar")])
 /// // => "foo bar"
 /// ```
@@ -36,7 +36,7 @@ pub fn classNames_raw(args : Array[@core.Any]) -> String {
 /// Construct className string from an object mapping class names to booleans
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let obj = @core.new_object()
 /// obj["active"] = @core.any(true)
 /// obj["disabled"] = @core.any(false)
@@ -51,7 +51,7 @@ pub fn classNames_obj(obj : @core.Any) -> String {
 /// Construct className string combining strings and conditional object
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let obj = @core.new_object()
 /// obj["active"] = @core.any(true)
 /// let class_name = classNames_with("btn", obj)

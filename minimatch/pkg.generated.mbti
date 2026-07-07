@@ -41,8 +41,6 @@ pub struct Minimatch(@core.Any)
 pub fn Minimatch::comment(Self) -> Bool
 pub fn Minimatch::empty(Self) -> Bool
 pub fn Minimatch::has_magic(Self) -> Bool
-#deprecated
-pub fn Minimatch::inner(Self) -> @core.Any
 pub fn Minimatch::match_(Self, String) -> Bool
 pub fn Minimatch::negate(Self) -> Bool
 pub fn Minimatch::new(String) -> Self

@@ -194,8 +194,14 @@ pub fn Debug::log4(
 
 ///|
 /// Create an extended logger with additional namespace
-pub fn Debug::extend(self : Debug, ns : String) -> Debug {
+pub fn Debug::extend_(self : Debug, ns : String) -> Debug {
   ffi_extend(self, ns)
+}
+
+///|
+/// Create an extended logger with additional namespace
+pub fn Debug::extend(self : Debug, ns : String) -> Debug {
+  self.extend_(ns)
 }
 
 ///|

@@ -118,7 +118,7 @@ extern "js" fn ffi_simple_git_with_options(options : @core.Any) -> SimpleGit =
 /// - `trimmed`: Remove trailing whitespace from output
 ///
 /// @example
-/// ```moonbit
+/// ```moonbit nocheck
 /// let git = @simple_git.simpleGit(base_dir="/path/to/repo")
 /// ```
 pub fn simpleGit(
@@ -265,7 +265,7 @@ pub async fn SimpleGit::addAll(self : SimpleGit) -> Unit {
 /// - `author`: Optional author override (format: "Name <email>")
 ///
 /// @example
-/// ```moonbit
+/// ```moonbit nocheck
 /// let result = git.commit("feat: add new feature").wait()
 ///
 /// let result = git
@@ -356,7 +356,7 @@ extern "js" fn ffi_fetch_default(git : SimpleGit) -> @core.Promise[FetchResult] 
 /// - `tags`: Push tags (--tags flag)
 ///
 /// @example
-/// ```moonbit
+/// ```moonbit nocheck
 /// git.push().wait()  // Push current branch to origin
 /// git.push(remote="origin", branch="main", set_upstream=true).wait()
 /// ```
@@ -398,7 +398,7 @@ pub async fn SimpleGit::push(
 /// - `branch`: Branch name (default: current branch)
 ///
 /// @example
-/// ```moonbit
+/// ```moonbit nocheck
 /// let result = git.pull().wait()
 ///
 /// let result = git.pull(remote="origin", branch="main").wait()

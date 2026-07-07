@@ -174,8 +174,8 @@ test "ActionSheetOptions creation" {
     title=Some("Choose an option"),
   )
   inspect(options.options.length(), content="3")
-  inspect(options.cancel_button_index, content="Some(2)")
-  inspect(options.title, content="Some(\"Choose an option\")")
+  debug_inspect(options.cancel_button_index, content="Some(2)")
+  debug_inspect(options.title, content="Some(\"Choose an option\")")
 }
 
 ///|
@@ -185,8 +185,8 @@ test "ShareActionSheetOptions creation" {
     message=Some("Check this out!"),
     subject=Some("Sharing"),
   )
-  inspect(options.url, content="Some(\"https://example.com\")")
-  inspect(options.message, content="Some(\"Check this out!\")")
+  debug_inspect(options.url, content="Some(\"https://example.com\")")
+  debug_inspect(options.message, content="Some(\"Check this out!\")")
 }
 
 // ============================================================================
@@ -200,9 +200,9 @@ test "ShareContent creation" {
     url=Some("https://example.com"),
     title=Some("Share Title"),
   )
-  inspect(content.message, content="Some(\"Hello World\")")
-  inspect(content.url, content="Some(\"https://example.com\")")
-  inspect(content.title, content="Some(\"Share Title\")")
+  debug_inspect(content.message, content="Some(\"Hello World\")")
+  debug_inspect(content.url, content="Some(\"https://example.com\")")
+  debug_inspect(content.title, content="Some(\"Share Title\")")
 }
 
 ///|
@@ -211,8 +211,8 @@ test "ShareOptions creation" {
     dialog_title=Some("Share via"),
     subject=Some("Email Subject"),
   )
-  inspect(options.dialog_title, content="Some(\"Share via\")")
-  inspect(options.subject, content="Some(\"Email Subject\")")
+  debug_inspect(options.dialog_title, content="Some(\"Share via\")")
+  debug_inspect(options.subject, content="Some(\"Email Subject\")")
 }
 
 // ShareResult is internal - tested via share() function
@@ -230,9 +230,9 @@ test "TimingConfig creation" {
     use_native_driver=Some(true),
   )
   inspect(config.to_value, content="1")
-  inspect(config.duration, content="Some(300)")
-  inspect(config.delay, content="Some(100)")
-  inspect(config.use_native_driver, content="Some(true)")
+  debug_inspect(config.duration, content="Some(300)")
+  debug_inspect(config.delay, content="Some(100)")
+  debug_inspect(config.use_native_driver, content="Some(true)")
 }
 
 ///|
@@ -244,8 +244,8 @@ test "SpringConfig creation" {
     use_native_driver=Some(true),
   )
   inspect(config.to_value, content="1")
-  inspect(config.friction, content="Some(7)")
-  inspect(config.tension, content="Some(40)")
+  debug_inspect(config.friction, content="Some(7)")
+  debug_inspect(config.tension, content="Some(40)")
 }
 
 ///|
@@ -256,7 +256,7 @@ test "DecayConfig creation" {
     use_native_driver=Some(true),
   )
   inspect(config.velocity, content="0.5")
-  inspect(config.deceleration, content="Some(0.997)")
+  debug_inspect(config.deceleration, content="Some(0.997)")
 }
 
 ///|

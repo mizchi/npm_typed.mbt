@@ -22,6 +22,7 @@ pub fn enabled(String) -> Bool
 #external
 pub type Debug
 pub fn Debug::extend(Self, String) -> Self
+pub fn Debug::extend_(Self, String) -> Self
 pub fn Debug::get_namespace(Self) -> String
 pub fn Debug::is_enabled(Self) -> Bool
 pub fn Debug::log(Self, String) -> Unit

@@ -64,7 +64,7 @@ async test "put, get, and delete object" {
   let get_result = @client_s3.get_object(client, bucket, key)
   let content = get_result.body_as_string()
   assert_eq(content, body)
-  assert_eq(get_result.content_type, Some("text/plain"))
+  assert_true(get_result.content_type == Some("text/plain"))
   // Delete object
   @client_s3.delete_object(client, bucket, key) |> ignore
   // Delete bucket
@@ -84,7 +84,7 @@ async test "head object" {
   // Head object
   let head_result = @client_s3.head_object(client, bucket, key)
   assert_true(head_result.etag is Some(_))
-  assert_eq(head_result.content_length, Some(body.length()))
+  assert_true(head_result.content_length == Some(body.length()))
   // Cleanup
   @client_s3.delete_object(client, bucket, key) |> ignore
   @client_s3.delete_bucket(client, bucket)

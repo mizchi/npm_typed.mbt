@@ -77,7 +77,7 @@ pub impl ToZxArg for ProcessPromise
 
 // Traits
 pub trait ToZxArg {
-  to_zx_arg(Self) -> @core.Any
+  fn to_zx_arg(Self) -> @core.Any
 }
 pub impl ToZxArg for Bool
 pub impl ToZxArg for Int

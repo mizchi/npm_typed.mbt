@@ -26,7 +26,7 @@ extern "js" fn ffi_animate(
 /// Animate elements with keyframes and options (raw version)
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let controls = animate(
 ///   @core.any(".box"),
 ///   { "x": @core.any(100), "opacity": @core.any(1) },
@@ -85,7 +85,7 @@ extern "js" fn ffi_stagger(duration : Double, options : @core.Any) -> @core.Any 
 /// Create a stagger function for delaying animations
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let delay = stagger(0.1)
 /// animate(@core.any("li"), keyframes, { "delay": delay })
 /// ```

@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/testing_library_preact"
 
 import {
-  "mizchi/js/browser/dom",
   "mizchi/js/core",
+  "mizchi/js_browser/dom",
   "mizchi/npm_typed/preact",
   "mizchi/npm_typed/testing_library",
 }

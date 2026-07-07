@@ -280,11 +280,11 @@ extern "js" fn ffi_from_unix_time(timestamp : Int) -> @date.Date = "fromUnixTime
 
 ///|
 pub(open) trait DateArgs {
-  to_date(Self) -> @core.Any = _
+  fn to_date(Self) -> @core.Any = _
 }
 
 ///|
-impl DateArgs with to_date(self) {
+impl DateArgs with fn to_date(self) {
   self |> @core.identity
 }
 

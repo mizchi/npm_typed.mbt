@@ -28,18 +28,18 @@ Add to your `moon.pkg.json`:
 ///|
 test {
   // Parse a version string
-  inspect(@semver.parse("1.2.3"), content="Some(\"1.2.3\")")
+  debug_inspect(@semver.parse("1.2.3"), content="Some(\"1.2.3\")")
 
   // Validate version
-  inspect(@semver.valid("1.2.3"), content="Some(\"1.2.3\")")
-  inspect(@semver.valid("not a version"), content="None")
+  debug_inspect(@semver.valid("1.2.3"), content="Some(\"1.2.3\")")
+  debug_inspect(@semver.valid("not a version"), content="None")
 
   // Clean version string
-  inspect(@semver.clean("  =v1.2.3   "), content="Some(\"1.2.3\")")
+  debug_inspect(@semver.clean("  =v1.2.3   "), content="Some(\"1.2.3\")")
 
   // Coerce to valid semver
-  inspect(@semver.coerce("v1.2.3"), content="Some(\"1.2.3\")")
-  inspect(@semver.coerce("1.2"), content="Some(\"1.2.0\")")
+  debug_inspect(@semver.coerce("v1.2.3"), content="Some(\"1.2.3\")")
+  debug_inspect(@semver.coerce("1.2"), content="Some(\"1.2.0\")")
 }
 ```
 
@@ -49,17 +49,17 @@ test {
 ///|
 test {
   // Compare versions (-1, 0, 1)
-  inspect(@semver.compare("1.2.3", "1.2.4"), content="-1")
-  inspect(@semver.compare("1.2.4", "1.2.3"), content="1")
-  inspect(@semver.compare("1.2.3", "1.2.3"), content="0")
+  debug_inspect(@semver.compare("1.2.3", "1.2.4"), content="-1")
+  debug_inspect(@semver.compare("1.2.4", "1.2.3"), content="1")
+  debug_inspect(@semver.compare("1.2.3", "1.2.3"), content="0")
 
   // Comparison operators
-  inspect(@semver.gt("1.2.4", "1.2.3"), content="true")
-  inspect(@semver.gte("1.2.3", "1.2.3"), content="true")
-  inspect(@semver.lt("1.2.3", "1.2.4"), content="true")
-  inspect(@semver.lte("1.2.3", "1.2.3"), content="true")
-  inspect(@semver.eq("1.2.3", "1.2.3"), content="true")
-  inspect(@semver.neq("1.2.3", "1.2.4"), content="true")
+  debug_inspect(@semver.gt("1.2.4", "1.2.3"), content="true")
+  debug_inspect(@semver.gte("1.2.3", "1.2.3"), content="true")
+  debug_inspect(@semver.lt("1.2.3", "1.2.4"), content="true")
+  debug_inspect(@semver.lte("1.2.3", "1.2.3"), content="true")
+  debug_inspect(@semver.eq("1.2.3", "1.2.3"), content="true")
+  debug_inspect(@semver.neq("1.2.3", "1.2.4"), content="true")
 }
 ```
 
@@ -69,29 +69,29 @@ test {
 ///|
 test {
   // Check if version satisfies range
-  inspect(
+  debug_inspect(
     @semver.satisfies("1.2.3", "1.x || >=2.5.0 || 5.0.0 - 7.2.3"),
     content="true",
   )
-  inspect(
+  debug_inspect(
     @semver.satisfies("2.6.0", "1.x || >=2.5.0 || 5.0.0 - 7.2.3"),
     content="true",
   )
-  inspect(
+  debug_inspect(
     @semver.satisfies("0.5.0", "1.x || >=2.5.0 || 5.0.0 - 7.2.3"),
     content="false",
   )
 
   // Validate range
-  inspect(
+  debug_inspect(
     @semver.valid_range("1.x || >=2.5.0"),
     content="Some(\">=1.0.0 <2.0.0-0||>=2.5.0\")",
   )
-  inspect(@semver.valid_range("not a range"), content="None")
+  debug_inspect(@semver.valid_range("not a range"), content="None")
 
   // Greater than / Less than range
-  inspect(@semver.gtr("2.0.0", "^1.0.0"), content="true")
-  inspect(@semver.ltr("0.5.0", "^1.0.0"), content="true")
+  debug_inspect(@semver.gtr("2.0.0", "^1.0.0"), content="true")
+  debug_inspect(@semver.ltr("0.5.0", "^1.0.0"), content="true")
 }
 ```
 
@@ -101,18 +101,18 @@ test {
 ///|
 test {
   // Increment version
-  inspect(@semver.inc("1.2.3", "major"), content="Some(\"2.0.0\")")
-  inspect(@semver.inc("1.2.3", "minor"), content="Some(\"1.3.0\")")
-  inspect(@semver.inc("1.2.3", "patch"), content="Some(\"1.2.4\")")
-  inspect(
+  debug_inspect(@semver.inc("1.2.3", "major"), content="Some(\"2.0.0\")")
+  debug_inspect(@semver.inc("1.2.3", "minor"), content="Some(\"1.3.0\")")
+  debug_inspect(@semver.inc("1.2.3", "patch"), content="Some(\"1.2.4\")")
+  debug_inspect(
     @semver.inc("1.2.3", "prerelease", identifier="beta"),
     content="Some(\"1.2.4-beta.0\")",
   )
 
   // Get version diff
-  inspect(@semver.diff("1.2.3", "1.2.4"), content="Some(\"patch\")")
-  inspect(@semver.diff("1.2.3", "1.3.0"), content="Some(\"minor\")")
-  inspect(@semver.diff("1.2.3", "2.0.0"), content="Some(\"major\")")
+  debug_inspect(@semver.diff("1.2.3", "1.2.4"), content="Some(\"patch\")")
+  debug_inspect(@semver.diff("1.2.3", "1.3.0"), content="Some(\"minor\")")
+  debug_inspect(@semver.diff("1.2.3", "2.0.0"), content="Some(\"major\")")
 }
 ```
 
@@ -122,9 +122,9 @@ test {
 ///|
 test {
   // Extract version components
-  inspect(@semver.major("1.2.3"), content="1")
-  inspect(@semver.minor("1.2.3"), content="2")
-  inspect(@semver.patch("1.2.3"), content="3")
+  debug_inspect(@semver.major("1.2.3"), content="1")
+  debug_inspect(@semver.minor("1.2.3"), content="2")
+  debug_inspect(@semver.patch("1.2.3"), content="3")
 }
 ```
 
@@ -136,18 +136,24 @@ test {
   let versions = ["1.2.3", "1.0.0", "2.0.0", "1.5.0"]
 
   // Sort versions
-  inspect(
+  debug_inspect(
     @semver.sort(versions),
     content="[\"1.0.0\", \"1.2.3\", \"1.5.0\", \"2.0.0\"]",
   )
-  inspect(
+  debug_inspect(
     @semver.rsort(versions),
     content="[\"2.0.0\", \"1.5.0\", \"1.2.3\", \"1.0.0\"]",
   )
 
   // Find max/min satisfying
-  inspect(@semver.max_satisfying(versions, "^1.0.0"), content="Some(\"1.5.0\")")
-  inspect(@semver.min_satisfying(versions, "^1.0.0"), content="Some(\"1.0.0\")")
+  debug_inspect(
+    @semver.max_satisfying(versions, "^1.0.0"),
+    content="Some(\"1.5.0\")",
+  )
+  debug_inspect(
+    @semver.min_satisfying(versions, "^1.0.0"),
+    content="Some(\"1.0.0\")",
+  )
 }
 ```
 

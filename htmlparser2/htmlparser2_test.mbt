@@ -46,9 +46,12 @@ test "element attributes" {
   let links = @htmlparser2.getElementsByTagName(doc, "a")
   inspect(links.length(), content="1")
   let link = links[0]
-  inspect(link.getAttribute("href"), content="Some(\"https://example.com\")")
-  inspect(link.getAttribute("class"), content="Some(\"link\")")
-  inspect(link.getAttribute("missing"), content="None")
+  debug_inspect(
+    link.getAttribute("href"),
+    content="Some(\"https://example.com\")",
+  )
+  debug_inspect(link.getAttribute("class"), content="Some(\"link\")")
+  debug_inspect(link.getAttribute("missing"), content="None")
 }
 
 ///|

@@ -210,7 +210,6 @@ pub fn AbortHandle::as_any(self : AbortHandle) -> @core.Any = "%identity"
 pub fn AbortHandle::abort(self : AbortHandle) -> Unit {
   let abort_fn : @core.Any = self.as_any()["abort"].cast()
   let _ = abort_fn._invoke([])
-
 }
 
 ///|

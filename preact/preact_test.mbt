@@ -393,6 +393,6 @@ test "createResource - initial loading state" {
   let resource = createResource(fn() { @core.Promise::resolve("fetched data") })
   // Resource starts in loading state
   inspect(resource.loading(), content="true")
-  inspect(resource.try_value(), content="None")
+  debug_inspect(resource.try_value(), content="None")
   inspect(resource.has_error(), content="false")
 }

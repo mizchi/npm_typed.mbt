@@ -28,7 +28,7 @@ pub type Expect
 
 ///|
 /// Cached chai expect function (set up with vitest plugins)
-let chai_expect : Ref[@core.Any?] = Ref::new(None)
+let chai_expect : Ref[@core.Any?] = Ref(None)
 
 ///|
 /// Setup chai with @vitest/expect plugins asynchronously.

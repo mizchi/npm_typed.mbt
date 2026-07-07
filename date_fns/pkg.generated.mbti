@@ -199,7 +199,7 @@ pub fn subYears(&DateArgs, Int) -> @date.Date
 
 // Traits
 pub(open) trait DateArgs {
-  to_date(Self) -> @core.Any = _
+  fn to_date(Self) -> @core.Any = _
 }
 pub impl DateArgs for Int
 pub impl DateArgs for String

@@ -18,8 +18,8 @@ async test "SourceMapConsumer::from_json and originalPositionFor" {
   defer consumer.destroy()
   // Query position
   let pos = consumer.originalPositionFor(1, 0)
-  inspect(pos.source, content="Some(\"foo.mbt\")")
-  inspect(pos.line, content="Some(1)")
+  debug_inspect(pos.source, content="Some(\"foo.mbt\")")
+  debug_inspect(pos.line, content="Some(1)")
 }
 
 ///|

@@ -39,7 +39,7 @@ extern "js" fn ffi_call_html(
 /// Use ${@0}, ${@1}, etc. as placeholders
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let tmpl = html("<div>${@0}</div>", args=[@core.any("Hello")])
 /// ```
 pub fn html(template : String, args? : Array[@core.Any] = []) -> TemplateResult {

@@ -111,6 +111,7 @@ pub fn ZodSchema::emoji(Self) -> Self
 #alias(ends_with)
 pub fn ZodSchema::endsWith(Self, String) -> Self
 pub fn ZodSchema::extend(Self, @core.Any) -> Self
+pub fn ZodSchema::extend_(Self, @core.Any) -> Self
 pub fn ZodSchema::finite(Self) -> Self
 pub fn ZodSchema::gt(Self, Int) -> Self
 pub fn ZodSchema::gte(Self, Int) -> Self

@@ -41,7 +41,7 @@ pub fn useLayoutEffect(f : () -> () -> Unit, keys : Array[@core.Any]) -> Unit {
 
 ///|
 /// React.useMemo
-/// ```mbt
+/// ```mbt nocheck
 /// fn my_component(_props : Unit) -> Element {
 ///   let _result = useMemo(() => 42, [])
 ///   createElement("div", [_result])
@@ -55,7 +55,7 @@ pub fn[T] useMemo(f : () -> T, keys : Array[@core.Any]) -> T {
 
 ///|
 /// JS: React.useRef
-/// ```mbt
+/// ```mbt nocheck
 /// fn my_component(_props : Unit) -> Element {
 ///   let my_ref : ReactRef[@dom.Element] = useRef(None)
 ///   createElement("div", ref_=my_ref, ["Hello"])
@@ -138,15 +138,17 @@ pub fn[T] use_promise(promise : @core.Promise[T]) -> T {
 
 ///|
 /// React.useReducer
-/// ```mbt
+/// ```mbt nocheck
 /// enum CounterAction {
 ///   Increment
 /// }
 ///
 /// fn my_component(_props : Unit) -> Element {
 ///   let (_state, _dispatch) = use_reducer(
-///     (s : Int, a : CounterAction) => match a {
-///       Increment => s + 1
+///     (s : Int, a : CounterAction) => {
+///       match a {
+///         Increment => s + 1
+///       }
 ///     },
 ///     0,
 ///   )

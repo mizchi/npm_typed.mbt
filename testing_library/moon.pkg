@@ -1,7 +1,7 @@
 import {
   "mizchi/js",
   "mizchi/js/core",
-  "mizchi/js/browser/dom",
+  "mizchi/js_browser/dom",
   "mizchi/js/builtins/regexp",
 }
 

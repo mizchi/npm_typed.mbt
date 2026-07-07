@@ -228,9 +228,9 @@ async test "getAttribute" {
   )
   let link = page.locator("a")
   let href = link.getAttribute("href")
-  inspect(href, content="Some(\"https://example.com\")")
+  debug_inspect(href, content="Some(\"https://example.com\")")
   let class_attr = link.getAttribute("class")
-  inspect(class_attr, content="Some(\"link\")")
+  debug_inspect(class_attr, content="Some(\"link\")")
   println("[PASS] getAttribute")
 }
 

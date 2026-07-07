@@ -28,7 +28,6 @@ test "debug enable and enabled" {
 
   // Cleanup
   let _ = @debug.disable()
-
 }
 
 ///|
@@ -52,7 +51,6 @@ test "debug is_enabled" {
 
   // Cleanup
   let _ = @debug.disable()
-
 }
 
 ///|

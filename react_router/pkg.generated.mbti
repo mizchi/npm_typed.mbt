@@ -80,8 +80,6 @@ pub(all) struct NavigateFunction((@core.Any, @core.Any?) -> Unit)
 pub fn NavigateFunction::back(Self) -> Unit
 pub fn NavigateFunction::forward(Self) -> Unit
 pub fn NavigateFunction::go(Self, Int) -> Unit
-#deprecated
-pub fn NavigateFunction::inner(Self) -> (@core.Any, @core.Any?) -> Unit
 pub fn NavigateFunction::to(Self, String, replace? : Bool, state? : @core.Any, relative? : String) -> Unit
 
 pub(all) struct NavigateOptions {

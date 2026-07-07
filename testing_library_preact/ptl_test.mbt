@@ -12,10 +12,7 @@ test "render basic component" {
   render(vnode) |> ignore
   let s = screen()
   let el = s.getByText("Hello World")
-  inspect(
-    !@core.is_nullish(el.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(el.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -47,7 +44,7 @@ test "queryByText returns null for non-existent" {
 test "fireEvent click" {
   let dispose = setup()
   defer dispose()
-  let clicked = Ref::new(false)
+  let clicked = Ref(false)
   let handler : () -> Unit = fn() { clicked.val = true }
   let vnode = @preact.h("button", ["Click me"], props={
     "onClick": handler |> @core.identity,
@@ -124,17 +121,14 @@ test "getByTestId finds element" {
   render(vnode) |> ignore
   let s = screen()
   let el = s.getByTestId("my-test-id")
-  inspect(
-    !@core.is_nullish(el.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(el.as_element().as_any().cast()), content="true")
 }
 
 ///|
 test "fireEvent change" {
   let dispose = setup()
   defer dispose()
-  let value = Ref::new("")
+  let value = Ref("")
   let handler : (@core.Any) -> Unit = fn(e) {
     let target : @core.Any = e._get("target")
     value.val = target._get("value").cast()
@@ -157,7 +151,7 @@ test "fireEvent change" {
 test "fireEvent input" {
   let dispose = setup()
   defer dispose()
-  let value = Ref::new("")
+  let value = Ref("")
   let handler : (@core.Any) -> Unit = fn(e) {
     let target : @core.Any = e._get("target")
     value.val = target._get("value").cast()
@@ -180,7 +174,7 @@ test "fireEvent input" {
 test "fireEvent focus and blur" {
   let dispose = setup()
   defer dispose()
-  let focused = Ref::new(false)
+  let focused = Ref(false)
   let focus_handler : () -> Unit = fn() { focused.val = true }
   let blur_handler : () -> Unit = fn() { focused.val = false }
   let vnode = @preact.h("input", [], props={
@@ -201,7 +195,7 @@ test "fireEvent focus and blur" {
 test "fireEvent keyDown" {
   let dispose = setup()
   defer dispose()
-  let key_pressed = Ref::new("")
+  let key_pressed = Ref("")
   let handler : (@core.Any) -> Unit = fn(e) {
     key_pressed.val = e._get("key").cast()
   }
@@ -221,7 +215,7 @@ test "fireEvent keyDown" {
 test "fireEvent keyUp" {
   let dispose = setup()
   defer dispose()
-  let key_released = Ref::new("")
+  let key_released = Ref("")
   let handler : (@core.Any) -> Unit = fn(e) {
     key_released.val = e._get("key").cast()
   }
@@ -241,7 +235,7 @@ test "fireEvent keyUp" {
 test "fireEvent dblClick" {
   let dispose = setup()
   defer dispose()
-  let count = Ref::new(0)
+  let count = Ref(0)
   let handler : () -> Unit = fn() { count.val = count.val + 1 }
   let vnode = @preact.h("button", ["Double Click"], props={
     "onDblClick": handler |> @core.identity,
@@ -257,8 +251,8 @@ test "fireEvent dblClick" {
 test "fireEvent mouseDown and mouseUp" {
   let dispose = setup()
   defer dispose()
-  let down = Ref::new(false)
-  let up = Ref::new(false)
+  let down = Ref(false)
+  let up = Ref(false)
   let down_handler : () -> Unit = fn() { down.val = true }
   let up_handler : () -> Unit = fn() { up.val = true }
   let vnode = @preact.h("button", ["Mouse"], props={
@@ -278,8 +272,8 @@ test "fireEvent mouseDown and mouseUp" {
 test "fireEvent mouseEnter and mouseLeave" {
   let dispose = setup()
   defer dispose()
-  let entered = Ref::new(false)
-  let left = Ref::new(false)
+  let entered = Ref(false)
+  let left = Ref(false)
   let enter_handler : () -> Unit = fn() { entered.val = true }
   let leave_handler : () -> Unit = fn() { left.val = true }
   let vnode = @preact.h("div", ["Hover me"], props={
@@ -333,10 +327,7 @@ test "getByLabelText" {
   render(vnode) |> ignore
   let s = screen()
   let input = s.getByLabelText("Username")
-  inspect(
-    !@core.is_nullish(input.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(input.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -350,10 +341,7 @@ test "getByPlaceholderText" {
   render(vnode) |> ignore
   let s = screen()
   let input = s.getByPlaceholderText("Enter your name")
-  inspect(
-    !@core.is_nullish(input.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(input.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -368,10 +356,7 @@ test "getByDisplayValue" {
   render(vnode) |> ignore
   let s = screen()
   let input = s.getByDisplayValue("current value")
-  inspect(
-    !@core.is_nullish(input.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(input.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -385,10 +370,7 @@ test "getByAltText" {
   render(vnode) |> ignore
   let s = screen()
   let img = s.getByAltText("Profile picture")
-  inspect(
-    !@core.is_nullish(img.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(img.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -401,10 +383,7 @@ test "getByTitle" {
   render(vnode) |> ignore
   let s = screen()
   let el = s.getByTitle("More information")
-  inspect(
-    !@core.is_nullish(el.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(el.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -454,10 +433,7 @@ async test "findByText" {
   render(vnode) |> ignore
   let s = screen()
   let el = s.findByText("Async content")
-  inspect(
-    !@core.is_nullish(el.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(el.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -484,10 +460,7 @@ async test "findByTestId" {
   render(vnode) |> ignore
   let s = screen()
   let el = s.findByTestId("async-test")
-  inspect(
-    !@core.is_nullish(el.as_element().as_any().cast()),
-    content="true",
-  )
+  inspect(!@core.is_nullish(el.as_element().as_any().cast()), content="true")
 }
 
 ///|
@@ -575,7 +548,7 @@ test "queryAllByTestId returns empty for no match" {
 test "fireEvent submit" {
   let dispose = setup()
   defer dispose()
-  let submitted = Ref::new(false)
+  let submitted = Ref(false)
   let handler : (@core.Any) -> Unit = fn(e) {
     e._call("preventDefault", []) |> ignore
     submitted.val = true
@@ -599,7 +572,7 @@ test "fireEvent submit" {
 test "fireEvent scroll" {
   let dispose = setup()
   defer dispose()
-  let scrolled = Ref::new(false)
+  let scrolled = Ref(false)
   let handler : () -> Unit = fn() { scrolled.val = true }
   let style_obj : @core.Any = @core.from_entries([
     ("overflow", @core.any("auto")),

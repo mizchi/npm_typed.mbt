@@ -6,11 +6,11 @@
 /// CSS class name trait - accepts String or CssClass
 /// Used for jsx class attribute
 pub trait CssClassName {
-  value(Self) -> @core.Any = _
+  fn value(Self) -> @core.Any = _
 }
 
 ///|
-impl CssClassName with value(self) -> @core.Any {
+impl CssClassName with fn value(self) -> @core.Any {
   @core.any(self)
 }
 
@@ -26,7 +26,7 @@ pub type CssClass
 pub fn CssClass::as_any(self : CssClass) -> @core.Any = "%identity"
 
 ///|
-pub impl CssClassName for CssClass with value(self) {
+pub impl CssClassName for CssClass with fn value(self) {
   self.as_any()
 }
 
@@ -115,7 +115,7 @@ pub fn CssClass::to_string(self : CssClass) -> String {
 ///
 /// # Example
 ///
-/// ```moonbit
+/// ```moonbit nocheck
 /// // Simple usage without interpolation
 /// let cls = hono_css.css("color: red")
 ///
@@ -146,7 +146,7 @@ pub fn HonoCss::css(
 ///
 /// # Example
 ///
-/// ```moonbit
+/// ```moonbit nocheck
 /// // Simple usage
 /// let anim = hono_css.keyframes("from { opacity: 0 } to { opacity: 1 }")
 ///

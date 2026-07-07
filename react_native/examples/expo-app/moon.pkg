@@ -1,4 +1,7 @@
-import { "mizchi/npm_typed/react", "mizchi/npm_typed/react_native" }
+import {
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/react_native",
+}
 
 supported_targets = "js"
 

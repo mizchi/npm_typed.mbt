@@ -265,7 +265,6 @@ extern "js" fn ffi_linking_add_event_listener(
 /// Open a URL
 pub async fn open_url(url : String) -> Unit {
   let _ = ffi_linking_open_url(url).wait()
-
 }
 
 ///|
@@ -289,7 +288,6 @@ pub async fn get_initial_url() -> String? {
 /// Open the device settings
 pub async fn open_settings() -> Unit {
   let _ = ffi_linking_open_settings().wait()
-
 }
 
 ///|
@@ -307,7 +305,6 @@ pub async fn send_intent(
     }),
   )
   let _ = ffi_linking_send_intent(action, extras_array).wait()
-
 }
 
 ///|

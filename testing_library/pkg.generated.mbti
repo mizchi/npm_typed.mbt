@@ -2,9 +2,9 @@
 package "mizchi/npm_typed/testing_library"
 
 import {
-  "mizchi/js/browser/dom",
   "mizchi/js/builtins/regexp",
   "mizchi/js/core",
+  "mizchi/js_browser/dom",
 }
 
 // Values
@@ -168,7 +168,7 @@ pub fn ScreenResult::as_element(Self) -> @dom.HTMLElement
 
 // Traits
 pub trait TextMatch {
-  as_any(Self) -> @core.Any
+  fn as_any(Self) -> @core.Any
 }
 pub impl TextMatch for String
 pub impl TextMatch for @regexp.RegExp

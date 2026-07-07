@@ -85,16 +85,18 @@ pub fn FinishReason::to_string(self : FinishReason) -> String {
 }
 
 ///|
-pub impl Show for FinishReason with output(self, logger) {
-  logger.write_string(match self {
-    Stop => "Stop"
-    Length => "Length"
-    ContentFilter => "ContentFilter"
-    ToolCalls => "ToolCalls"
-    Error => "Error"
-    Other => "Other"
-    Unknown => "Unknown"
-  })
+pub impl Show for FinishReason with fn output(self, logger) {
+  logger.write_string(
+    match self {
+      Stop => "Stop"
+      Length => "Length"
+      ContentFilter => "ContentFilter"
+      ToolCalls => "ToolCalls"
+      Error => "Error"
+      Other => "Other"
+      Unknown => "Unknown"
+    },
+  )
 }
 
 ///|
@@ -138,11 +140,13 @@ pub fn SourceType::from_string(s : String) -> SourceType {
 }
 
 ///|
-pub impl Show for SourceType with output(self, logger) {
-  logger.write_string(match self {
-    Url => "Url"
-    Document => "Document"
-  })
+pub impl Show for SourceType with fn output(self, logger) {
+  logger.write_string(
+    match self {
+      Url => "Url"
+      Document => "Document"
+    },
+  )
 }
 
 ///|

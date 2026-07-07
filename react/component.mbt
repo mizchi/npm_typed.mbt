@@ -45,7 +45,9 @@ pub fn strict_mode(children : Array[&ReactNode]) -> Element {
     if children.length() == 1 {
       props["children"] = children[0].to_react_node()
     } else {
-      props["children"] = @core.any(children.map(child => child.to_react_node()))
+      props["children"] = @core.any(
+        children.map(child => child.to_react_node()),
+      )
     }
   }
   let key_val : @core.Any = @core.undefined()
@@ -72,7 +74,9 @@ pub fn suspense(children : Array[&ReactNode], fallback~ : Element) -> Element {
     if children.length() == 1 {
       props["children"] = children[0].to_react_node()
     } else {
-      props["children"] = @core.any(children.map(child => child.to_react_node()))
+      props["children"] = @core.any(
+        children.map(child => child.to_react_node()),
+      )
     }
   }
   let key_val : @core.Any = @core.undefined()
@@ -97,7 +101,9 @@ pub fn[T] provider(
     if children.length() == 1 {
       props["children"] = children[0].to_react_node()
     } else {
-      props["children"] = @core.any(children.map(child => child.to_react_node()))
+      props["children"] = @core.any(
+        children.map(child => child.to_react_node()),
+      )
     }
   }
   let key_val : @core.Any = @core.undefined()

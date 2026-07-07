@@ -57,8 +57,8 @@ test "filter_by_file" {
   ]
   let filtered = @error_stack_parser.filter_by_file(frames, ".mbt")
   inspect(filtered.length(), content="2")
-  inspect(filtered[0].function_name, content="Some(\"a\")")
-  inspect(filtered[1].function_name, content="Some(\"c\")")
+  debug_inspect(filtered[0].function_name, content="Some(\"a\")")
+  debug_inspect(filtered[1].function_name, content="Some(\"c\")")
 }
 
 ///|
@@ -89,5 +89,5 @@ test "first_user_frame" {
   ]
   let user_frame = @error_stack_parser.first_user_frame(frames)
   assert_true(!(user_frame is None))
-  inspect(user_frame.unwrap().function_name, content="Some(\"my_func\")")
+  debug_inspect(user_frame.unwrap().function_name, content="Some(\"my_func\")")
 }

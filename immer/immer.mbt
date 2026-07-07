@@ -12,10 +12,23 @@ extern "js" fn ffi_produce(
 ) -> @core.Any = "produce"
 
 ///|
+extern "js" fn ffi_prepare_draftable(base : @core.Any) -> @core.Any =
+  #| (base) => {
+  #|   if (base && typeof base === "object" && !Array.isArray(base)) {
+  #|     const proto = Object.getPrototypeOf(base);
+  #|     if (proto && proto !== Object.prototype) {
+  #|       const { immerable } = require("immer");
+  #|       base[immerable] = true;
+  #|     }
+  #|   }
+  #|   return base;
+  #| }
+
+///|
 /// Create the next immutable state by mutating the draft
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// struct State {
 ///   mut name : String
 /// }
@@ -25,8 +38,9 @@ extern "js" fn ffi_produce(
 /// let next = produce(state, fn(draft) { draft.name = "Bob" })
 /// ```
 pub fn[T] produce(base : T, recipe : (T) -> Unit) -> T {
+  let base_any = ffi_prepare_draftable(@core.any(base))
   @core.identity(
-    ffi_produce(@core.any(base), fn(draft) { recipe(@core.identity(draft)) }),
+    ffi_produce(base_any, fn(draft) { recipe(@core.identity(draft)) }),
   )
 }
 
@@ -42,14 +56,16 @@ extern "js" fn ffi_produce_curried(
 /// Create a curried producer function
 ///
 /// Example:
-/// ```moonbit
+/// ```moonbit nocheck
 /// let updater = produce_curried(fn(draft : State) { draft.name = "Bob" })
 ///
 /// let next = updater(state)
 /// ```
 pub fn[T] produce_curried(recipe : (T) -> Unit) -> (T) -> T {
   let producer = ffi_produce_curried(fn(draft) { recipe(@core.identity(draft)) })
-  fn(base : T) -> T { @core.identity(producer(@core.any(base))) }
+  fn(base : T) -> T {
+    @core.identity(producer(ffi_prepare_draftable(@core.any(base))))
+  }
 }
 
 ///| Draft utilities
@@ -94,7 +110,7 @@ extern "js" fn ffi_createDraft(base : @core.Any) -> @core.Any = "createDraft"
 /// Create a draft from a base state (low-level API)
 /// Use with finishDraft for async operations
 pub fn[T] createDraft(base : T) -> T {
-  @core.identity(ffi_createDraft(@core.any(base)))
+  @core.identity(ffi_createDraft(ffi_prepare_draftable(@core.any(base))))
 }
 
 ///|

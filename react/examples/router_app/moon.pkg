@@ -2,7 +2,7 @@ import {
   "moonbitlang/async",
   "mizchi/js/core",
   "mizchi/js",
-  "mizchi/js/browser/dom",
+  "mizchi/js_browser/dom",
   "mizchi/js/web/http",
   "mizchi/npm_typed/react",
   "mizchi/npm_typed/react_element",

@@ -10,7 +10,6 @@ test "PostgrestResponse::data returns data field" {
   obj["statusText"] = @core.any("OK")
   let response : @supabase.PostgrestResponse = obj.cast()
   let _ = response.data()
-
 }
 
 ///|
@@ -61,7 +60,7 @@ test "PostgrestResponse::count returns count when present" {
   obj["statusText"] = @core.any("OK")
   obj["count"] = @core.any(42)
   let response : @supabase.PostgrestResponse = obj.cast()
-  inspect(response.count(), content="Some(42)")
+  debug_inspect(response.count(), content="Some(42)")
 }
 
 ///|

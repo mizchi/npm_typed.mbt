@@ -156,11 +156,13 @@ test "ReactRef::current and set_current" {
   let comp = (_props : Unit) => {
     let (text, set_text) = useState("initial")
     let r : ReactRef[@dom.HTMLSpanElement] = useRef(None)
-    let on_click : @dom.MouseEventHandler = _ => match r.get_current() {
-      Some(_el) =>
-        // Note: We only update React state, not DOM directly
-        set_text("updated")
-      None => ()
+    let on_click : @dom.MouseEventHandler = _ => {
+      match r.get_current() {
+        Some(_el) =>
+          // Note: We only update React state, not DOM directly
+          set_text("updated")
+        None => ()
+      }
     }
     @react_element.div([
       @react_element.span(ref_=r, [text], id="target"),
@@ -184,9 +186,11 @@ test "ReactRef::current None case" {
   let comp = (_props : Unit) => {
     let (msg, set_msg) = useState("waiting")
     let r : ReactRef[@dom.Element] = useRef(None)
-    let on_click : @dom.MouseEventHandler = _ => match r.get_current() {
-      Some(_) => set_msg("has ref")
-      None => set_msg("no ref")
+    let on_click : @dom.MouseEventHandler = _ => {
+      match r.get_current() {
+        Some(_) => set_msg("has ref")
+        None => set_msg("no ref")
+      }
     }
     @react_element.div([
       @react_element.span([msg]),
@@ -339,9 +343,9 @@ test "startTransition" {
   defer @testing_library_react.cleanup()
   let comp = (_props : Unit) => {
     let (count, set_count) = useState(0)
-    let on_click : @dom.MouseEventHandler = _ => start_transition(fn() {
-      set_count(count + 1)
-    })
+    let on_click : @dom.MouseEventHandler = _ => {
+      start_transition(fn() { set_count(count + 1) })
+    }
     @react_element.div([
       @react_element.span(["Count: \{count}"]),
       @react_element.button(on_click~, ["transition"]),

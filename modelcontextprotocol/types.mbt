@@ -16,7 +16,7 @@ pub fn RequestId::as_any(self : RequestId) -> @core.Any {
 }
 
 ///|
-pub impl Show for RequestId with output(self, logger) {
+pub impl Show for RequestId with fn output(self, logger) {
   match self {
     String(s) => logger.write_string("String(\"" + s + "\")")
     Number(n) => logger.write_string("Number(\{n})")

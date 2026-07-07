@@ -37,9 +37,9 @@ test "testing-library/react" {
 test "RenderResult methods" {
   setup_rtl()
   defer @testing_library_react.cleanup()
-  let comp = (_props : Unit) => @react_element.div(id="test-id", [
-    "Test Content",
-  ])
+  let comp = (_props : Unit) => {
+    @react_element.div(id="test-id", ["Test Content"])
+  }
   let result = @testing_library_react.render(@react.component(comp, ()))
   // Test container
   let container = result.container()
@@ -77,11 +77,13 @@ test "queryBy methods return None when not found" {
 test "getAllBy and queryAllBy methods" {
   setup_rtl()
   defer @testing_library_react.cleanup()
-  let comp = (_props : Unit) => @react_element.div([
-    @react_element.button(["Button 1"]),
-    @react_element.button(["Button 2"]),
-    @react_element.button(["Button 3"]),
-  ])
+  let comp = (_props : Unit) => {
+    @react_element.div([
+      @react_element.button(["Button 1"]),
+      @react_element.button(["Button 2"]),
+      @react_element.button(["Button 3"]),
+    ])
+  }
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   // getAllByRole returns array of all buttons
   let buttons = @testing_library_react.screen().getAllByRole("button")
@@ -98,10 +100,12 @@ test "getAllBy and queryAllBy methods" {
 test "getByRole query" {
   setup_rtl()
   defer @testing_library_react.cleanup()
-  let comp = (_props : Unit) => @react_element.div([
-    @react_element.button(["Click me"]),
-    @react_element.input(type_="text"),
-  ])
+  let comp = (_props : Unit) => {
+    @react_element.div([
+      @react_element.button(["Click me"]),
+      @react_element.input(type_="text"),
+    ])
+  }
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   // getByRole finds button
   @testing_library_react.expect(
@@ -115,9 +119,9 @@ test "getByRole query" {
 test "getByPlaceholderText query" {
   setup_rtl()
   defer @testing_library_react.cleanup()
-  let comp = (_props : Unit) => @react_element.div([
-    @react_element.input(placeholder="Enter your name"),
-  ])
+  let comp = (_props : Unit) => {
+    @react_element.div([@react_element.input(placeholder="Enter your name")])
+  }
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByPlaceholderText("Enter your name"),
@@ -128,9 +132,11 @@ test "getByPlaceholderText query" {
 test "getByDisplayValue query" {
   setup_rtl()
   defer @testing_library_react.cleanup()
-  let comp = (_props : Unit) => @react_element.div([
-    @react_element.input(value="test value", on_change=fn(_) { () }),
-  ])
+  let comp = (_props : Unit) => {
+    @react_element.div([
+      @react_element.input(value="test value", on_change=fn(_) { () }),
+    ])
+  }
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   @testing_library_react.expect(
     @testing_library_react.screen().getByDisplayValue("test value"),
@@ -141,11 +147,13 @@ test "getByDisplayValue query" {
 test "getAllByText with multiple results" {
   setup_rtl()
   defer @testing_library_react.cleanup()
-  let comp = (_props : Unit) => @react_element.div([
-    @react_element.div(["Item"]),
-    @react_element.div(["Item"]),
-    @react_element.div(["Item"]),
-  ])
+  let comp = (_props : Unit) => {
+    @react_element.div([
+      @react_element.div(["Item"]),
+      @react_element.div(["Item"]),
+      @react_element.div(["Item"]),
+    ])
+  }
   @testing_library_react.render(@react.component(comp, ())) |> ignore
   // getAllByText returns all matching elements
   let items = @testing_library_react.screen().getAllByText("Item")
@@ -498,9 +506,9 @@ test "useTransition hook" {
   let comp = (_props : Unit) => {
     let (count, set_count) = @react.use_state(0)
     let (is_pending, start_transition) = @react.use_transition()
-    let on_click : @dom.MouseEventHandler = _ => start_transition(fn() {
-      set_count(count + 1)
-    })
+    let on_click : @dom.MouseEventHandler = _ => {
+      start_transition(fn() { set_count(count + 1) })
+    }
     let pending_text = if is_pending { " (pending)" } else { "" }
     @react_element.div([
       @react_element.span(["Count: \{count}\{pending_text}"]),
@@ -560,10 +568,12 @@ test "useOptimistic hook" {
       state + value
     })
     let (_is_pending, start_transition) = @react.use_transition()
-    let on_click : @dom.MouseEventHandler = _ => start_transition(fn() {
-      add_optimistic(1)
-      set_count(count + 1)
-    })
+    let on_click : @dom.MouseEventHandler = _ => {
+      start_transition(fn() {
+        add_optimistic(1)
+        set_count(count + 1)
+      })
+    }
     @react_element.div([
       @react_element.span(["Optimistic: \{optimistic}"]),
       @react_element.button(on_click~, ["Add"]),

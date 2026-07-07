@@ -26,10 +26,8 @@ pub(all) struct Config {
 }
 
 ///|
-pub impl Show for Config with output(self, logger) {
-  logger.write_string(
-    "Config(root=\{self.root}, base=\{self.base}, mode=\{self.mode})",
-  )
+pub impl Show for Config with fn to_string(self) {
+  "Config(root=\{repr(self.root)}, base=\{repr(self.base)}, mode=\{repr(self.mode)})"
 }
 
 ///|
