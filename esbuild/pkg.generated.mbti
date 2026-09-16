@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/esbuild"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -19,7 +19,7 @@ pub fn transform_sync(String, loader? : Loader, minify? : Bool, format? : Format
 // Types and methods
 #external
 pub(all) type BuildResult
-pub fn BuildResult::as_any(Self) -> @core.Any
+pub fn BuildResult::as_any(Self) -> @js_core.Any
 pub fn BuildResult::errors(Self) -> Array[Message]
 pub fn BuildResult::output_files(Self) -> Array[OutputFile]
 pub fn BuildResult::warnings(Self) -> Array[Message]
@@ -49,13 +49,13 @@ pub fn Loader::to_string(Self) -> String
 
 #external
 pub(all) type Message
-pub fn Message::as_any(Self) -> @core.Any
+pub fn Message::as_any(Self) -> @js_core.Any
 pub fn Message::text(Self) -> String
 
 #external
 pub(all) type OutputFile
-pub fn OutputFile::as_any(Self) -> @core.Any
-pub fn OutputFile::contents(Self) -> @core.Any
+pub fn OutputFile::as_any(Self) -> @js_core.Any
+pub fn OutputFile::contents(Self) -> @js_core.Any
 pub fn OutputFile::path(Self) -> String
 pub fn OutputFile::text(Self) -> String
 
@@ -68,7 +68,7 @@ pub fn Platform::to_string(Self) -> String
 
 #external
 pub(all) type TransformResult
-pub fn TransformResult::as_any(Self) -> @core.Any
+pub fn TransformResult::as_any(Self) -> @js_core.Any
 pub fn TransformResult::code(Self) -> String
 pub fn TransformResult::map(Self) -> String
 pub fn TransformResult::warnings(Self) -> Array[Message]
@@ -76,4 +76,3 @@ pub fn TransformResult::warnings(Self) -> Array[Message]
 // Type aliases
 
 // Traits
-

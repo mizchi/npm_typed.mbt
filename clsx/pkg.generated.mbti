@@ -2,17 +2,17 @@
 package "mizchi/npm_typed/clsx"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
 pub fn clsx(Array[String]) -> String
 
-pub fn clsx_obj(@core.Any) -> String
+pub fn clsx_obj(@js_core.Any) -> String
 
-pub fn clsx_raw(Array[@core.Any]) -> String
+pub fn clsx_raw(Array[@js_core.Any]) -> String
 
-pub fn clsx_with(String, @core.Any) -> String
+pub fn clsx_with(String, @js_core.Any) -> String
 
 // Errors
 
@@ -21,4 +21,3 @@ pub fn clsx_with(String, @core.Any) -> String
 // Type aliases
 
 // Traits
-

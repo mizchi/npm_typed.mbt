@@ -21,7 +21,7 @@ test "PromptMessage::as_any creates correct structure" {
 test "PromptResult::as_any with description" {
   let result : PromptResult = {
     description: Some("A test prompt"),
-    messages: [{ role: "assistant", content: Content::text("Hi there!") }],
+    messages: [{ role: "assistant", content: Content::text("Hi there!"), }],
   }
   let js_obj = result.as_any()
   let desc : String = js_obj._get("description").cast()
@@ -32,7 +32,7 @@ test "PromptResult::as_any with description" {
 
 ///|
 test "PromptResult::as_any without description" {
-  let result : PromptResult = { description: None, messages: [] }
+  let result : PromptResult = { description: None, messages: [], }
   let js_obj = result.as_any()
   assert_true(@core.is_undefined(js_obj._get("description")))
 }

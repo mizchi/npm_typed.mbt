@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/_examples/realworld/server"
 
 import {
-  "mizchi/js/node/sqlite",
+  "mizchi/js_node/sqlite",
   "mizchi/npm_typed/better_auth",
   "mizchi/npm_typed/hono",
 }
@@ -23,4 +23,3 @@ pub async fn serve(@hono.Hono[Unit, Unit], Int) -> Unit
 // Type aliases
 
 // Traits
-

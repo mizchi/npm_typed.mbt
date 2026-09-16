@@ -40,7 +40,7 @@ pub struct Content {
 
 ///|
 pub fn Content::text(text : String) -> Content {
-  { type_: Text, text: Some(text), data: None, mime_type: None, uri: None }
+  { type_: Text, text: Some(text), data: None, mime_type: None, uri: None, }
 }
 
 ///|
@@ -56,7 +56,7 @@ pub fn Content::image(data : String, mime_type : String) -> Content {
 
 ///|
 pub fn Content::resource(uri : String) -> Content {
-  { type_: Resource, text: None, data: None, mime_type: None, uri: Some(uri) }
+  { type_: Resource, text: None, data: None, mime_type: None, uri: Some(uri), }
 }
 
 ///|
@@ -216,7 +216,7 @@ pub fn ClientInfo::from_js(js : @core.Any) -> ClientInfo? {
   let name : String? = @core.any(obj)["name"] |> @core.identity_option
   let version : String? = @core.any(obj)["version"] |> @core.identity_option
   match (name, version) {
-    (Some(n), Some(v)) => Some({ name: n, version: v })
+    (Some(n), Some(v)) => Some({ name: n, version: v, })
     _ => None
   }
 }

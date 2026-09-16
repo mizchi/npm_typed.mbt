@@ -10,7 +10,7 @@ struct State {
 
 ///|
 test "produce - struct mutation" {
-  let state : State = { name: "Alice", age: 30 }
+  let state : State = { name: "Alice", age: 30, }
   let next = @immer.produce(state, fn(draft) { draft.name = "Bob" })
   // Original unchanged
   inspect(state.name, content="Alice")
@@ -27,7 +27,7 @@ struct Counter {
 
 ///|
 test "produce - simple counter struct" {
-  let state : Counter = { count: 0 }
+  let state : Counter = { count: 0, }
   let next = @immer.produce(state, fn(draft) { draft.count = draft.count + 1 })
   inspect(state.count, content="0")
   inspect(next.count, content="1")
@@ -38,7 +38,7 @@ test "produce_curried - struct" {
   let increment = @immer.produce_curried(fn(draft : Counter) {
     draft.count = draft.count + 1
   })
-  let state : Counter = { count: 5 }
+  let state : Counter = { count: 5, }
   let next = increment(state)
   inspect(state.count, content="5")
   inspect(next.count, content="6")
@@ -46,7 +46,7 @@ test "produce_curried - struct" {
 
 ///|
 test "isDraft - struct" {
-  let state : Counter = { count: 0 }
+  let state : Counter = { count: 0, }
   inspect(@immer.isDraft(state), content="false")
   let mut was_draft = false
   let _ = @immer.produce(state, fn(draft) { was_draft = @immer.isDraft(draft) })
@@ -55,7 +55,7 @@ test "isDraft - struct" {
 
 ///|
 test "createDraft/finishDraft - struct" {
-  let state : Counter = { count: 10 }
+  let state : Counter = { count: 10, }
   let draft = @immer.createDraft(state)
   draft.count = 20
   let next = @immer.finishDraft(draft)

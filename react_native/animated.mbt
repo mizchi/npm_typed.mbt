@@ -307,7 +307,7 @@ pub fn CompositeAnimation::start(
   let callback_any : @core.Any = match callback {
     Some(f) =>
       @js.from_fn1(fn(result : @core.Any) {
-        f({ finished: result["finished"].cast() })
+        f({ finished: result["finished"].cast(), })
       })
     None => @core.undefined()
   }
@@ -461,7 +461,7 @@ pub fn TimingConfig::new(
   delay? : Int? = None,
   use_native_driver? : Bool? = None,
 ) -> TimingConfig {
-  { to_value, duration, easing, delay, use_native_driver }
+  { to_value, duration, easing, delay, use_native_driver, }
 }
 
 ///|
@@ -637,7 +637,7 @@ pub fn DecayConfig::new(
   deceleration? : Double? = None,
   use_native_driver? : Bool? = None,
 ) -> DecayConfig {
-  { velocity, deceleration, use_native_driver }
+  { velocity, deceleration, use_native_driver, }
 }
 
 ///|

@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/date_fns"
 
 import {
-  "mizchi/js/builtins/date",
-  "mizchi/js/core",
+  "mizchi/js_builtin/date",
+  "mizchi/js_core",
 }
 
 // Values
@@ -199,9 +199,8 @@ pub fn subYears(&DateArgs, Int) -> @date.Date
 
 // Traits
 pub(open) trait DateArgs {
-  fn to_date(Self) -> @core.Any = _
+  fn to_date(Self) -> @js_core.Any = _
 }
 pub impl DateArgs for Int
 pub impl DateArgs for String
 pub impl DateArgs for @date.Date
-

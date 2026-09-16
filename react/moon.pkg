@@ -1,6 +1,6 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
   "mizchi/js_browser/dom",
 }
 
@@ -11,9 +11,9 @@ import {
   "mizchi/npm_typed/react_dom_server",
   "mizchi/npm_typed/global_jsdom",
   "mizchi/npm_typed/testing_library",
-  "mizchi/js/web/streams",
-  "mizchi/js/web/encoding",
-  "mizchi/js/builtins/arraybuffer",
+  "mizchi/js_web/streams",
+  "mizchi/js_web/encoding",
+  "mizchi/js_builtin/arraybuffer",
 } for "test"
 
 warnings = "-1-5-6"

@@ -173,7 +173,7 @@ pub fn ValidateFunction::errors_array(
     } else {
       Some(msg.cast())
     }
-    result.push({ instance_path, schema_path, keyword, params, message })
+    result.push({ instance_path, schema_path, keyword, params, message, })
   }
   result
 }

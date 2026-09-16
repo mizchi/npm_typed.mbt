@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/react"
 
 import {
-  "mizchi/js/core",
   "mizchi/js_browser/dom",
+  "mizchi/js_core",
 }
 
 // Values
@@ -13,41 +13,41 @@ pub async fn act(() -> Unit) -> Unit
 pub async fn act_async(async () -> Unit) -> Unit
 
 #alias(cacheSignal)
-pub fn cache_signal() -> @core.Any
+pub fn cache_signal() -> @js_core.Any
 
 #alias(captureOwnerStack)
-pub fn capture_owner_stack() -> @core.Any?
+pub fn capture_owner_stack() -> @js_core.Any?
 
 #alias(c)
 pub fn[T] component((T) -> Element, T, children? : Array[&ReactNode], key? : String) -> Element
 
 #alias(h)
-pub fn createElement(String, Array[&ReactNode], props? : Map[String, @core.Any], style? : Map[String, String], ref_? : ReactRef[@dom.Element], key? : String) -> Element
+pub fn createElement(String, Array[&ReactNode], props? : Map[String, @js_core.Any], style? : Map[String, String], ref_? : ReactRef[@dom.Element], key? : String) -> Element
 
-pub fn createElementDirect(String, @core.Any, @core.Any) -> Element
+pub fn createElementDirect(String, @js_core.Any, @js_core.Any) -> Element
 
-pub fn createElementRaw(@core.Any, @core.Any, children_count? : Int) -> Element
+pub fn createElementRaw(@js_core.Any, @js_core.Any, children_count? : Int) -> Element
 
-pub fn createElementWithKey(@core.Any, @core.Any, String?, children_count? : Int) -> Element
+pub fn createElementWithKey(@js_core.Any, @js_core.Any, String?, children_count? : Int) -> Element
 
 #alias(createContext)
 pub fn[T] create_context(T?) -> Context[T]
 
-pub fn error_boundary(children~ : Array[&ReactNode], fallback? : (@core.Any, () -> Unit) -> Element, on_error? : (@core.Any, @core.Any) -> Unit) -> Element
+pub fn error_boundary(children~ : Array[&ReactNode], fallback? : (@js_core.Any, () -> Unit) -> Element, on_error? : (@js_core.Any, @js_core.Any) -> Unit) -> Element
 
 pub fn fragment(Array[&ReactNode], key? : String) -> Element
 
-pub fn init_react_from_module(@core.Any) -> Unit
+pub fn init_react_from_module(@js_core.Any) -> Unit
 
 pub fn init_react_symbols() -> Unit
 
-pub fn jsx(@core.Any, Array[&ReactNode], props? : Map[String, @core.Any], style? : Map[String, String], ref_? : ReactRef[@dom.Element], key? : String) -> Element
+pub fn jsx(@js_core.Any, Array[&ReactNode], props? : Map[String, @js_core.Any], style? : Map[String, String], ref_? : ReactRef[@dom.Element], key? : String) -> Element
 
 pub fn jsx_fragment(Array[&ReactNode], key? : String) -> Element
 
-pub fn jsx_tag(String, Array[&ReactNode], props? : Map[String, @core.Any], style? : Map[String, String], ref_? : ReactRef[@dom.Element], key? : String) -> Element
+pub fn jsx_tag(String, Array[&ReactNode], props? : Map[String, @js_core.Any], style? : Map[String, String], ref_? : ReactRef[@dom.Element], key? : String) -> Element
 
-pub fn[T] lazy_(() -> @core.Promise[@core.Any]) -> (T) -> Element
+pub fn[T] lazy_(() -> @js_core.Promise[@js_core.Any]) -> (T) -> Element
 
 pub fn[T] provider(Context[T], Array[&ReactNode], value~ : T) -> Element
 
@@ -62,16 +62,16 @@ pub fn strict_mode(Array[&ReactNode]) -> Element
 pub fn suspense(Array[&ReactNode], fallback~ : Element) -> Element
 
 #alias(use_callback)
-pub fn[F] useCallback(F, Array[@core.Any]) -> F
+pub fn[F] useCallback(F, Array[@js_core.Any]) -> F
 
 #alias(use_effect)
-pub fn useEffect(() -> () -> Unit, Array[@core.Any]) -> Unit
+pub fn useEffect(() -> () -> Unit, Array[@js_core.Any]) -> Unit
 
 #alias(use_layout_effect)
-pub fn useLayoutEffect(() -> () -> Unit, Array[@core.Any]) -> Unit
+pub fn useLayoutEffect(() -> () -> Unit, Array[@js_core.Any]) -> Unit
 
 #alias(use_memo)
-pub fn[T] useMemo(() -> T, Array[@core.Any]) -> T
+pub fn[T] useMemo(() -> T, Array[@js_core.Any]) -> T
 
 #alias(use_ref)
 pub fn[T] useRef(T?) -> ReactRef[T]
@@ -95,16 +95,16 @@ pub fn[T] use_deferred_value(T, initial_value? : T) -> T
 pub fn use_id() -> String
 
 #alias(useImperativeHandle)
-pub fn[T] use_imperative_handle(ReactRef[T], () -> T, Array[@core.Any]) -> Unit
+pub fn[T] use_imperative_handle(ReactRef[T], () -> T, Array[@js_core.Any]) -> Unit
 
 #alias(useInsertionEffect)
-pub fn use_insertion_effect(() -> () -> Unit, Array[@core.Any]) -> Unit
+pub fn use_insertion_effect(() -> () -> Unit, Array[@js_core.Any]) -> Unit
 
 #alias(useOptimistic)
 pub fn[S, A] use_optimistic(S, (S, A) -> S) -> (S, (A) -> Unit)
 
 #alias(usePromise)
-pub fn[T] use_promise(@core.Promise[T]) -> T
+pub fn[T] use_promise(@js_core.Promise[T]) -> T
 
 #alias(useReducer)
 pub fn[T, U] use_reducer((T, U) -> T, T) -> (T, (U) -> Unit)
@@ -123,17 +123,17 @@ pub fn use_transition() -> (Bool, (() -> Unit) -> Unit)
 // Types and methods
 #external
 pub type Context[T]
-pub fn[T] Context::as_any(Self[T]) -> @core.Any
+pub fn[T] Context::as_any(Self[T]) -> @js_core.Any
 
 #external
 pub type Element
-pub fn Element::as_any(Self) -> @core.Any
+pub fn Element::as_any(Self) -> @js_core.Any
 pub impl ReactNode for Element
 
 pub(all) struct ReactRef[T] {
-  current : @core.Any
+  current : @js_core.Any
 }
-pub fn[T] ReactRef::as_any(Self[T]) -> @core.Any
+pub fn[T] ReactRef::as_any(Self[T]) -> @js_core.Any
 pub fn[T] ReactRef::get_current(Self[T]) -> T?
 pub fn[T] ReactRef::set_current(Self[T], T?) -> Unit
 
@@ -166,7 +166,7 @@ pub type WheelEventHandler[T] = (@dom.WheelEvent) -> Unit
 
 // Traits
 pub(open) trait ReactNode {
-  fn to_react_node(Self) -> @core.Any
+  fn to_react_node(Self) -> @js_core.Any
 }
 pub impl ReactNode for Bool
 pub impl ReactNode for Int
@@ -174,4 +174,3 @@ pub impl ReactNode for Double
 pub impl ReactNode for String
 pub impl[T : ReactNode] ReactNode for T?
 pub impl ReactNode for Array[&ReactNode]
-

@@ -1,11 +1,16 @@
 name = "mizchi/npm_typed"
 
-version = "0.1.15"
+version = "0.1.16"
 
 import {
+  "mizchi/js_builtin@0.13.0",
+  "mizchi/js_convert@0.13.0",
+  "mizchi/js_core@0.13.0",
+  "mizchi/js_node@0.13.0",
+  "mizchi/js_web@0.13.0",
   "moonbitlang/async@0.20.1",
-  "mizchi/js@0.12.1",
-  "mizchi/js_browser@0.12.1",
+  "mizchi/js@0.13.0",
+  "mizchi/js_browser@0.13.0",
 }
 
 readme = "README.md"

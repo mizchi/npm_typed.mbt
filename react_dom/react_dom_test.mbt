@@ -83,7 +83,7 @@ test "flushSync returns callback result" {
 test "flushSync executes callback" {
   init_jsdom()
   let react_dom = get_react_dom()
-  let counter : Ref[Int] = { val: 0 }
+  let counter : Ref[Int] = { val: 0, }
   react_dom.flushSync(fn() { counter.val = counter.val + 1 })
   assert_eq(counter.val, 1)
 }

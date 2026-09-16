@@ -1,8 +1,8 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
   "mizchi/js_browser/dom",
-  "mizchi/js/node",
+  "mizchi/js_node" @node,
   "mizchi/npm_typed/react",
   "mizchi/npm_typed/testing_library",
 }
@@ -11,7 +11,7 @@ import {
   "mizchi/npm_typed/global_jsdom",
   "mizchi/npm_typed/react_element",
   "mizchi/npm_typed/react_router",
-  "mizchi/js/builtins/regexp",
+  "mizchi/js_builtin/regexp",
   "moonbitlang/async",
 } for "test"
 

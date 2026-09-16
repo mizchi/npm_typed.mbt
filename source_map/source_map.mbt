@@ -11,7 +11,7 @@ pub(all) struct GeneratedPosition {
 
 ///|
 pub fn GeneratedPosition::new(line : Int, column : Int) -> GeneratedPosition {
-  { line, column }
+  { line, column, }
 }
 
 ///|
@@ -147,9 +147,9 @@ pub fn SourceMapConsumer::eachMapping(
     name,
   ) {
     let mapping : Mapping = {
-      generated: { line: gen_line, column: gen_col },
+      generated: { line: gen_line, column: gen_col, },
       original: if orig_line >= 0 {
-        Some({ line: orig_line, column: orig_col })
+        Some({ line: orig_line, column: orig_col, })
       } else {
         None
       },

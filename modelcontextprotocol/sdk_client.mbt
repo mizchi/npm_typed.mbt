@@ -139,7 +139,7 @@ pub async fn SdkClient::list_tools(self : SdkClient) -> ListToolsResult {
   let schema = ffi_list_tools_result_schema()
   let result = ffi_client_request(self |> @core.any, request, schema).wait()
   let tools : Array[ToolInfo] = result._get("tools") |> @core.identity
-  { tools, raw: result }
+  { tools, raw: result, }
 }
 
 ///|
@@ -186,7 +186,7 @@ pub async fn SdkClient::call_tool(
   let result = ffi_client_request(self |> @core.any, request, schema).wait()
   let content : Array[ContentResult] = result._get("content") |> @core.identity
   let is_error : Bool? = result._get("isError") |> @core.identity_option()
-  { content, is_error, raw: result }
+  { content, is_error, raw: result, }
 }
 
 // ============================================================
@@ -218,7 +218,7 @@ pub async fn SdkClient::list_resources(self : SdkClient) -> ListResourcesResult 
   let schema = ffi_list_resources_result_schema()
   let result = ffi_client_request(self |> @core.any, request, schema).wait()
   let resources : Array[ResourceInfo] = result["resources"] |> @core.identity
-  { resources, raw: result }
+  { resources, raw: result, }
 }
 
 ///|
@@ -242,7 +242,7 @@ pub async fn SdkClient::read_resource(
   let schema = ffi_read_resource_result_schema()
   let result = ffi_client_request(self |> @core.any, request, schema).wait()
   let contents : Array[ContentResult] = result["contents"].cast()
-  { contents, raw: result }
+  { contents, raw: result, }
 }
 
 // ============================================================
@@ -281,7 +281,7 @@ pub async fn SdkClient::list_prompts(self : SdkClient) -> ListPromptsResult {
   let schema = ffi_list_prompts_result_schema()
   let result = ffi_client_request(self |> @core.any, request, schema).wait()
   let prompts : Array[PromptInfo] = result["prompts"].cast()
-  { prompts, raw: result }
+  { prompts, raw: result, }
 }
 
 ///|

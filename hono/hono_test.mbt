@@ -55,7 +55,7 @@ async test "Hono GET route" {
 ///|
 async test "Hono POST route" {
   let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
-  app.post("/api/data", fn(c) { c.json({ status: "ok" }) }) |> ignore
+  app.post("/api/data", fn(c) { c.json({ status: "ok", }) }) |> ignore
   @core.typeof_(app.as_any()) |> assert_eq("object")
 }
 
@@ -64,14 +64,14 @@ async test "Hono multiple routes" {
   let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
   app.get("/", fn(c) { c.text("Home") }) |> ignore
   app.get("/about", fn(c) { c.text("About") }) |> ignore
-  app.post("/api/create", fn(c) { c.json({ created: true }) }) |> ignore
+  app.post("/api/create", fn(c) { c.json({ created: true, }) }) |> ignore
   @core.typeof_(app.as_any()) |> assert_eq("object")
 }
 
 ///|
 async test "Context json response" {
   let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
-  app.get("/json", fn(c) { c.json({ message: "Hello", count: 42 }) }) |> ignore
+  app.get("/json", fn(c) { c.json({ message: "Hello", count: 42, }) }) |> ignore
   @core.typeof_(app.as_any()) |> assert_eq("object")
 }
 
@@ -107,16 +107,16 @@ async test "Context not_found" {
 async test "Hono basePath" {
   let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
   let api = app.basePath("/api")
-  api.get("/users", fn(c) { c.json({ users: [] }) }) |> ignore
+  api.get("/users", fn(c) { c.json({ users: [], }) }) |> ignore
   @core.typeof_(api.as_any()) |> assert_eq("object")
 }
 
 ///|
 async test "Hono PUT, DELETE, PATCH methods" {
   let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
-  app.put("/update", fn(c) { c.json({ updated: true }) }) |> ignore
-  app.delete("/delete", fn(c) { c.json({ deleted: true }) }) |> ignore
-  app.patch("/patch", fn(c) { c.json({ patched: true }) }) |> ignore
+  app.put("/update", fn(c) { c.json({ updated: true, }) }) |> ignore
+  app.delete("/delete", fn(c) { c.json({ deleted: true, }) }) |> ignore
+  app.patch("/patch", fn(c) { c.json({ patched: true, }) }) |> ignore
   @core.typeof_(app.as_any()) |> assert_eq("object")
 }
 
@@ -135,7 +135,7 @@ async test "Context status and headers" {
 ///|
 async test "Context json with status" {
   let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
-  app.post("/created", fn(c) { c.json({ id: 123 }, status=201) }) |> ignore
+  app.post("/created", fn(c) { c.json({ id: 123, }, status=201) }) |> ignore
   @core.typeof_(app.as_any()) |> assert_eq("object")
 }
 
@@ -157,7 +157,7 @@ async test "Hono all method" {
 async test "Hono route grouping" {
   let app : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
   let api : @hono.Hono[@core.Any, @core.Any] = @hono.Hono::new()
-  api.get("/users", fn(c) { c.json({ users: [] }) }) |> ignore
+  api.get("/users", fn(c) { c.json({ users: [], }) }) |> ignore
   app.route("/api", api) |> ignore
   @core.typeof_(app.as_any()) |> assert_eq("object")
 }

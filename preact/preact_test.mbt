@@ -172,7 +172,7 @@ test "signal - subscribe to changes" {
   let dispose = setup()
   defer dispose()
   let count : Signal[Int] = signal(0)
-  let last_value : MutBox[Int] = { val: 0 }
+  let last_value : MutBox[Int] = { val: 0, }
   let unsubscribe = count.subscribe(fn(v) { last_value.val = v })
   count.value = 5
   inspect(last_value.val, content="5")
@@ -223,7 +223,7 @@ test "effect - runs on signal change" {
   let dispose = setup()
   defer dispose()
   let count : Signal[Int] = signal(0)
-  let run_count : MutBox[Int] = { val: 0 }
+  let run_count : MutBox[Int] = { val: 0, }
   let dispose_effect = effect(fn() {
     let _ = count.value
     run_count.val = run_count.val + 1
@@ -246,7 +246,7 @@ test "batch - batches multiple updates" {
   defer dispose()
   let a : Signal[Int] = signal(1)
   let b : Signal[Int] = signal(2)
-  let run_count : MutBox[Int] = { val: 0 }
+  let run_count : MutBox[Int] = { val: 0, }
   let dispose_effect = effect(fn() {
     let _ = a.value + b.value
     run_count.val = run_count.val + 1
@@ -268,7 +268,7 @@ test "untracked - read without subscribing" {
   let dispose = setup()
   defer dispose()
   let count : Signal[Int] = signal(5)
-  let run_count : MutBox[Int] = { val: 0 }
+  let run_count : MutBox[Int] = { val: 0, }
   let dispose_effect = effect(fn() {
     // This read is untracked, so changes won't trigger effect
     let _ = untracked(fn() { count.value })

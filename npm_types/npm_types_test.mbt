@@ -55,7 +55,7 @@ test "Contact to_json" {
 
 ///|
 test "Signature" {
-  let sig : Signature = { keyid: "abc123", sig: "signature_data" }
+  let sig : Signature = { keyid: "abc123", sig: "signature_data", }
   inspect(sig.keyid, content="abc123")
   inspect(sig.sig, content="signature_data")
 }
@@ -72,7 +72,7 @@ test "Funding" {
 
 ///|
 test "PeerDependencyMeta" {
-  let meta : PeerDependencyMeta = { optional: true }
+  let meta : PeerDependencyMeta = { optional: true, }
   inspect(meta.optional, content="true")
 }
 

@@ -219,7 +219,7 @@ pub fn ItemLayout::new(
   offset~ : Double,
   index~ : Int,
 ) -> ItemLayout {
-  { length, offset, index }
+  { length, offset, index, }
 }
 
 // ============================================================================
@@ -235,7 +235,7 @@ pub struct Section[T] {
 
 ///|
 pub fn[T] Section::new(title~ : String, data~ : Array[T]) -> Section[T] {
-  { title, data }
+  { title, data, }
 }
 
 ///|

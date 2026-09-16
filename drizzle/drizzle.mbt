@@ -13,7 +13,7 @@ pub struct Row {
 ///|
 /// Create a new empty row
 pub fn Row::new() -> Row {
-  { obj: @core.new_object() }
+  { obj: @core.new_object(), }
 }
 
 ///|

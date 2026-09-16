@@ -60,7 +60,7 @@ pub async fn put_object(
     input["ContentType"] = ct |> @core.any
   }
   let result = ffi_put_object(client |> @core.identity, input).wait()
-  { etag: result["ETag"].cast() }
+  { etag: result["ETag"].cast(), }
 }
 
 ///|
@@ -95,7 +95,7 @@ pub async fn put_object_bytes(
     input["ContentType"] = ct |> @core.any
   }
   let result = ffi_put_object(client |> @core.identity, input).wait()
-  { etag: result["ETag"].cast() }
+  { etag: result["ETag"].cast(), }
 }
 
 ///|
@@ -162,7 +162,7 @@ pub async fn delete_object(
   input["Bucket"] = bucket |> @core.any
   input["Key"] = key |> @core.any
   let result = ffi_delete_object(client |> @core.identity, input).wait()
-  { delete_marker: result["DeleteMarker"].cast() }
+  { delete_marker: result["DeleteMarker"].cast(), }
 }
 
 ///|
@@ -319,7 +319,7 @@ extern "js" fn ffi_delete_bucket(
 pub async fn list_buckets(client : S3Client) -> ListBucketsOutput {
   let result = ffi_list_buckets(client |> @core.identity).wait()
   let buckets_raw : Array[@core.Any] = result["Buckets"].cast()
-  let buckets = buckets_raw.map(fn(b) { { name: b["Name"].cast() } })
+  let buckets = buckets_raw.map(fn(b) { { name: b["Name"].cast(), } })
   { buckets, }
 }
 
@@ -356,7 +356,7 @@ pub async fn copy_object(
   input["Key"] = destKey |> @core.any
   let result = ffi_copy_object(client |> @core.identity, input).wait()
   let copy_result = result["CopyObjectResult"]
-  { etag: copy_result["ETag"] |> @core.identity }
+  { etag: copy_result["ETag"] |> @core.identity, }
 }
 
 ///|

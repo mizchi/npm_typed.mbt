@@ -126,7 +126,7 @@ pub fn PrepareStepResult::empty() -> PrepareStepResult {
 ///|
 /// Create PrepareStepResult with model override
 pub fn PrepareStepResult::with_model(model : Model) -> PrepareStepResult {
-  { ..PrepareStepResult::empty(), model: Some(model) }
+  { ..PrepareStepResult::empty(), model: Some(model), }
 }
 
 ///|
@@ -134,7 +134,7 @@ pub fn PrepareStepResult::with_model(model : Model) -> PrepareStepResult {
 pub fn PrepareStepResult::with_active_tools(
   tools : Array[String],
 ) -> PrepareStepResult {
-  { ..PrepareStepResult::empty(), activeTools: Some(tools) }
+  { ..PrepareStepResult::empty(), activeTools: Some(tools), }
 }
 
 ///|
@@ -142,7 +142,7 @@ pub fn PrepareStepResult::with_active_tools(
 pub fn PrepareStepResult::with_messages(
   messages : Array[@core.Any],
 ) -> PrepareStepResult {
-  { ..PrepareStepResult::empty(), messages: Some(messages) }
+  { ..PrepareStepResult::empty(), messages: Some(messages), }
 }
 
 ///|
@@ -219,7 +219,7 @@ pub fn PrepareStep::as_any(self : PrepareStep) -> @core.Any {
       let arr : Array[@core.Any] = @core.identity(steps_raw)
       arr.map(StepResult::from_any)
     }
-    let ctx : PrepareStepContext = { step_number, messages, steps }
+    let ctx : PrepareStepContext = { step_number, messages, steps, }
     let result = f(ctx)
     result.as_any()
   })

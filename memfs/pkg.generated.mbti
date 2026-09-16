@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/memfs"
 
 import {
-  "mizchi/js/core",
-  "mizchi/js/node/fs",
+  "mizchi/js_core",
+  "mizchi/js_node/fs",
 }
 
 // Values
@@ -11,23 +11,23 @@ pub fn createFsFromVolume(Volume) -> MemFS
 
 pub fn createVolume() -> Volume
 
-pub fn createVolumeFromJSON(@core.Any) -> Volume
+pub fn createVolumeFromJSON(@js_core.Any) -> Volume
 
 pub fn memfs() -> (Volume, MemFS)
 
-pub fn memfsFromJSON(@core.Any) -> (Volume, MemFS)
+pub fn memfsFromJSON(@js_core.Any) -> (Volume, MemFS)
 
 // Errors
 
 // Types and methods
 #external
 pub type Dirent
-pub fn Dirent::as_any(Self) -> @core.Any
+pub fn Dirent::as_any(Self) -> @js_core.Any
 
 #external
 pub type MemFS
 pub fn MemFS::appendFileSync(Self, String, String) -> Unit
-pub fn MemFS::as_any(Self) -> @core.Any
+pub fn MemFS::as_any(Self) -> @js_core.Any
 pub fn MemFS::chmodSync(Self, String, Int) -> Unit
 pub fn MemFS::copyFileSync(Self, String, String) -> Unit
 pub fn MemFS::existsSync(Self, String) -> Bool
@@ -36,7 +36,7 @@ pub async fn MemFS::mkdir(Self, String, recursive? : Bool) -> Unit
 pub fn MemFS::mkdirSync(Self, String, recursive? : Bool) -> Unit
 pub async fn MemFS::readFile(Self, String) -> String
 pub fn MemFS::readFileSync(Self, String) -> String
-pub fn MemFS::readFileSyncBuffer(Self, String) -> @core.Any
+pub fn MemFS::readFileSyncBuffer(Self, String) -> @js_core.Any
 pub async fn MemFS::readdir(Self, String) -> Array[String]
 pub fn MemFS::readdirSync(Self, String) -> Array[String]
 pub fn MemFS::readlinkSync(Self, String) -> String
@@ -55,11 +55,10 @@ pub fn MemFS::writeFileSync(Self, String, String) -> Unit
 
 #external
 pub type Volume
-pub fn Volume::as_any(Self) -> @core.Any
+pub fn Volume::as_any(Self) -> @js_core.Any
 pub fn Volume::reset(Self) -> Unit
-pub fn Volume::toJSON(Self) -> @core.Any
+pub fn Volume::toJSON(Self) -> @js_core.Any
 
 // Type aliases
 
 // Traits
-

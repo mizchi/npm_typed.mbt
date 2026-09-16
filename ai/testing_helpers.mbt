@@ -10,7 +10,7 @@ pub(all) struct MockId {
 ///|
 /// Create a new MockId generator
 pub fn MockId::new() -> MockId {
-  { counter: 0 }
+  { counter: 0, }
 }
 
 ///|
@@ -44,7 +44,7 @@ pub(all) struct MockValues[T] {
 ///|
 /// Create a new MockValues iterator
 pub fn[T] MockValues::new(values : Array[T]) -> MockValues[T] {
-  { values, counter: 0 }
+  { values, counter: 0, }
 }
 
 ///|
@@ -88,7 +88,7 @@ pub fn mock_values_js(values : Array[@core.Any]) -> @core.Any {
   @reflect.Reflect::apply(
     mock_values_fn,
     @core.null(),
-    values.map(fn(v) -> @core.Any { v.cast() }),
+    FixedArray::from_array(values[:]),
   ).cast()
 }
 

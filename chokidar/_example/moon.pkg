@@ -1,11 +1,9 @@
 import {
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
   "mizchi/npm_typed/chokidar",
-  "mizchi/js/builtins/global",
+  "mizchi/js_builtin/global",
 }
 
 supported_targets = "js"
 
-options(
-  is_main: true,
-)
+pkgtype(kind: "executable")

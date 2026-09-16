@@ -338,7 +338,7 @@ extern "js" fn ffi_window_inner_position(
 /// Get window inner position
 pub async fn Window::inner_position(self : Window) -> @dpi.PhysicalPosition {
   let pos = ffi_window_inner_position(self.as_any()).wait()
-  { x: pos["x"].cast(), y: pos["y"].cast() }
+  { x: pos["x"].cast(), y: pos["y"].cast(), }
 }
 
 ///|
@@ -351,7 +351,7 @@ extern "js" fn ffi_window_outer_position(
 /// Get window outer position
 pub async fn Window::outer_position(self : Window) -> @dpi.PhysicalPosition {
   let pos = ffi_window_outer_position(self.as_any()).wait()
-  { x: pos["x"].cast(), y: pos["y"].cast() }
+  { x: pos["x"].cast(), y: pos["y"].cast(), }
 }
 
 ///|
@@ -378,7 +378,7 @@ extern "js" fn ffi_window_inner_size(w : @core.Any) -> @js.Promise[@core.Any] =
 /// Get window inner size
 pub async fn Window::inner_size(self : Window) -> @dpi.PhysicalSize {
   let size = ffi_window_inner_size(self.as_any()).wait()
-  { width: size["width"].cast(), height: size["height"].cast() }
+  { width: size["width"].cast(), height: size["height"].cast(), }
 }
 
 ///|
@@ -389,7 +389,7 @@ extern "js" fn ffi_window_outer_size(w : @core.Any) -> @js.Promise[@core.Any] =
 /// Get window outer size
 pub async fn Window::outer_size(self : Window) -> @dpi.PhysicalSize {
   let size = ffi_window_outer_size(self.as_any()).wait()
-  { width: size["width"].cast(), height: size["height"].cast() }
+  { width: size["width"].cast(), height: size["height"].cast(), }
 }
 
 ///|
@@ -487,14 +487,14 @@ pub fn Monitor::name(self : Monitor) -> String? {
 /// Get monitor size
 pub fn Monitor::size(self : Monitor) -> @dpi.PhysicalSize {
   let s = self.as_any()["size"]
-  { width: s["width"].cast(), height: s["height"].cast() }
+  { width: s["width"].cast(), height: s["height"].cast(), }
 }
 
 ///|
 /// Get monitor position
 pub fn Monitor::position(self : Monitor) -> @dpi.PhysicalPosition {
   let p = self.as_any()["position"]
-  { x: p["x"].cast(), y: p["y"].cast() }
+  { x: p["x"].cast(), y: p["y"].cast(), }
 }
 
 ///|
@@ -551,7 +551,7 @@ extern "js" fn ffi_cursor_position() -> @js.Promise[@core.Any] =
 /// Get cursor position
 pub async fn cursor_position() -> @dpi.PhysicalPosition {
   let pos = ffi_cursor_position().wait()
-  { x: pos["x"].cast(), y: pos["y"].cast() }
+  { x: pos["x"].cast(), y: pos["y"].cast(), }
 }
 
 ///|

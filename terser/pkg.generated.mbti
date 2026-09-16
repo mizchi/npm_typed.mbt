@@ -31,4 +31,3 @@ pub struct MinifyResult {
 // Type aliases
 
 // Traits
-

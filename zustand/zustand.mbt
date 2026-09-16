@@ -27,7 +27,7 @@ extern "js" fn ffi_createStore(
 /// }
 ///
 /// let store : Store[CounterState] = createStore(fn(_set, _get, _api) {
-///   { count: 0 }
+///   { count: 0, }
 /// })
 /// ```
 pub fn[T] createStore(

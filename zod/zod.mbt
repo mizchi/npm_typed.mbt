@@ -694,7 +694,7 @@ pub fn ZodError::issuesArray(self : ZodError) -> Array[ZodIssue] {
       path.push(p)
     }
     let message : String = issue["message"].cast()
-    result.push({ code, path, message })
+    result.push({ code, path, message, })
   }
   result
 }

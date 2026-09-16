@@ -68,7 +68,7 @@ pub fn config(
   } else {
     Some(error_raw)
   }
-  { parsed, error }
+  { parsed, error, }
 }
 
 ///|
@@ -90,7 +90,7 @@ pub fn configPaths(paths : Array[String]) -> DotenvConfigOutput {
   } else {
     Some(error_raw)
   }
-  { parsed, error }
+  { parsed, error, }
 }
 
 ///|

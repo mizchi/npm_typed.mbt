@@ -94,7 +94,7 @@ extern "js" fn ffi_get_jsdom_class() -> @core.Promise[@core.Any] =
   #| }
 
 ///|
-let jsdom_class_cache : Ref[@core.Any?] = { val: None }
+let jsdom_class_cache : Ref[@core.Any?] = { val: None, }
 
 ///|
 async fn get_jsdom_class() -> @core.Any {

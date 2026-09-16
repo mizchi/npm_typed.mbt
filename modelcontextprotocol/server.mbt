@@ -35,7 +35,7 @@ pub struct McpServer {
 ///|
 pub fn McpServer::new(name : String, version : String) -> McpServer {
   {
-    info: { name, version },
+    info: { name, version, },
     tools: @hashmap.new(),
     resources: @hashmap.new(),
     prompts: @hashmap.new(),
@@ -129,7 +129,7 @@ fn McpServer::handle_initialize(
     ("capabilities", @core.any(capabilities.as_any())),
   ])
   @js.Promise::resolve(
-    Ok({ jsonrpc: "2.0", id, result: @core.identity(result) }),
+    Ok({ jsonrpc: "2.0", id, result: @core.identity(result), }),
   )
 }
 
@@ -145,7 +145,7 @@ fn McpServer::handle_tools_list(
   })
   let result = @core.from_entries([("tools", @core.any(@core.any(tools)))])
   @js.Promise::resolve(
-    Ok({ jsonrpc: "2.0", id, result: @core.identity(result) }),
+    Ok({ jsonrpc: "2.0", id, result: @core.identity(result), }),
   )
 }
 
@@ -174,7 +174,7 @@ fn McpServer::handle_tools_call(
       ("content", @core.any(@core.any(content.map(fn(c) { @core.any(c) })))),
     ])
     @js.Promise::resolve(
-      Ok({ jsonrpc: "2.0", id, result: @core.identity(result) }),
+      Ok({ jsonrpc: "2.0", id, result: @core.identity(result), }),
     )
   })
 }
@@ -193,7 +193,7 @@ fn McpServer::handle_resources_list(
     ("resources", @core.any(@core.any(resources))),
   ])
   @js.Promise::resolve(
-    Ok({ jsonrpc: "2.0", id, result: @core.identity(result) }),
+    Ok({ jsonrpc: "2.0", id, result: @core.identity(result), }),
   )
 }
 
@@ -221,7 +221,7 @@ fn McpServer::handle_resources_read(
       ("contents", @core.any(@core.any(content.map(fn(c) { c.as_any() })))),
     ])
     @js.Promise::resolve(
-      Ok({ jsonrpc: "2.0", id, result: @core.identity(result) }),
+      Ok({ jsonrpc: "2.0", id, result: @core.identity(result), }),
     )
   })
 }
@@ -238,7 +238,7 @@ fn McpServer::handle_prompts_list(
   })
   let result = @core.from_entries([("prompts", @core.any(@core.any(prompts)))])
   @js.Promise::resolve(
-    Ok({ jsonrpc: "2.0", id, result: @core.identity(result) }),
+    Ok({ jsonrpc: "2.0", id, result: @core.identity(result), }),
   )
 }
 
@@ -267,7 +267,7 @@ fn McpServer::handle_prompts_get(
       ("messages", @core.any(@core.any(content.map(fn(c) { c.as_any() })))),
     ])
     @js.Promise::resolve(
-      Ok({ jsonrpc: "2.0", id, result: @core.identity(result) }),
+      Ok({ jsonrpc: "2.0", id, result: @core.identity(result), }),
     )
   })
 }
@@ -278,7 +278,11 @@ fn McpServer::method_not_found_error(
   id : RequestId,
   message : String,
 ) -> JsonRpcErrorResponse {
-  { jsonrpc: "2.0", id, error: { code: method_not_found, message, data: None } }
+  {
+    jsonrpc: "2.0",
+    id,
+    error: { code: method_not_found, message, data: None, },
+  }
 }
 
 ///|
@@ -287,5 +291,5 @@ fn McpServer::invalid_params_error(
   id : RequestId,
   message : String,
 ) -> JsonRpcErrorResponse {
-  { jsonrpc: "2.0", id, error: { code: invalid_params, message, data: None } }
+  { jsonrpc: "2.0", id, error: { code: invalid_params, message, data: None, }, }
 }

@@ -79,7 +79,7 @@ pub fn[T] createResource(fetcher : () -> @core.Promise[T]) -> Resource[T] {
   }
   // Start initial fetch
   do_fetch()
-  { data, is_loading, error, refetch: do_fetch }
+  { data, is_loading, error, refetch: do_fetch, }
 }
 
 ///|

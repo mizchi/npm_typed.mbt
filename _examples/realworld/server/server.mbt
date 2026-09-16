@@ -173,7 +173,7 @@ fn create_styles(hono_css : @hono.HonoCss) -> Styles {
 pub fn create_auth(db : @sqlite.DatabaseSync) -> @better_auth.Auth {
   @better_auth.betterAuth(
     database=ffi_sqlite_adapter(db),
-    providers=[@better_auth.EmailPassword::{ enabled: true }],
+    providers=[@better_auth.EmailPassword::{ enabled: true, }],
     secret="realworld-secret-key-change-in-production",
   )
 }

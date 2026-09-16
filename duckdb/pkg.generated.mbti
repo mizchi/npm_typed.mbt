@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/duckdb"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -17,35 +17,34 @@ pub async fn instantiateNode(DuckDBModule) -> AsyncDuckDB
 // Types and methods
 #external
 pub type AsyncDuckDB
-pub fn AsyncDuckDB::as_any(Self) -> @core.Any
+pub fn AsyncDuckDB::as_any(Self) -> @js_core.Any
 pub async fn AsyncDuckDB::close(Self) -> Unit
 #alias(close_sync)
-pub fn AsyncDuckDB::closeSync(Self) -> @core.Promise[Unit]
+pub fn AsyncDuckDB::closeSync(Self) -> @js_core.Promise[Unit]
 pub async fn AsyncDuckDB::connect(Self) -> AsyncDuckDBConnection
 
 #external
 pub type AsyncDuckDBConnection
-pub fn AsyncDuckDBConnection::as_any(Self) -> @core.Any
+pub fn AsyncDuckDBConnection::as_any(Self) -> @js_core.Any
 pub async fn AsyncDuckDBConnection::close(Self) -> Unit
 #alias(close_sync)
-pub fn AsyncDuckDBConnection::closeSync(Self) -> @core.Promise[Unit]
+pub fn AsyncDuckDBConnection::closeSync(Self) -> @js_core.Promise[Unit]
 pub async fn AsyncDuckDBConnection::query(Self, String) -> QueryResult
 
 #external
 pub type DuckDBModule
-pub fn DuckDBModule::as_any(Self) -> @core.Any
+pub fn DuckDBModule::as_any(Self) -> @js_core.Any
 
 #external
 pub type QueryResult
-pub fn QueryResult::as_any(Self) -> @core.Any
+pub fn QueryResult::as_any(Self) -> @js_core.Any
 #alias(num_cols)
 pub fn QueryResult::numCols(Self) -> Int
 #alias(num_rows)
 pub fn QueryResult::numRows(Self) -> Int
-pub fn QueryResult::schema(Self) -> @core.Any
-pub fn QueryResult::toArray(Self) -> @core.Any
+pub fn QueryResult::schema(Self) -> @js_core.Any
+pub fn QueryResult::toArray(Self) -> @js_core.Any
 
 // Type aliases
 
 // Traits
-

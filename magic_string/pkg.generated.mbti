@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/magic_string"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -15,7 +15,7 @@ pub type Bundle
 pub fn Bundle::add_source(Self, MagicString) -> Self
 pub fn Bundle::add_source_with_filename(Self, String, MagicString) -> Self
 pub fn Bundle::append(Self, String) -> Self
-pub fn Bundle::as_any(Self) -> @core.Any
+pub fn Bundle::as_any(Self) -> @js_core.Any
 pub fn Bundle::generate_map(Self, file? : String, include_content? : Bool, hires? : Bool) -> SourceMap
 pub fn Bundle::indent(Self, prefix? : String) -> Self
 pub fn Bundle::new() -> Self
@@ -28,9 +28,9 @@ pub fn MagicString::add_sourcemap_location(Self, Int) -> Unit
 pub fn MagicString::append(Self, String) -> Self
 pub fn MagicString::append_left(Self, Int, String) -> Self
 pub fn MagicString::append_right(Self, Int, String) -> Self
-pub fn MagicString::as_any(Self) -> @core.Any
+pub fn MagicString::as_any(Self) -> @js_core.Any
 pub fn MagicString::clone(Self) -> Self
-pub fn MagicString::generate_decoded_map(Self, file? : String, source? : String, include_content? : Bool, hires? : Bool) -> @core.Any
+pub fn MagicString::generate_decoded_map(Self, file? : String, source? : String, include_content? : Bool, hires? : Bool) -> @js_core.Any
 pub fn MagicString::generate_map(Self, file? : String, source? : String, include_content? : Bool, hires? : Bool) -> SourceMap
 pub fn MagicString::get_offset(Self) -> Int
 pub fn MagicString::has_changed(Self) -> Bool
@@ -46,7 +46,7 @@ pub fn MagicString::relocate(Self, Int, Int, Int) -> Self
 pub fn MagicString::remove(Self, Int, Int) -> Self
 pub fn MagicString::replace(Self, String, String) -> Self
 pub fn MagicString::replace_all(Self, String, String) -> Self
-pub fn MagicString::replace_regex(Self, @core.Any, String) -> Self
+pub fn MagicString::replace_regex(Self, @js_core.Any, String) -> Self
 pub fn MagicString::reset(Self, Int, Int) -> Self
 pub fn MagicString::set_offset(Self, Int) -> Unit
 pub fn MagicString::slice(Self, Int, Int) -> String
@@ -60,7 +60,7 @@ pub fn MagicString::update(Self, Int, Int, String, storeName? : Bool, overwrite?
 
 #external
 pub type SourceMap
-pub fn SourceMap::as_any(Self) -> @core.Any
+pub fn SourceMap::as_any(Self) -> @js_core.Any
 pub fn SourceMap::file(Self) -> String?
 pub fn SourceMap::mappings(Self) -> String
 pub fn SourceMap::sources(Self) -> Array[String]
@@ -71,4 +71,3 @@ pub fn SourceMap::to_url(Self) -> String
 // Type aliases
 
 // Traits
-

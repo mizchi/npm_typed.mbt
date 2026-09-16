@@ -15,4 +15,3 @@ pub fn app() -> @react.Element
 // Type aliases
 
 // Traits
-

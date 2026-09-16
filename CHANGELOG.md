@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.16] - 2026-09-16
+
+### Changed
+
+- Update JavaScript bindings to 0.13.0 and migrate imports to the split modules.
+- Convert dynamic argument arrays to `FixedArray` at JavaScript call boundaries while retaining the existing public `Array` parameters.
+- Regenerate public interfaces for the new dependency paths.
+
 ## [0.1.14] - 2026-04-23
 
 ### Changed

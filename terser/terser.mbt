@@ -72,7 +72,7 @@ fn parse_result(result : @core.Any) -> MinifyResult {
   } else {
     Some(map_val.cast())
   }
-  { code, map }
+  { code, map, }
 }
 
 ///|

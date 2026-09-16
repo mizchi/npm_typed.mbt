@@ -2,20 +2,20 @@
 package "mizchi/npm_typed/rolldown"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "mizchi/npm_typed/rollup_types",
 }
 
 // Values
-pub async fn build(input~ : @rollup_types.Input, output? : @core.Any, external? : @rollup_types.External, plugins? : Array[@core.Any], resolve? : @core.Any, platform? : String, cwd? : String, treeshake? : @core.Any) -> RolldownOutput
+pub async fn build(input~ : @rollup_types.Input, output? : @js_core.Any, external? : @rollup_types.External, plugins? : Array[@js_core.Any], resolve? : @js_core.Any, platform? : String, cwd? : String, treeshake? : @js_core.Any) -> RolldownOutput
 
-pub fn define_plugin(String, buildStart? : (@core.Any) -> Unit, resolveId? : (String, String?, @core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, renderChunk? : (String, @core.Any, @core.Any) -> String?, generateBundle? : (@core.Any, @core.Any) -> Unit, writeBundle? : (@core.Any, @core.Any) -> Unit, buildEnd? : (@core.Any?) -> Unit, closeBundle? : () -> Unit) -> @core.Any
+pub fn define_plugin(String, buildStart? : (@js_core.Any) -> Unit, resolveId? : (String, String?, @js_core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, renderChunk? : (String, @js_core.Any, @js_core.Any) -> String?, generateBundle? : (@js_core.Any, @js_core.Any) -> Unit, writeBundle? : (@js_core.Any, @js_core.Any) -> Unit, buildEnd? : (@js_core.Any?) -> Unit, closeBundle? : () -> Unit) -> @js_core.Any
 
-pub fn outputOptions(file? : String, dir? : String, format? : String, entryFileNames? : String, chunkFileNames? : String, assetFileNames? : String, sourcemap? : @core.Any, minify? : @core.Any, banner? : String, footer? : String, intro? : String, outro? : String, globals? : @core.Any, advancedChunks? : @core.Any) -> @core.Any
+pub fn outputOptions(file? : String, dir? : String, format? : String, entryFileNames? : String, chunkFileNames? : String, assetFileNames? : String, sourcemap? : @js_core.Any, minify? : @js_core.Any, banner? : String, footer? : String, intro? : String, outro? : String, globals? : @js_core.Any, advancedChunks? : @js_core.Any) -> @js_core.Any
 
-pub async fn rolldown(input~ : @rollup_types.Input, external? : @rollup_types.External, plugins? : Array[@core.Any], resolve? : @core.Any, platform? : String, cwd? : String, treeshake? : @core.Any) -> RolldownBuild
+pub async fn rolldown(input~ : @rollup_types.Input, external? : @rollup_types.External, plugins? : Array[@js_core.Any], resolve? : @js_core.Any, platform? : String, cwd? : String, treeshake? : @js_core.Any) -> RolldownBuild
 
-pub async fn watch(input~ : @rollup_types.Input, external? : @rollup_types.External, plugins? : Array[@core.Any], resolve? : @core.Any, platform? : String, cwd? : String, treeshake? : @core.Any) -> Watcher
+pub async fn watch(input~ : @rollup_types.Input, external? : @rollup_types.External, plugins? : Array[@js_core.Any], resolve? : @js_core.Any, platform? : String, cwd? : String, treeshake? : @js_core.Any) -> Watcher
 
 // Errors
 
@@ -23,32 +23,32 @@ pub async fn watch(input~ : @rollup_types.Input, external? : @rollup_types.Exter
 #external
 pub type RolldownBuild
 pub async fn RolldownBuild::close(Self) -> Unit
-pub async fn RolldownBuild::generate(Self, @core.Any) -> RolldownOutput
-pub fn RolldownBuild::to_any(Self) -> @core.Any
-pub async fn RolldownBuild::write(Self, @core.Any) -> RolldownOutput
+pub async fn RolldownBuild::generate(Self, @js_core.Any) -> RolldownOutput
+pub fn RolldownBuild::to_any(Self) -> @js_core.Any
+pub async fn RolldownBuild::write(Self, @js_core.Any) -> RolldownOutput
 
 pub(all) struct RolldownOutput {
-  output : Array[@core.Any]
+  output : Array[@js_core.Any]
 }
-pub fn RolldownOutput::from_any(@core.Any) -> Self
-pub fn RolldownOutput::to_any(Self) -> @core.Any
+pub fn RolldownOutput::from_any(@js_core.Any) -> Self
+pub fn RolldownOutput::to_any(Self) -> @js_core.Any
 
 #external
 pub type Watcher
 pub async fn Watcher::close(Self) -> Unit
-pub fn Watcher::on(Self, String, (@core.Any) -> Unit) -> Self
-pub fn Watcher::to_any(Self) -> @core.Any
+pub fn Watcher::on(Self, String, (@js_core.Any) -> Unit) -> Self
+pub fn Watcher::to_any(Self) -> @js_core.Any
 
 // Type aliases
-pub type BuildEndHook = (@core.Any?) -> Unit
+pub type BuildEndHook = (@js_core.Any?) -> Unit
 
-pub type BuildStartHook = (@core.Any) -> Unit
+pub type BuildStartHook = (@js_core.Any) -> Unit
 
 pub type CloseBundleHook = () -> Unit
 
 pub using @rollup_types {type External}
 
-pub type GenerateBundleHook = (@core.Any, @core.Any) -> Unit
+pub type GenerateBundleHook = (@js_core.Any, @js_core.Any) -> Unit
 
 pub using @rollup_types {type Input}
 
@@ -58,15 +58,14 @@ pub using @rollup_types {type OutputAsset}
 
 pub using @rollup_types {type OutputChunk}
 
-pub using @core {type Any as Plugin}
+pub using @js_core {type Any as Plugin}
 
-pub type RenderChunkHook = (String, @core.Any, @core.Any) -> String?
+pub type RenderChunkHook = (String, @js_core.Any, @js_core.Any) -> String?
 
-pub type ResolveIdHook = (String, String?, @core.Any) -> String?
+pub type ResolveIdHook = (String, String?, @js_core.Any) -> String?
 
 pub type TransformHook = (String, String) -> String?
 
-pub type WriteBundleHook = (@core.Any, @core.Any) -> Unit
+pub type WriteBundleHook = (@js_core.Any, @js_core.Any) -> Unit
 
 // Traits
-

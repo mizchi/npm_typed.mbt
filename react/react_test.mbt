@@ -33,7 +33,7 @@ test "React createElement" {
   }
   @react.component(c1, ()) |> ignore
   let c2 = (props : TestProps) => @react.createElement("p", [props.v])
-  @react.component(c2, { v: "Hello, World!" }) |> ignore
+  @react.component(c2, { v: "Hello, World!", }) |> ignore
 }
 
 ///|
@@ -75,7 +75,7 @@ test "createElement with ref" {
 ///|
 test "component with key" {
   let c = (props : TestProps) => @react.createElement("div", [props.v])
-  let el = @react.component(c, { v: "keyed-value" }, key="comp-key")
+  let el = @react.component(c, { v: "keyed-value", }, key="comp-key")
   let s = render_to_string(el)
   assert_eq(s.contains("keyed-value"), true)
 }
@@ -303,7 +303,7 @@ test "lazy_ with custom props" {
     load_lazy_typed_component_stub(test_create_element())
   })
   let fallback = @react.createElement("div", ["Loading..."])
-  let lazy_el = @react.component(lazy_comp, { v: "World" })
+  let lazy_el = @react.component(lazy_comp, { v: "World", })
   let el = @react.suspense([lazy_el], fallback~)
   let s = render_to_string(el)
   // Lazy components render fallback during SSR with renderToString

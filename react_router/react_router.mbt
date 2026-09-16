@@ -267,7 +267,7 @@ pub fn NavigateFunction::to(
   if replace is None && state is None && relative is None {
     (self.0)(path |> @js.any, None)
   } else {
-    let options = NavigateOptions::{ replace, state, relative }
+    let options = NavigateOptions::{ replace, state, relative, }
     (self.0)(path |> @js.any, Some(options.as_any()))
   }
 }
@@ -473,6 +473,6 @@ pub fn navigate(
   relative? : String,
 ) -> @react.Element {
   let nav_component = get_navigate_component()
-  let props = NavigateProps::{ to, replace, state, relative }
+  let props = NavigateProps::{ to, replace, state, relative, }
   nav_component(props.as_any())
 }

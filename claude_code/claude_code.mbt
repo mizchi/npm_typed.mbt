@@ -114,7 +114,7 @@ pub fn query(
   // MEMO: Lie
   let key : String = @js.Symbol::asyncIterator() |> @core.identity
   let iter = result._call(key, [])
-  { raw: @core.identity(iter) }
+  { raw: @core.identity(iter), }
 }
 
 ///|
@@ -194,7 +194,7 @@ pub fn queryStream(
   // MEMO: Lie
   let key : String = @js.Symbol::asyncIterator() |> @core.identity
   let iter = result._call(key, [])
-  { raw: @core.identity(iter) }
+  { raw: @core.identity(iter), }
 }
 
 ///|
@@ -292,7 +292,7 @@ pub fn queryWithAbort(
   // MEMO: Lie
   let key : String = @js.Symbol::asyncIterator() |> @core.identity
   let iter = result._call(key, [])
-  ({ raw: @core.identity(iter) }, @core.identity(abort_controller))
+  ({ raw: @core.identity(iter), }, @core.identity(abort_controller))
 }
 
 ///|

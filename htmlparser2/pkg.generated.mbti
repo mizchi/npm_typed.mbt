@@ -2,11 +2,11 @@
 package "mizchi/npm_typed/htmlparser2"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn createParser(@core.Any, xmlMode? : Bool, decodeEntities? : Bool, lowerCaseTags? : Bool, lowerCaseAttributeNames? : Bool) -> Parser
+pub fn createParser(@js_core.Any, xmlMode? : Bool, decodeEntities? : Bool, lowerCaseTags? : Bool, lowerCaseAttributeNames? : Bool) -> Parser
 
 pub fn findAll(Document, (Element) -> Bool) -> Array[Element]
 
@@ -32,17 +32,17 @@ pub fn parseDocument(String, xmlMode? : Bool, decodeEntities? : Bool, lowerCaseT
 pub(all) struct Document {
   children : Array[Node]
 }
-pub fn Document::as_any(Self) -> @core.Any
+pub fn Document::as_any(Self) -> @js_core.Any
 pub fn Document::children(Self) -> Array[Node]
 
 pub(all) struct Element {
   name : String
-  attribs : @core.Any
+  attribs : @js_core.Any
   children : Array[Node]
-  parent : @core.Any
+  parent : @js_core.Any
 }
-pub fn Element::as_any(Self) -> @core.Any
-pub fn Element::attribs(Self) -> @core.Any
+pub fn Element::as_any(Self) -> @js_core.Any
+pub fn Element::attribs(Self) -> @js_core.Any
 pub fn Element::children(Self) -> Array[Node]
 pub fn Element::getAttribute(Self, String) -> String?
 pub fn Element::name(Self) -> String
@@ -53,12 +53,12 @@ pub(all) struct Node {
   name : String
   data : String
   children : Array[Node]
-  parent : @core.Any
-  attribs : @core.Any
+  parent : @js_core.Any
+  attribs : @js_core.Any
 }
 pub fn Node::asElement(Self) -> Element
-pub fn Node::as_any(Self) -> @core.Any
-pub fn Node::attribs(Self) -> @core.Any
+pub fn Node::as_any(Self) -> @js_core.Any
+pub fn Node::attribs(Self) -> @js_core.Any
 pub fn Node::data(Self) -> String
 pub fn Node::get_type(Self) -> String
 pub fn Node::isComment(Self) -> Bool
@@ -70,7 +70,7 @@ pub fn Node::parent(Self) -> Self?
 
 #external
 pub type Parser
-pub fn Parser::as_any(Self) -> @core.Any
+pub fn Parser::as_any(Self) -> @js_core.Any
 pub fn Parser::end(Self) -> Unit
 pub fn Parser::parseComplete(Self, String) -> Unit
 pub fn Parser::reset(Self) -> Unit
@@ -79,4 +79,3 @@ pub fn Parser::write(Self, String) -> Unit
 // Type aliases
 
 // Traits
-

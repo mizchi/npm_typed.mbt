@@ -2,11 +2,11 @@
 package "mizchi/npm_typed/valibot"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn any_() -> Schema[@core.Any]
+pub fn any_() -> Schema[@js_core.Any]
 
 pub fn[T] array(Schema[T]) -> Schema[Array[T]]
 
@@ -22,7 +22,7 @@ pub fn includes(String) -> Action
 
 pub fn integer() -> Action
 
-pub fn[T] is_(Schema[T], @core.Any) -> Bool
+pub fn[T] is_(Schema[T], @js_core.Any) -> Bool
 
 pub fn length(Int) -> Action
 
@@ -46,25 +46,25 @@ pub fn number() -> Schema[Int]
 
 pub fn number_double() -> Schema[Double]
 
-pub fn object(@core.Any) -> Schema[@core.Any]
+pub fn object(@js_core.Any) -> Schema[@js_core.Any]
 
-pub fn[T] object_typed(@core.Any) -> Schema[T]
+pub fn[T] object_typed(@js_core.Any) -> Schema[T]
 
 pub fn[T] optional(Schema[T]) -> Schema[T?]
 
-pub fn[T] parse(Schema[T], @core.Any) -> T
+pub fn[T] parse(Schema[T], @js_core.Any) -> T
 
 pub fn picklist(Array[String]) -> Schema[String]
 
 pub fn[T] pipe(Schema[T], Array[Action]) -> Schema[T]
 
-pub fn[V] record(Schema[V]) -> Schema[@core.Any]
+pub fn[V] record(Schema[V]) -> Schema[@js_core.Any]
 
-pub fn regex(@core.Any) -> Action
+pub fn regex(@js_core.Any) -> Action
 
-pub fn[T] safeParse(Schema[T], @core.Any) -> SafeParseResult[T]
+pub fn[T] safeParse(Schema[T], @js_core.Any) -> SafeParseResult[T]
 
-pub fn shape() -> @core.Any
+pub fn shape() -> @js_core.Any
 
 pub fn startsWith(String) -> Action
 
@@ -76,11 +76,11 @@ pub fn toUpperCase() -> Action
 
 pub fn trim() -> Action
 
-pub fn tuple(Array[@core.Any]) -> Schema[@core.Any]
+pub fn tuple(Array[@js_core.Any]) -> Schema[@js_core.Any]
 
-pub fn union(Array[@core.Any]) -> Schema[@core.Any]
+pub fn union(Array[@js_core.Any]) -> Schema[@js_core.Any]
 
-pub fn unknown() -> Schema[@core.Any]
+pub fn unknown() -> Schema[@js_core.Any]
 
 pub fn url() -> Action
 
@@ -91,17 +91,17 @@ pub fn uuid() -> Action
 // Types and methods
 #external
 pub type Action
-pub fn Action::to_any(Self) -> @core.Any
+pub fn Action::to_any(Self) -> @js_core.Any
 
 #external
 pub type Issue
 pub fn Issue::expected(Self) -> String?
-pub fn Issue::input(Self) -> @core.Any
+pub fn Issue::input(Self) -> @js_core.Any
 pub fn Issue::kind(Self) -> String
 pub fn Issue::message(Self) -> String
-pub fn Issue::path(Self) -> @core.Any
+pub fn Issue::path(Self) -> @js_core.Any
 pub fn Issue::received(Self) -> String?
-pub fn Issue::to_any(Self) -> @core.Any
+pub fn Issue::to_any(Self) -> @js_core.Any
 pub fn Issue::type_(Self) -> String
 
 #external
@@ -110,14 +110,13 @@ pub fn[T] SafeParseResult::issues(Self[T]) -> Array[Issue]
 pub fn[T] SafeParseResult::output(Self[T]) -> T
 pub fn[T] SafeParseResult::output_option(Self[T]) -> T?
 pub fn[T] SafeParseResult::success(Self[T]) -> Bool
-pub fn[T] SafeParseResult::to_any(Self[T]) -> @core.Any
+pub fn[T] SafeParseResult::to_any(Self[T]) -> @js_core.Any
 pub fn[T] SafeParseResult::typed(Self[T]) -> Bool
 
 #external
 pub type Schema[_]
-pub fn[T] Schema::to_any(Self[T]) -> @core.Any
+pub fn[T] Schema::to_any(Self[T]) -> @js_core.Any
 
 // Type aliases
 
 // Traits
-

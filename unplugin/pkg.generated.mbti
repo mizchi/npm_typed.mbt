@@ -2,24 +2,24 @@
 package "mizchi/npm_typed/unplugin"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "moonbitlang/core/debug",
 }
 
 // Values
-pub fn[UserOptions] createUnplugin((UserOptions, UnpluginContextMeta) -> @core.Any) -> (UserOptions) -> UnpluginInstance
+pub fn[UserOptions] createUnplugin((UserOptions, UnpluginContextMeta) -> @js_core.Any) -> (UserOptions) -> UnpluginInstance
 
-pub fn createUnpluginSimple((UnpluginContextMeta) -> @core.Any) -> () -> UnpluginInstance
+pub fn createUnpluginSimple((UnpluginContextMeta) -> @js_core.Any) -> () -> UnpluginInstance
 
-pub fn options(name~ : String, enforce? : String, buildStart? : () -> Unit, buildEnd? : () -> Unit, transform? : (String, String) -> String?, transformFilter? : HookFilter, load? : (String) -> String?, loadFilter? : HookFilter, resolveId? : (String, String?, @core.Any) -> String?, watchChange? : (String, @core.Any) -> Unit, writeBundle? : () -> Unit, vite? : @core.Any, rollup? : @core.Any, webpack? : (@core.Any) -> Unit, rspack? : (@core.Any) -> Unit, esbuild? : @core.Any, farm? : @core.Any, rolldown? : @core.Any, bun? : @core.Any) -> @core.Any
+pub fn options(name~ : String, enforce? : String, buildStart? : () -> Unit, buildEnd? : () -> Unit, transform? : (String, String) -> String?, transformFilter? : HookFilter, load? : (String) -> String?, loadFilter? : HookFilter, resolveId? : (String, String?, @js_core.Any) -> String?, watchChange? : (String, @js_core.Any) -> Unit, writeBundle? : () -> Unit, vite? : @js_core.Any, rollup? : @js_core.Any, webpack? : (@js_core.Any) -> Unit, rspack? : (@js_core.Any) -> Unit, esbuild? : @js_core.Any, farm? : @js_core.Any, rolldown? : @js_core.Any, bun? : @js_core.Any) -> @js_core.Any
 
-pub fn resolve_external(String) -> @core.Any
+pub fn resolve_external(String) -> @js_core.Any
 
-pub fn resolve_id(String) -> @core.Any
+pub fn resolve_id(String) -> @js_core.Any
 
-pub fn transform_result(String) -> @core.Any
+pub fn transform_result(String) -> @js_core.Any
 
-pub fn transform_result_with_map(String, @core.Any) -> @core.Any
+pub fn transform_result_with_map(String, @js_core.Any) -> @js_core.Any
 
 // Errors
 
@@ -39,32 +39,32 @@ pub(all) struct HookFilter {
   id : StringFilter?
   code : StringFilter?
 }
-pub fn HookFilter::to_any(Self) -> @core.Any
+pub fn HookFilter::to_any(Self) -> @js_core.Any
 
 pub(all) struct StringFilter {
   includes : Array[String]?
   excludes : Array[String]?
 }
-pub fn StringFilter::to_any(Self) -> @core.Any
+pub fn StringFilter::to_any(Self) -> @js_core.Any
 
 pub(all) struct UnpluginContextMeta {
   framework : Framework
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn UnpluginContextMeta::to_any(Self) -> @core.Any
+pub fn UnpluginContextMeta::to_any(Self) -> @js_core.Any
 
 #external
 pub type UnpluginInstance
-pub fn UnpluginInstance::bun(Self) -> @core.Any
-pub fn UnpluginInstance::esbuild(Self) -> @core.Any
-pub fn UnpluginInstance::farm(Self) -> @core.Any
-pub fn UnpluginInstance::raw(Self) -> @core.Any
-pub fn UnpluginInstance::rolldown(Self) -> @core.Any
-pub fn UnpluginInstance::rollup(Self) -> @core.Any
-pub fn UnpluginInstance::rspack(Self) -> @core.Any
-pub fn UnpluginInstance::to_any(Self) -> @core.Any
-pub fn UnpluginInstance::vite(Self) -> @core.Any
-pub fn UnpluginInstance::webpack(Self) -> @core.Any
+pub fn UnpluginInstance::bun(Self) -> @js_core.Any
+pub fn UnpluginInstance::esbuild(Self) -> @js_core.Any
+pub fn UnpluginInstance::farm(Self) -> @js_core.Any
+pub fn UnpluginInstance::raw(Self) -> @js_core.Any
+pub fn UnpluginInstance::rolldown(Self) -> @js_core.Any
+pub fn UnpluginInstance::rollup(Self) -> @js_core.Any
+pub fn UnpluginInstance::rspack(Self) -> @js_core.Any
+pub fn UnpluginInstance::to_any(Self) -> @js_core.Any
+pub fn UnpluginInstance::vite(Self) -> @js_core.Any
+pub fn UnpluginInstance::webpack(Self) -> @js_core.Any
 
 // Type aliases
 pub type BuildEndHook = () -> Unit
@@ -73,19 +73,18 @@ pub type BuildStartHook = () -> Unit
 
 pub type LoadHook = (String) -> String?
 
-pub type ResolveIdHook = (String, String?, @core.Any) -> String?
+pub type ResolveIdHook = (String, String?, @js_core.Any) -> String?
 
 pub type TransformHook = (String, String) -> String?
 
-pub using @core {type Any as TransformResult}
+pub using @js_core {type Any as TransformResult}
 
-pub type UnpluginFactory[UserOptions] = (UserOptions, UnpluginContextMeta) -> @core.Any
+pub type UnpluginFactory[UserOptions] = (UserOptions, UnpluginContextMeta) -> @js_core.Any
 
-pub using @core {type Any as UnpluginOptions}
+pub using @js_core {type Any as UnpluginOptions}
 
-pub type WatchChangeHook = (String, @core.Any) -> Unit
+pub type WatchChangeHook = (String, @js_core.Any) -> Unit
 
 pub type WriteBundleHook = () -> Unit
 
 // Traits
-

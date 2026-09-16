@@ -76,21 +76,21 @@ pub fn RenderResult::unmount(self : RenderResult) -> Unit {
 /// Get stdin for sending input
 pub fn RenderResult::stdin(self : RenderResult) -> StdinMock {
   let stdin = self.as_any()["stdin"]
-  { raw: stdin }
+  { raw: stdin, }
 }
 
 ///|
 /// Stdout stream access
 pub fn RenderResult::stdout(self : RenderResult) -> StreamOutput {
   let stdout = self.as_any()["stdout"]
-  { raw: stdout }
+  { raw: stdout, }
 }
 
 ///|
 /// Stderr stream access
 pub fn RenderResult::stderr(self : RenderResult) -> StreamOutput {
   let stderr = self.as_any()["stderr"]
-  { raw: stderr }
+  { raw: stderr, }
 }
 
 // ============================================================

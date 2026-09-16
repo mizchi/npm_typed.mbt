@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/vue"
 
 import {
-  "mizchi/js/core",
   "mizchi/js_browser/dom",
+  "mizchi/js_core",
 }
 
 // Values
@@ -14,29 +14,29 @@ pub fn[T] computed(() -> T) -> Ref[T]
 
 pub fn[T] computedWritable(() -> T, (T) -> Unit) -> Ref[T]
 
-pub fn createApp(@core.Any, props? : @core.Any) -> @core.Any
+pub fn createApp(@js_core.Any, props? : @js_core.Any) -> @js_core.Any
 
 pub fn fragment(Array[&VueNode], key? : String) -> VNode
 
 #alias(get_current_instance)
-pub fn getCurrentInstance() -> @core.Any?
+pub fn getCurrentInstance() -> @js_core.Any?
 
-pub fn h(String, Array[&VueNode], props? : Map[String, @core.Any], style? : Map[String, String], ref_? : Ref[@dom.Element], key? : String) -> VNode
+pub fn h(String, Array[&VueNode], props? : Map[String, @js_core.Any], style? : Map[String, String], ref_? : Ref[@dom.Element], key? : String) -> VNode
 
 #deprecated
-pub fn init_vue_ssr(@core.Any) -> Unit
+pub fn init_vue_ssr(@js_core.Any) -> Unit
 
 pub fn[T] inject(String, default_value? : T) -> T
 
-pub fn isReactive(@core.Any) -> Bool
+pub fn isReactive(@js_core.Any) -> Bool
 
-pub fn isReadonly(@core.Any) -> Bool
+pub fn isReadonly(@js_core.Any) -> Bool
 
-pub fn isRef(@core.Any) -> Bool
+pub fn isRef(@js_core.Any) -> Bool
 
 pub fn[T] markRaw(T) -> T
 
-pub fn mount(@core.Any, @dom.Element) -> Unit
+pub fn mount(@js_core.Any, @dom.Element) -> Unit
 
 #alias(next_tick)
 pub async fn nextTick() -> Unit
@@ -60,7 +60,7 @@ pub fn onBeforeUpdate(() -> Unit) -> Unit
 pub fn onDeactivated(() -> Unit) -> Unit
 
 #alias(on_error_captured)
-pub fn onErrorCaptured((@core.Any, @core.Any, String) -> Bool?) -> Unit
+pub fn onErrorCaptured((@js_core.Any, @js_core.Any, String) -> Bool?) -> Unit
 
 #alias(on_mounted)
 pub fn onMounted(() -> Unit) -> Unit
@@ -84,7 +84,7 @@ pub fn render(VNode, @dom.Element) -> Unit
 
 pub async fn renderToStaticMarkup(VNode) -> String
 
-pub fn renderToStream(VNode) -> @core.Any
+pub fn renderToStream(VNode) -> @js_core.Any
 
 pub async fn renderToString(VNode) -> String
 
@@ -96,19 +96,19 @@ pub fn[T] shallowRef(T) -> Ref[T]
 
 pub fn[T] toRaw(T) -> T
 
-pub fn[T] toRef(@core.Any, String) -> Ref[T]
+pub fn[T] toRef(@js_core.Any, String) -> Ref[T]
 
-pub fn toRefs(@core.Any) -> @core.Any
+pub fn toRefs(@js_core.Any) -> @js_core.Any
 
 pub fn[T] triggerRef(Ref[T]) -> Unit
 
 pub fn[T] unref(Ref[T]) -> T
 
 #alias(use_attrs)
-pub fn useAttrs() -> @core.Any
+pub fn useAttrs() -> @js_core.Any
 
 #alias(use_slots)
-pub fn useSlots() -> @core.Any
+pub fn useSlots() -> @js_core.Any
 
 pub fn[T] watch(Ref[T], (T, T) -> Unit, immediate? : Bool, deep? : Bool) -> () -> Unit
 
@@ -122,15 +122,15 @@ pub fn watchSyncEffect(() -> Unit) -> () -> Unit
 
 // Types and methods
 pub(all) struct Ref[T] {
-  value : @core.Any
+  value : @js_core.Any
 }
-pub fn[T] Ref::as_any(Self[T]) -> @core.Any
+pub fn[T] Ref::as_any(Self[T]) -> @js_core.Any
 pub fn[T] Ref::get_value(Self[T]) -> T
 pub fn[T] Ref::set_value(Self[T], T) -> Unit
 
 #external
 pub type VNode
-pub fn VNode::as_any(Self) -> @core.Any
+pub fn VNode::as_any(Self) -> @js_core.Any
 pub impl VueNode for VNode
 
 // Type aliases
@@ -140,7 +140,7 @@ pub type WatchStopHandle = () -> Unit
 
 // Traits
 pub trait VueNode {
-  fn to_vue_node(Self) -> @core.Any
+  fn to_vue_node(Self) -> @js_core.Any
 }
 pub impl VueNode for Bool
 pub impl VueNode for Int
@@ -148,4 +148,3 @@ pub impl VueNode for Double
 pub impl VueNode for String
 pub impl[T : VueNode] VueNode for T?
 pub impl[T : VueNode] VueNode for Array[T]
-

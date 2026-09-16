@@ -14,7 +14,7 @@ pub fn LogicalPosition::to_physical(
   self : LogicalPosition,
   scale_factor : Double,
 ) -> PhysicalPosition {
-  { x: (self.x * scale_factor).to_int(), y: (self.y * scale_factor).to_int() }
+  { x: (self.x * scale_factor).to_int(), y: (self.y * scale_factor).to_int(), }
 }
 
 ///|
@@ -43,7 +43,10 @@ pub fn PhysicalPosition::to_logical(
   self : PhysicalPosition,
   scale_factor : Double,
 ) -> LogicalPosition {
-  { x: self.x.to_double() / scale_factor, y: self.y.to_double() / scale_factor }
+  {
+    x: self.x.to_double() / scale_factor,
+    y: self.y.to_double() / scale_factor,
+  }
 }
 
 ///|

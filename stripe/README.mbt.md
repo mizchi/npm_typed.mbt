@@ -49,7 +49,7 @@ async fn create_checkout {
   let stripe = @stripe.Stripe::new("sk_test_xxx")
   let session = stripe.checkout_sessions_create({
     mode: Subscription,
-    line_items: [{ price: "price_xxx", quantity: 1 }],
+    line_items: [{ price: "price_xxx", quantity: 1, }],
     success_url: "https://example.com/success?session_id={CHECKOUT_SESSION_ID}",
     cancel_url: "https://example.com/cancel",
     customer_email: Some("user@example.com"),
@@ -116,7 +116,7 @@ async fn manage_subscriptions {
   // Create subscription
   let subscription = stripe.subscriptions_create({
     customer: "cus_xxx",
-    items: [{ price: "price_xxx" }],
+    items: [{ price: "price_xxx", }],
   })
 
   // Cancel at period end
@@ -147,7 +147,7 @@ async fn create_product_and_price {
     product: product.id(),
     currency: "usd",
     unit_amount: Some(1999), // $19.99
-    recurring: Some({ interval: Month }),
+    recurring: Some({ interval: Month, }),
   })
 }
 ```
@@ -197,7 +197,7 @@ async fn create_hono_app {
   app.get("/checkout", async fn(c) {
     let session = stripe.checkout_sessions_create({
       mode: Subscription,
-      line_items: [{ price: "price_xxx", quantity: 1 }],
+      line_items: [{ price: "price_xxx", quantity: 1, }],
       success_url: "https://example.com/success",
       cancel_url: "https://example.com/cancel",
     })

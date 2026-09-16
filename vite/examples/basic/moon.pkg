@@ -1,13 +1,11 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
-  "mizchi/js/mbtconv",
+  "mizchi/js_core" @core,
+  "mizchi/js_convert" @mbtconv,
   "mizchi/npm_typed/vite",
-  "mizchi/js/builtins/global",
+  "mizchi/js_builtin/global",
 }
 
 supported_targets = "js"
 
-options(
-  "is-main": true,
-)
+pkgtype(kind: "executable")

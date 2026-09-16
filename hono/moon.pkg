@@ -1,7 +1,7 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
-  "mizchi/js/web/http",
+  "mizchi/js_core" @core,
+  "mizchi/js_web/http",
   "mizchi/npm_typed/better_auth",
 }
 

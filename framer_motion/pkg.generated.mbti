@@ -2,18 +2,18 @@
 package "mizchi/npm_typed/framer_motion"
 
 import {
-  "mizchi/js/core",
   "mizchi/js_browser/dom",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn animate(@core.Any, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+pub fn animate(@js_core.Any, @js_core.Any, options? : @js_core.Any) -> AnimationPlaybackControls
 
-pub fn animate_element(@dom.Element, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+pub fn animate_element(@dom.Element, @js_core.Any, options? : @js_core.Any) -> AnimationPlaybackControls
 
-pub fn animate_html_element(@dom.HTMLElement, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+pub fn animate_html_element(@dom.HTMLElement, @js_core.Any, options? : @js_core.Any) -> AnimationPlaybackControls
 
-pub fn animate_selector(String, @core.Any, options? : @core.Any) -> AnimationPlaybackControls
+pub fn animate_selector(String, @js_core.Any, options? : @js_core.Any) -> AnimationPlaybackControls
 
 pub fn animationControls() -> AnimationControls
 
@@ -23,39 +23,39 @@ pub fn complete(AnimationPlaybackControls) -> Unit
 
 pub fn delay(() -> Unit, Double) -> () -> Unit
 
-pub fn inView(@core.Any, (@core.Any) -> Unit, options? : @core.Any) -> () -> Unit
+pub fn inView(@js_core.Any, (@js_core.Any) -> Unit, options? : @js_core.Any) -> () -> Unit
 
-pub fn inView_element(@dom.Element, (@core.Any) -> Unit, options? : @core.Any) -> () -> Unit
+pub fn inView_element(@dom.Element, (@js_core.Any) -> Unit, options? : @js_core.Any) -> () -> Unit
 
-pub fn inView_selector(String, (@core.Any) -> Unit, options? : @core.Any) -> () -> Unit
+pub fn inView_selector(String, (@js_core.Any) -> Unit, options? : @js_core.Any) -> () -> Unit
 
 pub fn mix(Double, Double, Double) -> Double
 
-pub fn motionValue(@core.Any) -> @core.Any
+pub fn motionValue(@js_core.Any) -> @js_core.Any
 
-pub fn mv_get(@core.Any) -> @core.Any
+pub fn mv_get(@js_core.Any) -> @js_core.Any
 
-pub fn mv_on(@core.Any, String, (@core.Any) -> Unit) -> () -> Unit
+pub fn mv_on(@js_core.Any, String, (@js_core.Any) -> Unit) -> () -> Unit
 
-pub fn mv_set(@core.Any, @core.Any) -> Unit
+pub fn mv_set(@js_core.Any, @js_core.Any) -> Unit
 
 pub fn pause(AnimationPlaybackControls) -> Unit
 
 pub fn play(AnimationPlaybackControls) -> Unit
 
-pub fn scroll((@core.Any) -> Unit) -> () -> Unit
+pub fn scroll((@js_core.Any) -> Unit) -> () -> Unit
 
-pub fn stagger(Double, options? : @core.Any) -> @core.Any
+pub fn stagger(Double, options? : @js_core.Any) -> @js_core.Any
 
-pub fn start(AnimationControls, @core.Any) -> @core.Promise[Unit]
+pub fn start(AnimationControls, @js_core.Any) -> @js_core.Promise[Unit]
 
 pub fn stop(AnimationPlaybackControls) -> Unit
 
 pub fn stop_controls(AnimationControls) -> Unit
 
-pub fn then_(AnimationPlaybackControls, () -> Unit) -> @core.Promise[Unit]
+pub fn then_(AnimationPlaybackControls, () -> Unit) -> @js_core.Promise[Unit]
 
-pub fn transform(@core.Any, Array[Double], Array[@core.Any]) -> @core.Any
+pub fn transform(@js_core.Any, Array[Double], Array[@js_core.Any]) -> @js_core.Any
 
 // Errors
 
@@ -69,4 +69,3 @@ pub type AnimationPlaybackControls
 // Type aliases
 
 // Traits
-

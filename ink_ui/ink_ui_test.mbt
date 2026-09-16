@@ -99,9 +99,9 @@ async test "select component renders with options" {
   let ink_ui = @ink_ui.dynamic_import()
   let testing = @ink.dynamic_import_testing_library().wait()
   let options : Array[@ink_ui.SelectOption] = [
-    { label: "Option A", value: "a" },
-    { label: "Option B", value: "b" },
-    { label: "Option C", value: "c" },
+    { label: "Option A", value: "a", },
+    { label: "Option B", value: "b", },
+    { label: "Option C", value: "c", },
   ]
   let element = ink_ui.select(options)
   let result = testing.render(element)
@@ -204,8 +204,8 @@ async test "select with all options" {
   let ink_ui = @ink_ui.dynamic_import()
   let testing = @ink.dynamic_import_testing_library().wait()
   let options : Array[@ink_ui.SelectOption] = [
-    { label: "First", value: "1" },
-    { label: "Second", value: "2" },
+    { label: "First", value: "1", },
+    { label: "Second", value: "2", },
   ]
   let element = ink_ui.select(
     options,
@@ -223,9 +223,9 @@ async test "multi select component" {
   let ink_ui = @ink_ui.dynamic_import()
   let testing = @ink.dynamic_import_testing_library().wait()
   let options : Array[@ink_ui.SelectOption] = [
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-    { label: "Cherry", value: "cherry" },
+    { label: "Apple", value: "apple", },
+    { label: "Banana", value: "banana", },
+    { label: "Cherry", value: "cherry", },
   ]
   let element = ink_ui.multi_select(
     options,

@@ -2,14 +2,14 @@
 package "mizchi/npm_typed/chokidar"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "moonbitlang/core/debug",
 }
 
 // Values
-pub fn watch(String, persistent? : Bool, ignored? : @core.Any, ignoreInitial? : Bool, followSymlinks? : Bool, cwd? : String, disableGlobbing? : Bool, usePolling? : Bool, interval? : Int, binaryInterval? : Int, alwaysStat? : Bool, depth? : Int, awaitWriteFinish? : @core.Any, ignorePermissionErrors? : Bool, atomic_? : Bool) -> FSWatcher
+pub fn watch(String, persistent? : Bool, ignored? : @js_core.Any, ignoreInitial? : Bool, followSymlinks? : Bool, cwd? : String, disableGlobbing? : Bool, usePolling? : Bool, interval? : Int, binaryInterval? : Int, alwaysStat? : Bool, depth? : Int, awaitWriteFinish? : @js_core.Any, ignorePermissionErrors? : Bool, atomic_? : Bool) -> FSWatcher
 
-pub fn watch_paths(Array[String], persistent? : Bool, ignored? : @core.Any, ignoreInitial? : Bool, followSymlinks? : Bool, cwd? : String, disableGlobbing? : Bool, usePolling? : Bool, interval? : Int, binaryInterval? : Int, alwaysStat? : Bool, depth? : Int, awaitWriteFinish? : @core.Any, ignorePermissionErrors? : Bool, atomic_? : Bool) -> FSWatcher
+pub fn watch_paths(Array[String], persistent? : Bool, ignored? : @js_core.Any, ignoreInitial? : Bool, followSymlinks? : Bool, cwd? : String, disableGlobbing? : Bool, usePolling? : Bool, interval? : Int, binaryInterval? : Int, alwaysStat? : Bool, depth? : Int, awaitWriteFinish? : @js_core.Any, ignorePermissionErrors? : Bool, atomic_? : Bool) -> FSWatcher
 
 // Errors
 
@@ -28,17 +28,17 @@ pub fn EventName::to_string(Self) -> String
 pub type FSWatcher
 pub fn FSWatcher::add(Self, String) -> Self
 pub fn FSWatcher::add_paths(Self, Array[String]) -> Self
-pub fn FSWatcher::as_any(Self) -> @core.Any
+pub fn FSWatcher::as_any(Self) -> @js_core.Any
 pub async fn FSWatcher::close(Self) -> Unit
-pub fn FSWatcher::getWatched(Self) -> @core.Any
-pub fn FSWatcher::off(Self, String, @core.Any) -> Self
-pub fn FSWatcher::on(Self, String, @core.Any) -> Self
-pub fn FSWatcher::on_add(Self, (String, @core.Any) -> Unit) -> Self
-pub fn FSWatcher::on_add_dir(Self, (String, @core.Any) -> Unit) -> Self
-pub fn FSWatcher::on_all(Self, (EventName, String, @core.Any) -> Unit) -> Self
-pub fn FSWatcher::on_all_raw(Self, (String, String, @core.Any) -> Unit) -> Self
-pub fn FSWatcher::on_change(Self, (String, @core.Any) -> Unit) -> Self
-pub fn FSWatcher::on_error(Self, (@core.Any) -> Unit) -> Self
+pub fn FSWatcher::getWatched(Self) -> @js_core.Any
+pub fn FSWatcher::off(Self, String, @js_core.Any) -> Self
+pub fn FSWatcher::on(Self, String, @js_core.Any) -> Self
+pub fn FSWatcher::on_add(Self, (String, @js_core.Any) -> Unit) -> Self
+pub fn FSWatcher::on_add_dir(Self, (String, @js_core.Any) -> Unit) -> Self
+pub fn FSWatcher::on_all(Self, (EventName, String, @js_core.Any) -> Unit) -> Self
+pub fn FSWatcher::on_all_raw(Self, (String, String, @js_core.Any) -> Unit) -> Self
+pub fn FSWatcher::on_change(Self, (String, @js_core.Any) -> Unit) -> Self
+pub fn FSWatcher::on_error(Self, (@js_core.Any) -> Unit) -> Self
 pub fn FSWatcher::on_ready(Self, () -> Unit) -> Self
 pub fn FSWatcher::on_unlink(Self, (String) -> Unit) -> Self
 pub fn FSWatcher::on_unlink_dir(Self, (String) -> Unit) -> Self
@@ -48,4 +48,3 @@ pub fn FSWatcher::unwatch_paths(Self, Array[String]) -> Self
 // Type aliases
 
 // Traits
-

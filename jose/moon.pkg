@@ -1,7 +1,7 @@
 import {
-  "mizchi/js/core",
-  "mizchi/js/web/encoding",
-  "mizchi/js/builtins/arraybuffer",
+  "mizchi/js_core" @core,
+  "mizchi/js_web/encoding",
+  "mizchi/js_builtin/arraybuffer",
 }
 
 import {

@@ -2,68 +2,67 @@
 package "mizchi/npm_typed/lit_html"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn cache(TemplateResult) -> @core.Any
+pub fn cache(TemplateResult) -> @js_core.Any
 
-pub fn choose(@core.Any, Array[(@core.Any, () -> TemplateResult)], defaultCase? : () -> TemplateResult) -> @core.Any
+pub fn choose(@js_core.Any, Array[(@js_core.Any, () -> TemplateResult)], defaultCase? : () -> TemplateResult) -> @js_core.Any
 
-pub fn classMap(@core.Any) -> @core.Any
+pub fn classMap(@js_core.Any) -> @js_core.Any
 
-pub fn createRef() -> @core.Any
+pub fn createRef() -> @js_core.Any
 
-pub fn guard_(Array[@core.Any], () -> TemplateResult) -> @core.Any
+pub fn guard_(Array[@js_core.Any], () -> TemplateResult) -> @js_core.Any
 
-pub fn html(String, args? : Array[@core.Any]) -> TemplateResult
+pub fn html(String, args? : Array[@js_core.Any]) -> TemplateResult
 
-pub fn ifDefined(@core.Any) -> @core.Any
+pub fn ifDefined(@js_core.Any) -> @js_core.Any
 
-pub fn join(Array[@core.Any], @core.Any) -> @core.Any
+pub fn join(Array[@js_core.Any], @js_core.Any) -> @js_core.Any
 
-pub fn keyed(@core.Any, TemplateResult) -> @core.Any
+pub fn keyed(@js_core.Any, TemplateResult) -> @js_core.Any
 
-pub fn live(@core.Any) -> @core.Any
+pub fn live(@js_core.Any) -> @js_core.Any
 
-pub fn map_(Array[@core.Any], (@core.Any, Int) -> TemplateResult) -> @core.Any
+pub fn map_(Array[@js_core.Any], (@js_core.Any, Int) -> TemplateResult) -> @js_core.Any
 
-pub fn noChange() -> @core.Any
+pub fn noChange() -> @js_core.Any
 
-pub fn nothing() -> @core.Any
+pub fn nothing() -> @js_core.Any
 
-pub fn range(Int, end? : Int, step? : Int) -> @core.Any
+pub fn range(Int, end? : Int, step? : Int) -> @js_core.Any
 
-pub fn ref_((@core.Any) -> Unit) -> @core.Any
+pub fn ref_((@js_core.Any) -> Unit) -> @js_core.Any
 
-pub fn render(TemplateResult, @core.Any, host? : @core.Any, renderBefore? : @core.Any, creationScope? : @core.Any) -> @core.Any
+pub fn render(TemplateResult, @js_core.Any, host? : @js_core.Any, renderBefore? : @js_core.Any, creationScope? : @js_core.Any) -> @js_core.Any
 
-pub fn repeat(Array[@core.Any], (@core.Any) -> @core.Any, (@core.Any, Int) -> TemplateResult) -> @core.Any
+pub fn repeat(Array[@js_core.Any], (@js_core.Any) -> @js_core.Any, (@js_core.Any, Int) -> TemplateResult) -> @js_core.Any
 
-pub fn styleMap(@core.Any) -> @core.Any
+pub fn styleMap(@js_core.Any) -> @js_core.Any
 
-pub fn svg(String, args? : Array[@core.Any]) -> SVGTemplateResult
+pub fn svg(String, args? : Array[@js_core.Any]) -> SVGTemplateResult
 
-pub fn unsafeHTML(String) -> @core.Any
+pub fn unsafeHTML(String) -> @js_core.Any
 
-pub fn unsafeSVG(String) -> @core.Any
+pub fn unsafeSVG(String) -> @js_core.Any
 
-pub fn until(Array[@core.Any]) -> @core.Any
+pub fn until(Array[@js_core.Any]) -> @js_core.Any
 
-pub fn when(Bool, () -> TemplateResult, falseCase? : () -> TemplateResult) -> @core.Any
+pub fn when(Bool, () -> TemplateResult, falseCase? : () -> TemplateResult) -> @js_core.Any
 
 // Errors
 
 // Types and methods
 #external
 pub type SVGTemplateResult
-pub fn SVGTemplateResult::to_any(Self) -> @core.Any
+pub fn SVGTemplateResult::to_any(Self) -> @js_core.Any
 
 #external
 pub type TemplateResult
-pub fn TemplateResult::to_any(Self) -> @core.Any
+pub fn TemplateResult::to_any(Self) -> @js_core.Any
 
 // Type aliases
 
 // Traits
-

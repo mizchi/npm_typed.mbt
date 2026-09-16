@@ -1,13 +1,11 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
-  "mizchi/js/web/http",
+  "mizchi/js_core" @core,
+  "mizchi/js_web/http",
   "mizchi/npm_typed/vite",
   "mizchi/npm_typed/hono",
 }
 
 supported_targets = "js"
 
-options(
-  "is-main": true,
-)
+pkgtype(kind: "executable")

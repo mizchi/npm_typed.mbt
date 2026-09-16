@@ -10,7 +10,7 @@ pub struct McpClient {
 
 ///|
 pub fn McpClient::new(endpoint : String) -> McpClient {
-  { server_info: None, request_id: 0, endpoint }
+  { server_info: None, request_id: 0, endpoint, }
 }
 
 ///|
@@ -28,7 +28,7 @@ pub fn McpClient::create_request_with_params(
 ) -> JsonRpcRequest {
   let id = self.next_id()
   // TODO: need Some?
-  { jsonrpc: "2.0", id, method_name, params: Some(params) }
+  { jsonrpc: "2.0", id, method_name, params: Some(params), }
 }
 
 ///|
@@ -38,7 +38,7 @@ pub fn McpClient::create_request(
   method_name : String,
 ) -> JsonRpcRequest {
   let id = self.next_id()
-  { jsonrpc: "2.0", id, method_name, params: None }
+  { jsonrpc: "2.0", id, method_name, params: None, }
 }
 
 ///|

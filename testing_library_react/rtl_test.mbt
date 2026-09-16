@@ -455,7 +455,7 @@ test "renderHook: rerender method" {
   @global_jsdom.register()
   defer @testing_library_react.cleanup()
   // Use a simple hook that doesn't need props
-  let multiplier_ref : Ref[Int] = { val: 2 }
+  let multiplier_ref : Ref[Int] = { val: 2, }
   let hook = fn() {
     let (count, _set_count) = @react.use_state(10)
     count * multiplier_ref.val

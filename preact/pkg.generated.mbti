@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/preact"
 
 import {
-  "mizchi/js/core",
   "mizchi/js_browser/dom",
+  "mizchi/js_core",
 }
 
 // Values
@@ -11,7 +11,7 @@ import {
 pub fn batch(() -> Unit) -> Unit
 
 #alias(clone_element)
-pub fn cloneElement(VNode, props? : @core.Any) -> VNode
+pub fn cloneElement(VNode, props? : @js_core.Any) -> VNode
 
 #alias(c)
 pub fn[T] component((T) -> VNode, T, children? : Array[&PreactNode], key? : String) -> VNode
@@ -25,7 +25,7 @@ pub fn[T] createContext(T?) -> Context[T]
 #alias(create_ref)
 pub fn[T] createRef() -> Ref[T]
 
-pub fn[T] createResource(() -> @core.Promise[T]) -> Resource[T]
+pub fn[T] createResource(() -> @js_core.Promise[T]) -> Resource[T]
 
 #alias(create_effect)
 pub fn effect(() -> Unit) -> () -> Unit
@@ -36,13 +36,13 @@ pub fn effectWithCleanup(() -> () -> Unit) -> () -> Unit
 pub fn fragment(Array[&PreactNode], key? : String) -> VNode
 
 #alias(createElement)
-pub fn h(String, Array[&PreactNode], props? : Map[String, @core.Any], style? : Map[String, String], ref_? : Ref[@dom.Element], key? : String) -> VNode
+pub fn h(String, Array[&PreactNode], props? : Map[String, @js_core.Any], style? : Map[String, String], ref_? : Ref[@dom.Element], key? : String) -> VNode
 
 pub fn hydrate(VNode, @dom.Element) -> Unit
 
-pub fn init_preact_signals(@core.Any) -> Unit
+pub fn init_preact_signals(@js_core.Any) -> Unit
 
-pub fn init_preact_ssr(@core.Any) -> Unit
+pub fn init_preact_ssr(@js_core.Any) -> Unit
 
 pub fn[T] provider(Context[T], Array[&PreactNode], value~ : T) -> VNode
 
@@ -56,12 +56,12 @@ pub async fn renderToStringAsync(VNode) -> String
 pub fn[T] signal(T) -> Signal[T]
 
 #alias(to_child_array)
-pub fn toChildArray(@core.Any) -> Array[VNode]
+pub fn toChildArray(@js_core.Any) -> Array[VNode]
 
 pub fn[T] untracked(() -> T) -> T
 
 #alias(use_callback)
-pub fn[F] useCallback(F, Array[@core.Any]) -> F
+pub fn[F] useCallback(F, Array[@js_core.Any]) -> F
 
 #alias(use_computed)
 pub fn[T] useComputed(() -> T) -> ReadonlySignal[T]
@@ -73,22 +73,22 @@ pub fn[T] useContext(Context[T]) -> T
 pub fn[T] useDebugValue(T) -> Unit
 
 #alias(use_effect)
-pub fn useEffect(() -> () -> Unit, Array[@core.Any]) -> Unit
+pub fn useEffect(() -> () -> Unit, Array[@js_core.Any]) -> Unit
 
 #alias(use_error_boundary)
-pub fn useErrorBoundary(callback? : (@core.Any) -> Unit) -> (@core.Any?, () -> Unit)
+pub fn useErrorBoundary(callback? : (@js_core.Any) -> Unit) -> (@js_core.Any?, () -> Unit)
 
 #alias(use_id)
 pub fn useId() -> String
 
 #alias(use_imperative_handle)
-pub fn[T] useImperativeHandle(Ref[T], () -> T, Array[@core.Any]) -> Unit
+pub fn[T] useImperativeHandle(Ref[T], () -> T, Array[@js_core.Any]) -> Unit
 
 #alias(use_layout_effect)
-pub fn useLayoutEffect(() -> () -> Unit, Array[@core.Any]) -> Unit
+pub fn useLayoutEffect(() -> () -> Unit, Array[@js_core.Any]) -> Unit
 
 #alias(use_memo)
-pub fn[T] useMemo(() -> T, Array[@core.Any]) -> T
+pub fn[T] useMemo(() -> T, Array[@js_core.Any]) -> T
 
 #alias(use_reducer)
 pub fn[T, U] useReducer((T, U) -> T, T) -> (T, (U) -> Unit)
@@ -113,29 +113,29 @@ pub fn[T] useStateLazy(() -> T) -> (T, (T) -> Unit)
 // Types and methods
 #external
 pub type Context[T]
-pub fn[T] Context::as_any(Self[T]) -> @core.Any
+pub fn[T] Context::as_any(Self[T]) -> @js_core.Any
 
 pub(all) struct ReadonlySignal[T] {
   value : T
 }
-pub fn[T] ReadonlySignal::as_any(Self[T]) -> @core.Any
+pub fn[T] ReadonlySignal::as_any(Self[T]) -> @js_core.Any
 pub fn[T] ReadonlySignal::peek(Self[T]) -> T
 pub fn[T] ReadonlySignal::subscribe(Self[T], (T) -> Unit) -> () -> Unit
 
 pub(all) struct Ref[T] {
-  current : @core.Any
+  current : @js_core.Any
 }
-pub fn[T] Ref::as_any(Self[T]) -> @core.Any
+pub fn[T] Ref::as_any(Self[T]) -> @js_core.Any
 pub fn[T] Ref::get_current(Self[T]) -> T?
 pub fn[T] Ref::set_current(Self[T], T?) -> Unit
 
 pub struct Resource[T] {
   data : Signal[T?]
   is_loading : Signal[Bool]
-  error : Signal[@core.Any?]
+  error : Signal[@js_core.Any?]
   refetch : () -> Unit
 }
-pub fn[T] Resource::get_error(Self[T]) -> @core.Any?
+pub fn[T] Resource::get_error(Self[T]) -> @js_core.Any?
 pub fn[T] Resource::has_error(Self[T]) -> Bool
 pub fn[T] Resource::loading(Self[T]) -> Bool
 pub fn[T] Resource::refetch(Self[T]) -> Unit
@@ -145,13 +145,13 @@ pub fn[T] Resource::value(Self[T]) -> T
 pub(all) struct Signal[T] {
   mut value : T
 }
-pub fn[T] Signal::as_any(Self[T]) -> @core.Any
+pub fn[T] Signal::as_any(Self[T]) -> @js_core.Any
 pub fn[T] Signal::peek(Self[T]) -> T
 pub fn[T] Signal::subscribe(Self[T], (T) -> Unit) -> () -> Unit
 
 #external
 pub type VNode
-pub fn VNode::as_any(Self) -> @core.Any
+pub fn VNode::as_any(Self) -> @js_core.Any
 pub impl PreactNode for VNode
 
 // Type aliases
@@ -159,7 +159,7 @@ pub type Component[T] = (T) -> VNode
 
 // Traits
 pub(open) trait PreactNode {
-  fn to_preact_node(Self) -> @core.Any
+  fn to_preact_node(Self) -> @js_core.Any
 }
 pub impl PreactNode for Bool
 pub impl PreactNode for Int
@@ -167,4 +167,3 @@ pub impl PreactNode for Double
 pub impl PreactNode for String
 pub impl[T : PreactNode] PreactNode for T?
 pub impl PreactNode for Array[&PreactNode]
-

@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/stripe"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -26,21 +26,21 @@ pub const EVENT_PAYMENT_INTENT_SUCCEEDED : String = "payment_intent.succeeded"
 
 pub fn checkout_mode_to_string(CheckoutMode) -> String
 
-pub fn checkout_params_to_any(CheckoutSessionCreateParams) -> @core.Any
+pub fn checkout_params_to_any(CheckoutSessionCreateParams) -> @js_core.Any
 
-pub fn customer_create_params_to_any(CustomerCreateParams) -> @core.Any
+pub fn customer_create_params_to_any(CustomerCreateParams) -> @js_core.Any
 
 pub fn price_billing_scheme_to_string(PriceBillingScheme) -> String
 
-pub fn price_create_params_to_any(PriceCreateParams) -> @core.Any
+pub fn price_create_params_to_any(PriceCreateParams) -> @js_core.Any
 
 pub fn price_interval_to_string(PriceInterval) -> String
 
-pub fn product_create_params_to_any(ProductCreateParams) -> @core.Any
+pub fn product_create_params_to_any(ProductCreateParams) -> @js_core.Any
 
-pub fn stripe_config_to_any(StripeConfig) -> @core.Any
+pub fn stripe_config_to_any(StripeConfig) -> @js_core.Any
 
-pub fn subscription_create_params_to_any(SubscriptionCreateParams) -> @core.Any
+pub fn subscription_create_params_to_any(SubscriptionCreateParams) -> @js_core.Any
 
 // Errors
 pub suberror WebhookSignatureVerificationError {
@@ -56,7 +56,7 @@ pub(all) enum CheckoutMode {
 
 #external
 pub type CheckoutSession
-pub fn CheckoutSession::as_any(Self) -> @core.Any
+pub fn CheckoutSession::as_any(Self) -> @js_core.Any
 pub fn CheckoutSession::customer(Self) -> String?
 pub fn CheckoutSession::customer_details(Self) -> CustomerDetails?
 pub fn CheckoutSession::customer_email(Self) -> String?
@@ -78,7 +78,7 @@ pub(all) struct CheckoutSessionCreateParams {
 
 #external
 pub type Customer
-pub fn Customer::as_any(Self) -> @core.Any
+pub fn Customer::as_any(Self) -> @js_core.Any
 pub fn Customer::created(Self) -> Int
 pub fn Customer::email(Self) -> String?
 pub fn Customer::id(Self) -> String
@@ -93,14 +93,14 @@ pub(all) struct CustomerCreateParams {
 
 #external
 pub type CustomerDetails
-pub fn CustomerDetails::as_any(Self) -> @core.Any
+pub fn CustomerDetails::as_any(Self) -> @js_core.Any
 pub fn CustomerDetails::email(Self) -> String?
 pub fn CustomerDetails::name(Self) -> String?
 
 #external
 pub type Event
 pub fn Event::api_version(Self) -> String?
-pub fn Event::as_any(Self) -> @core.Any
+pub fn Event::as_any(Self) -> @js_core.Any
 pub fn Event::created(Self) -> Int
 pub fn Event::data(Self) -> EventData
 pub fn Event::event_type(Self) -> String
@@ -108,9 +108,9 @@ pub fn Event::id(Self) -> String
 
 #external
 pub type EventData
-pub fn EventData::as_any(Self) -> @core.Any
-pub fn EventData::object(Self) -> @core.Any
-pub fn EventData::previous_attributes(Self) -> @core.Any?
+pub fn EventData::as_any(Self) -> @js_core.Any
+pub fn EventData::object(Self) -> @js_core.Any
+pub fn EventData::previous_attributes(Self) -> @js_core.Any?
 
 pub(all) struct LineItem {
   price : String
@@ -120,7 +120,7 @@ pub(all) struct LineItem {
 #external
 pub type Price
 pub fn Price::active(Self) -> Bool
-pub fn Price::as_any(Self) -> @core.Any
+pub fn Price::as_any(Self) -> @js_core.Any
 pub fn Price::currency(Self) -> String
 pub fn Price::id(Self) -> String
 pub fn Price::product(Self) -> String
@@ -155,7 +155,7 @@ pub(all) struct PriceRecurring {
 #external
 pub type Product
 pub fn Product::active(Self) -> Bool
-pub fn Product::as_any(Self) -> @core.Any
+pub fn Product::as_any(Self) -> @js_core.Any
 pub fn Product::description(Self) -> String?
 pub fn Product::id(Self) -> String
 pub fn Product::name(Self) -> String
@@ -169,11 +169,11 @@ pub(all) struct ProductCreateParams {
 
 #external
 pub type Stripe
-pub fn Stripe::as_any(Self) -> @core.Any
+pub fn Stripe::as_any(Self) -> @js_core.Any
 pub async fn Stripe::checkout_sessions_create(Self, CheckoutSessionCreateParams) -> CheckoutSession
 pub async fn Stripe::checkout_sessions_retrieve(Self, String) -> CheckoutSession
 pub async fn Stripe::customers_create(Self, CustomerCreateParams) -> Customer
-pub async fn Stripe::customers_delete(Self, String) -> @core.Any
+pub async fn Stripe::customers_delete(Self, String) -> @js_core.Any
 pub async fn Stripe::customers_retrieve(Self, String) -> Customer
 pub async fn Stripe::customers_update(Self, String, CustomerCreateParams) -> Customer
 pub async fn Stripe::new(String, config? : StripeConfig) -> Self
@@ -196,7 +196,7 @@ pub(all) struct StripeConfig {
 
 #external
 pub type Subscription
-pub fn Subscription::as_any(Self) -> @core.Any
+pub fn Subscription::as_any(Self) -> @js_core.Any
 pub fn Subscription::cancel_at_period_end(Self) -> Bool
 pub fn Subscription::canceled_at(Self) -> Int?
 pub fn Subscription::current_period_end(Self) -> Int
@@ -227,4 +227,3 @@ pub(all) struct SubscriptionUpdateParams {
 // Type aliases
 
 // Traits
-

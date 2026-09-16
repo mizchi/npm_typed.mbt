@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/react_router"
 
 import {
-  "mizchi/js/core",
-  "mizchi/js/web/url",
+  "mizchi/js_core",
+  "mizchi/js_web/url",
   "mizchi/npm_typed/react",
 }
 
@@ -24,7 +24,7 @@ pub fn nav_link(to~ : String, class_name? : String, active_class_name? : String,
 
 pub fn nav_link_render(to~ : String, render~ : (NavLinkRenderProps) -> @react.Element) -> @react.Element
 
-pub fn navigate(to~ : String, replace? : Bool, state? : @core.Any, relative? : String) -> @react.Element
+pub fn navigate(to~ : String, replace? : Bool, state? : @js_core.Any, relative? : String) -> @react.Element
 
 pub fn outlet() -> @react.Element
 
@@ -51,18 +51,18 @@ pub(all) struct Location {
   pathname : String
   search : String
   hash : String
-  state : @core.Any
+  state : @js_core.Any
   key : String
 }
-pub fn Location::as_any(Self) -> @core.Any
+pub fn Location::as_any(Self) -> @js_core.Any
 
 pub(all) struct Match {
   params : Params
   pathname : String
   pathnameBase : String
-  pattern : @core.Any
+  pattern : @js_core.Any
 }
-pub fn Match::as_any(Self) -> @core.Any
+pub fn Match::as_any(Self) -> @js_core.Any
 
 pub(all) struct MemoryRouterOptions {
   initial_entries : Array[String]?
@@ -74,39 +74,39 @@ pub(all) struct NavLinkRenderProps {
   isPending : Bool
   isTransitioning : Bool
 }
-pub fn NavLinkRenderProps::as_any(Self) -> @core.Any
+pub fn NavLinkRenderProps::as_any(Self) -> @js_core.Any
 
-pub(all) struct NavigateFunction((@core.Any, @core.Any?) -> Unit)
+pub(all) struct NavigateFunction((@js_core.Any, @js_core.Any?) -> Unit)
 pub fn NavigateFunction::back(Self) -> Unit
 pub fn NavigateFunction::forward(Self) -> Unit
 pub fn NavigateFunction::go(Self, Int) -> Unit
-pub fn NavigateFunction::to(Self, String, replace? : Bool, state? : @core.Any, relative? : String) -> Unit
+pub fn NavigateFunction::to(Self, String, replace? : Bool, state? : @js_core.Any, relative? : String) -> Unit
 
 pub(all) struct NavigateOptions {
   replace : Bool?
-  state : @core.Any?
+  state : @js_core.Any?
   relative : String?
 }
-pub fn NavigateOptions::as_any(Self) -> @core.Any
+pub fn NavigateOptions::as_any(Self) -> @js_core.Any
 
 pub struct NavigateProps {
   to : String
   replace : Bool?
-  state : @core.Any?
+  state : @js_core.Any?
   relative : String?
 }
-pub fn NavigateProps::as_any(Self) -> @core.Any
+pub fn NavigateProps::as_any(Self) -> @js_core.Any
 
 #external
 pub type Params
-pub fn Params::as_any(Self) -> @core.Any
+pub fn Params::as_any(Self) -> @js_core.Any
 pub fn Params::get(Self, String) -> String?
 
 pub(all) enum Route {
   Component(path~ : String, component~ : (RouteProps) -> @react.Element)
   Element(path~ : String, element~ : @react.Element)
 }
-pub fn Route::as_any(Self) -> @core.Any
+pub fn Route::as_any(Self) -> @js_core.Any
 
 pub(all) struct RouteProps {
   pathname : String
@@ -124,4 +124,3 @@ pub struct RouterProviderProps {
 // Type aliases
 
 // Traits
-

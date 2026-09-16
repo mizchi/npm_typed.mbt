@@ -2,10 +2,10 @@
 package "mizchi/npm_typed/react_dom_static"
 
 import {
-  "mizchi/js/builtins/error",
-  "mizchi/js/core",
-  "mizchi/js/node/stream",
-  "mizchi/js/web/streams",
+  "mizchi/js_builtin/error",
+  "mizchi/js_core",
+  "mizchi/js_node/stream",
+  "mizchi/js_web/streams",
   "mizchi/npm_typed/react",
   "moonbitlang/async/js_async",
 }
@@ -18,17 +18,17 @@ pub async fn dynamic_import() -> ReactDOMStatic
 // Types and methods
 pub struct PrerenderResult {
   prelude : @streams.ReadableStream
-  postponed : @core.Any
+  postponed : @js_core.Any
 }
 
 pub struct PrerenderToNodeStreamResult {
   prelude : @stream.Readable
-  postponed : @core.Any
+  postponed : @js_core.Any
 }
 
 #external
 pub type ReactDOMStatic
-pub fn ReactDOMStatic::as_any(Self) -> @core.Any
+pub fn ReactDOMStatic::as_any(Self) -> @js_core.Any
 pub async fn ReactDOMStatic::prerender(Self, @react.Element, bootstrapScriptContent? : String, bootstrapScripts? : Array[String], bootstrapModules? : Array[String], identifierPrefix? : String, namespaceURI? : String, onError? : (@error.JsError) -> Unit, progressiveChunkSize? : Int, signal? : @js_async.AbortSignal) -> PrerenderResult
 #alias(prerender_to_node_stream)
 pub async fn ReactDOMStatic::prerenderToNodeStream(Self, @react.Element, bootstrapScriptContent? : String, bootstrapScripts? : Array[String], bootstrapModules? : Array[String], identifierPrefix? : String, namespaceURI? : String, onError? : (@error.JsError) -> Unit, progressiveChunkSize? : Int, signal? : @js_async.AbortSignal) -> PrerenderToNodeStreamResult
@@ -36,4 +36,3 @@ pub async fn ReactDOMStatic::prerenderToNodeStream(Self, @react.Element, bootstr
 // Type aliases
 
 // Traits
-

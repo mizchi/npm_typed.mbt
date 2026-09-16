@@ -1,11 +1,11 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
 }
 
 import {
   "moonbitlang/async",
-  "mizchi/js/node/process",
+  "mizchi/js_node/process",
 } for "test"
 
 supported_targets = "js"

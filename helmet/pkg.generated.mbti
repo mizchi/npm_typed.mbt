@@ -2,56 +2,56 @@
 package "mizchi/npm_typed/helmet"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
 #alias(content_security_policy)
-pub fn contentSecurityPolicy(directives? : @core.Any) -> @core.Any
+pub fn contentSecurityPolicy(directives? : @js_core.Any) -> @js_core.Any
 
 #alias(cross_origin_embedder_policy)
-pub fn crossOriginEmbedderPolicy(policy? : String) -> @core.Any
+pub fn crossOriginEmbedderPolicy(policy? : String) -> @js_core.Any
 
 #alias(cross_origin_opener_policy)
-pub fn crossOriginOpenerPolicy(policy? : String) -> @core.Any
+pub fn crossOriginOpenerPolicy(policy? : String) -> @js_core.Any
 
 #alias(cross_origin_resource_policy)
-pub fn crossOriginResourcePolicy(policy? : String) -> @core.Any
+pub fn crossOriginResourcePolicy(policy? : String) -> @js_core.Any
 
 #alias(csp_directives)
-pub fn cspDirectives(defaultSrc? : Array[String], scriptSrc? : Array[String], styleSrc? : Array[String], imgSrc? : Array[String], connectSrc? : Array[String], fontSrc? : Array[String], objectSrc? : Array[String], mediaSrc? : Array[String], frameSrc? : Array[String], baseUri? : Array[String], formAction? : Array[String]) -> @core.Any
+pub fn cspDirectives(defaultSrc? : Array[String], scriptSrc? : Array[String], styleSrc? : Array[String], imgSrc? : Array[String], connectSrc? : Array[String], fontSrc? : Array[String], objectSrc? : Array[String], mediaSrc? : Array[String], frameSrc? : Array[String], baseUri? : Array[String], formAction? : Array[String]) -> @js_core.Any
 
 #alias(dns_prefetch_control)
-pub fn dnsPrefetchControl(allow? : Bool) -> @core.Any
+pub fn dnsPrefetchControl(allow? : Bool) -> @js_core.Any
 
-pub fn frameguard(action? : String) -> @core.Any
+pub fn frameguard(action? : String) -> @js_core.Any
 
-pub fn helmet() -> @core.Any
+pub fn helmet() -> @js_core.Any
 
-pub fn helmetWithOptions(contentSecurityPolicy? : @core.Any, crossOriginEmbedderPolicy? : Bool, crossOriginOpenerPolicy? : @core.Any, crossOriginResourcePolicy? : @core.Any, dnsPrefetchControl? : @core.Any, expectCt? : @core.Any, frameguard? : @core.Any, hidePoweredBy? : Bool, hsts? : @core.Any, ieNoOpen? : Bool, noSniff? : Bool, originAgentCluster? : Bool, permittedCrossDomainPolicies? : @core.Any, referrerPolicy? : @core.Any, xssFilter? : Bool) -> @core.Any
+pub fn helmetWithOptions(contentSecurityPolicy? : @js_core.Any, crossOriginEmbedderPolicy? : Bool, crossOriginOpenerPolicy? : @js_core.Any, crossOriginResourcePolicy? : @js_core.Any, dnsPrefetchControl? : @js_core.Any, expectCt? : @js_core.Any, frameguard? : @js_core.Any, hidePoweredBy? : Bool, hsts? : @js_core.Any, ieNoOpen? : Bool, noSniff? : Bool, originAgentCluster? : Bool, permittedCrossDomainPolicies? : @js_core.Any, referrerPolicy? : @js_core.Any, xssFilter? : Bool) -> @js_core.Any
 
 #alias(hide_powered_by)
-pub fn hidePoweredBy() -> @core.Any
+pub fn hidePoweredBy() -> @js_core.Any
 
-pub fn hsts(maxAge? : Int, includeSubDomains? : Bool, preload? : Bool) -> @core.Any
+pub fn hsts(maxAge? : Int, includeSubDomains? : Bool, preload? : Bool) -> @js_core.Any
 
 #alias(ie_no_open)
-pub fn ieNoOpen() -> @core.Any
+pub fn ieNoOpen() -> @js_core.Any
 
 #alias(no_sniff)
-pub fn noSniff() -> @core.Any
+pub fn noSniff() -> @js_core.Any
 
 #alias(origin_agent_cluster)
-pub fn originAgentCluster() -> @core.Any
+pub fn originAgentCluster() -> @js_core.Any
 
 #alias(permitted_cross_domain_policies)
-pub fn permittedCrossDomainPolicies(permittedPolicies? : String) -> @core.Any
+pub fn permittedCrossDomainPolicies(permittedPolicies? : String) -> @js_core.Any
 
 #alias(referrer_policy)
-pub fn referrerPolicy(policy? : String) -> @core.Any
+pub fn referrerPolicy(policy? : String) -> @js_core.Any
 
 #alias(xss_filter)
-pub fn xssFilter() -> @core.Any
+pub fn xssFilter() -> @js_core.Any
 
 // Errors
 
@@ -60,4 +60,3 @@ pub fn xssFilter() -> @core.Any
 // Type aliases
 
 // Traits
-

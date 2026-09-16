@@ -466,7 +466,7 @@ pub async fn AuthClient::reset_password_for_email(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("resetPasswordForEmail", args)
+    ._call("resetPasswordForEmail", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -509,7 +509,7 @@ pub fn QueryBuilder::select(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("select", args).cast()
+  self.as_any()._call("select", FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -524,7 +524,7 @@ pub fn QueryBuilder::insert(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("insert", args).cast()
+  self.as_any()._call("insert", FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -539,7 +539,7 @@ pub fn QueryBuilder::update(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("update", args).cast()
+  self.as_any()._call("update", FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -554,7 +554,7 @@ pub fn QueryBuilder::upsert(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("upsert", args).cast()
+  self.as_any()._call("upsert", FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -568,7 +568,7 @@ pub fn QueryBuilder::delete(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("delete", args).cast()
+  self.as_any()._call("delete", FixedArray::from_array(args[:])).cast()
 }
 
 // ============================================================
@@ -771,7 +771,7 @@ pub fn FilterBuilder::text_search(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("textSearch", args).cast()
+  self.as_any()._call("textSearch", FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -786,7 +786,7 @@ pub fn FilterBuilder::or(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("or", args).cast()
+  self.as_any()._call("or", FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -956,7 +956,7 @@ pub async fn StorageClient::create_bucket(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("createBucket", args)
+    ._call("createBucket", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -1002,7 +1002,7 @@ pub async fn StorageBucket::upload(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("upload", args)
+    ._call("upload", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -1021,7 +1021,7 @@ pub async fn StorageBucket::download(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("download", args)
+    ._call("download", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -1038,7 +1038,9 @@ pub fn StorageBucket::get_public_url(
     Some(opts) => args.push(opts)
     None => ()
   }
-  let result = self.as_any()._call("getPublicUrl", args)
+  let result = self
+    .as_any()
+    ._call("getPublicUrl", FixedArray::from_array(args[:]))
   let public_url : String = result["data"]["publicUrl"].cast()
   public_url
 }
@@ -1058,7 +1060,7 @@ pub async fn StorageBucket::create_signed_url(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("createSignedUrl", args)
+    ._call("createSignedUrl", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -1081,7 +1083,7 @@ pub async fn StorageBucket::list(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("list", args)
+    ._call("list", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -1114,7 +1116,7 @@ pub async fn StorageBucket::move_(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("move", args)
+    ._call("move", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -1134,7 +1136,7 @@ pub async fn StorageBucket::copy(
   }
   let promise : @js.Promise[@core.Any] = self
     .as_any()
-    ._call("copy", args)
+    ._call("copy", FixedArray::from_array(args[:]))
     .cast()
   promise.wait()
 }
@@ -1155,7 +1157,7 @@ pub fn SupabaseClient::channel(
     Some(opts) => args.push(opts)
     None => ()
   }
-  self.as_any()._call("channel", args).cast()
+  self.as_any()._call("channel", FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -1315,7 +1317,9 @@ pub async fn SupabaseClient::invoke(
     None => ()
   }
   let functions = self.as_any()["functions"]
-  let promise : @js.Promise[@core.Any] = functions._call("invoke", args).cast()
+  let promise : @js.Promise[@core.Any] = functions
+    ._call("invoke", FixedArray::from_array(args[:]))
+    .cast()
   promise.wait()
 }
 
@@ -1340,7 +1344,7 @@ pub async fn SupabaseClient::rpc(
     Some(opts) => call_args.push(opts)
     None => ()
   }
-  let builder = self.as_any()._call("rpc", call_args)
+  let builder = self.as_any()._call("rpc", FixedArray::from_array(call_args[:]))
   let promise : @js.Promise[@core.Any] = builder.cast()
   promise.wait().cast()
 }

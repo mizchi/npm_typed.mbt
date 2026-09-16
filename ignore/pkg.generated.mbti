@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/ignore"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -18,20 +18,19 @@ pub type Ignore
 pub fn Ignore::add(Self, String) -> Self
 pub fn Ignore::addFromContent(Self, String) -> Self
 pub fn Ignore::addPatterns(Self, Array[String]) -> Self
-pub fn Ignore::as_any(Self) -> @core.Any
-pub fn Ignore::createFilter(Self) -> @core.Any
+pub fn Ignore::as_any(Self) -> @js_core.Any
+pub fn Ignore::createFilter(Self) -> @js_core.Any
 pub fn Ignore::filter(Self, Array[String]) -> Array[String]
 pub fn Ignore::ignores(Self, String) -> Bool
 pub fn Ignore::testPath(Self, String) -> TestResult
 
 #external
 pub type TestResult
-pub fn TestResult::as_any(Self) -> @core.Any
+pub fn TestResult::as_any(Self) -> @js_core.Any
 pub fn TestResult::ignored(Self) -> Bool
-pub fn TestResult::rule(Self) -> @core.Any
+pub fn TestResult::rule(Self) -> @js_core.Any
 pub fn TestResult::unignored(Self) -> Bool
 
 // Type aliases
 
 // Traits
-

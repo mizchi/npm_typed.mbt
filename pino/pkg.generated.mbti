@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/pino"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -27,26 +27,25 @@ pub fn Level::to_string(Self) -> String
 
 #external
 pub type Logger
-pub fn Logger::as_any(Self) -> @core.Any
-pub fn Logger::child(Self, @core.Any) -> Self
+pub fn Logger::as_any(Self) -> @js_core.Any
+pub fn Logger::child(Self, @js_core.Any) -> Self
 pub fn Logger::debug(Self, String) -> Unit
-pub fn Logger::debug_obj(Self, @core.Any, String) -> Unit
+pub fn Logger::debug_obj(Self, @js_core.Any, String) -> Unit
 pub fn Logger::error(Self, String) -> Unit
-pub fn Logger::error_obj(Self, @core.Any, String) -> Unit
+pub fn Logger::error_obj(Self, @js_core.Any, String) -> Unit
 pub fn Logger::fatal(Self, String) -> Unit
-pub fn Logger::fatal_obj(Self, @core.Any, String) -> Unit
+pub fn Logger::fatal_obj(Self, @js_core.Any, String) -> Unit
 pub fn Logger::flush(Self) -> Unit
 pub fn Logger::info(Self, String) -> Unit
-pub fn Logger::info_obj(Self, @core.Any, String) -> Unit
+pub fn Logger::info_obj(Self, @js_core.Any, String) -> Unit
 pub fn Logger::is_level_enabled(Self, Level) -> Bool
 pub fn Logger::level(Self) -> String
 pub fn Logger::set_level(Self, Level) -> Unit
 pub fn Logger::trace(Self, String) -> Unit
-pub fn Logger::trace_obj(Self, @core.Any, String) -> Unit
+pub fn Logger::trace_obj(Self, @js_core.Any, String) -> Unit
 pub fn Logger::warn(Self, String) -> Unit
-pub fn Logger::warn_obj(Self, @core.Any, String) -> Unit
+pub fn Logger::warn_obj(Self, @js_core.Any, String) -> Unit
 
 // Type aliases
 
 // Traits
-

@@ -206,7 +206,7 @@ extern "js" fn ffi_checkout_sessions_retrieve(
 /// ```moonbit no-check
 /// let session = stripe.checkout_sessions_create({
 ///   mode: Subscription,
-///   line_items: [{ price: "price_xxx", quantity: 1 }],
+///   line_items: [{ price: "price_xxx", quantity: 1, }],
 ///   success_url: "https://example.com/success?session_id={CHECKOUT_SESSION_ID}",
 ///   cancel_url: "https://example.com/cancel",
 /// })

@@ -2,18 +2,18 @@
 package "mizchi/npm_typed/testing_library_react"
 
 import {
-  "mizchi/js/core",
   "mizchi/js_browser/dom",
+  "mizchi/js_core",
   "mizchi/npm_typed/react",
   "mizchi/npm_typed/testing_library",
 }
 
 // Values
-pub fn act(() -> Unit) -> @core.Any
+pub fn act(() -> Unit) -> @js_core.Any
 
 pub fn cleanup() -> Unit
 
-pub fn configure(@core.Any) -> Unit
+pub fn configure(@js_core.Any) -> Unit
 
 pub fn expect(@testing_library.ScreenResult) -> Expect
 
@@ -22,7 +22,7 @@ pub fn fireEvent() -> @testing_library.FireEvent
 
 pub fn render(@react.Element) -> RenderResult
 
-pub fn renderHook(@core.Any) -> RenderHookResult
+pub fn renderHook(@js_core.Any) -> RenderHookResult
 
 pub fn screen() -> @testing_library.Screen
 
@@ -84,19 +84,19 @@ pub fn Expect::toHaveValue(Self, String) -> Unit raise ExpectError
 
 #external
 pub type ReactTestingLibrary
-pub fn ReactTestingLibrary::as_any(Self) -> @core.Any
+pub fn ReactTestingLibrary::as_any(Self) -> @js_core.Any
 
 #external
 pub type RenderHookResult
-pub fn RenderHookResult::as_any(Self) -> @core.Any
-pub fn RenderHookResult::rerender(Self, @core.Any) -> Unit
-pub fn RenderHookResult::result(Self) -> @core.Any
+pub fn RenderHookResult::as_any(Self) -> @js_core.Any
+pub fn RenderHookResult::rerender(Self, @js_core.Any) -> Unit
+pub fn RenderHookResult::result(Self) -> @js_core.Any
 pub fn RenderHookResult::unmount(Self) -> Unit
 
 #external
 pub type RenderResult
-pub fn RenderResult::asFragment(Self) -> @core.Any
-pub fn RenderResult::as_any(Self) -> @core.Any
+pub fn RenderResult::asFragment(Self) -> @js_core.Any
+pub fn RenderResult::as_any(Self) -> @js_core.Any
 pub fn RenderResult::baseElement(Self) -> @dom.HTMLElement
 pub fn RenderResult::container(Self) -> @dom.HTMLElement
 pub fn RenderResult::debug(Self) -> Unit
@@ -106,4 +106,3 @@ pub fn RenderResult::unmount(Self) -> Unit
 // Type aliases
 
 // Traits
-

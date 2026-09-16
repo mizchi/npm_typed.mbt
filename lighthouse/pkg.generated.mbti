@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/lighthouse"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "mizchi/npm_typed/puppeteer",
 }
 
@@ -11,15 +11,15 @@ pub let accessibility_only : Array[String]
 
 pub let all_categories : Array[String]
 
-pub fn desktop_config() -> @core.Any
+pub fn desktop_config() -> @js_core.Any
 
-pub fn mobile_config() -> @core.Any
+pub fn mobile_config() -> @js_core.Any
 
 pub let performance_only : Array[String]
 
-pub async fn run(String, page? : @puppeteer.Page, flags? : LighthouseFlags, config? : @core.Any) -> RunnerResult
+pub async fn run(String, page? : @puppeteer.Page, flags? : LighthouseFlags, config? : @js_core.Any) -> RunnerResult
 
-pub async fn run_with_port(String, Int, flags? : LighthouseFlags, config? : @core.Any) -> RunnerResult
+pub async fn run_with_port(String, Int, flags? : LighthouseFlags, config? : @js_core.Any) -> RunnerResult
 
 // Errors
 
@@ -34,7 +34,7 @@ pub fn Audit::numericValue(Self) -> Double?
 pub fn Audit::score(Self) -> Double?
 pub fn Audit::scoreDisplayMode(Self) -> String
 pub fn Audit::title(Self) -> String
-pub fn Audit::to_any(Self) -> @core.Any
+pub fn Audit::to_any(Self) -> @js_core.Any
 
 #external
 pub type Categories
@@ -43,7 +43,7 @@ pub fn Categories::bestPractices(Self) -> Category?
 pub fn Categories::performance(Self) -> Category?
 pub fn Categories::pwa(Self) -> Category?
 pub fn Categories::seo(Self) -> Category?
-pub fn Categories::to_any(Self) -> @core.Any
+pub fn Categories::to_any(Self) -> @js_core.Any
 
 #external
 pub type Category
@@ -51,7 +51,7 @@ pub fn Category::id(Self) -> String
 pub fn Category::score(Self) -> Double
 pub fn Category::scorePercent(Self) -> Int
 pub fn Category::title(Self) -> String
-pub fn Category::to_any(Self) -> @core.Any
+pub fn Category::to_any(Self) -> @js_core.Any
 
 pub(all) struct LighthouseFlags {
   logLevel : String?
@@ -61,37 +61,36 @@ pub(all) struct LighthouseFlags {
   onlyAudits : Array[String]?
   port : Int?
   formFactor : String?
-  screenEmulation : @core.Any?
-  throttling : @core.Any?
+  screenEmulation : @js_core.Any?
+  throttling : @js_core.Any?
   throttlingMethod : String?
-  extraHeaders : @core.Any?
+  extraHeaders : @js_core.Any?
   maxWaitForLoad : Int?
   disableStorageReset : Bool?
 }
-pub fn LighthouseFlags::new(logLevel? : String, output? : String, onlyCategories? : Array[String], skipAudits? : Array[String], onlyAudits? : Array[String], port? : Int, formFactor? : String, screenEmulation? : @core.Any, throttling? : @core.Any, throttlingMethod? : String, extraHeaders? : @core.Any, maxWaitForLoad? : Int, disableStorageReset? : Bool) -> Self
-pub fn LighthouseFlags::to_any(Self) -> @core.Any
+pub fn LighthouseFlags::new(logLevel? : String, output? : String, onlyCategories? : Array[String], skipAudits? : Array[String], onlyAudits? : Array[String], port? : Int, formFactor? : String, screenEmulation? : @js_core.Any, throttling? : @js_core.Any, throttlingMethod? : String, extraHeaders? : @js_core.Any, maxWaitForLoad? : Int, disableStorageReset? : Bool) -> Self
+pub fn LighthouseFlags::to_any(Self) -> @js_core.Any
 
 #external
 pub type LighthouseResult
 pub fn LighthouseResult::audit(Self, String) -> Audit?
-pub fn LighthouseResult::audits(Self) -> @core.Any
+pub fn LighthouseResult::audits(Self) -> @js_core.Any
 pub fn LighthouseResult::categories(Self) -> Categories
 pub fn LighthouseResult::fetchTime(Self) -> String
 pub fn LighthouseResult::finalDisplayedUrl(Self) -> String
 pub fn LighthouseResult::finalUrl(Self) -> String
 pub fn LighthouseResult::lighthouseVersion(Self) -> String
 pub fn LighthouseResult::requestedUrl(Self) -> String
-pub fn LighthouseResult::to_any(Self) -> @core.Any
+pub fn LighthouseResult::to_any(Self) -> @js_core.Any
 pub fn LighthouseResult::userAgent(Self) -> String
 
 #external
 pub type RunnerResult
-pub fn RunnerResult::artifacts(Self) -> @core.Any
+pub fn RunnerResult::artifacts(Self) -> @js_core.Any
 pub fn RunnerResult::lhr(Self) -> LighthouseResult
 pub fn RunnerResult::report(Self) -> String
-pub fn RunnerResult::to_any(Self) -> @core.Any
+pub fn RunnerResult::to_any(Self) -> @js_core.Any
 
 // Type aliases
 
 // Traits
-

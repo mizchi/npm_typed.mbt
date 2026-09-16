@@ -2,14 +2,14 @@
 package "mizchi/npm_typed/ink"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "mizchi/npm_typed/react",
 }
 
 // Values
-pub fn dynamic_import() -> @core.Promise[Ink]
+pub fn dynamic_import() -> @js_core.Promise[Ink]
 
-pub fn dynamic_import_testing_library() -> @core.Promise[InkTestingLibrary]
+pub fn dynamic_import_testing_library() -> @js_core.Promise[InkTestingLibrary]
 
 // Errors
 
@@ -66,12 +66,12 @@ pub fn FlexWrapMode::to_string(Self) -> String
 
 #external
 pub type Ink
-pub fn Ink::as_any(Self) -> @core.Any
+pub fn Ink::as_any(Self) -> @js_core.Any
 pub fn Ink::box_(Self, Array[&@react.ReactNode], width? : Int, height? : Int, min_width? : Int, min_height? : Int, padding? : Int, padding_x? : Int, padding_y? : Int, padding_top? : Int, padding_bottom? : Int, padding_left? : Int, padding_right? : Int, margin? : Int, margin_x? : Int, margin_y? : Int, margin_top? : Int, margin_bottom? : Int, margin_left? : Int, margin_right? : Int, flex_direction? : FlexDirection, flex_grow? : Int, flex_shrink? : Int, flex_basis? : Int, flex_wrap? : FlexWrapMode, justify_content? : JustifyContent, align_items? : AlignItems, align_self? : AlignSelf, border_style? : BorderStyle, border_color? : String, border_top? : Bool, border_bottom? : Bool, border_left? : Bool, border_right? : Bool, border_top_color? : String, border_bottom_color? : String, border_left_color? : String, border_right_color? : String, overflow? : Overflow, display? : Display, gap? : Int, column_gap? : Int, row_gap? : Int) -> @react.Element
 pub fn Ink::newline(Self, count? : Int) -> @react.Element
-pub fn Ink::render(Self, @react.Element, stdout? : @core.Any, stdin? : @core.Any, stderr? : @core.Any, debug? : Bool, exitOnCtrlC? : Bool, patchConsole? : Bool, incrementalRendering? : Bool, maxFps? : Int, onRender? : () -> Unit) -> InkInstance
+pub fn Ink::render(Self, @react.Element, stdout? : @js_core.Any, stdin? : @js_core.Any, stderr? : @js_core.Any, debug? : Bool, exitOnCtrlC? : Bool, patchConsole? : Bool, incrementalRendering? : Bool, maxFps? : Int, onRender? : () -> Unit) -> InkInstance
 pub fn Ink::spacer(Self) -> @react.Element
-pub fn Ink::static_(Self, Array[&@react.ReactNode], items? : Array[@core.Any]) -> @react.Element
+pub fn Ink::static_(Self, Array[&@react.ReactNode], items? : Array[@js_core.Any]) -> @react.Element
 pub fn Ink::text(Self, Array[&@react.ReactNode], color? : String, background_color? : String, bold? : Bool, italic? : Bool, underline? : Bool, strikethrough? : Bool, inverse? : Bool, dim_color? : Bool, wrap? : TextWrap) -> @react.Element
 pub fn Ink::transform(Self, Array[&@react.ReactNode], (String) -> String) -> @react.Element
 pub fn Ink::useApp(Self) -> UseAppResult
@@ -84,7 +84,7 @@ pub fn Ink::useStdout(Self) -> UseStdoutResult
 
 #external
 pub type InkInstance
-pub fn InkInstance::as_any(Self) -> @core.Any
+pub fn InkInstance::as_any(Self) -> @js_core.Any
 pub fn InkInstance::clear(Self) -> Unit
 pub fn InkInstance::rerender(Self, @react.Element) -> Unit
 pub fn InkInstance::unmount(Self) -> Unit
@@ -92,7 +92,7 @@ pub async fn InkInstance::waitUntilExit(Self) -> Unit
 
 #external
 pub type InkTestingLibrary
-pub fn InkTestingLibrary::as_any(Self) -> @core.Any
+pub fn InkTestingLibrary::as_any(Self) -> @js_core.Any
 pub fn InkTestingLibrary::render(Self, @react.Element) -> RenderResult
 
 pub(all) enum JustifyContent {
@@ -130,7 +130,7 @@ pub fn Overflow::to_string(Self) -> String
 
 #external
 pub type RenderResult
-pub fn RenderResult::as_any(Self) -> @core.Any
+pub fn RenderResult::as_any(Self) -> @js_core.Any
 pub fn RenderResult::frames(Self) -> Array[String]
 pub fn RenderResult::lastFrame(Self) -> String
 pub fn RenderResult::rerender(Self, @react.Element) -> Unit
@@ -140,12 +140,12 @@ pub fn RenderResult::stdout(Self) -> StreamOutput
 pub fn RenderResult::unmount(Self) -> Unit
 
 pub(all) struct StdinMock {
-  raw : @core.Any
+  raw : @js_core.Any
 }
 pub fn StdinMock::write(Self, String) -> Unit
 
 pub(all) struct StreamOutput {
-  raw : @core.Any
+  raw : @js_core.Any
 }
 pub fn StreamOutput::frames(Self) -> Array[String]
 pub fn StreamOutput::lastFrame(Self) -> String
@@ -160,12 +160,12 @@ pub(all) enum TextWrap {
 pub fn TextWrap::to_string(Self) -> String
 
 pub(all) struct UseAppResult {
-  exit_fn : @core.Any
+  exit_fn : @js_core.Any
 }
-pub fn UseAppResult::exit(Self, error? : @core.Any) -> Unit
+pub fn UseAppResult::exit(Self, error? : @js_core.Any) -> Unit
 
 pub(all) struct UseFocusManagerResult {
-  raw : @core.Any
+  raw : @js_core.Any
 }
 pub fn UseFocusManagerResult::disableFocus(Self) -> Unit
 pub fn UseFocusManagerResult::enableFocus(Self) -> Unit
@@ -188,25 +188,24 @@ pub(all) struct UseInputOptions {
 }
 
 pub(all) struct UseStderrResult {
-  stderr : @core.Any
-  write_fn : @core.Any
+  stderr : @js_core.Any
+  write_fn : @js_core.Any
 }
 pub fn UseStderrResult::write(Self, String) -> Unit
 
 pub(all) struct UseStdinResult {
-  stdin : @core.Any
+  stdin : @js_core.Any
   is_raw_mode_supported : Bool
-  set_raw_mode_fn : @core.Any
+  set_raw_mode_fn : @js_core.Any
 }
 pub fn UseStdinResult::setRawMode(Self, Bool) -> Unit
 
 pub(all) struct UseStdoutResult {
-  stdout : @core.Any
-  write_fn : @core.Any
+  stdout : @js_core.Any
+  write_fn : @js_core.Any
 }
 pub fn UseStdoutResult::write(Self, String) -> Unit
 
 // Type aliases
 
 // Traits
-

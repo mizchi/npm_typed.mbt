@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/playwright_test"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "mizchi/npm_typed/playwright",
 }
 
@@ -18,8 +18,8 @@ pub fn test_fn() -> Test
 pub type Expect
 pub fn Expect::locator(Self, @playwright.Locator) -> LocatorAssertions
 pub fn Expect::page(Self, @playwright.Page) -> PageAssertions
-pub fn Expect::to_any(Self) -> @core.Any
-pub fn Expect::value(Self, @core.Any) -> @core.Any
+pub fn Expect::to_any(Self) -> @js_core.Any
+pub fn Expect::value(Self, @js_core.Any) -> @js_core.Any
 
 #external
 pub type LocatorAssertions
@@ -37,28 +37,28 @@ pub async fn LocatorAssertions::toHaveClass(Self, String, timeout? : Int) -> Uni
 pub async fn LocatorAssertions::toHaveCount(Self, Int, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toHaveText(Self, String, ignoreCase? : Bool, timeout? : Int) -> Unit
 pub async fn LocatorAssertions::toHaveValue(Self, String, timeout? : Int) -> Unit
-pub fn LocatorAssertions::to_any(Self) -> @core.Any
+pub fn LocatorAssertions::to_any(Self) -> @js_core.Any
 
 #external
 pub type PageAssertions
 pub fn PageAssertions::not_(Self) -> Self
 pub async fn PageAssertions::toHaveTitle(Self, String, timeout? : Int) -> Unit
 pub async fn PageAssertions::toHaveURL(Self, String, timeout? : Int) -> Unit
-pub fn PageAssertions::to_any(Self) -> @core.Any
+pub fn PageAssertions::to_any(Self) -> @js_core.Any
 
 #external
 pub type Test
-pub fn Test::afterAll(Self, @core.Any) -> Unit
-pub fn Test::afterEach(Self, @core.Any) -> Unit
-pub fn Test::beforeAll(Self, @core.Any) -> Unit
-pub fn Test::beforeEach(Self, @core.Any) -> Unit
-pub fn Test::describe(Self, String, @core.Any) -> Unit
-pub fn Test::run(Self, String, @core.Any) -> Unit
+pub fn Test::afterAll(Self, @js_core.Any) -> Unit
+pub fn Test::afterEach(Self, @js_core.Any) -> Unit
+pub fn Test::beforeAll(Self, @js_core.Any) -> Unit
+pub fn Test::beforeEach(Self, @js_core.Any) -> Unit
+pub fn Test::describe(Self, String, @js_core.Any) -> Unit
+pub fn Test::run(Self, String, @js_core.Any) -> Unit
 pub fn Test::setTimeout(Self, Int) -> Unit
 pub fn Test::skip(Self, condition? : Bool) -> Unit
 pub fn Test::slow(Self) -> Unit
-pub fn Test::to_any(Self) -> @core.Any
-pub fn Test::use_options(Self, @core.Any) -> Unit
+pub fn Test::to_any(Self) -> @js_core.Any
+pub fn Test::use_options(Self, @js_core.Any) -> Unit
 
 #external
 pub type TestInfo
@@ -73,9 +73,8 @@ pub fn TestInfo::slow(Self) -> Unit
 pub fn TestInfo::status(Self) -> String?
 pub fn TestInfo::timeout(Self) -> Int
 pub fn TestInfo::title(Self) -> String
-pub fn TestInfo::to_any(Self) -> @core.Any
+pub fn TestInfo::to_any(Self) -> @js_core.Any
 
 // Type aliases
 
 // Traits
-

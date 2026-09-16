@@ -120,7 +120,7 @@ async fn example_tools(model : @ai.Model) -> Unit {
       "required": ["location"],
     },
     fn(input : WeatherInput) -> WeatherOutput {
-      { location: input.location, temperature: 22, condition: "sunny" }
+      { location: input.location, temperature: 22, condition: "sunny", }
     },
   )
   let tools = @ai.Tools::new().add("getWeather", weather_tool)

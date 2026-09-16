@@ -16,7 +16,7 @@ pub(all) struct OpenAIOptions {
 ///|
 /// Create default OpenAI options
 pub fn OpenAIOptions::default() -> OpenAIOptions {
-  { api_key: None, base_url: None, organization: None }
+  { api_key: None, base_url: None, organization: None, }
 }
 
 ///|
@@ -95,7 +95,7 @@ pub(all) struct AnthropicOptions {
 ///|
 /// Create default Anthropic options
 pub fn AnthropicOptions::default() -> AnthropicOptions {
-  { api_key: None, base_url: None }
+  { api_key: None, base_url: None, }
 }
 
 ///|
@@ -179,7 +179,7 @@ pub(all) struct GoogleOptions {
 ///|
 /// Create default Google options
 pub fn GoogleOptions::default() -> GoogleOptions {
-  { api_key: None, base_url: None }
+  { api_key: None, base_url: None, }
 }
 
 ///|

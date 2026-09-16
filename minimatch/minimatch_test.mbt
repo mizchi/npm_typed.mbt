@@ -21,7 +21,7 @@ test "minimatch with dot option" {
   // Without dot option, dotfiles don't match
   inspect(minimatch(".gitignore", "*"), content="false")
   // With dot option, dotfiles match
-  let opts = MinimatchOptions::{ ..MinimatchOptions::default(), dot: true }
+  let opts = MinimatchOptions::{ ..MinimatchOptions::default(), dot: true, }
   inspect(minimatch_with_options(".gitignore", "*", opts), content="true")
 }
 
@@ -43,7 +43,7 @@ test "minimatch with matchBase option" {
 ///|
 test "minimatch with nocase option" {
   inspect(minimatch("FOO.JS", "*.js"), content="false")
-  let opts = MinimatchOptions::{ ..MinimatchOptions::default(), nocase: true }
+  let opts = MinimatchOptions::{ ..MinimatchOptions::default(), nocase: true, }
   inspect(minimatch_with_options("FOO.JS", "*.js", opts), content="true")
 }
 

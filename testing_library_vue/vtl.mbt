@@ -69,7 +69,7 @@ pub fn RenderResult::baseElement(self : RenderResult) -> @dom.HTMLElement {
 ///|
 /// JS: result.debug()
 pub fn RenderResult::debug(self : RenderResult) -> Unit {
-  self.as_any()._call("debug", ([] : Array[@core.Any])) |> ignore
+  self.as_any()._call("debug", []) |> ignore
 }
 
 ///|
@@ -81,20 +81,20 @@ pub fn RenderResult::rerender(self : RenderResult, props : @core.Any) -> Unit {
 ///|
 /// JS: result.unmount()
 pub fn RenderResult::unmount(self : RenderResult) -> Unit {
-  self.as_any()._call("unmount", ([] : Array[@core.Any])) |> ignore
+  self.as_any()._call("unmount", []) |> ignore
 }
 
 ///|
 /// JS: result.html()
 pub fn RenderResult::html(self : RenderResult) -> String {
-  self.as_any()._call("html", ([] : Array[@core.Any])).cast()
+  self.as_any()._call("html", []).cast()
 }
 
 ///|
 /// JS: cleanup()
 pub fn cleanup() -> Unit {
   let vtl = testing_library()
-  vtl.as_any()._call("cleanup", ([] : Array[@core.Any])) |> ignore
+  vtl.as_any()._call("cleanup", []) |> ignore
 }
 
 ///|

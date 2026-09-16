@@ -1,11 +1,11 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
-  "mizchi/js/builtins/symbol",
-  "mizchi/js/mbtconv",
-  "mizchi/js/node",
-  "mizchi/js/builtins/reflect",
-  "mizchi/js/builtins/iterator",
+  "mizchi/js_core" @core,
+  "mizchi/js_builtin/symbol",
+  "mizchi/js_convert" @mbtconv,
+  "mizchi/js_node" @node,
+  "mizchi/js_builtin/reflect",
+  "mizchi/js_builtin/iterator",
   "moonbitlang/async",
 }
 

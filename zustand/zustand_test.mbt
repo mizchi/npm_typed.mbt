@@ -10,7 +10,7 @@ test "createStore - struct state" {
     _get,
     _api,
   ) {
-    { count: 0 }
+    { count: 0, }
   })
   let state = @zustand.getState(store)
   inspect(state.count, content="0")
@@ -23,9 +23,9 @@ test "replaceState - direct state" {
     _get,
     _api,
   ) {
-    { count: 0 }
+    { count: 0, }
   })
-  @zustand.replaceState(store, { count: 5 })
+  @zustand.replaceState(store, { count: 5, })
   let state = @zustand.getState(store)
   inspect(state.count, content="5")
 }
@@ -37,9 +37,9 @@ test "setState - updater function" {
     _get,
     _api,
   ) {
-    { count: 10 }
+    { count: 10, }
   })
-  @zustand.setState(store, fn(prev) { { count: prev.count + 1 } })
+  @zustand.setState(store, fn(prev) { { count: prev.count + 1, } })
   let state = @zustand.getState(store)
   inspect(state.count, content="11")
 }
@@ -51,13 +51,13 @@ test "subscribe - struct state changes" {
     _get,
     _api,
   ) {
-    { count: 0 }
+    { count: 0, }
   })
   let mut received = 0
   let unsub = @zustand.subscribe(store, fn(state, _prev) {
     received = state.count
   })
-  @zustand.replaceState(store, { count: 42 })
+  @zustand.replaceState(store, { count: 42, })
   inspect(received, content="42")
   unsub()
 }
@@ -69,7 +69,7 @@ test "subscribe_selector - typed selector" {
     _get,
     _api,
   ) {
-    { count: 0 }
+    { count: 0, }
   })
   let mut received = 0
   let unsub = @zustand.subscribe_selector(store, fn(state) { state.count }, fn(
@@ -78,7 +78,7 @@ test "subscribe_selector - typed selector" {
   ) {
     received = count
   })
-  @zustand.replaceState(store, { count: 99 })
+  @zustand.replaceState(store, { count: 99, })
   inspect(received, content="99")
   unsub()
 }
@@ -90,9 +90,9 @@ test "getInitialState - struct state" {
     _get,
     _api,
   ) {
-    { count: 42 }
+    { count: 42, }
   })
-  @zustand.replaceState(store, { count: 100 })
+  @zustand.replaceState(store, { count: 100, })
   let initial = @zustand.getInitialState(store)
   inspect(initial.count, content="42")
 }
@@ -106,11 +106,12 @@ test "set helper - after store creation" {
     _api,
   ) {
     set_fn_ref = Some(set_fn)
-    { count: 0 }
+    { count: 0, }
   })
   // Call set after store is initialized
   match set_fn_ref {
-    Some(set_fn) => @zustand.set(set_fn, fn(prev) { { count: prev.count + 1 } })
+    Some(set_fn) =>
+      @zustand.set(set_fn, fn(prev) { { count: prev.count + 1, } })
     None => ()
   }
   let state = @zustand.getState(store)
@@ -128,13 +129,13 @@ test "get helper - after store creation" {
   ) {
     set_fn_ref = Some(set_fn)
     get_fn_ref = Some(get_fn)
-    { count: 5 }
+    { count: 5, }
   })
   // Call get and set after store is initialized
   match (set_fn_ref, get_fn_ref) {
     (Some(set_fn), Some(get_fn)) => {
       let current = @zustand.get(get_fn)
-      @zustand.set(set_fn, fn(_) { { count: current.count * 2 } })
+      @zustand.set(set_fn, fn(_) { { count: current.count * 2, } })
     }
     _ => ()
   }
@@ -157,7 +158,7 @@ test "createStore - multiple fields struct" {
     _get,
     _api,
   ) {
-    { name: "Alice", age: 30 }
+    { name: "Alice", age: 30, }
   })
   let state = @zustand.getState(store)
   inspect(state.name, content="Alice")
@@ -171,9 +172,9 @@ test "setState - update multiple fields" {
     _get,
     _api,
   ) {
-    { name: "Alice", age: 30 }
+    { name: "Alice", age: 30, }
   })
-  @zustand.setState(store, fn(prev) { { name: prev.name, age: prev.age + 1 } })
+  @zustand.setState(store, fn(prev) { { name: prev.name, age: prev.age + 1, } })
   let state = @zustand.getState(store)
   inspect(state.name, content="Alice")
   inspect(state.age, content="31")

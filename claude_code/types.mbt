@@ -126,7 +126,7 @@ pub(all) struct TextBlock {
 
 ///|
 pub fn TextBlock::from_any(value : @core.Any) -> TextBlock {
-  { text: value._get("text").cast(), raw: value }
+  { text: value._get("text").cast(), raw: value, }
 }
 
 ///|
@@ -228,7 +228,7 @@ pub fn SDKAssistantMessage::from_any(value : @core.Any) -> SDKAssistantMessage {
     let arr : Array[@core.Any] = @core.identity(content_raw)
     arr.map(ContentBlock::from_any)
   }
-  { role: "assistant", content, raw: value }
+  { role: "assistant", content, raw: value, }
 }
 
 ///|
@@ -241,7 +241,7 @@ pub(all) struct SDKUserMessage {
 
 ///|
 pub fn SDKUserMessage::from_any(value : @core.Any) -> SDKUserMessage {
-  { role: "user", content: value._get("content").cast(), raw: value }
+  { role: "user", content: value._get("content").cast(), raw: value, }
 }
 
 ///|
@@ -342,7 +342,7 @@ pub fn SDKPartialMessage::from_any(value : @core.Any) -> SDKPartialMessage {
     let arr : Array[@core.Any] = @core.identity(content_raw)
     arr.map(ContentBlock::from_any)
   }
-  { content, raw: value }
+  { content, raw: value, }
 }
 
 ///|

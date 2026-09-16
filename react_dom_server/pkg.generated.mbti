@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/react_dom_server"
 
 import {
-  "mizchi/js/web/streams",
+  "mizchi/js_web/streams",
   "mizchi/npm_typed/react",
 }
 
@@ -20,4 +20,3 @@ pub fn renderToString(@react.Element) -> String
 // Type aliases
 
 // Traits
-

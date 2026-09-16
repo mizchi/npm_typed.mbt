@@ -115,4 +115,3 @@ pub fn yellowBright(String) -> String
 // Type aliases
 
 // Traits
-

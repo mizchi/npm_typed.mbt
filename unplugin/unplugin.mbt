@@ -65,7 +65,7 @@ pub fn UnpluginContextMeta::to_any(self : UnpluginContextMeta) -> @core.Any {
 /// Create UnpluginContextMeta from JS object
 fn meta_from_js(meta : @core.Any) -> UnpluginContextMeta {
   let framework_str : String = meta["framework"].cast()
-  { framework: framework_from_string(framework_str), raw: meta }
+  { framework: framework_from_string(framework_str), raw: meta, }
 }
 
 ///|

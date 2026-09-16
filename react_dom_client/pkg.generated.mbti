@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/react_dom_client"
 
 import {
-  "mizchi/js/core",
   "mizchi/js_browser/dom",
+  "mizchi/js_core",
   "mizchi/npm_typed/react",
 }
 
@@ -19,11 +19,10 @@ pub fn hydrateRoot(@dom.Element, @react.Element) -> ReactDOMRoot
 // Types and methods
 #external
 pub type ReactDOMRoot
-pub fn ReactDOMRoot::as_any(Self) -> @core.Any
+pub fn ReactDOMRoot::as_any(Self) -> @js_core.Any
 pub fn ReactDOMRoot::render(Self, @react.Element) -> Unit
 pub fn ReactDOMRoot::unmount(Self) -> Unit
 
 // Type aliases
 
 // Traits
-

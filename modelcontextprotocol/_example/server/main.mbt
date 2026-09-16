@@ -86,7 +86,7 @@ async fn run() -> Unit {
         name: "greeting-template",
         description: Some("Generate a greeting"),
         arguments: [
-          { name: "name", description: Some("Name to greet"), required: true },
+          { name: "name", description: Some("Name to greet"), required: true, },
         ],
       },
     ]
@@ -107,7 +107,7 @@ async fn run() -> Unit {
         ],
       }
     } else {
-      { description: None, messages: [] }
+      { description: None, messages: [], }
     }
   })
   // Connect to stdio transport

@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/simple_git"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -16,39 +16,39 @@ pub fn status_is_clean_method(StatusResult) -> Bool
 #external
 pub type BranchSummary
 pub fn BranchSummary::all(Self) -> Array[String]
-pub fn BranchSummary::as_any(Self) -> @core.Any
-pub fn BranchSummary::branches(Self) -> @core.Any
+pub fn BranchSummary::as_any(Self) -> @js_core.Any
+pub fn BranchSummary::branches(Self) -> @js_core.Any
 pub fn BranchSummary::current(Self) -> String
 
 #external
 pub type CommitResult
-pub fn CommitResult::as_any(Self) -> @core.Any
+pub fn CommitResult::as_any(Self) -> @js_core.Any
 pub fn CommitResult::branch(Self) -> String
 pub fn CommitResult::commit(Self) -> String
-pub fn CommitResult::summary(Self) -> @core.Any
+pub fn CommitResult::summary(Self) -> @js_core.Any
 
 #external
 pub type DiffResult
-pub fn DiffResult::as_any(Self) -> @core.Any
+pub fn DiffResult::as_any(Self) -> @js_core.Any
 pub fn DiffResult::changed(Self) -> Int
 pub fn DiffResult::deletions(Self) -> Int
-pub fn DiffResult::files(Self) -> @core.Any
+pub fn DiffResult::files(Self) -> @js_core.Any
 pub fn DiffResult::insertions(Self) -> Int
 
 #external
 pub type FetchResult
-pub fn FetchResult::as_any(Self) -> @core.Any
+pub fn FetchResult::as_any(Self) -> @js_core.Any
 
 #external
 pub type LogResult
-pub fn LogResult::all(Self) -> @core.Any
-pub fn LogResult::as_any(Self) -> @core.Any
-pub fn LogResult::latest(Self) -> @core.Any
+pub fn LogResult::all(Self) -> @js_core.Any
+pub fn LogResult::as_any(Self) -> @js_core.Any
+pub fn LogResult::latest(Self) -> @js_core.Any
 pub fn LogResult::total(Self) -> Int
 
 #external
 pub type PullResult
-pub fn PullResult::as_any(Self) -> @core.Any
+pub fn PullResult::as_any(Self) -> @js_core.Any
 
 #external
 pub type SimpleGit
@@ -58,7 +58,7 @@ pub async fn SimpleGit::addAnnotatedTag(Self, String, String) -> Unit
 pub async fn SimpleGit::addFile(Self, String) -> Unit
 pub async fn SimpleGit::addRemote(Self, String, String) -> Unit
 pub async fn SimpleGit::addTag(Self, String) -> Unit
-pub fn SimpleGit::as_any(Self) -> @core.Any
+pub fn SimpleGit::as_any(Self) -> @js_core.Any
 pub async fn SimpleGit::branch(Self) -> BranchSummary
 pub async fn SimpleGit::branchLocal(Self) -> BranchSummary
 pub async fn SimpleGit::checkout(Self, String) -> Unit
@@ -72,7 +72,7 @@ pub async fn SimpleGit::diff(Self, staged? : Bool, nameOnly? : Bool) -> String
 pub async fn SimpleGit::diffSummary(Self) -> DiffResult
 pub async fn SimpleGit::fetch(Self, remote? : String, branch? : String) -> FetchResult
 pub async fn SimpleGit::getHeadSha(Self) -> String
-pub async fn SimpleGit::getRemotes(Self, verbose? : Bool) -> @core.Any
+pub async fn SimpleGit::getRemotes(Self, verbose? : Bool) -> @js_core.Any
 pub async fn SimpleGit::init(Self, bare? : Bool) -> Unit
 pub async fn SimpleGit::log(Self, max_count? : Int, from? : String, to? : String, file? : String) -> LogResult
 pub async fn SimpleGit::merge(Self, String) -> Unit
@@ -85,10 +85,10 @@ pub async fn SimpleGit::reset(Self, mode? : String, commit? : String) -> Unit
 pub async fn SimpleGit::revparse(Self, String) -> String
 pub async fn SimpleGit::show(Self, commit? : String) -> String
 pub async fn SimpleGit::stash(Self) -> Unit
-pub async fn SimpleGit::stashList(Self) -> @core.Any
+pub async fn SimpleGit::stashList(Self) -> @js_core.Any
 pub async fn SimpleGit::stashPop(Self) -> Unit
 pub async fn SimpleGit::status(Self) -> StatusResult
-pub async fn SimpleGit::tags(Self) -> @core.Any
+pub async fn SimpleGit::tags(Self) -> @js_core.Any
 
 pub(all) struct StatusResult {
   current : String
@@ -103,7 +103,7 @@ pub(all) struct StatusResult {
   behind : Int
 }
 pub fn StatusResult::ahead(Self) -> Int
-pub fn StatusResult::as_any(Self) -> @core.Any
+pub fn StatusResult::as_any(Self) -> @js_core.Any
 pub fn StatusResult::behind(Self) -> Int
 pub fn StatusResult::conflicted(Self) -> Array[String]
 pub fn StatusResult::created(Self) -> Array[String]
@@ -118,4 +118,3 @@ pub fn StatusResult::tracking(Self) -> String
 // Type aliases
 
 // Traits
-

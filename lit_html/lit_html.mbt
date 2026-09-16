@@ -251,7 +251,7 @@ extern "js" fn ffi_until_fn() -> @core.Any = "until"
 ///|
 /// until directive - renders placeholder until promise resolves
 pub fn until(values : Array[@core.Any]) -> @core.Any {
-  ffi_until_fn()._invoke(values)
+  ffi_until_fn()._invoke(FixedArray::from_array(values[:]))
 }
 
 ///|

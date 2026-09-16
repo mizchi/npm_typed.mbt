@@ -765,7 +765,7 @@ test "ToolChoice as_any tool" {
 test "ProviderMetadata as_any" {
   let obj = @core.new_object()
   obj._set("key", "value" |> @core.any)
-  let meta : ProviderMetadata = { raw: obj }
+  let meta : ProviderMetadata = { raw: obj, }
   let any = meta.as_any()
   let val : String = any._get("key").cast()
   assert_eq(val, "value")

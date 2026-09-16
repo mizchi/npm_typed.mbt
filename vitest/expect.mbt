@@ -314,7 +314,8 @@ pub fn Expect::toHaveBeenCalledWith(
   self : Expect,
   args : Array[@core.Any],
 ) -> Unit {
-  @core.any(self)._call("toHaveBeenCalledWith", args) |> ignore
+  @core.any(self)._call("toHaveBeenCalledWith", FixedArray::from_array(args[:]))
+  |> ignore
 }
 
 ///|
@@ -323,7 +324,11 @@ pub fn Expect::toHaveBeenLastCalledWith(
   self : Expect,
   args : Array[@core.Any],
 ) -> Unit {
-  @core.any(self)._call("toHaveBeenLastCalledWith", args) |> ignore
+  @core.any(self)._call(
+    "toHaveBeenLastCalledWith",
+    FixedArray::from_array(args[:]),
+  )
+  |> ignore
 }
 
 ///|
@@ -337,7 +342,11 @@ pub fn Expect::toHaveBeenNthCalledWith(
   for arg in args {
     all_args.push(arg)
   }
-  @core.any(self)._call("toHaveBeenNthCalledWith", all_args) |> ignore
+  @core.any(self)._call(
+    "toHaveBeenNthCalledWith",
+    FixedArray::from_array(all_args[:]),
+  )
+  |> ignore
 }
 
 ///|

@@ -83,7 +83,7 @@ pub(all) struct WindowOptions {
 
 ///|
 pub fn WindowOptions::default() -> WindowOptions {
-  { url: None, width: None, height: None, console: None }
+  { url: None, width: None, height: None, console: None, }
 }
 
 ///|
@@ -118,7 +118,7 @@ extern "js" fn ffi_get_window_class() -> @core.Promise[@core.Any] =
   #| }
 
 ///|
-let window_class_cache : Ref[@core.Any?] = { val: None }
+let window_class_cache : Ref[@core.Any?] = { val: None, }
 
 ///|
 async fn get_window_class() -> @core.Any {
@@ -162,7 +162,7 @@ extern "js" fn ffi_get_global_registrator() -> @core.Promise[@core.Any] =
   #| }
 
 ///|
-let global_registrator_cache : Ref[@core.Any?] = { val: None }
+let global_registrator_cache : Ref[@core.Any?] = { val: None, }
 
 ///|
 async fn get_global_registrator() -> @core.Any {
@@ -186,7 +186,7 @@ pub(all) struct GlobalRegistratorOptions {
 
 ///|
 pub fn GlobalRegistratorOptions::default() -> GlobalRegistratorOptions {
-  { url: None, width: None, height: None }
+  { url: None, width: None, height: None, }
 }
 
 ///|

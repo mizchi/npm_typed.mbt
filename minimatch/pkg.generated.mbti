@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/minimatch"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -10,17 +10,17 @@ pub fn escape(String) -> String
 
 pub fn escape_with_options(String, MinimatchOptions) -> String
 
-pub fn filter(String) -> (@core.Any) -> Bool
+pub fn filter(String) -> (@js_core.Any) -> Bool
 
-pub fn filter_with_options(String, MinimatchOptions) -> (@core.Any) -> Bool
+pub fn filter_with_options(String, MinimatchOptions) -> (@js_core.Any) -> Bool
 
 pub fn has_magic(String) -> Bool
 
 pub fn has_magic_with_options(String, MinimatchOptions) -> Bool
 
-pub fn make_re(String) -> @core.Any?
+pub fn make_re(String) -> @js_core.Any?
 
-pub fn make_re_with_options(String, MinimatchOptions) -> @core.Any?
+pub fn make_re_with_options(String, MinimatchOptions) -> @js_core.Any?
 
 pub fn match_list(Array[String], String) -> Array[String]
 
@@ -37,7 +37,7 @@ pub fn unescape_with_options(String, MinimatchOptions) -> String
 // Errors
 
 // Types and methods
-pub struct Minimatch(@core.Any)
+pub struct Minimatch(@js_core.Any)
 pub fn Minimatch::comment(Self) -> Bool
 pub fn Minimatch::empty(Self) -> Bool
 pub fn Minimatch::has_magic(Self) -> Bool
@@ -46,7 +46,7 @@ pub fn Minimatch::negate(Self) -> Bool
 pub fn Minimatch::new(String) -> Self
 pub fn Minimatch::new_with_options(String, MinimatchOptions) -> Self
 pub fn Minimatch::pattern(Self) -> String
-pub fn Minimatch::regexp(Self) -> @core.Any?
+pub fn Minimatch::regexp(Self) -> @js_core.Any?
 
 pub(all) struct MinimatchOptions {
   debug : Bool
@@ -68,4 +68,3 @@ pub fn MinimatchOptions::default() -> Self
 // Type aliases
 
 // Traits
-

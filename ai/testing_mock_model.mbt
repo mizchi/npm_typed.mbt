@@ -156,7 +156,7 @@ pub fn mock_model_with_text(text : String) -> @core.Any {
     do_generate: Some(
       Result({
         finish_reason: "stop",
-        usage: { input_tokens: 10, output_tokens: 20, total_tokens: 30 },
+        usage: { input_tokens: 10, output_tokens: 20, total_tokens: 30, },
         content: [Text(text)],
         warnings: [],
       }),

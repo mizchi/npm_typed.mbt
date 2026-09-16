@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/client_s3"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -42,7 +42,7 @@ pub struct DeleteObjectOutput {
 }
 
 pub struct GetObjectOutput {
-  body : @core.Any
+  body : @js_core.Any
   content_type : String?
   content_length : Int?
   etag : String?
@@ -71,17 +71,16 @@ pub struct PutObjectOutput {
 
 #external
 pub type S3Client
-pub fn S3Client::as_any(Self) -> @core.Any
+pub fn S3Client::as_any(Self) -> @js_core.Any
 pub fn S3Client::new(region? : String, endpoint? : String, accessKeyId? : String, secretAccessKey? : String, forcePathStyle? : Bool) -> Self
 
 pub struct S3Object {
   key : String?
   size : Int?
   etag : String?
-  last_modified : @core.Any
+  last_modified : @js_core.Any
 }
 
 // Type aliases
 
 // Traits
-

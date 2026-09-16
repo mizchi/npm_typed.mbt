@@ -29,7 +29,7 @@ fn MatcherResult::pass(self : MatcherResult) -> Bool {
 /// Get error message (call only on failure)
 fn MatcherResult::message(self : MatcherResult) -> String {
   let msg_fn = self.as_any()._get("message")
-  msg_fn._call("call", ([] : Array[@core.Any])).cast()
+  msg_fn._call("call", []).cast()
 }
 
 ///|
@@ -112,7 +112,7 @@ fn call_matcher(
   for arg in args {
     all_args.push(arg)
   }
-  matcher._call("call", all_args).cast()
+  matcher._call("call", FixedArray::from_array(all_args[:])).cast()
 }
 
 ///|
@@ -142,7 +142,7 @@ pub struct Expect {
 ///|
 /// Create an Expect wrapper for a ScreenResult (from screen queries)
 pub fn expect(result : @testing_library.ScreenResult) -> Expect {
-  { element: result.as_element() }
+  { element: result.as_element(), }
 }
 
 // ============================================================
@@ -245,7 +245,7 @@ pub fn Expect::toHaveDisplayValue(
 /// Usage: expect(element)..toBeInTheDocument()
 #alias(to_be_in_the_document)
 pub fn Expect::toBeInTheDocument(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeInTheDocument", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeInTheDocument", [])
 }
 
 ///|
@@ -253,7 +253,7 @@ pub fn Expect::toBeInTheDocument(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(element)..toBeVisible()
 #alias(to_be_visible)
 pub fn Expect::toBeVisible(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeVisible", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeVisible", [])
 }
 
 ///|
@@ -261,7 +261,7 @@ pub fn Expect::toBeVisible(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(button)..toBeDisabled()
 #alias(to_be_disabled)
 pub fn Expect::toBeDisabled(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeDisabled", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeDisabled", [])
 }
 
 ///|
@@ -269,7 +269,7 @@ pub fn Expect::toBeDisabled(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(button)..toBeEnabled()
 #alias(to_be_enabled)
 pub fn Expect::toBeEnabled(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeEnabled", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeEnabled", [])
 }
 
 ///|
@@ -277,7 +277,7 @@ pub fn Expect::toBeEnabled(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(checkbox)..toBeChecked()
 #alias(to_be_checked)
 pub fn Expect::toBeChecked(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeChecked", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeChecked", [])
 }
 
 ///|
@@ -285,7 +285,7 @@ pub fn Expect::toBeChecked(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(input)..toBeRequired()
 #alias(to_be_required)
 pub fn Expect::toBeRequired(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeRequired", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeRequired", [])
 }
 
 ///|
@@ -293,7 +293,7 @@ pub fn Expect::toBeRequired(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(input)..toBeValid()
 #alias(to_be_valid)
 pub fn Expect::toBeValid(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeValid", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeValid", [])
 }
 
 ///|
@@ -301,7 +301,7 @@ pub fn Expect::toBeValid(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(input)..toBeInvalid()
 #alias(to_be_invalid)
 pub fn Expect::toBeInvalid(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeInvalid", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeInvalid", [])
 }
 
 ///|
@@ -309,7 +309,7 @@ pub fn Expect::toBeInvalid(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(input)..toHaveFocus()
 #alias(to_have_focus)
 pub fn Expect::toHaveFocus(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toHaveFocus", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toHaveFocus", [])
 }
 
 ///|
@@ -317,7 +317,7 @@ pub fn Expect::toHaveFocus(self : Expect) -> Unit raise ExpectError {
 /// Usage: expect(container)..toBeEmptyDOMElement()
 #alias(to_be_empty_dom_element)
 pub fn Expect::toBeEmptyDOMElement(self : Expect) -> Unit raise ExpectError {
-  assert_matcher(self.element, "toBeEmptyDOMElement", ([] : Array[@core.Any]))
+  assert_matcher(self.element, "toBeEmptyDOMElement", [])
 }
 
 // ============================================================

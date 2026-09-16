@@ -2,25 +2,25 @@
 package "mizchi/npm_typed/execa"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub async fn execa(String, args? : Array[String], cwd? : String, input? : String, timeout? : Int, env? : @core.Any, shell? : Bool, options? : @core.Any) -> ExecaResult
+pub async fn execa(String, args? : Array[String], cwd? : String, input? : String, timeout? : Int, env? : @js_core.Any, shell? : Bool, options? : @js_core.Any) -> ExecaResult
 
-pub async fn execaCommand(String, cwd? : String, input? : String, timeout? : Int, env? : @core.Any, options? : @core.Any) -> ExecaResult
+pub async fn execaCommand(String, cwd? : String, input? : String, timeout? : Int, env? : @js_core.Any, options? : @js_core.Any) -> ExecaResult
 
-pub fn execaCommandSync(String, cwd? : String, input? : String, timeout? : Int, env? : @core.Any, options? : @core.Any) -> ExecaResult
+pub fn execaCommandSync(String, cwd? : String, input? : String, timeout? : Int, env? : @js_core.Any, options? : @js_core.Any) -> ExecaResult
 
-pub async fn execaNode(String, args? : Array[String], cwd? : String, input? : String, timeout? : Int, env? : @core.Any, options? : @core.Any) -> ExecaResult
+pub async fn execaNode(String, args? : Array[String], cwd? : String, input? : String, timeout? : Int, env? : @js_core.Any, options? : @js_core.Any) -> ExecaResult
 
-pub fn execaSync(String, args? : Array[String], cwd? : String, input? : String, timeout? : Int, env? : @core.Any, shell? : Bool, options? : @core.Any) -> ExecaResult
+pub fn execaSync(String, args? : Array[String], cwd? : String, input? : String, timeout? : Int, env? : @js_core.Any, shell? : Bool, options? : @js_core.Any) -> ExecaResult
 
-pub fn options(cwd? : String, env? : @core.Any, input? : String, stdin? : String, stdout? : String, stderr? : String, all? : Bool, lines? : Bool, shell? : Bool, timeout? : Int, maxBuffer? : Int, killSignal? : String, preferLocal? : Bool, reject? : Bool, cleanup? : Bool, detached? : Bool, encoding? : String, stripFinalNewline? : Bool, windowsHide? : Bool) -> @core.Any
+pub fn options(cwd? : String, env? : @js_core.Any, input? : String, stdin? : String, stdout? : String, stderr? : String, all? : Bool, lines? : Bool, shell? : Bool, timeout? : Int, maxBuffer? : Int, killSignal? : String, preferLocal? : Bool, reject? : Bool, cleanup? : Bool, detached? : Bool, encoding? : String, stripFinalNewline? : Bool, windowsHide? : Bool) -> @js_core.Any
 
-pub async fn shell(String, cwd? : String, input? : String, timeout? : Int, env? : @core.Any, options? : @core.Any) -> ExecaResult
+pub async fn shell(String, cwd? : String, input? : String, timeout? : Int, env? : @js_core.Any, options? : @js_core.Any) -> ExecaResult
 
-pub fn subprocess(String, Array[String], options? : @core.Any) -> Subprocess
+pub fn subprocess(String, Array[String], options? : @js_core.Any) -> Subprocess
 
 // Errors
 
@@ -56,12 +56,11 @@ pub fn ExecaResult::timedOut(Self) -> Bool
 pub type Subprocess
 pub fn Subprocess::kill(Self, signal? : String) -> Unit
 pub fn Subprocess::pid(Self) -> Int
-pub fn Subprocess::stderr(Self) -> @core.Any
-pub fn Subprocess::stdin(Self) -> @core.Any
-pub fn Subprocess::stdout(Self) -> @core.Any
+pub fn Subprocess::stderr(Self) -> @js_core.Any
+pub fn Subprocess::stdin(Self) -> @js_core.Any
+pub fn Subprocess::stdout(Self) -> @js_core.Any
 pub async fn Subprocess::wait(Self) -> ExecaResult
 
 // Type aliases
 
 // Traits
-

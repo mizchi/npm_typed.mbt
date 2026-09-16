@@ -1,10 +1,10 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
-  "mizchi/js/web/streams",
-  "mizchi/js/node/stream",
+  "mizchi/js_core" @core,
+  "mizchi/js_web/streams",
+  "mizchi/js_node/stream",
   "mizchi/npm_typed/react",
-  "mizchi/js/builtins/error",
+  "mizchi/js_builtin/error",
 }
 
 import {

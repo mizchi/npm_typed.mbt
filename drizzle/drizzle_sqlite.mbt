@@ -232,7 +232,9 @@ pub fn IndexBuilder::on(
   self : IndexBuilder,
   columns : Array[Column],
 ) -> IndexBuilder {
-  @core.any(self)._call("on", columns.map(fn(c) { @core.any(c) })).cast()
+  @core.any(self)
+  ._call("on", FixedArray::from_array(columns.map(fn(c) { @core.any(c) })[:]))
+  .cast()
 }
 
 ///|

@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/zod"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -30,19 +30,19 @@ pub fn discriminated_union(String, Array[ZodSchema]) -> ZodSchema
 
 pub fn enum_(Array[String]) -> ZodSchema
 
-pub fn[T] from_array(Array[T]) -> @core.Any
+pub fn[T] from_array(Array[T]) -> @js_core.Any
 
-pub fn[T] from_json(T) -> @core.Any
+pub fn[T] from_json(T) -> @js_core.Any
 
 pub fn intersection(ZodSchema, ZodSchema) -> ZodSchema
 
 pub fn lazy_(() -> ZodSchema) -> ZodSchema
 
-pub fn literal(@core.Any) -> ZodSchema
+pub fn literal(@js_core.Any) -> ZodSchema
 
 pub fn map(ZodSchema, ZodSchema) -> ZodSchema
 
-pub fn native_enum(@core.Any) -> ZodSchema
+pub fn native_enum(@js_core.Any) -> ZodSchema
 
 pub fn never() -> ZodSchema
 
@@ -52,7 +52,7 @@ pub fn number() -> ZodSchema
 
 pub fn object(Map[String, ZodSchema]) -> ZodSchema
 
-pub fn object_from_any(@core.Any) -> ZodSchema
+pub fn object_from_any(@js_core.Any) -> ZodSchema
 
 pub fn promise(ZodSchema) -> ZodSchema
 
@@ -80,10 +80,10 @@ pub suberror ZodParseError {
 // Types and methods
 #external
 pub type ZodError
-pub fn ZodError::as_any(Self) -> @core.Any
-pub fn ZodError::flatten(Self) -> @core.Any
-pub fn ZodError::format(Self) -> @core.Any
-pub fn ZodError::issues(Self) -> @core.Any
+pub fn ZodError::as_any(Self) -> @js_core.Any
+pub fn ZodError::flatten(Self) -> @js_core.Any
+pub fn ZodError::format(Self) -> @js_core.Any
+pub fn ZodError::issues(Self) -> @js_core.Any
 #alias(issues_array)
 pub fn ZodError::issuesArray(Self) -> Array[ZodIssue]
 
@@ -95,23 +95,23 @@ pub struct ZodIssue {
 
 #external
 pub type ZodSchema
-pub fn ZodSchema::as_any(Self) -> @core.Any
+pub fn ZodSchema::as_any(Self) -> @js_core.Any
 pub fn ZodSchema::base64(Self) -> Self
 pub fn ZodSchema::brand(Self, String) -> Self
-pub fn ZodSchema::catch_(Self, @core.Any) -> Self
+pub fn ZodSchema::catch_(Self, @js_core.Any) -> Self
 pub fn ZodSchema::coerce(Self) -> Self
 pub fn ZodSchema::contains(Self, String) -> Self
 pub fn ZodSchema::cuid(Self) -> Self
 pub fn ZodSchema::cuid2(Self) -> Self
 pub fn ZodSchema::datetime(Self) -> Self
-pub fn ZodSchema::default_(Self, @core.Any) -> Self
+pub fn ZodSchema::default_(Self, @js_core.Any) -> Self
 pub fn ZodSchema::describe(Self, String) -> Self
 pub fn ZodSchema::email(Self) -> Self
 pub fn ZodSchema::emoji(Self) -> Self
 #alias(ends_with)
 pub fn ZodSchema::endsWith(Self, String) -> Self
-pub fn ZodSchema::extend(Self, @core.Any) -> Self
-pub fn ZodSchema::extend_(Self, @core.Any) -> Self
+pub fn ZodSchema::extend(Self, @js_core.Any) -> Self
+pub fn ZodSchema::extend_(Self, @js_core.Any) -> Self
 pub fn ZodSchema::finite(Self) -> Self
 pub fn ZodSchema::gt(Self, Int) -> Self
 pub fn ZodSchema::gte(Self, Int) -> Self
@@ -123,10 +123,10 @@ pub fn ZodSchema::length(Self, Int) -> Self
 pub fn ZodSchema::lt(Self, Int) -> Self
 pub fn ZodSchema::lte(Self, Int) -> Self
 pub fn ZodSchema::max(Self, Int) -> Self
-pub fn ZodSchema::max_date(Self, @core.Any) -> Self
+pub fn ZodSchema::max_date(Self, @js_core.Any) -> Self
 pub fn ZodSchema::merge(Self, Self) -> Self
 pub fn ZodSchema::min(Self, Int) -> Self
-pub fn ZodSchema::min_date(Self, @core.Any) -> Self
+pub fn ZodSchema::min_date(Self, @js_core.Any) -> Self
 pub fn ZodSchema::multipleOf(Self, Int) -> Self
 pub fn ZodSchema::negative(Self) -> Self
 pub fn ZodSchema::nonempty(Self) -> Self
@@ -134,21 +134,21 @@ pub fn ZodSchema::nonnegative(Self) -> Self
 pub fn ZodSchema::nonpositive(Self) -> Self
 pub fn ZodSchema::nullable(Self) -> Self
 pub fn ZodSchema::nullish(Self) -> Self
-pub fn ZodSchema::omit(Self, @core.Any) -> Self
+pub fn ZodSchema::omit(Self, @js_core.Any) -> Self
 pub fn ZodSchema::optional(Self) -> Self
-pub fn ZodSchema::parse(Self, @core.Any) -> @core.Any raise ZodParseError
+pub fn ZodSchema::parse(Self, @js_core.Any) -> @js_core.Any raise ZodParseError
 pub fn ZodSchema::partial(Self) -> Self
 pub fn ZodSchema::passthrough(Self) -> Self
-pub fn ZodSchema::pick(Self, @core.Any) -> Self
+pub fn ZodSchema::pick(Self, @js_core.Any) -> Self
 pub fn ZodSchema::pipe(Self, Self) -> Self
 pub fn ZodSchema::positive(Self) -> Self
-pub fn ZodSchema::refine(Self, (@core.Any) -> Bool, message? : String) -> Self
-pub fn ZodSchema::refine_with_path(Self, (@core.Any) -> Bool, String, Array[String]) -> Self
+pub fn ZodSchema::refine(Self, (@js_core.Any) -> Bool, message? : String) -> Self
+pub fn ZodSchema::refine_with_path(Self, (@js_core.Any) -> Bool, String, Array[String]) -> Self
 pub fn ZodSchema::regex(Self, String) -> Self
 pub fn ZodSchema::required_(Self) -> Self
 pub fn ZodSchema::safe(Self) -> Self
 #alias(safe_parse)
-pub fn ZodSchema::safeParse(Self, @core.Any) -> Result[@core.Any, ZodError]
+pub fn ZodSchema::safeParse(Self, @js_core.Any) -> Result[@js_core.Any, ZodError]
 #alias(starts_with)
 pub fn ZodSchema::startsWith(Self, String) -> Self
 pub fn ZodSchema::strict(Self) -> Self
@@ -157,7 +157,7 @@ pub fn ZodSchema::strip(Self) -> Self
 pub fn ZodSchema::toLowerCase(Self) -> Self
 #alias(to_upper_case)
 pub fn ZodSchema::toUpperCase(Self) -> Self
-pub fn ZodSchema::transform(Self, (@core.Any) -> @core.Any) -> Self
+pub fn ZodSchema::transform(Self, (@js_core.Any) -> @js_core.Any) -> Self
 pub fn ZodSchema::trim(Self) -> Self
 pub fn ZodSchema::ulid(Self) -> Self
 pub fn ZodSchema::url(Self) -> Self
@@ -166,4 +166,3 @@ pub fn ZodSchema::uuid(Self) -> Self
 // Type aliases
 
 // Traits
-

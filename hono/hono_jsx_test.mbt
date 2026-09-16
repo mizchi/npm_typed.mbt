@@ -93,7 +93,7 @@ fn testComponent(props : TestProps) -> @hono.JSXNode {
 
 ///|
 test "jsxComponent with custom component" {
-  let node = @hono.jsx_component(testComponent, { name: "World", count: 42 })
+  let node = @hono.jsx_component(testComponent, { name: "World", count: 42, })
   let html = @hono.render_to_string(node)
   html |> inspect(content="<div>Hello, World! Count: 42</div>")
 }
@@ -101,7 +101,7 @@ test "jsxComponent with custom component" {
 ///|
 test "memo wraps component" {
   let memoized = @hono.memo(testComponent)
-  let node = memoized({ name: "Memo", count: 1 })
+  let node = memoized({ name: "Memo", count: 1, })
   let html = @hono.render_to_string(node)
   html |> inspect(content="<div>Hello, Memo! Count: 1</div>")
 }

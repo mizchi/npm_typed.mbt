@@ -157,7 +157,7 @@ test "AnthropicOptions::as_any with partial fields - base_url only" {
 
 ///|
 test "GoogleOptions::as_any with partial fields - api_key only" {
-  let opts : GoogleOptions = { api_key: Some("google-key"), base_url: None }
+  let opts : GoogleOptions = { api_key: Some("google-key"), base_url: None, }
   let js_obj = opts.as_any()
   let api_key : String = js_obj._get("apiKey").cast()
   assert_eq(api_key, "google-key")

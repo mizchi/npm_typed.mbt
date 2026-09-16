@@ -2,8 +2,8 @@
 package "mizchi/npm_typed/ai"
 
 import {
-  "mizchi/js/builtins/iterator",
-  "mizchi/js/core",
+  "mizchi/js_builtin/iterator",
+  "mizchi/js_core",
   "moonbitlang/core/debug",
 }
 
@@ -16,30 +16,30 @@ pub fn anthropic_with_options(String, AnthropicOptions) -> Model
 
 pub fn any_of(Array[StopCondition]) -> StopCondition
 
-pub fn convert_array_to_async_iterable(Array[@core.Any]) -> @core.Any
+pub fn convert_array_to_async_iterable(Array[@js_core.Any]) -> @js_core.Any
 
-pub fn convert_array_to_readable_stream(Array[@core.Any]) -> @core.Any
+pub fn convert_array_to_readable_stream(Array[@js_core.Any]) -> @js_core.Any
 
-pub async fn convert_readable_stream_to_array(@core.Any) -> Array[@core.Any]
+pub async fn convert_readable_stream_to_array(@js_core.Any) -> Array[@js_core.Any]
 
 #alias(cosine_similarity)
 pub fn cosineSimilarity(Array[Double], Array[Double]) -> Double
 
-pub async fn embed(model~ : EmbeddingModel, value~ : String, max_retries? : Int, abort_signal? : @core.Any, headers? : @core.Any) -> EmbedResult
+pub async fn embed(model~ : EmbeddingModel, value~ : String, max_retries? : Int, abort_signal? : @js_core.Any, headers? : @js_core.Any) -> EmbedResult
 
 #alias(embed_many)
-pub async fn embedMany(model~ : EmbeddingModel, values~ : Array[String], max_parallel_calls? : Int, max_retries? : Int, abort_signal? : @core.Any, headers? : @core.Any) -> EmbedManyResult
+pub async fn embedMany(model~ : EmbeddingModel, values~ : Array[String], max_parallel_calls? : Int, max_retries? : Int, abort_signal? : @js_core.Any, headers? : @js_core.Any) -> EmbedManyResult
 
-pub fn finish_chunk(String, MockUsage) -> @core.Any
+pub fn finish_chunk(String, MockUsage) -> @js_core.Any
 
 #alias(generate_image)
-pub async fn generateImage(model~ : ImageModel, prompt~ : String, n? : Int, size? : String, aspectRatio? : String, seed? : Int, providerOptions? : @core.Any, maxRetries? : Int, abortSignal? : @core.Any, headers? : @core.Any) -> GenerateImageResult
+pub async fn generateImage(model~ : ImageModel, prompt~ : String, n? : Int, size? : String, aspectRatio? : String, seed? : Int, providerOptions? : @js_core.Any, maxRetries? : Int, abortSignal? : @js_core.Any, headers? : @js_core.Any) -> GenerateImageResult
 
 #alias(generate_object)
-pub async fn generateObject(model~ : Model, schema~ : @core.Any, schema_name? : String, schema_description? : String, output? : OutputStrategy, enum_values? : Array[String], prompt? : String, system? : String, messages? : Array[ModelMessage], max_tokens? : Int, temperature? : Double, max_retries? : Int, abort_signal? : @core.Any) -> GenerateObjectResult
+pub async fn generateObject(model~ : Model, schema~ : @js_core.Any, schema_name? : String, schema_description? : String, output? : OutputStrategy, enum_values? : Array[String], prompt? : String, system? : String, messages? : Array[ModelMessage], max_tokens? : Int, temperature? : Double, max_retries? : Int, abort_signal? : @js_core.Any) -> GenerateObjectResult
 
 #alias(generate_object_with_zod)
-pub async fn generateObjectWithZod(model~ : Model, zod_schema~ : @core.Any, schema_name? : String, schema_description? : String, prompt? : String, system? : String, messages? : Array[ModelMessage], max_tokens? : Int, temperature? : Double) -> GenerateObjectResult
+pub async fn generateObjectWithZod(model~ : Model, zod_schema~ : @js_core.Any, schema_name? : String, schema_description? : String, prompt? : String, system? : String, messages? : Array[ModelMessage], max_tokens? : Int, temperature? : Double) -> GenerateObjectResult
 
 #alias(generate_text)
 pub async fn generateText(model~ : Model, messages? : Array[ModelMessage], prompt? : String, system? : String, max_tokens? : Int, temperature? : Double, tools? : Tools, tool_choice? : ToolChoice, max_steps? : Int, stop_when? : StopCondition, prepare_step? : PrepareStep, active_tools? : Array[String]) -> GenerateTextResult
@@ -54,13 +54,13 @@ pub fn has_tool_call(String) -> StopCondition
 
 pub fn mock_id() -> MockId
 
-pub fn mock_language_model(MockLanguageModelOptions) -> @core.Any
+pub fn mock_language_model(MockLanguageModelOptions) -> @js_core.Any
 
-pub fn mock_model_with_stream(Array[@core.Any]) -> @core.Any
+pub fn mock_model_with_stream(Array[@js_core.Any]) -> @js_core.Any
 
-pub fn mock_model_with_text(String) -> @core.Any
+pub fn mock_model_with_text(String) -> @js_core.Any
 
-pub fn mock_values_js(Array[@core.Any]) -> @core.Any
+pub fn mock_values_js(Array[@js_core.Any]) -> @js_core.Any
 
 pub fn model_finished() -> StopCondition
 
@@ -68,45 +68,45 @@ pub fn openai(String) -> Model
 
 pub fn openai_with_options(String, OpenAIOptions) -> Model
 
-pub fn require_test() -> @core.Any
+pub fn require_test() -> @js_core.Any
 
-pub fn simulate_readable_stream(SimulateStreamOptions) -> @core.Any
+pub fn simulate_readable_stream(SimulateStreamOptions) -> @js_core.Any
 
-pub fn simulate_stream(Array[@core.Any]) -> @core.Any
+pub fn simulate_stream(Array[@js_core.Any]) -> @js_core.Any
 
-pub fn simulate_stream_with_delay(Array[@core.Any], Int) -> @core.Any
+pub fn simulate_stream_with_delay(Array[@js_core.Any], Int) -> @js_core.Any
 
 pub fn step_count_is(Int) -> StopCondition
 
 #alias(stream_text)
 pub fn streamText(model~ : Model, messages? : Array[ModelMessage], prompt? : String, system? : String, max_tokens? : Int, temperature? : Double, tools? : Tools, tool_choice? : ToolChoice, max_steps? : Int, stop_when? : StopCondition, prepare_step? : PrepareStep, active_tools? : Array[String]) -> StreamTextResultHandle
 
-pub fn text_delta_chunk(String) -> @core.Any
+pub fn text_delta_chunk(String) -> @js_core.Any
 
-pub fn tool_call_chunk(String, String, @core.Any) -> @core.Any
+pub fn tool_call_chunk(String, String, @js_core.Any) -> @js_core.Any
 
 // Errors
 pub suberror PrepareStep {
   PrepareStep(async (PrepareStepContext) -> PrepareStepResult)
 }
-pub fn PrepareStep::as_any(Self) -> @core.Any
+pub fn PrepareStep::as_any(Self) -> @js_core.Any
 
 pub suberror StopCondition {
   StopCondition((StopConditionContext) -> Bool)
 }
-pub fn StopCondition::as_any(Self) -> @core.Any
+pub fn StopCondition::as_any(Self) -> @js_core.Any
 
 // Types and methods
 pub(all) struct AnthropicOptions {
   api_key : String?
   base_url : String?
 }
-pub fn AnthropicOptions::as_any(Self) -> @core.Any
+pub fn AnthropicOptions::as_any(Self) -> @js_core.Any
 pub fn AnthropicOptions::default() -> Self
 
 #external
 pub type AnthropicProvider
-pub fn AnthropicProvider::as_any(Self) -> @core.Any
+pub fn AnthropicProvider::as_any(Self) -> @js_core.Any
 pub fn AnthropicProvider::create(AnthropicOptions) -> Self
 pub fn AnthropicProvider::model(Self, String) -> Model
 pub fn AnthropicProvider::require() -> Self
@@ -114,9 +114,9 @@ pub fn AnthropicProvider::require() -> Self
 pub(all) struct CallWarning {
   type_ : String
   message : String?
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn CallWarning::from_any(@core.Any) -> Self
+pub fn CallWarning::from_any(@js_core.Any) -> Self
 
 pub(all) enum ContentPart {
   TextPart(text~ : String, provider_metadata~ : ProviderMetadata?)
@@ -127,30 +127,30 @@ pub(all) enum ContentPart {
   ToolResultContentPart(tool_result~ : ToolResult, provider_metadata~ : ProviderMetadata?)
   ToolErrorContentPart(tool_error~ : ToolError, provider_metadata~ : ProviderMetadata?)
 }
-pub fn ContentPart::from_any(@core.Any) -> Self
+pub fn ContentPart::from_any(@js_core.Any) -> Self
 
 pub(all) struct EmbedManyResult {
   embeddings : Array[Array[Double]]
   usage : EmbeddingUsage
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn EmbedManyResult::from_any(@core.Any) -> Self
+pub fn EmbedManyResult::from_any(@js_core.Any) -> Self
 
 pub(all) struct EmbedResult {
   embedding : Array[Double]
   usage : EmbeddingUsage
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn EmbedResult::from_any(@core.Any) -> Self
+pub fn EmbedResult::from_any(@js_core.Any) -> Self
 
 #external
 pub type EmbeddingModel
-pub fn EmbeddingModel::as_any(Self) -> @core.Any
+pub fn EmbeddingModel::as_any(Self) -> @js_core.Any
 
 pub(all) struct EmbeddingUsage {
   tokens : Int
 }
-pub fn EmbeddingUsage::from_any(@core.Any) -> Self
+pub fn EmbeddingUsage::from_any(@js_core.Any) -> Self
 
 pub(all) enum FinishReason {
   Stop
@@ -170,20 +170,20 @@ pub(all) struct GenerateImageResult {
   images : Array[GeneratedImage]
   warnings : Array[CallWarning]
   provider_metadata : ProviderMetadata?
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn GenerateImageResult::from_any(@core.Any) -> Self
+pub fn GenerateImageResult::from_any(@js_core.Any) -> Self
 
 pub(all) struct GenerateObjectResult {
-  object : @core.Any
+  object : @js_core.Any
   finish_reason : FinishReason
   usage : LanguageModelUsage
   warnings : Array[CallWarning]
   response : LanguageModelResponseMetadata
   provider_metadata : ProviderMetadata?
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn GenerateObjectResult::from_any(@core.Any) -> Self
+pub fn GenerateObjectResult::from_any(@js_core.Any) -> Self
 pub fn[T] GenerateObjectResult::get_object(Self) -> T
 
 pub(all) struct GenerateTextResult {
@@ -201,55 +201,55 @@ pub(all) struct GenerateTextResult {
   warnings : Array[CallWarning]
   request : LanguageModelRequestMetadata
   response : LanguageModelResponseMetadata
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn GenerateTextResult::from_any(@core.Any) -> Self
+pub fn GenerateTextResult::from_any(@js_core.Any) -> Self
 
 pub(all) struct GeneratedFile {
   name : String?
   media_type : String?
-  data : @core.Any
-  raw : @core.Any
+  data : @js_core.Any
+  raw : @js_core.Any
 }
-pub fn GeneratedFile::from_any(@core.Any) -> Self
+pub fn GeneratedFile::from_any(@js_core.Any) -> Self
 
 pub(all) struct GeneratedImage {
   base64 : String
-  uint8_array : @core.Any
-  raw : @core.Any
+  uint8_array : @js_core.Any
+  raw : @js_core.Any
 }
-pub fn GeneratedImage::from_any(@core.Any) -> Self
+pub fn GeneratedImage::from_any(@js_core.Any) -> Self
 
 pub(all) struct GoogleOptions {
   api_key : String?
   base_url : String?
 }
-pub fn GoogleOptions::as_any(Self) -> @core.Any
+pub fn GoogleOptions::as_any(Self) -> @js_core.Any
 pub fn GoogleOptions::default() -> Self
 
 #external
 pub type GoogleProvider
-pub fn GoogleProvider::as_any(Self) -> @core.Any
+pub fn GoogleProvider::as_any(Self) -> @js_core.Any
 pub fn GoogleProvider::create(GoogleOptions) -> Self
 pub fn GoogleProvider::model(Self, String) -> Model
 pub fn GoogleProvider::require() -> Self
 
 #external
 pub type ImageModel
-pub fn ImageModel::as_any(Self) -> @core.Any
+pub fn ImageModel::as_any(Self) -> @js_core.Any
 
 pub(all) struct LanguageModelRequestMetadata {
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn LanguageModelRequestMetadata::from_any(@core.Any) -> Self
+pub fn LanguageModelRequestMetadata::from_any(@js_core.Any) -> Self
 
 pub(all) struct LanguageModelResponseMetadata {
   id : String?
   model_id : String?
-  timestamp : @core.Any?
-  raw : @core.Any
+  timestamp : @js_core.Any?
+  raw : @js_core.Any
 }
-pub fn LanguageModelResponseMetadata::from_any(@core.Any) -> Self
+pub fn LanguageModelResponseMetadata::from_any(@js_core.Any) -> Self
 
 pub(all) struct LanguageModelUsage {
   input_tokens : Int
@@ -257,33 +257,33 @@ pub(all) struct LanguageModelUsage {
   total_tokens : Int
   cached_input_tokens : Int
 }
-pub fn LanguageModelUsage::from_any(@core.Any) -> Self
+pub fn LanguageModelUsage::from_any(@js_core.Any) -> Self
 
 pub(all) enum MessageContent {
   Text(String)
-  Parts(Array[@core.Any])
+  Parts(Array[@js_core.Any])
 }
-pub fn MessageContent::as_any(Self) -> @core.Any
+pub fn MessageContent::as_any(Self) -> @js_core.Any
 
 pub(all) enum MockContentPart {
   Text(String)
-  ToolCall(tool_call_id~ : String, tool_name~ : String, args~ : @core.Any)
+  ToolCall(tool_call_id~ : String, tool_name~ : String, args~ : @js_core.Any)
 }
-pub fn MockContentPart::as_any(Self) -> @core.Any
+pub fn MockContentPart::as_any(Self) -> @js_core.Any
 
 pub(all) enum MockGenerateHandler {
   Result(MockGenerateResult)
   Results(Array[MockGenerateResult])
-  Fn(@core.Any)
+  Fn(@js_core.Any)
 }
 
 pub(all) struct MockGenerateResult {
   finish_reason : String
   usage : MockUsage
   content : Array[MockContentPart]
-  warnings : Array[@core.Any]
+  warnings : Array[@js_core.Any]
 }
-pub fn MockGenerateResult::as_any(Self) -> @core.Any
+pub fn MockGenerateResult::as_any(Self) -> @js_core.Any
 
 pub(all) struct MockId {
   mut counter : Int
@@ -303,13 +303,13 @@ pub(all) struct MockLanguageModelOptions {
 pub(all) enum MockStreamHandler {
   Result(MockStreamResult)
   Results(Array[MockStreamResult])
-  Fn(@core.Any)
+  Fn(@js_core.Any)
 }
 
 pub(all) struct MockStreamResult {
-  stream : @core.Any
+  stream : @js_core.Any
 }
-pub fn MockStreamResult::as_any(Self) -> @core.Any
+pub fn MockStreamResult::as_any(Self) -> @js_core.Any
 
 pub(all) struct MockUsage {
   input_tokens : Int
@@ -327,7 +327,7 @@ pub fn[T] MockValues::reset(Self[T]) -> Unit
 
 #external
 pub type Model
-pub fn Model::as_any(Self) -> @core.Any
+pub fn Model::as_any(Self) -> @js_core.Any
 
 pub(all) enum ModelMessage {
   UserMessage(content~ : MessageContent)
@@ -335,19 +335,19 @@ pub(all) enum ModelMessage {
   SystemMessage(content~ : MessageContent)
   ToolMessage(content~ : MessageContent)
 }
-pub fn ModelMessage::as_any(Self) -> @core.Any
+pub fn ModelMessage::as_any(Self) -> @js_core.Any
 
 pub(all) struct OpenAIOptions {
   api_key : String?
   base_url : String?
   organization : String?
 }
-pub fn OpenAIOptions::as_any(Self) -> @core.Any
+pub fn OpenAIOptions::as_any(Self) -> @js_core.Any
 pub fn OpenAIOptions::default() -> Self
 
 #external
 pub type OpenAIProvider
-pub fn OpenAIProvider::as_any(Self) -> @core.Any
+pub fn OpenAIProvider::as_any(Self) -> @js_core.Any
 pub fn OpenAIProvider::create(OpenAIOptions) -> Self
 pub fn OpenAIProvider::model(Self, String) -> Model
 pub fn OpenAIProvider::require() -> Self
@@ -362,38 +362,38 @@ pub fn OutputStrategy::to_string(Self) -> String
 
 pub(all) struct PrepareStepContext {
   step_number : Int
-  messages : Array[@core.Any]
+  messages : Array[@js_core.Any]
   steps : Array[StepResult]
 }
 
 pub(all) struct PrepareStepResult {
   model : Model?
   activeTools : Array[String]?
-  messages : Array[@core.Any]?
+  messages : Array[@js_core.Any]?
   system : String?
   maxTokens : Int?
   temperature : Double?
 }
-pub fn PrepareStepResult::as_any(Self) -> @core.Any
+pub fn PrepareStepResult::as_any(Self) -> @js_core.Any
 pub fn PrepareStepResult::empty() -> Self
 pub fn PrepareStepResult::with_active_tools(Array[String]) -> Self
-pub fn PrepareStepResult::with_messages(Array[@core.Any]) -> Self
+pub fn PrepareStepResult::with_messages(Array[@js_core.Any]) -> Self
 pub fn PrepareStepResult::with_model(Model) -> Self
 
 pub(all) struct ProviderMetadata {
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn ProviderMetadata::as_any(Self) -> @core.Any
-pub fn ProviderMetadata::from_any(@core.Any) -> Self?
+pub fn ProviderMetadata::as_any(Self) -> @js_core.Any
+pub fn ProviderMetadata::from_any(@js_core.Any) -> Self?
 
 pub(all) struct ReasoningOutput {
   text : String
   provider_metadata : ProviderMetadata?
 }
-pub fn ReasoningOutput::from_any(@core.Any) -> Self
+pub fn ReasoningOutput::from_any(@js_core.Any) -> Self
 
 pub(all) struct SimulateStreamOptions {
-  chunks : Array[@core.Any]
+  chunks : Array[@js_core.Any]
   initial_delay_ms : Int?
   chunk_delay_ms : Int?
 }
@@ -402,7 +402,7 @@ pub(all) enum Source {
   UrlSource(SourceUrl)
   DocumentSource(SourceDocument)
 }
-pub fn Source::from_any(@core.Any) -> Self
+pub fn Source::from_any(@js_core.Any) -> Self
 
 pub(all) struct SourceDocument {
   id : String
@@ -432,26 +432,26 @@ pub(all) struct StepResult {
   usage : LanguageModelUsage
   warnings : Array[CallWarning]
   response : LanguageModelResponseMetadata
-  raw : @core.Any
+  raw : @js_core.Any
 }
-pub fn StepResult::from_any(@core.Any) -> Self
+pub fn StepResult::from_any(@js_core.Any) -> Self
 
 pub(all) struct StopConditionContext {
   step_number : Int
-  messages : Array[@core.Any]
+  messages : Array[@js_core.Any]
   tool_calls : Array[ToolCall]
   finish_reason : FinishReason
 }
 
 #external
 pub type StreamTextResultHandle
-pub fn StreamTextResultHandle::as_any(Self) -> @core.Any
+pub fn StreamTextResultHandle::as_any(Self) -> @js_core.Any
 #alias(finish_reason)
 pub async fn StreamTextResultHandle::finishReason(Self) -> FinishReason
 #alias(full_stream)
 pub fn StreamTextResultHandle::fullStream(Self) -> TextStreamPartIterator
 #alias(full_stream_raw)
-pub fn StreamTextResultHandle::fullStreamRaw(Self) -> @iterator.AsyncIterator[@core.Any]
+pub fn StreamTextResultHandle::fullStreamRaw(Self) -> @iterator.AsyncIterator[@js_core.Any]
 pub async fn StreamTextResultHandle::steps(Self) -> Array[StepResult]
 pub async fn StreamTextResultHandle::text(Self) -> String
 #alias(text_stream)
@@ -480,11 +480,11 @@ pub(all) enum TextStreamPart {
   Start
   Finish(finish_reason~ : FinishReason, total_usage~ : LanguageModelUsage)
   Abort
-  Error(error~ : @core.Any)
-  Raw(raw_value~ : @core.Any)
-  Unknown(type_~ : String, raw~ : @core.Any)
+  Error(error~ : @js_core.Any)
+  Raw(raw_value~ : @js_core.Any)
+  Unknown(type_~ : String, raw~ : @js_core.Any)
 }
-pub fn TextStreamPart::from_any(@core.Any) -> Self
+pub fn TextStreamPart::from_any(@js_core.Any) -> Self
 pub fn TextStreamPart::get_reasoning_text(Self) -> String?
 pub fn TextStreamPart::get_text(Self) -> String?
 pub fn TextStreamPart::is_reasoning_part(Self) -> Bool
@@ -493,32 +493,32 @@ pub fn TextStreamPart::is_tool_part(Self) -> Bool
 pub fn TextStreamPart::type_string(Self) -> String
 
 pub(all) struct TextStreamPartIterator {
-  raw : @iterator.AsyncIterator[@core.Any]
+  raw : @iterator.AsyncIterator[@js_core.Any]
 }
 pub async fn TextStreamPartIterator::next(Self) -> TextStreamPart?
 
 pub(all) struct Tool {
   description : String
-  input_schema : @core.Any
-  execute : (@core.Any) -> @core.Any
+  input_schema : @js_core.Any
+  execute : (@js_core.Any) -> @js_core.Any
 }
-pub fn Tool::as_any(Self) -> @core.Any
+pub fn Tool::as_any(Self) -> @js_core.Any
 pub fn[Input, Output : ToJson] Tool::typed(description~ : String, input_schema~ : Json, (Input) -> Output) -> Self
 pub fn[Input, Output : ToJson] Tool::typed_async(description~ : String, input_schema~ : Json, async (Input) -> Output) -> Self
 
 pub(all) struct ToolApprovalRequest {
   tool_call_id : String
   tool_name : String
-  input : @core.Any
+  input : @js_core.Any
 }
-pub fn ToolApprovalRequest::from_any(@core.Any) -> Self
+pub fn ToolApprovalRequest::from_any(@js_core.Any) -> Self
 
 pub(all) struct ToolCall {
   tool_call_id : String
   tool_name : String
-  input : @core.Any
+  input : @js_core.Any
 }
-pub fn ToolCall::from_any(@core.Any) -> Self
+pub fn ToolCall::from_any(@js_core.Any) -> Self
 
 pub(all) enum ToolChoice {
   Auto
@@ -526,39 +526,38 @@ pub(all) enum ToolChoice {
   None_
   Tool(String)
 }
-pub fn ToolChoice::as_any(Self) -> @core.Any
+pub fn ToolChoice::as_any(Self) -> @js_core.Any
 
 pub(all) struct ToolError {
   tool_call_id : String
   tool_name : String
-  args : @core.Any
-  error : @core.Any
+  args : @js_core.Any
+  error : @js_core.Any
 }
-pub fn ToolError::from_any(@core.Any) -> Self
+pub fn ToolError::from_any(@js_core.Any) -> Self
 
 pub(all) struct ToolOutputDenied {
   tool_call_id : String
   tool_name : String
-  input : @core.Any
+  input : @js_core.Any
 }
-pub fn ToolOutputDenied::from_any(@core.Any) -> Self
+pub fn ToolOutputDenied::from_any(@js_core.Any) -> Self
 
 pub(all) struct ToolResult {
   tool_call_id : String
   tool_name : String
-  input : @core.Any
-  output : @core.Any
+  input : @js_core.Any
+  output : @js_core.Any
 }
-pub fn ToolResult::from_any(@core.Any) -> Self
+pub fn ToolResult::from_any(@js_core.Any) -> Self
 
 pub(all) struct Tools {
   tools : Map[String, Tool]
 }
 pub fn Tools::add(Self, String, Tool) -> Self
-pub fn Tools::as_any(Self) -> @core.Any
+pub fn Tools::as_any(Self) -> @js_core.Any
 pub fn Tools::new() -> Self
 
 // Type aliases
 
 // Traits
-

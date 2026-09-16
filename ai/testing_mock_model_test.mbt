@@ -38,7 +38,7 @@ test "MockContentPart ToolCall as_any" {
 test "MockGenerateResult as_any" {
   let result : MockGenerateResult = {
     finish_reason: "stop",
-    usage: { input_tokens: 10, output_tokens: 20, total_tokens: 30 },
+    usage: { input_tokens: 10, output_tokens: 20, total_tokens: 30, },
     content: [MockContentPart::Text("Hello")],
     warnings: [],
   }

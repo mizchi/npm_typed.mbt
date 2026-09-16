@@ -2,21 +2,21 @@
 package "mizchi/npm_typed/zx"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn[T : ToZxArg] arg(T) -> @core.Any
+pub fn[T : ToZxArg] arg(T) -> @js_core.Any
 
 pub fn cd(String) -> Unit
 
-pub fn echo(Array[@core.Any]) -> Unit
+pub fn echo(Array[@js_core.Any]) -> Unit
 
-pub async fn execa(String, args? : Array[@core.Any]) -> ProcessOutput
+pub async fn execa(String, args? : Array[@js_core.Any]) -> ProcessOutput
 
 pub fn get_verbose() -> Bool
 
-pub fn retry(Int, () -> @core.Promise[@core.Any]) -> @core.Promise[@core.Any]
+pub fn retry(Int, () -> @js_core.Promise[@js_core.Any]) -> @js_core.Promise[@js_core.Any]
 
 pub fn set_cwd(String) -> Unit
 
@@ -28,17 +28,17 @@ pub fn set_timeout(Int) -> Unit
 
 pub fn set_verbose(Bool) -> Unit
 
-pub fn sleep(Int) -> @core.Promise[Unit]
+pub fn sleep(Int) -> @js_core.Promise[Unit]
 
-pub fn stdin() -> @core.Promise[String]
+pub fn stdin() -> @js_core.Promise[String]
 
-pub fn tagged(String, args? : Array[@core.Any]) -> ProcessPromise
+pub fn tagged(String, args? : Array[@js_core.Any]) -> ProcessPromise
 
 pub fn use_bash() -> Unit
 
 pub fn use_powershell() -> Unit
 
-pub fn which(String) -> @core.Promise[String]
+pub fn which(String) -> @js_core.Promise[String]
 
 // Errors
 
@@ -46,30 +46,30 @@ pub fn which(String) -> @core.Promise[String]
 #external
 pub type ProcessOutput
 pub fn ProcessOutput::exit_code(Self) -> Int
-pub fn ProcessOutput::json(Self) -> @core.Any
+pub fn ProcessOutput::json(Self) -> @js_core.Any
 pub fn ProcessOutput::lines(Self) -> Array[String]
 pub fn ProcessOutput::signal(Self) -> String?
 pub fn ProcessOutput::stderr(Self) -> String
 pub fn ProcessOutput::stdout(Self) -> String
 pub fn ProcessOutput::text(Self) -> String
-pub fn ProcessOutput::to_any(Self) -> @core.Any
+pub fn ProcessOutput::to_any(Self) -> @js_core.Any
 pub impl ToZxArg for ProcessOutput
 
 #external
 pub type ProcessPromise
 pub fn ProcessPromise::abort(Self, reason? : String) -> Unit
-pub fn ProcessPromise::exit_code(Self) -> @core.Promise[Int]
-pub fn ProcessPromise::json(Self) -> @core.Promise[@core.Any]
+pub fn ProcessPromise::exit_code(Self) -> @js_core.Promise[Int]
+pub fn ProcessPromise::json(Self) -> @js_core.Promise[@js_core.Any]
 pub fn ProcessPromise::kill(Self, signal? : String) -> Unit
-pub fn ProcessPromise::lines(Self) -> @core.Promise[Array[String]]
+pub fn ProcessPromise::lines(Self) -> @js_core.Promise[Array[String]]
 pub fn ProcessPromise::nothrow(Self) -> Self
 pub fn ProcessPromise::pipe(Self, Self) -> Self
 pub fn ProcessPromise::quiet(Self) -> Self
 pub async fn ProcessPromise::run(Self) -> ProcessOutput
-pub fn ProcessPromise::text(Self) -> @core.Promise[String]
+pub fn ProcessPromise::text(Self) -> @js_core.Promise[String]
 pub fn ProcessPromise::timeout(Self, Int) -> Self
-pub fn ProcessPromise::to_any(Self) -> @core.Any
-pub fn ProcessPromise::to_promise(Self) -> @core.Promise[ProcessOutput]
+pub fn ProcessPromise::to_any(Self) -> @js_core.Any
+pub fn ProcessPromise::to_promise(Self) -> @js_core.Promise[ProcessOutput]
 pub fn ProcessPromise::verbose(Self) -> Self
 pub impl ToZxArg for ProcessPromise
 
@@ -77,11 +77,10 @@ pub impl ToZxArg for ProcessPromise
 
 // Traits
 pub trait ToZxArg {
-  fn to_zx_arg(Self) -> @core.Any
+  fn to_zx_arg(Self) -> @js_core.Any
 }
 pub impl ToZxArg for Bool
 pub impl ToZxArg for Int
 pub impl ToZxArg for Double
 pub impl ToZxArg for String
 pub impl ToZxArg for Array[String]
-

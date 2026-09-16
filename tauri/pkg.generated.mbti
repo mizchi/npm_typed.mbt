@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/tauri"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "mizchi/npm_typed/tauri/dpi",
 }
 
@@ -79,9 +79,9 @@ pub async fn document_dir() -> String
 
 pub async fn download_dir() -> String
 
-pub async fn emit(String, payload? : @core.Any) -> Unit
+pub async fn emit(String, payload? : @js_core.Any) -> Unit
 
-pub async fn emit_to(String, String, payload? : @core.Any) -> Unit
+pub async fn emit_to(String, String, payload? : @js_core.Any) -> Unit
 
 pub async fn executable_dir() -> String
 
@@ -109,9 +109,9 @@ pub async fn hide() -> Unit
 
 pub async fn home_dir() -> String
 
-pub async fn invoke(String, args? : @core.Any) -> @core.Any
+pub async fn invoke(String, args? : @js_core.Any) -> @js_core.Any
 
-pub async fn invoke_with_headers(String, @core.Any, @core.Any) -> @core.Any
+pub async fn invoke_with_headers(String, @js_core.Any, @js_core.Any) -> @js_core.Any
 
 pub async fn is_absolute(String) -> Bool
 
@@ -179,10 +179,10 @@ pub(all) enum BundleType {
 
 #external
 pub type Channel
-pub fn Channel::as_any(Self) -> @core.Any
+pub fn Channel::as_any(Self) -> @js_core.Any
 pub fn Channel::id(Self) -> Int
 pub async fn Channel::new() -> Self
-pub fn Channel::on_message(Self, (@core.Any) -> Unit) -> Unit
+pub fn Channel::on_message(Self, (@js_core.Any) -> Unit) -> Unit
 
 pub(all) enum CursorIcon {
   Default
@@ -224,10 +224,10 @@ pub(all) enum CursorIcon {
 
 #external
 pub type Event
-pub fn Event::as_any(Self) -> @core.Any
+pub fn Event::as_any(Self) -> @js_core.Any
 pub fn Event::event(Self) -> String
 pub fn Event::id(Self) -> Int
-pub fn Event::payload(Self) -> @core.Any
+pub fn Event::payload(Self) -> @js_core.Any
 
 pub(all) struct ListenOptions {
   target : String?
@@ -235,7 +235,7 @@ pub(all) struct ListenOptions {
 
 #external
 pub type Monitor
-pub fn Monitor::as_any(Self) -> @core.Any
+pub fn Monitor::as_any(Self) -> @js_core.Any
 pub fn Monitor::name(Self) -> String?
 pub fn Monitor::position(Self) -> @dpi.PhysicalPosition
 pub fn Monitor::scale_factor(Self) -> Double
@@ -261,7 +261,7 @@ pub(all) enum ResizeDirection {
 
 #external
 pub type Resource
-pub fn Resource::as_any(Self) -> @core.Any
+pub fn Resource::as_any(Self) -> @js_core.Any
 pub async fn Resource::close(Self) -> Unit
 pub fn Resource::rid(Self) -> Int
 
@@ -272,12 +272,12 @@ pub(all) enum Theme {
 
 #external
 pub type UnlistenFn
-pub fn UnlistenFn::as_any(Self) -> @core.Any
+pub fn UnlistenFn::as_any(Self) -> @js_core.Any
 pub fn UnlistenFn::unlisten(Self) -> Unit
 
 #external
 pub type Window
-pub fn Window::as_any(Self) -> @core.Any
+pub fn Window::as_any(Self) -> @js_core.Any
 pub async fn Window::center(Self) -> Unit
 pub async fn Window::close(Self) -> Unit
 pub async fn Window::hide(Self) -> Unit
@@ -323,4 +323,3 @@ pub async fn Window::unmaximize(Self) -> Unit
 // Type aliases
 
 // Traits
-

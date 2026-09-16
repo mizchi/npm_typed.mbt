@@ -1,8 +1,8 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
-  "mizchi/js/web/worker",
-  "mizchi/js/web/message",
+  "mizchi/js_core" @core,
+  "mizchi/js_web/worker",
+  "mizchi/js_web/message",
 }
 
 supported_targets = "js"

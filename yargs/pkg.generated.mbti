@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/yargs"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -15,7 +15,7 @@ pub fn yargs_with_args(Array[String]) -> Yargs
 // Types and methods
 #external
 pub type Argv
-pub fn Argv::as_any(Self) -> @core.Any
+pub fn Argv::as_any(Self) -> @js_core.Any
 pub fn Argv::get_array(Self, String) -> Array[String]?
 pub fn Argv::get_bool(Self, String) -> Bool?
 pub fn Argv::get_int(Self, String) -> Int?
@@ -29,14 +29,14 @@ pub type Yargs
 pub fn Yargs::alias_(Self, String, String) -> Self
 pub fn Yargs::argv(Self) -> Argv
 pub fn Yargs::array(Self, String) -> Self
-pub fn Yargs::as_any(Self) -> @core.Any
+pub fn Yargs::as_any(Self) -> @js_core.Any
 pub fn Yargs::boolean(Self, String) -> Self
 pub fn Yargs::choices(Self, String, Array[String]) -> Self
 pub fn Yargs::command(Self, String, String) -> Self
-pub fn Yargs::command_module(Self, @core.Any) -> Self
-pub fn Yargs::command_with_handler(Self, String, String, @core.Any, @core.Any) -> Self
+pub fn Yargs::command_module(Self, @js_core.Any) -> Self
+pub fn Yargs::command_with_handler(Self, String, String, @js_core.Any, @js_core.Any) -> Self
 pub fn Yargs::count(Self, String) -> Self
-pub fn Yargs::default(Self, String, @core.Any) -> Self
+pub fn Yargs::default(Self, String, @js_core.Any) -> Self
 pub fn Yargs::demandCommand(Self, Int) -> Self
 pub fn Yargs::demandCommand_full(Self, Int, Int, minMsg? : String, maxMsg? : String) -> Self
 pub fn Yargs::demandOption(Self, String, message? : String) -> Self
@@ -47,12 +47,12 @@ pub fn Yargs::exitProcess(Self, Bool) -> Self
 pub fn Yargs::help(Self, option? : String, description? : String) -> Self
 pub fn Yargs::locale(Self, String) -> Self
 pub fn Yargs::number(Self, String) -> Self
-pub fn Yargs::option(Self, String, alias_? : String, type_? : String, description? : String, default? : @core.Any, demandOption? : Bool, choices? : Array[String], array? : Bool) -> Self
+pub fn Yargs::option(Self, String, alias_? : String, type_? : String, description? : String, default? : @js_core.Any, demandOption? : Bool, choices? : Array[String], array? : Bool) -> Self
 pub fn Yargs::parse(Self) -> Argv
 pub async fn Yargs::parseAsync(Self) -> Argv
 pub async fn Yargs::parseAsync_args(Self, Array[String]) -> Argv
 pub fn Yargs::parse_args(Self, Array[String]) -> Argv
-pub fn Yargs::positional(Self, String, type_? : String, description? : String, default? : @core.Any, choices? : Array[String]) -> Self
+pub fn Yargs::positional(Self, String, type_? : String, description? : String, default? : @js_core.Any, choices? : Array[String]) -> Self
 pub fn Yargs::scriptName(Self, String) -> Self
 pub fn Yargs::showHelp(Self) -> Unit
 pub fn Yargs::showVersion(Self) -> Unit
@@ -67,4 +67,3 @@ pub fn Yargs::wrap(Self, Int) -> Self
 // Type aliases
 
 // Traits
-

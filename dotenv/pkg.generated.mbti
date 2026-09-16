@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/dotenv"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -22,10 +22,10 @@ pub fn parse(String) -> DotenvParseOutput
 #alias(parse_with_options)
 pub fn parseWithOptions(String, debug? : Bool) -> DotenvParseOutput
 
-pub fn populate(@core.Any, @core.Any, override_existing? : Bool) -> Unit
+pub fn populate(@js_core.Any, @js_core.Any, override_existing? : Bool) -> Unit
 
 #alias(process_env)
-pub fn processEnv() -> @core.Any
+pub fn processEnv() -> @js_core.Any
 
 #alias(set_env)
 pub fn setEnv(String, String) -> Unit
@@ -34,17 +34,16 @@ pub fn setEnv(String, String) -> Unit
 
 // Types and methods
 pub struct DotenvConfigOutput {
-  parsed : @core.Any?
-  error : @core.Any?
+  parsed : @js_core.Any?
+  error : @js_core.Any?
 }
 
 #external
 pub type DotenvParseOutput
-pub fn DotenvParseOutput::as_any(Self) -> @core.Any
+pub fn DotenvParseOutput::as_any(Self) -> @js_core.Any
 pub fn DotenvParseOutput::get_(Self, String) -> String?
 pub fn DotenvParseOutput::keys(Self) -> Array[String]
 
 // Type aliases
 
 // Traits
-

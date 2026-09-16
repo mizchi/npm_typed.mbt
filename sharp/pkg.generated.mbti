@@ -2,13 +2,13 @@
 package "mizchi/npm_typed/sharp"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn parseMetadata(@core.Any) -> Metadata
+pub fn parseMetadata(@js_core.Any) -> Metadata
 
-pub fn sharp(input? : @core.Any) -> Sharp
+pub fn sharp(input? : @js_core.Any) -> Sharp
 
 // Errors
 
@@ -27,7 +27,7 @@ pub struct Metadata {
 
 #external
 pub type Sharp
-pub fn Sharp::as_any(Self) -> @core.Any
+pub fn Sharp::as_any(Self) -> @js_core.Any
 pub fn Sharp::avif(Self, quality? : Int, lossless? : Bool) -> Self
 pub fn Sharp::blur(Self, sigma? : Double) -> Self
 pub fn Sharp::flip(Self) -> Self
@@ -35,7 +35,7 @@ pub fn Sharp::flop(Self) -> Self
 pub fn Sharp::grayscale(Self) -> Self
 pub fn Sharp::greyscale(Self) -> Self
 pub fn Sharp::jpeg(Self, quality? : Int, progressive? : Bool) -> Self
-pub fn Sharp::metadata(Self) -> @core.Promise[@core.Any]
+pub fn Sharp::metadata(Self) -> @js_core.Promise[@js_core.Any]
 pub fn Sharp::negate(Self) -> Self
 pub fn Sharp::normalize(Self) -> Self
 pub fn Sharp::png(Self, compressionLevel? : Int, progressive? : Bool, quality? : Int) -> Self
@@ -46,11 +46,10 @@ pub fn Sharp::resizeExact(Self, Int, Int) -> Self
 pub fn Sharp::resizeWidth(Self, Int) -> Self
 pub fn Sharp::rotate(Self, angle? : Int) -> Self
 pub fn Sharp::sharpen(Self, sigma? : Double, m1? : Double, m2? : Double) -> Self
-pub fn Sharp::toBuffer(Self) -> @core.Promise[@core.Any]
-pub fn Sharp::toFile(Self, String) -> @core.Promise[@core.Any]
+pub fn Sharp::toBuffer(Self) -> @js_core.Promise[@js_core.Any]
+pub fn Sharp::toFile(Self, String) -> @js_core.Promise[@js_core.Any]
 pub fn Sharp::webp(Self, quality? : Int, lossless? : Bool) -> Self
 
 // Type aliases
 
 // Traits
-

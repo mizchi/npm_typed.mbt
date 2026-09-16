@@ -296,7 +296,7 @@ pub(all) struct Manifest {
 ///|
 /// Create a new Contact with only name
 pub fn Contact::new(name : String) -> Contact {
-  { name, email: None, url: None }
+  { name, email: None, url: None, }
 }
 
 ///|
@@ -306,19 +306,19 @@ pub fn Contact::with_email_and_url(
   email : String,
   url : String,
 ) -> Contact {
-  { name, email: Some(email), url: Some(url) }
+  { name, email: Some(email), url: Some(url), }
 }
 
 ///|
 /// Create a new Repository
 pub fn Repository::new(url : String) -> Repository {
-  { url, type_: None, directory: None }
+  { url, type_: None, directory: None, }
 }
 
 ///|
 /// Create a Repository with type
 pub fn Repository::git(url : String) -> Repository {
-  { url, type_: Some("git"), directory: None }
+  { url, type_: Some("git"), directory: None, }
 }
 
 ///|

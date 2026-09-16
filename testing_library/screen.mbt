@@ -10,7 +10,7 @@ pub fn Screen::as_any(self : Screen) -> @core.Any = "%identity"
 
 ///|
 fn Screen::call0(self : Screen, name : String) -> @core.Any {
-  self.as_any()._call(name, ([] : Array[@core.Any]))
+  self.as_any()._call(name, [])
 }
 
 ///|

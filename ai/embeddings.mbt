@@ -25,7 +25,7 @@ pub(all) struct EmbeddingUsage {
 
 ///|
 pub fn EmbeddingUsage::from_any(value : @core.Any) -> EmbeddingUsage {
-  { tokens: value._get("tokens").cast() }
+  { tokens: value._get("tokens").cast(), }
 }
 
 // ============================================================

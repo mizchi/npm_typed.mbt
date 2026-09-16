@@ -1,8 +1,8 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
   "mizchi/npm_typed/puppeteer",
-  "mizchi/js/builtins/global",
+  "mizchi/js_builtin/global",
 }
 
 import {

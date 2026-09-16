@@ -1,10 +1,10 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
 }
 
 import {
-  "mizchi/js/node",
+  "mizchi/js_node" @node,
 } for "test"
 
 supported_targets = "js"

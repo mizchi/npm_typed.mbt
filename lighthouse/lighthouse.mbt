@@ -427,7 +427,7 @@ pub async fn run_with_port(
     Some(f) => f
     None => LighthouseFlags::new()
   }
-  let flags_with_port = { ..base_flags, port: Some(port) }
+  let flags_with_port = { ..base_flags, port: Some(port), }
   let js_config : @core.Any = match config {
     Some(c) => c |> @core.any
     None => @global.undefined() |> @core.any

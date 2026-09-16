@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/react_native"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
   "mizchi/npm_typed/react",
 }
 
@@ -55,27 +55,27 @@ pub fn alert_simple(String, message? : String?) -> Unit
 
 pub fn android_api_level() -> Int
 
-pub fn animated_add(AnimatedValue, AnimatedValue) -> @core.Any
+pub fn animated_add(AnimatedValue, AnimatedValue) -> @js_core.Any
 
-pub fn animated_diff_clamp(AnimatedValue, Double, Double) -> @core.Any
+pub fn animated_diff_clamp(AnimatedValue, Double, Double) -> @js_core.Any
 
-pub fn animated_divide(AnimatedValue, AnimatedValue) -> @core.Any
+pub fn animated_divide(AnimatedValue, AnimatedValue) -> @js_core.Any
 
-pub fn animated_event(@core.Any, use_native_driver? : Bool, listener? : ((@core.Any) -> Unit)?) -> @core.Any
+pub fn animated_event(@js_core.Any, use_native_driver? : Bool, listener? : ((@js_core.Any) -> Unit)?) -> @js_core.Any
 
-pub fn animated_image(source~ : ImageSource, style? : @core.Any?, resize_mode? : String?, test_id? : String?, key? : String?) -> @react.Element
+pub fn animated_image(source~ : ImageSource, style? : @js_core.Any?, resize_mode? : String?, test_id? : String?, key? : String?) -> @react.Element
 
-pub fn animated_modulo(AnimatedValue, Double) -> @core.Any
+pub fn animated_modulo(AnimatedValue, Double) -> @js_core.Any
 
-pub fn animated_multiply(AnimatedValue, AnimatedValue) -> @core.Any
+pub fn animated_multiply(AnimatedValue, AnimatedValue) -> @js_core.Any
 
-pub fn animated_scroll_view(children? : Array[&@react.ReactNode], style? : @core.Any?, content_container_style? : @core.Any?, horizontal? : Bool?, on_scroll? : ((ScrollEvent) -> Unit)?, scroll_event_throttle? : Int?, test_id? : String?, key? : String?) -> @react.Element
+pub fn animated_scroll_view(children? : Array[&@react.ReactNode], style? : @js_core.Any?, content_container_style? : @js_core.Any?, horizontal? : Bool?, on_scroll? : ((ScrollEvent) -> Unit)?, scroll_event_throttle? : Int?, test_id? : String?, key? : String?) -> @react.Element
 
-pub fn animated_subtract(AnimatedValue, AnimatedValue) -> @core.Any
+pub fn animated_subtract(AnimatedValue, AnimatedValue) -> @js_core.Any
 
-pub fn animated_text(children? : Array[&@react.ReactNode], style? : @core.Any?, number_of_lines? : Int?, test_id? : String?, key? : String?) -> @react.Element
+pub fn animated_text(children? : Array[&@react.ReactNode], style? : @js_core.Any?, number_of_lines? : Int?, test_id? : String?, key? : String?) -> @react.Element
 
-pub fn animated_view(children? : Array[&@react.ReactNode], style? : @core.Any?, on_layout? : ((LayoutChangeEvent) -> Unit)?, test_id? : String?, key? : String?) -> @react.Element
+pub fn animated_view(children? : Array[&@react.ReactNode], style? : @js_core.Any?, on_layout? : ((LayoutChangeEvent) -> Unit)?, test_id? : String?, key? : String?) -> @react.Element
 
 pub fn announce_for_accessibility(String) -> Unit
 
@@ -99,7 +99,7 @@ pub fn dismiss_action_sheet() -> Unit
 
 pub fn drawer_layout_android(children? : Array[&@react.ReactNode], render_navigation_view~ : () -> @react.Element, drawer_width? : Int?, drawer_position? : String?, drawer_lock_mode? : String?, drawer_background_color? : String?, on_drawer_open? : (() -> Unit)?, on_drawer_close? : (() -> Unit)?, on_drawer_slide? : ((Double) -> Unit)?, on_drawer_state_changed? : ((String) -> Unit)?, keyboard_dismiss_mode? : String?, status_bar_background_color? : String?, test_id? : String?, key? : String?) -> @react.Element
 
-pub fn[T] flat_list(data~ : Array[T], render_item~ : (ListRenderItemInfo[T]) -> @react.Element, key_extractor? : ((T, Int) -> String)?, style? : StyleProp?, content_container_style? : StyleProp?, horizontal? : Bool?, inverted? : Bool?, num_columns? : Int?, initial_num_to_render? : Int?, max_to_render_per_batch? : Int?, window_size? : Int?, remove_clipped_subviews? : Bool?, scroll_enabled? : Bool?, shows_vertical_scroll_indicator? : Bool?, shows_horizontal_scroll_indicator? : Bool?, bounces? : Bool?, on_end_reached? : (() -> Unit)?, on_end_reached_threshold? : Double?, on_refresh? : (() -> Unit)?, refreshing? : Bool?, on_scroll? : ((ScrollEvent) -> Unit)?, list_header_component? : @react.Element?, list_footer_component? : @react.Element?, list_empty_component? : @react.Element?, item_separator_component? : (() -> @react.Element)?, extra_data? : @core.Any?, get_item_layout? : ((Array[T], Int) -> ItemLayout)?, keyboard_should_persist_taps? : String?, keyboard_dismiss_mode? : String?, test_id? : String?, key? : String?) -> @react.Element
+pub fn[T] flat_list(data~ : Array[T], render_item~ : (ListRenderItemInfo[T]) -> @react.Element, key_extractor? : ((T, Int) -> String)?, style? : StyleProp?, content_container_style? : StyleProp?, horizontal? : Bool?, inverted? : Bool?, num_columns? : Int?, initial_num_to_render? : Int?, max_to_render_per_batch? : Int?, window_size? : Int?, remove_clipped_subviews? : Bool?, scroll_enabled? : Bool?, shows_vertical_scroll_indicator? : Bool?, shows_horizontal_scroll_indicator? : Bool?, bounces? : Bool?, on_end_reached? : (() -> Unit)?, on_end_reached_threshold? : Double?, on_refresh? : (() -> Unit)?, refreshing? : Bool?, on_scroll? : ((ScrollEvent) -> Unit)?, list_header_component? : @react.Element?, list_footer_component? : @react.Element?, list_empty_component? : @react.Element?, item_separator_component? : (() -> @react.Element)?, extra_data? : @js_core.Any?, get_item_layout? : ((Array[T], Int) -> ItemLayout)?, keyboard_should_persist_taps? : String?, keyboard_dismiss_mode? : String?, test_id? : String?, key? : String?) -> @react.Element
 
 pub fn font_scale() -> Double
 
@@ -195,9 +195,9 @@ pub fn[T] section_list(sections~ : Array[Section[T]], render_item~ : (SectionLis
 
 pub fn[T] select(ios? : T?, android? : T?, web? : T?, macos? : T?, windows? : T?, default? : T?) -> T?
 
-pub fn select_any(Map[String, @core.Any]) -> @core.Any
+pub fn select_any(Map[String, @js_core.Any]) -> @js_core.Any
 
-pub async fn send_intent(String, extras? : Array[(String, @core.Any)]) -> Unit
+pub async fn send_intent(String, extras? : Array[(String, @js_core.Any)]) -> Unit
 
 pub fn sequence(Array[CompositeAnimation]) -> CompositeAnimation
 
@@ -235,7 +235,7 @@ pub fn toast_show_with_gravity_and_offset(String, duration? : ToastDuration, gra
 
 pub fn touchable_highlight(children? : Array[&@react.ReactNode], style? : StyleProp?, on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, active_opacity? : Double?, underlay_color? : String?, on_hide_underlay? : (() -> Unit)?, on_show_underlay? : (() -> Unit)?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
-pub fn touchable_native_feedback(children? : Array[&@react.ReactNode], on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, background? : @core.Any?, use_foreground? : Bool?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
+pub fn touchable_native_feedback(children? : Array[&@react.ReactNode], on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, background? : @js_core.Any?, use_foreground? : Bool?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
 pub fn touchable_opacity(children? : Array[&@react.ReactNode], style? : StyleProp?, on_press? : ((GestureResponderEvent) -> Unit)?, on_long_press? : ((GestureResponderEvent) -> Unit)?, on_press_in? : ((GestureResponderEvent) -> Unit)?, on_press_out? : ((GestureResponderEvent) -> Unit)?, active_opacity? : Double?, disabled? : Bool?, accessible? : Bool?, accessibility_label? : String?, test_id? : String?, key? : String?) -> @react.Element
 
@@ -245,7 +245,7 @@ pub fn use_color_scheme() -> ColorScheme
 
 pub fn use_window_dimensions() -> ScaledSize
 
-pub fn version() -> @core.Any
+pub fn version() -> @js_core.Any
 
 pub fn vibrate(duration? : Int?, repeat? : Bool) -> Unit
 
@@ -279,7 +279,7 @@ pub struct AlertButton {
   is_preferred : Bool
 }
 pub fn AlertButton::new(text~ : String, on_press? : (() -> Unit)?, style? : AlertButtonStyle, is_preferred? : Bool) -> Self
-pub fn AlertButton::to_any(Self) -> @core.Any
+pub fn AlertButton::to_any(Self) -> @js_core.Any
 
 pub(all) enum AlertButtonStyle {
   Default
@@ -320,10 +320,10 @@ pub fn AlignSelf::to_string(Self) -> String
 #external
 pub type AnimatedValue
 pub fn AnimatedValue::add_listener(Self, (Double) -> Unit) -> String
-pub fn AnimatedValue::as_any(Self) -> @core.Any
+pub fn AnimatedValue::as_any(Self) -> @js_core.Any
 pub fn AnimatedValue::extract_offset(Self) -> Unit
 pub fn AnimatedValue::flatten_offset(Self) -> Unit
-pub fn AnimatedValue::interpolate(Self, InterpolateConfig) -> @core.Any
+pub fn AnimatedValue::interpolate(Self, InterpolateConfig) -> @js_core.Any
 pub fn AnimatedValue::new(Double) -> Self
 pub fn AnimatedValue::remove_all_listeners(Self) -> Unit
 pub fn AnimatedValue::remove_listener(Self, String) -> Unit
@@ -334,11 +334,11 @@ pub fn AnimatedValue::stop_animation(Self, callback? : ((Double) -> Unit)?) -> U
 
 #external
 pub type AnimatedValueXY
-pub fn AnimatedValueXY::as_any(Self) -> @core.Any
+pub fn AnimatedValueXY::as_any(Self) -> @js_core.Any
 pub fn AnimatedValueXY::extract_offset(Self) -> Unit
 pub fn AnimatedValueXY::flatten_offset(Self) -> Unit
-pub fn AnimatedValueXY::get_layout(Self) -> @core.Any
-pub fn AnimatedValueXY::get_translate_transform(Self) -> @core.Any
+pub fn AnimatedValueXY::get_layout(Self) -> @js_core.Any
+pub fn AnimatedValueXY::get_translate_transform(Self) -> @js_core.Any
 pub fn AnimatedValueXY::new(x? : Double, y? : Double) -> Self
 pub fn AnimatedValueXY::set_offset(Self, Double, Double) -> Unit
 pub fn AnimatedValueXY::set_value(Self, Double, Double) -> Unit
@@ -376,7 +376,7 @@ pub fn ColorScheme::to_string(Self) -> String
 
 #external
 pub type CompositeAnimation
-pub fn CompositeAnimation::as_any(Self) -> @core.Any
+pub fn CompositeAnimation::as_any(Self) -> @js_core.Any
 pub fn CompositeAnimation::reset(Self) -> Unit
 pub fn CompositeAnimation::start(Self, callback? : ((AnimationResult) -> Unit)?) -> Unit
 pub fn CompositeAnimation::stop(Self) -> Unit
@@ -461,24 +461,24 @@ pub fn FontWeight::to_string(Self) -> String
 
 #external
 pub type GestureResponderEvent
-pub fn GestureResponderEvent::as_any(Self) -> @core.Any
+pub fn GestureResponderEvent::as_any(Self) -> @js_core.Any
 pub fn GestureResponderEvent::native_event(Self) -> NativeEvent
 
 pub struct ImageSource {
   // private fields
 }
-pub fn ImageSource::as_any(Self) -> @core.Any
+pub fn ImageSource::as_any(Self) -> @js_core.Any
 pub fn ImageSource::from_require(Int) -> Self
 pub fn ImageSource::uri(String, width? : Int?, height? : Int?) -> Self
 
 pub struct InterpolateConfig {
   input_range : Array[Double]
-  output_range : Array[@core.Any]
+  output_range : Array[@js_core.Any]
   extrapolate : Extrapolate?
   extrapolate_left : Extrapolate?
   extrapolate_right : Extrapolate?
 }
-pub fn InterpolateConfig::new(input_range~ : Array[Double], output_range~ : Array[@core.Any], extrapolate? : Extrapolate?, extrapolate_left? : Extrapolate?, extrapolate_right? : Extrapolate?) -> Self
+pub fn InterpolateConfig::new(input_range~ : Array[Double], output_range~ : Array[@js_core.Any], extrapolate? : Extrapolate?, extrapolate_left? : Extrapolate?, extrapolate_right? : Extrapolate?) -> Self
 
 pub struct ItemLayout {
   length : Double
@@ -513,7 +513,7 @@ pub struct KeyboardEvent {
 
 #external
 pub type Layout
-pub fn Layout::as_any(Self) -> @core.Any
+pub fn Layout::as_any(Self) -> @js_core.Any
 pub fn Layout::height(Self) -> Double
 pub fn Layout::width(Self) -> Double
 pub fn Layout::x(Self) -> Double
@@ -521,7 +521,7 @@ pub fn Layout::y(Self) -> Double
 
 #external
 pub type LayoutChangeEvent
-pub fn LayoutChangeEvent::as_any(Self) -> @core.Any
+pub fn LayoutChangeEvent::as_any(Self) -> @js_core.Any
 pub fn LayoutChangeEvent::layout(Self) -> Layout
 
 pub struct ListRenderItemInfo[T] {
@@ -532,11 +532,11 @@ pub struct ListRenderItemInfo[T] {
 
 #external
 pub type NativeEvent
-pub fn NativeEvent::as_any(Self) -> @core.Any
+pub fn NativeEvent::as_any(Self) -> @js_core.Any
 
 #external
 pub type NativeScrollEvent
-pub fn NativeScrollEvent::as_any(Self) -> @core.Any
+pub fn NativeScrollEvent::as_any(Self) -> @js_core.Any
 pub fn NativeScrollEvent::content_offset(Self) -> (Double, Double)
 pub fn NativeScrollEvent::content_size(Self) -> (Double, Double)
 
@@ -596,7 +596,7 @@ pub(all) struct ScaledSize {
 
 #external
 pub type ScrollEvent
-pub fn ScrollEvent::as_any(Self) -> @core.Any
+pub fn ScrollEvent::as_any(Self) -> @js_core.Any
 pub fn ScrollEvent::native_event(Self) -> NativeScrollEvent
 
 pub struct Section[T] {
@@ -604,21 +604,21 @@ pub struct Section[T] {
   data : Array[T]
 }
 pub fn[T] Section::new(title~ : String, data~ : Array[T]) -> Self[T]
-pub fn[T] Section::to_any(Self[T]) -> @core.Any
+pub fn[T] Section::to_any(Self[T]) -> @js_core.Any
 
 pub struct SectionListRenderItemInfo[T] {
   item : T
   index : Int
-  section : @core.Any
+  section : @js_core.Any
   separators : Separators
 }
 
 #external
 pub type Separators
-pub fn Separators::as_any(Self) -> @core.Any
+pub fn Separators::as_any(Self) -> @js_core.Any
 pub fn Separators::highlight(Self) -> Unit
 pub fn Separators::unhighlight(Self) -> Unit
-pub fn Separators::update_props(Self, String, @core.Any) -> Unit
+pub fn Separators::update_props(Self, String, @js_core.Any) -> Unit
 
 pub struct ShareActionSheetOptions {
   url : String?
@@ -670,13 +670,13 @@ pub fn SpringConfig::new(to_value~ : Double, friction? : Double?, tension? : Dou
 pub struct Style {
   // private fields
 }
-pub fn Style::as_any(Self) -> @core.Any
-pub fn Style::from_any(@core.Any) -> Self
+pub fn Style::as_any(Self) -> @js_core.Any
+pub fn Style::from_any(@js_core.Any) -> Self
 
 pub struct StyleProp {
   // private fields
 }
-pub fn StyleProp::as_any(Self) -> @core.Any
+pub fn StyleProp::as_any(Self) -> @js_core.Any
 pub fn StyleProp::from_style(Style) -> Self
 pub fn StyleProp::from_styles(Array[Style]) -> Self
 
@@ -684,14 +684,14 @@ pub struct StyleSheet {
 }
 pub fn StyleSheet::absolute_fill() -> Style
 pub fn StyleSheet::absolute_fill_object() -> Style
-pub fn StyleSheet::create(Map[String, Map[String, @core.Any]]) -> Map[String, Style]
+pub fn StyleSheet::create(Map[String, Map[String, @js_core.Any]]) -> Map[String, Style]
 pub fn StyleSheet::create_typed(Map[String, Style]) -> Map[String, Style]
 pub fn StyleSheet::flatten(Array[Style]) -> Style
 pub fn StyleSheet::hairline_width() -> Double
 
 #external
 pub type Subscription
-pub fn Subscription::as_any(Self) -> @core.Any
+pub fn Subscription::as_any(Self) -> @js_core.Any
 pub fn Subscription::remove(Self) -> Unit
 
 pub(all) enum TextAlign {
@@ -721,12 +721,12 @@ pub fn TextDecorationLine::to_string(Self) -> String
 
 #external
 pub type TextInputChangeEvent
-pub fn TextInputChangeEvent::as_any(Self) -> @core.Any
+pub fn TextInputChangeEvent::as_any(Self) -> @js_core.Any
 pub fn TextInputChangeEvent::text(Self) -> String
 
 #external
 pub type TextInputSubmitEvent
-pub fn TextInputSubmitEvent::as_any(Self) -> @core.Any
+pub fn TextInputSubmitEvent::as_any(Self) -> @js_core.Any
 pub fn TextInputSubmitEvent::text(Self) -> String
 
 pub(all) enum TextTransform {
@@ -764,4 +764,3 @@ pub struct URLEvent {
 // Type aliases
 
 // Traits
-

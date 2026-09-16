@@ -2,11 +2,11 @@
 package "mizchi/npm_typed/zustand"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn[T] createStore((SetFn[T], GetFn[T], @core.Any) -> T) -> Store[T]
+pub fn[T] createStore((SetFn[T], GetFn[T], @js_core.Any) -> T) -> Store[T]
 
 pub fn[T] get(GetFn[T]) -> T
 
@@ -41,4 +41,3 @@ pub type Store[_]
 // Type aliases
 
 // Traits
-

@@ -175,7 +175,7 @@ fn app(props : AppProps) -> @react.Element {
     },
     [@core.any(input_text)],
   )
-  provider(myctx, value={ v: "xxx" }, [
+  provider(myctx, value={ v: "xxx", }, [
     h1(["Hello, Moonbit React!"]),
     div(
       id="foo",
@@ -206,7 +206,7 @@ fn app(props : AppProps) -> @react.Element {
         ul(
           props.items.mapi((idx, item) => {
             createElement("li", key=idx.to_string(), [
-              component(item_component, { name: item }, key=idx.to_string()),
+              component(item_component, { name: item, }, key=idx.to_string()),
             ])
           }),
         ),
@@ -254,7 +254,7 @@ async fn main {
   @react_router.init_global()
   guard @dom.document().getElementById("app") is Some(app_root)
   let index = (_props : @react_router.RouteProps) => {
-    component(app, { x: 42, items: ["Item 1", "Item 2", "Item 3"] })
+    component(app, { x: 42, items: ["Item 1", "Item 2", "Item 3"], })
   }
   let routes = @react_router.create_browser_router([
     Component(path="/", component=index),

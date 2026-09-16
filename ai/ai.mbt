@@ -255,7 +255,7 @@ pub fn StreamTextResultHandle::fullStream(
   // TODO: unsafe cast as string to access key
   let key = @js.Symbol::asyncIterator() |> @core.identity
   let iter = iterable._call(key, [])
-  { raw: @core.identity(iter) }
+  { raw: @core.identity(iter), }
 }
 
 ///|

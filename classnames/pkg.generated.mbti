@@ -2,17 +2,17 @@
 package "mizchi/npm_typed/classnames"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
 pub fn classNames(Array[String]) -> String
 
-pub fn classNames_obj(@core.Any) -> String
+pub fn classNames_obj(@js_core.Any) -> String
 
-pub fn classNames_raw(Array[@core.Any]) -> String
+pub fn classNames_raw(Array[@js_core.Any]) -> String
 
-pub fn classNames_with(String, @core.Any) -> String
+pub fn classNames_with(String, @js_core.Any) -> String
 
 // Errors
 
@@ -21,4 +21,3 @@ pub fn classNames_with(String, @core.Any) -> String
 // Type aliases
 
 // Traits
-

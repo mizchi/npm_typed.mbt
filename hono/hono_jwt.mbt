@@ -183,5 +183,5 @@ pub async fn jwt_verify(
 /// https://hono.dev/docs/helpers/jwt#decode
 pub fn jwt_decode(token : String) -> JwtDecoded {
   let result = ffi_jwt_decode(token)
-  { header: result["header"], payload: result["payload"] }
+  { header: result["header"], payload: result["payload"], }
 }

@@ -2,29 +2,29 @@
 package "mizchi/npm_typed/vite"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn createCustomPayload(String, data? : @core.Any) -> @core.Any
+pub fn createCustomPayload(String, data? : @js_core.Any) -> @js_core.Any
 
-pub fn createFullReloadPayload(path? : String) -> @core.Any
+pub fn createFullReloadPayload(path? : String) -> @js_core.Any
 
-pub fn createPrunePayload(Array[String]) -> @core.Any
+pub fn createPrunePayload(Array[String]) -> @js_core.Any
 
-pub async fn createServer(root? : String, base? : String, mode? : String, logLevel? : String, clearScreen? : Bool, server? : @core.Any, plugins? : @core.Any) -> ViteDevServer
+pub async fn createServer(root? : String, base? : String, mode? : String, logLevel? : String, clearScreen? : Bool, server? : @js_core.Any, plugins? : @js_core.Any) -> ViteDevServer
 
 pub fn createServerModuleRunner(DevEnvironment) -> ModuleRunner
 
-pub async fn createServerWithConfig(@core.Any) -> ViteDevServer
+pub async fn createServerWithConfig(@js_core.Any) -> ViteDevServer
 
-pub fn createUpdatePayload(Array[@core.Any]) -> @core.Any
+pub fn createUpdatePayload(Array[@js_core.Any]) -> @js_core.Any
 
-pub fn defineConfig(root? : String, base? : String, mode? : String, logLevel? : String, clearScreen? : Bool, server? : @core.Any, build? : @core.Any, preview? : @core.Any, optimizeDeps? : @core.Any, plugins? : @core.Any, publicDir? : String, cacheDir? : String, resolve? : @core.Any, css? : @core.Any, json? : @core.Any, esbuild? : @core.Any, assetsInclude? : @core.Any, envDir? : String, envPrefix? : String) -> @core.Any
+pub fn defineConfig(root? : String, base? : String, mode? : String, logLevel? : String, clearScreen? : Bool, server? : @js_core.Any, build? : @js_core.Any, preview? : @js_core.Any, optimizeDeps? : @js_core.Any, plugins? : @js_core.Any, publicDir? : String, cacheDir? : String, resolve? : @js_core.Any, css? : @js_core.Any, json? : @js_core.Any, esbuild? : @js_core.Any, assetsInclude? : @js_core.Any, envDir? : String, envPrefix? : String) -> @js_core.Any
 
-pub fn define_plugin(String, enforce? : String, apply? : String, config? : (@core.Any, @core.Any) -> @core.Any?, configResolved? : (@core.Any) -> Unit, configureServer? : (@core.Any) -> Unit, configurePreviewServer? : (@core.Any) -> Unit, transformIndexHtml? : (String, @core.Any) -> @core.Any, handleHotUpdate? : (@core.Any) -> Unit, options? : (@core.Any) -> Unit, buildStart? : (@core.Any) -> Unit, resolveId? : (String, String?, @core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, buildEnd? : (@core.Any?) -> Unit, closeBundle? : () -> Unit) -> @core.Any
+pub fn define_plugin(String, enforce? : String, apply? : String, config? : (@js_core.Any, @js_core.Any) -> @js_core.Any?, configResolved? : (@js_core.Any) -> Unit, configureServer? : (@js_core.Any) -> Unit, configurePreviewServer? : (@js_core.Any) -> Unit, transformIndexHtml? : (String, @js_core.Any) -> @js_core.Any, handleHotUpdate? : (@js_core.Any) -> Unit, options? : (@js_core.Any) -> Unit, buildStart? : (@js_core.Any) -> Unit, resolveId? : (String, String?, @js_core.Any) -> String?, load? : (String) -> String?, transform? : (String, String) -> String?, buildEnd? : (@js_core.Any?) -> Unit, closeBundle? : () -> Unit) -> @js_core.Any
 
-pub fn environmentOptions(consumer? : String, resolve? : @core.Any, dev? : @core.Any, build? : @core.Any) -> @core.Any
+pub fn environmentOptions(consumer? : String, resolve? : @js_core.Any, dev? : @js_core.Any, build? : @js_core.Any) -> @js_core.Any
 
 // Errors
 
@@ -35,18 +35,18 @@ pub(all) struct Config {
   mode : String?
   logLevel : String?
   clearScreen : Bool?
-  server : @core.Any?
-  build : @core.Any?
-  preview : @core.Any?
-  optimizeDeps : @core.Any?
-  plugins : @core.Any?
+  server : @js_core.Any?
+  build : @js_core.Any?
+  preview : @js_core.Any?
+  optimizeDeps : @js_core.Any?
+  plugins : @js_core.Any?
   publicDir : String?
   cacheDir : String?
-  resolve : @core.Any?
-  css : @core.Any?
-  json : @core.Any?
-  esbuild : @core.Any?
-  assetsInclude : @core.Any?
+  resolve : @js_core.Any?
+  css : @js_core.Any?
+  json : @js_core.Any?
+  esbuild : @js_core.Any?
+  assetsInclude : @js_core.Any?
   envDir : String?
   envPrefix : String?
 }
@@ -54,40 +54,40 @@ pub impl Show for Config
 
 pub(all) struct DevEnvironment {
   name : String
-  config : @core.Any
+  config : @js_core.Any
   mode : String
-  plugins : @core.Any
+  plugins : @js_core.Any
   hot : HotChannel
   moduleGraph : ModuleGraph
   pluginContainer : PluginContainer
 }
-pub async fn DevEnvironment::fetch(Self, @core.Any) -> @core.Any
+pub async fn DevEnvironment::fetch(Self, @js_core.Any) -> @js_core.Any
 pub async fn DevEnvironment::fetchModule(Self, String, importer? : String) -> FetchResult
-pub fn DevEnvironment::from_any(@core.Any) -> Self
+pub fn DevEnvironment::from_any(@js_core.Any) -> Self
 pub fn DevEnvironment::isFetchable(Self) -> Bool
 pub fn DevEnvironment::isRunnable(Self) -> Bool
 pub fn DevEnvironment::runner(Self) -> ModuleRunner
-pub fn DevEnvironment::to_any(Self) -> @core.Any
+pub fn DevEnvironment::to_any(Self) -> @js_core.Any
 pub async fn DevEnvironment::transformRequest(Self, String) -> TransformResult?
 pub fn DevEnvironment::warmupRequest(Self, String) -> Unit
 
 #external
 pub type FetchResult
-pub fn FetchResult::to_any(Self) -> @core.Any
+pub fn FetchResult::to_any(Self) -> @js_core.Any
 
 #external
 pub type HotChannel
-pub fn HotChannel::off(Self, String, (@core.Any) -> Unit) -> Unit
-pub fn HotChannel::on(Self, String, (@core.Any) -> Unit) -> Unit
-pub fn HotChannel::send(Self, @core.Any) -> Unit
-pub fn HotChannel::to_any(Self) -> @core.Any
+pub fn HotChannel::off(Self, String, (@js_core.Any) -> Unit) -> Unit
+pub fn HotChannel::on(Self, String, (@js_core.Any) -> Unit) -> Unit
+pub fn HotChannel::send(Self, @js_core.Any) -> Unit
+pub fn HotChannel::to_any(Self) -> @js_core.Any
 
 #external
 pub type ModuleGraph
 pub fn ModuleGraph::getModuleById(Self, String) -> ModuleNode?
 pub async fn ModuleGraph::getModuleByUrl(Self, String) -> ModuleNode?
 pub fn ModuleGraph::invalidateModule(Self, ModuleNode) -> Unit
-pub fn ModuleGraph::to_any(Self) -> @core.Any
+pub fn ModuleGraph::to_any(Self) -> @js_core.Any
 
 #external
 pub type ModuleNode
@@ -96,76 +96,75 @@ pub fn ModuleNode::id(Self) -> String?
 pub fn ModuleNode::importedModules(Self) -> Array[Self]
 pub fn ModuleNode::importers(Self) -> Array[Self]
 pub fn ModuleNode::moduleType(Self) -> String
-pub fn ModuleNode::to_any(Self) -> @core.Any
+pub fn ModuleNode::to_any(Self) -> @js_core.Any
 pub fn ModuleNode::url(Self) -> String
 
 #external
 pub type ModuleRunner
 pub fn ModuleRunner::clearCache(Self) -> Unit
 pub async fn ModuleRunner::close(Self) -> Unit
-pub async fn ModuleRunner::importModule(Self, String) -> @core.Any
+pub async fn ModuleRunner::importModule(Self, String) -> @js_core.Any
 pub fn ModuleRunner::isClosed(Self) -> Bool
-pub fn ModuleRunner::to_any(Self) -> @core.Any
+pub fn ModuleRunner::to_any(Self) -> @js_core.Any
 
 #external
 pub type PluginContainer
-pub fn PluginContainer::to_any(Self) -> @core.Any
+pub fn PluginContainer::to_any(Self) -> @js_core.Any
 
 pub(all) struct TransformResult {
   code : String
-  map : @core.Any
+  map : @js_core.Any
   etag : String
   deps : Array[String]
   dynamicDeps : Array[String]
 }
 pub fn TransformResult::code(Self) -> String
 pub fn TransformResult::etag(Self) -> String?
-pub fn TransformResult::from_any(@core.Any) -> Self
-pub fn TransformResult::map(Self) -> @core.Any
-pub fn TransformResult::to_any(Self) -> @core.Any
+pub fn TransformResult::from_any(@js_core.Any) -> Self
+pub fn TransformResult::map(Self) -> @js_core.Any
+pub fn TransformResult::to_any(Self) -> @js_core.Any
 
 #external
 pub type ViteDevServer
 pub fn ViteDevServer::client(Self) -> DevEnvironment
 pub async fn ViteDevServer::close(Self) -> Unit
-pub fn ViteDevServer::environments(Self) -> @core.Any
+pub fn ViteDevServer::environments(Self) -> @js_core.Any
 pub fn ViteDevServer::getEnvironment(Self, String) -> DevEnvironment
 pub async fn ViteDevServer::listen(Self, port? : Int) -> Self
-pub fn ViteDevServer::middlewares(Self) -> @core.Any
+pub fn ViteDevServer::middlewares(Self) -> @js_core.Any
 pub fn ViteDevServer::printUrls(Self) -> Unit
-pub fn ViteDevServer::resolvedUrls(Self) -> @core.Any
+pub fn ViteDevServer::resolvedUrls(Self) -> @js_core.Any
 pub fn ViteDevServer::ssr(Self) -> DevEnvironment
-pub fn ViteDevServer::ssrFixStacktrace(Self, @core.Any) -> Unit
-pub async fn ViteDevServer::ssrLoadModule(Self, String) -> @core.Any
-pub fn ViteDevServer::to_any(Self) -> @core.Any
+pub fn ViteDevServer::ssrFixStacktrace(Self, @js_core.Any) -> Unit
+pub async fn ViteDevServer::ssrLoadModule(Self, String) -> @js_core.Any
+pub fn ViteDevServer::to_any(Self) -> @js_core.Any
 pub async fn ViteDevServer::transformIndexHtml(Self, String, String) -> String
 
 // Type aliases
-pub type BuildEndHook = (@core.Any?) -> Unit
+pub type BuildEndHook = (@js_core.Any?) -> Unit
 
-pub type BuildStartHook = (@core.Any) -> Unit
+pub type BuildStartHook = (@js_core.Any) -> Unit
 
 pub type CloseBundleHook = () -> Unit
 
-pub type ConfigHook = (@core.Any, @core.Any) -> @core.Any?
+pub type ConfigHook = (@js_core.Any, @js_core.Any) -> @js_core.Any?
 
-pub type ConfigResolvedHook = (@core.Any) -> Unit
+pub type ConfigResolvedHook = (@js_core.Any) -> Unit
 
-pub type ConfigurePreviewServerHook = (@core.Any) -> Unit
+pub type ConfigurePreviewServerHook = (@js_core.Any) -> Unit
 
-pub type ConfigureServerHook = (@core.Any) -> Unit
+pub type ConfigureServerHook = (@js_core.Any) -> Unit
 
-pub type HandleHotUpdateHook = (@core.Any) -> Unit
+pub type HandleHotUpdateHook = (@js_core.Any) -> Unit
 
 pub type LoadHook = (String) -> String?
 
-pub using @core {type Any as Plugin}
+pub using @js_core {type Any as Plugin}
 
-pub type ResolveIdHook = (String, String?, @core.Any) -> String?
+pub type ResolveIdHook = (String, String?, @js_core.Any) -> String?
 
 pub type TransformHook = (String, String) -> String?
 
-pub type TransformIndexHtmlHook = (String, @core.Any) -> @core.Any
+pub type TransformIndexHtmlHook = (String, @js_core.Any) -> @js_core.Any
 
 // Traits
-

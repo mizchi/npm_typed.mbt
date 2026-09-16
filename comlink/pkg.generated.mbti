@@ -2,39 +2,39 @@
 package "mizchi/npm_typed/comlink"
 
 import {
-  "mizchi/js/core",
-  "mizchi/js/web/message",
-  "mizchi/js/web/worker",
+  "mizchi/js_core",
+  "mizchi/js_web/message",
+  "mizchi/js_web/worker",
 }
 
 // Values
-pub fn createEndpointSymbol() -> @core.Any
+pub fn createEndpointSymbol() -> @js_core.Any
 
-pub fn expose(@core.Any, endpoint? : @core.Any) -> Unit
+pub fn expose(@js_core.Any, endpoint? : @js_core.Any) -> Unit
 
-pub fn exposeToMessagePort(@core.Any, @message.MessagePort) -> Unit
+pub fn exposeToMessagePort(@js_core.Any, @message.MessagePort) -> Unit
 
-pub fn exposeToWorker(@core.Any, @worker.Worker) -> Unit
+pub fn exposeToWorker(@js_core.Any, @worker.Worker) -> Unit
 
-pub fn proxy(@core.Any) -> ProxyMarked
+pub fn proxy(@js_core.Any) -> ProxyMarked
 
-pub fn proxyCallback((@core.Any) -> Unit) -> ProxyMarked
+pub fn proxyCallback((@js_core.Any) -> Unit) -> ProxyMarked
 
-pub fn proxyFunction((@core.Any) -> @core.Any) -> ProxyMarked
+pub fn proxyFunction((@js_core.Any) -> @js_core.Any) -> ProxyMarked
 
-pub fn proxyMarkerSymbol() -> @core.Any
+pub fn proxyMarkerSymbol() -> @js_core.Any
 
-pub fn releaseProxySymbol() -> @core.Any
+pub fn releaseProxySymbol() -> @js_core.Any
 
-pub fn transfer(@core.Any, Array[@core.Any]) -> @core.Any
+pub fn transfer(@js_core.Any, Array[@js_core.Any]) -> @js_core.Any
 
-pub fn transferArrayBuffer(@core.Any) -> @core.Any
+pub fn transferArrayBuffer(@js_core.Any) -> @js_core.Any
 
-pub fn transferHandlers() -> @core.Any
+pub fn transferHandlers() -> @js_core.Any
 
-pub fn windowEndpoint(@core.Any, context? : @core.Any, target_origin? : String) -> Endpoint
+pub fn windowEndpoint(@js_core.Any, context? : @js_core.Any, target_origin? : String) -> Endpoint
 
-pub fn wrap(@core.Any) -> Remote
+pub fn wrap(@js_core.Any) -> Remote
 
 pub fn wrapMessagePort(@message.MessagePort) -> Remote
 
@@ -45,28 +45,27 @@ pub fn wrapWorker(@worker.Worker) -> Remote
 // Types and methods
 #external
 pub type Endpoint
-pub fn Endpoint::as_any(Self) -> @core.Any
+pub fn Endpoint::as_any(Self) -> @js_core.Any
 
 #external
 pub type ProxyMarked
-pub fn ProxyMarked::as_any(Self) -> @core.Any
+pub fn ProxyMarked::as_any(Self) -> @js_core.Any
 
 #external
 pub type Remote
-pub fn Remote::as_any(Self) -> @core.Any
-pub fn Remote::call0(Self, String) -> @core.Promise[@core.Any]
-pub fn Remote::call1(Self, String, @core.Any) -> @core.Promise[@core.Any]
-pub fn Remote::call2(Self, String, @core.Any, @core.Any) -> @core.Promise[@core.Any]
-pub fn Remote::callMethod(Self, String, Array[@core.Any]) -> @core.Promise[@core.Any]
-pub fn Remote::createEndpoint(Self) -> @core.Promise[@message.MessagePort]
-pub fn Remote::get(Self, String) -> @core.Promise[@core.Any]
+pub fn Remote::as_any(Self) -> @js_core.Any
+pub fn Remote::call0(Self, String) -> @js_core.Promise[@js_core.Any]
+pub fn Remote::call1(Self, String, @js_core.Any) -> @js_core.Promise[@js_core.Any]
+pub fn Remote::call2(Self, String, @js_core.Any, @js_core.Any) -> @js_core.Promise[@js_core.Any]
+pub fn Remote::callMethod(Self, String, Array[@js_core.Any]) -> @js_core.Promise[@js_core.Any]
+pub fn Remote::createEndpoint(Self) -> @js_core.Promise[@message.MessagePort]
+pub fn Remote::get(Self, String) -> @js_core.Promise[@js_core.Any]
 pub fn Remote::release(Self) -> Unit
 
 #external
 pub type TransferHandler
-pub fn TransferHandler::as_any(Self) -> @core.Any
+pub fn TransferHandler::as_any(Self) -> @js_core.Any
 
 // Type aliases
 
 // Traits
-

@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/error_stack_parser"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -14,7 +14,7 @@ pub fn first_user_frame(Array[StackFrame]) -> StackFrame?
 
 pub fn format_stack(Array[StackFrame]) -> String
 
-pub fn parse(@core.Any) -> Array[StackFrame]
+pub fn parse(@js_core.Any) -> Array[StackFrame]
 
 pub fn parse_string(String) -> Array[StackFrame]
 
@@ -33,4 +33,3 @@ pub impl Show for StackFrame
 // Type aliases
 
 // Traits
-

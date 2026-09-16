@@ -21,7 +21,7 @@ test "createRoot and render" {
   defer @testing_library_react.cleanup()
   // Use React Testing Library's render which handles all the setup
   let result = @testing_library_react.render(
-    @react.component(simple_component, { text: "Hello createRoot" }),
+    @react.component(simple_component, { text: "Hello createRoot", }),
   )
   @testing_library_react.expect(
     @testing_library_react.screen().getByText("Hello createRoot"),

@@ -33,7 +33,9 @@ pub fn PgIndexBuilder::on(
   self : PgIndexBuilder,
   columns : Array[Column],
 ) -> PgIndexBuilder {
-  @core.any(self)._call("on", columns.map(fn(c) { @core.any(c) })).cast()
+  @core.any(self)
+  ._call("on", FixedArray::from_array(columns.map(fn(c) { @core.any(c) })[:]))
+  .cast()
 }
 
 ///|
@@ -136,7 +138,9 @@ pub fn UniqueBuilder::on(
   self : UniqueBuilder,
   columns : Array[Column],
 ) -> UniqueBuilder {
-  @core.any(self)._call("on", columns.map(fn(c) { @core.any(c) })).cast()
+  @core.any(self)
+  ._call("on", FixedArray::from_array(columns.map(fn(c) { @core.any(c) })[:]))
+  .cast()
 }
 
 ///|

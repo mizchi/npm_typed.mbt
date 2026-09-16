@@ -19,7 +19,7 @@ pub fn Style::as_any(self : Style) -> @core.Any {
 ///|
 /// Create Style from @core.Any
 pub fn Style::from_any(any : @core.Any) -> Style {
-  { inner: any }
+  { inner: any, }
 }
 
 ///|
@@ -36,13 +36,13 @@ pub fn StyleProp::as_any(self : StyleProp) -> @core.Any {
 ///|
 /// Create StyleProp from Style
 pub fn StyleProp::from_style(style : Style) -> StyleProp {
-  { inner: style.as_any() }
+  { inner: style.as_any(), }
 }
 
 ///|
 /// Create StyleProp from array of Styles
 pub fn StyleProp::from_styles(styles : Array[Style]) -> StyleProp {
-  { inner: @core.any(styles.map(Style::as_any)) }
+  { inner: @core.any(styles.map(Style::as_any)), }
 }
 
 ///|
@@ -431,12 +431,12 @@ pub fn ImageSource::uri(
   if height is Some(h) {
     obj._set("height", @core.any(h))
   }
-  { inner: obj }
+  { inner: obj, }
 }
 
 ///|
 pub fn ImageSource::from_require(id : Int) -> ImageSource {
-  { inner: @core.any(id) }
+  { inner: @core.any(id), }
 }
 
 ///|

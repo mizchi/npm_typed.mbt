@@ -170,7 +170,7 @@ pub fn Ink::useFocus(self : Ink, options? : UseFocusOptions) -> UseFocusResult {
     }
     None => use_focus._invoke([])
   }
-  { is_focused: result["isFocused"].cast() }
+  { is_focused: result["isFocused"].cast(), }
 }
 
 // ============================================================
@@ -225,7 +225,7 @@ pub fn UseFocusManagerResult::focus(
 pub fn Ink::useFocusManager(self : Ink) -> UseFocusManagerResult {
   let use_focus_manager = self.as_any()["useFocusManager"]
   let result = use_focus_manager._invoke([])
-  { raw: result }
+  { raw: result, }
 }
 
 // ============================================================
@@ -285,7 +285,7 @@ pub fn UseStdoutResult::write(self : UseStdoutResult, data : String) -> Unit {
 pub fn Ink::useStdout(self : Ink) -> UseStdoutResult {
   let use_stdout = self.as_any()["useStdout"]
   let result = use_stdout._invoke([])
-  { stdout: result["stdout"], write_fn: result["write"] }
+  { stdout: result["stdout"], write_fn: result["write"], }
 }
 
 // ============================================================
@@ -312,5 +312,5 @@ pub fn UseStderrResult::write(self : UseStderrResult, data : String) -> Unit {
 pub fn Ink::useStderr(self : Ink) -> UseStderrResult {
   let use_stderr = self.as_any()["useStderr"]
   let result = use_stderr._invoke([])
-  { stderr: result["stderr"], write_fn: result["write"] }
+  { stderr: result["stderr"], write_fn: result["write"], }
 }

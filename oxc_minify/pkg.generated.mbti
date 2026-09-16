@@ -19,4 +19,3 @@ pub(all) struct MinifyResult {
 // Type aliases
 
 // Traits
-

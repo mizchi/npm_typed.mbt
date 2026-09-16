@@ -33,7 +33,7 @@ extern "js" fn ffi_prepare_draftable(base : @core.Any) -> @core.Any =
 ///   mut name : String
 /// }
 ///
-/// let state = { name: "Alice" }
+/// let state = { name: "Alice", }
 ///
 /// let next = produce(state, fn(draft) { draft.name = "Bob" })
 /// ```

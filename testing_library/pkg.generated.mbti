@@ -2,28 +2,28 @@
 package "mizchi/npm_typed/testing_library"
 
 import {
-  "mizchi/js/builtins/regexp",
-  "mizchi/js/core",
   "mizchi/js_browser/dom",
+  "mizchi/js_builtin/regexp",
+  "mizchi/js_core",
 }
 
 // Values
-pub fn build_matcher_options(exact? : Bool?, trim? : Bool?, collapse_whitespace? : Bool?) -> @core.Any?
+pub fn build_matcher_options(exact? : Bool?, trim? : Bool?, collapse_whitespace? : Bool?) -> @js_core.Any?
 
-pub fn build_role_options(name? : String?, hidden? : Bool?, selected? : Bool?, checked? : Bool?, pressed? : Bool?, expanded? : Bool?, level? : Int?, description? : String?) -> @core.Any?
+pub fn build_role_options(name? : String?, hidden? : Bool?, selected? : Bool?, checked? : Bool?, pressed? : Bool?, expanded? : Bool?, level? : Int?, description? : String?) -> @js_core.Any?
 
-pub fn build_selector_matcher_options(exact? : Bool?, trim? : Bool?, collapse_whitespace? : Bool?, selector? : String?) -> @core.Any?
+pub fn build_selector_matcher_options(exact? : Bool?, trim? : Bool?, collapse_whitespace? : Bool?, selector? : String?) -> @js_core.Any?
 
-pub fn to_options(@core.Any, Bool) -> @core.Any?
+pub fn to_options(@js_core.Any, Bool) -> @js_core.Any?
 
 // Errors
 
 // Types and methods
 #external
 pub type FireEvent
-pub fn FireEvent::as_any(Self) -> @core.Any
+pub fn FireEvent::as_any(Self) -> @js_core.Any
 pub fn FireEvent::blur(Self, ScreenResult) -> Bool
-pub fn FireEvent::change(Self, ScreenResult, @core.Any) -> Bool
+pub fn FireEvent::change(Self, ScreenResult, @js_core.Any) -> Bool
 pub fn FireEvent::click(Self, ScreenResult) -> Bool
 pub fn FireEvent::contextMenu(Self, ScreenResult) -> Bool
 pub fn FireEvent::copy(Self, ScreenResult) -> Bool
@@ -38,10 +38,10 @@ pub fn FireEvent::dragStart(Self, ScreenResult) -> Bool
 pub fn FireEvent::drop(Self, ScreenResult) -> Bool
 pub fn FireEvent::error(Self, ScreenResult) -> Bool
 pub fn FireEvent::focus(Self, ScreenResult) -> Bool
-pub fn FireEvent::input(Self, ScreenResult, @core.Any) -> Bool
-pub fn FireEvent::keyDown(Self, ScreenResult, @core.Any) -> Bool
-pub fn FireEvent::keyPress(Self, ScreenResult, @core.Any) -> Bool
-pub fn FireEvent::keyUp(Self, ScreenResult, @core.Any) -> Bool
+pub fn FireEvent::input(Self, ScreenResult, @js_core.Any) -> Bool
+pub fn FireEvent::keyDown(Self, ScreenResult, @js_core.Any) -> Bool
+pub fn FireEvent::keyPress(Self, ScreenResult, @js_core.Any) -> Bool
+pub fn FireEvent::keyUp(Self, ScreenResult, @js_core.Any) -> Bool
 pub fn FireEvent::load(Self, ScreenResult) -> Bool
 pub fn FireEvent::mouseDown(Self, ScreenResult) -> Bool
 pub fn FireEvent::mouseEnter(Self, ScreenResult) -> Bool
@@ -61,7 +61,7 @@ pub fn FireEvent::touchStart(Self, ScreenResult) -> Bool
 
 #external
 pub type Screen
-pub fn Screen::as_any(Self) -> @core.Any
+pub fn Screen::as_any(Self) -> @js_core.Any
 pub fn Screen::debug(Self) -> Unit
 #alias(find_all_by_alt_text)
 pub async fn[T : TextMatch] Screen::findAllByAltText(Self, T, exact? : Bool?, trim? : Bool?, collapse_whitespace? : Bool?) -> Array[ScreenResult]
@@ -168,8 +168,7 @@ pub fn ScreenResult::as_element(Self) -> @dom.HTMLElement
 
 // Traits
 pub trait TextMatch {
-  fn as_any(Self) -> @core.Any
+  fn as_any(Self) -> @js_core.Any
 }
 pub impl TextMatch for String
 pub impl TextMatch for @regexp.RegExp
-

@@ -145,7 +145,7 @@ pub fn AlertButton::new(
   style? : AlertButtonStyle = Default,
   is_preferred? : Bool = false,
 ) -> AlertButton {
-  { text, on_press, style, is_preferred }
+  { text, on_press, style, is_preferred, }
 }
 
 ///|
@@ -317,7 +317,7 @@ pub struct URLEvent {
 /// Add a listener for URL events
 pub fn add_url_listener(handler : (URLEvent) -> Unit) -> Subscription {
   let wrapped : (@core.Any) -> Unit = fn(event) {
-    let url_event : URLEvent = { url: event["url"].cast() }
+    let url_event : URLEvent = { url: event["url"].cast(), }
     handler(url_event)
   }
   ffi_linking_add_event_listener("url", @js.from_fn1(wrapped)).cast()
@@ -902,7 +902,7 @@ pub fn PermissionRationale::new(
   button_negative? : String? = None,
   button_neutral? : String? = None,
 ) -> PermissionRationale {
-  { title, message, button_positive, button_negative, button_neutral }
+  { title, message, button_positive, button_negative, button_neutral, }
 }
 
 ///|
@@ -1088,7 +1088,7 @@ pub fn ShareActionSheetOptions::new(
   subject? : String? = None,
   excluded_activity_types? : Array[String]? = None,
 ) -> ShareActionSheetOptions {
-  { url, message, subject, excluded_activity_types }
+  { url, message, subject, excluded_activity_types, }
 }
 
 ///|
@@ -1164,7 +1164,7 @@ pub fn ShareContent::new(
   url? : String? = None,
   title? : String? = None,
 ) -> ShareContent {
-  { message, url, title }
+  { message, url, title, }
 }
 
 ///|
@@ -1200,7 +1200,7 @@ pub fn ShareOptions::new(
   subject? : String? = None,
   anchor? : Int? = None,
 ) -> ShareOptions {
-  { dialog_title, exclude_activity_types, tint_color, subject, anchor }
+  { dialog_title, exclude_activity_types, tint_color, subject, anchor, }
 }
 
 ///|
@@ -1249,7 +1249,7 @@ pub async fn share(
   } else {
     Some(activity.cast())
   }
-  { action: result["action"].cast(), activity_type }
+  { action: result["action"].cast(), activity_type, }
 }
 
 // ============================================================================

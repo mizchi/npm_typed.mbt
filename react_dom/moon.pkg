@@ -1,16 +1,16 @@
 import {
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
   "mizchi/js_browser/dom",
   "mizchi/npm_typed/react",
 }
 
 import {
   "mizchi/npm_typed/testing_library",
-  "mizchi/js/builtins/global",
+  "mizchi/js_builtin/global",
   "mizchi/npm_typed/react_element",
   "mizchi/npm_typed/testing_library_react",
   "mizchi/npm_typed/global_jsdom",
-  "mizchi/js/node",
+  "mizchi/js_node" @node,
 } for "test"
 
 supported_targets = "js"

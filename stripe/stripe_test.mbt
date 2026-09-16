@@ -83,7 +83,7 @@ test "stripe config to any" {
 test "checkout params to any" {
   let params : @stripe.CheckoutSessionCreateParams = {
     mode: @stripe.CheckoutMode::Subscription,
-    line_items: [@stripe.LineItem::{ price: "price_xxx", quantity: 2 }],
+    line_items: [@stripe.LineItem::{ price: "price_xxx", quantity: 2, }],
     success_url: "https://example.com/success",
     cancel_url: "https://example.com/cancel",
     customer_email: Some("test@example.com"),
@@ -120,7 +120,9 @@ test "customer create params to any" {
 test "subscription create params to any" {
   let params : @stripe.SubscriptionCreateParams = {
     customer: "cus_xxx",
-    items: [@stripe.SubscriptionItem::{ price: "price_xxx", quantity: Some(1) }],
+    items: [
+      @stripe.SubscriptionItem::{ price: "price_xxx", quantity: Some(1), },
+    ],
     payment_behavior: Some("default_incomplete"),
     default_payment_method: None,
     metadata: None,

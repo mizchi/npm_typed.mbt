@@ -34,7 +34,7 @@ fn parse_minify_result(result : @core.Any) -> MinifyResult {
   } else {
     errors_js.cast()
   }
-  { code, errors }
+  { code, errors, }
 }
 
 ///|

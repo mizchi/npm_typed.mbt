@@ -1,12 +1,10 @@
 import {
   "mizchi/js",
-  "mizchi/js/core",
+  "mizchi/js_core" @core,
   "mizchi/npm_typed/rolldown",
   "mizchi/npm_typed/rollup_types",
 }
 
 supported_targets = "js"
 
-options(
-  "is-main": true,
-)
+pkgtype(kind: "executable")

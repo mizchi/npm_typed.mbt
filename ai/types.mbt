@@ -12,7 +12,7 @@ pub fn ProviderMetadata::from_any(value : @core.Any) -> ProviderMetadata? {
   if @core.is_undefined(value) || @core.is_null(value) {
     None
   } else {
-    Some({ raw: value })
+    Some({ raw: value, })
   }
 }
 
@@ -418,7 +418,7 @@ pub(all) struct Tools {
 ///|
 /// Create empty tools collection
 pub fn Tools::new() -> Tools {
-  { tools: {} }
+  { tools: {}, }
 }
 
 ///|
@@ -476,7 +476,7 @@ pub(all) struct LanguageModelRequestMetadata {
 pub fn LanguageModelRequestMetadata::from_any(
   value : @core.Any,
 ) -> LanguageModelRequestMetadata {
-  { raw: value }
+  { raw: value, }
 }
 
 ///|

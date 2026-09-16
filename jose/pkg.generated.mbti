@@ -2,7 +2,7 @@
 package "mizchi/npm_typed/jose"
 
 import {
-  "mizchi/js/core",
+  "mizchi/js_core",
 }
 
 // Values
@@ -14,25 +14,25 @@ pub async fn compactDecrypt(String, String) -> String
 
 pub async fn compactEncrypt(String, String, alg? : String, enc? : String) -> String
 
-pub async fn compactSign(@core.Any, String, alg? : String) -> String
+pub async fn compactSign(@js_core.Any, String, alg? : String) -> String
 
-pub async fn compactVerify(String, String) -> @core.Any
+pub async fn compactVerify(String, String) -> @js_core.Any
 
-pub fn decodeJWT(String) -> @core.Any
+pub fn decodeJWT(String) -> @js_core.Any
 
-pub fn decodeProtectedHeader(String) -> @core.Any
+pub fn decodeProtectedHeader(String) -> @js_core.Any
 
-pub async fn exportJWK(@core.Any) -> @core.Any
+pub async fn exportJWK(@js_core.Any) -> @js_core.Any
 
-pub async fn generateKeyPair(String, extractable? : Bool) -> @core.Any
+pub async fn generateKeyPair(String, extractable? : Bool) -> @js_core.Any
 
-pub async fn generateSecret(String, extractable? : Bool) -> @core.Any
+pub async fn generateSecret(String, extractable? : Bool) -> @js_core.Any
 
-pub async fn importJWK(@core.Any, alg? : String) -> @core.Any
+pub async fn importJWK(@js_core.Any, alg? : String) -> @js_core.Any
 
-pub async fn signJWT(@core.Any, String, alg? : String, expiresIn? : String, issuer? : String, audience? : String, subject? : String, jti? : String) -> String
+pub async fn signJWT(@js_core.Any, String, alg? : String, expiresIn? : String, issuer? : String, audience? : String, subject? : String, jti? : String) -> String
 
-pub async fn verifyJWT(String, String, issuer? : String, audience? : String) -> @core.Any
+pub async fn verifyJWT(String, String, issuer? : String, audience? : String) -> @js_core.Any
 
 // Errors
 
@@ -41,4 +41,3 @@ pub async fn verifyJWT(String, String, issuer? : String, audience? : String) -> 
 // Type aliases
 
 // Traits
-
