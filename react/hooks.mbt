@@ -23,20 +23,20 @@ pub fn[T] use_state_lazy(initial : () -> T) -> (T, (T) -> Unit) {
 /// React.useCallback
 #alias(use_callback)
 pub fn[F] useCallback(f : F, keys : Array[@core.Any]) -> F {
-  ffi_react_use_callback(@core.any(f), keys).cast()
+  ffi_react_use_callback(@core.any(f), FixedArray::from_array(keys[:])).cast()
 }
 
 ///|
 /// JS: React.useEffect
 #alias(use_effect)
 pub fn useEffect(f : () -> () -> Unit, keys : Array[@core.Any]) -> Unit {
-  ffi_react_use_effect(f, keys)
+  ffi_react_use_effect(f, FixedArray::from_array(keys[:]))
 }
 
 ///|
 #alias(use_layout_effect)
 pub fn useLayoutEffect(f : () -> () -> Unit, keys : Array[@core.Any]) -> Unit {
-  ffi_react_use_layout_effect(f, keys)
+  ffi_react_use_layout_effect(f, FixedArray::from_array(keys[:]))
 }
 
 ///|
@@ -50,7 +50,7 @@ pub fn useLayoutEffect(f : () -> () -> Unit, keys : Array[@core.Any]) -> Unit {
 #alias(use_memo)
 pub fn[T] useMemo(f : () -> T, keys : Array[@core.Any]) -> T {
   let f = fn() { @core.any(f()) }
-  ffi_react_use_memo(f, keys).cast()
+  ffi_react_use_memo(f, FixedArray::from_array(keys[:])).cast()
 }
 
 ///|

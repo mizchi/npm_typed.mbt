@@ -10,15 +10,13 @@ moon add mizchi/npm_typed
 npm install react react-router
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/npm_typed/react",
-    "mizchi/npm_typed/react_router"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/react_router",
 }
 ```
 

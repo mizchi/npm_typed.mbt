@@ -10,15 +10,13 @@ moon add mizchi/npm_typed
 npm install pptr-testing-library
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/pptr_testing_library"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/npm_typed/pptr_testing_library",
 }
 ```
 

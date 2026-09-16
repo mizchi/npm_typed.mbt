@@ -63,7 +63,7 @@ pub type HonoCss
 extern "js" fn ffi_hono_css_css(
   m : HonoCss,
   template : String,
-  args : Array[@core.Any],
+  args : FixedArray[@core.Any],
 ) -> @core.Any =
   #|(m, template, args) => {
   #|  const [strings, values] = template.split(/\$\{@(\d+)\}/).reduce(
@@ -76,7 +76,7 @@ extern "js" fn ffi_hono_css_css(
 extern "js" fn ffi_hono_css_keyframes(
   m : HonoCss,
   template : String,
-  args : Array[@core.Any],
+  args : FixedArray[@core.Any],
 ) -> @core.Any =
   #|(m, template, args) => {
   #|  const [strings, values] = template.split(/\$\{@(\d+)\}/).reduce(
@@ -135,7 +135,7 @@ pub fn HonoCss::css(
   template : String,
   args? : Array[@core.Any] = [],
 ) -> CssClass {
-  ffi_hono_css_css(self, template, args).cast()
+  ffi_hono_css_css(self, template, FixedArray::from_array(args[:])).cast()
 }
 
 ///|
@@ -166,7 +166,7 @@ pub fn HonoCss::keyframes(
   template : String,
   args? : Array[@core.Any] = [],
 ) -> CssClass {
-  ffi_hono_css_keyframes(self, template, args).cast()
+  ffi_hono_css_keyframes(self, template, FixedArray::from_array(args[:])).cast()
 }
 
 ///|

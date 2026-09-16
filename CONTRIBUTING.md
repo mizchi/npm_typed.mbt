@@ -28,7 +28,7 @@ moon test --target js
 ```
 
 This creates:
-- `<name>/moon.pkg.json`
+- `<name>/moon.pkg`
 - `<name>/<name>.mbt` - FFI bindings
 - `<name>/<name>_test.mbt` - Tests
 - `<name>/README.mbt.md` - Executable docs (symlinked as README.md)

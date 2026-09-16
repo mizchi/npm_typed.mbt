@@ -1,14 +1,12 @@
 import {
   "mizchi/js",
   "mizchi/js_core" @core,
-  "mizchi/js_builtin/symbol",
   "mizchi/js_convert" @mbtconv,
   "mizchi/js_node" @node,
   "mizchi/js_builtin/reflect",
-  "mizchi/js_builtin/iterator",
   "moonbitlang/async",
 }
 
-warnings = "-4-6-7-27"
+warnings = "-6"
 
 supported_targets = "js"

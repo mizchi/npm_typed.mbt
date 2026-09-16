@@ -143,13 +143,13 @@ pub fn DotenvParseOutput::get_(
 }
 
 ///|
-extern "js" fn ffi_object_keys(obj : @core.Any) -> Array[String] =
+extern "js" fn ffi_object_keys(obj : @core.Any) -> FixedArray[String] =
   #| (obj) => Object.keys(obj)
 
 ///|
 /// Get all keys
 pub fn DotenvParseOutput::keys(self : DotenvParseOutput) -> Array[String] {
-  ffi_object_keys(self.as_any())
+  Array::from_fixed_array(ffi_object_keys(self.as_any()))
 }
 
 ///| Helpers for process.env access

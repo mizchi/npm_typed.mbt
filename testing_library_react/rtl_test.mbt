@@ -608,7 +608,7 @@ fn child_component(_props : ChildProps) -> @react.Element {
 
 ///|
 fn parent_component(_props : Unit) -> @react.Element {
-  @react_element.div([@react.component(child_component, ChildProps::default())])
+  @react_element.div([@react.component(child_component, Default::default())])
 }
 
 ///|

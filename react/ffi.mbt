@@ -19,7 +19,7 @@ extern "js" fn ffi_react_use_state_lazy(initial : () -> @core.Any) -> @core.Any 
 #module("react")
 extern "js" fn ffi_react_use_callback(
   initial : @core.Any,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> @core.Any = "useCallback"
 
 ///|
@@ -42,21 +42,21 @@ extern "js" fn ffi_react_create_context(initial : @core.Any) -> @core.Any = "cre
 #module("react")
 extern "js" fn ffi_react_use_effect(
   f : () -> () -> Unit,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> Unit = "useEffect"
 
 ///|
 #module("react")
 extern "js" fn ffi_react_use_layout_effect(
   f : () -> () -> Unit,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> Unit = "useLayoutEffect"
 
 ///|
 #module("react")
 extern "js" fn ffi_react_use_memo(
   f : () -> @core.Any,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> @core.Any = "useMemo"
 
 ///|

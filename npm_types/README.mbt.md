@@ -10,13 +10,11 @@ This package provides type definitions for npm registry API responses. It does n
 moon add mizchi/npm_typed
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/npm_typed/npm_types"
-  ]
+```
+import {
+  "mizchi/npm_typed/npm_types",
 }
 ```
 

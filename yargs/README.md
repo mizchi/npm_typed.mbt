@@ -10,16 +10,14 @@ moon add mizchi/npm_typed
 npm install yargs
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/js/node/process",
-    "mizchi/npm_typed/yargs"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/js_node/process",
+  "mizchi/npm_typed/yargs",
 }
 ```
 

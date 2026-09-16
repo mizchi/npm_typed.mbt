@@ -6,11 +6,28 @@ MoonBit FFI bindings for npm packages. See [CONTRIBUTING.md](CONTRIBUTING.md) fo
 
 ```
 <package_name>/
-  moon.pkg.json      # Package config
+  moon.pkg           # Package config
   <name>.mbt         # FFI bindings
   <name>_test.mbt    # Tests
   README.mbt.md      # Executable docs (`mbt test` blocks)
   README.md          # Symlink to README.mbt.md
+```
+
+`moon.pkg` / `moon.mod` use the TOML-ish `moon.pkg`/`moon.mod` format, not the
+legacy `*.json` files:
+
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/js_node/fs",
+}
+
+import {
+  "moonbitlang/async",
+} for "test"
+
+supported_targets = "js"
 ```
 
 ## Creating a New Library
@@ -18,6 +35,21 @@ MoonBit FFI bindings for npm packages. See [CONTRIBUTING.md](CONTRIBUTING.md) fo
 ```bash
 ./_scripts/new-library.sh <package_name> [npm_package_name]
 ```
+
+## Upstream js bindings
+
+`mizchi/js` is a facade that re-exports `mizchi/js_core` + `mizchi/js_builtin`.
+Environment-specific APIs live in separate modules; import the narrowest one
+that covers what the binding needs:
+
+| module | contents |
+|--------|----------|
+| `mizchi/js_core` | `Any`, `Promise`, `Nullable`, interop primitives (aliased `@core`) |
+| `mizchi/js_builtin/*` | `object`, `array`, `json`, `regexp`, `symbol`, `global`, ... |
+| `mizchi/js_web/*` | `http` (fetch), `streams`, `encoding`, `url`, `worker`, ... |
+| `mizchi/js_node/*` | `fs`, `process`, `stream`, `tty`, `sqlite`, ... |
+| `mizchi/js_browser/*` | `dom`, ... |
+| `mizchi/js_convert` | MoonBit <-> JS value conversion |
 
 ## FFI Patterns
 
@@ -51,6 +83,23 @@ extern "js" fn import_pkg() -> @js.Promise[@core.Any] =
 - ❌ Classes (`new X()`)
 - ❌ Constants/Symbols
 - ❌ Variadic functions
+
+### Arrays across the FFI boundary
+
+`Array[T]` is deprecated in `extern "js"` signatures. Declare the extern with
+`FixedArray[T]` and keep `Array[T]` in the public wrapper:
+
+```moonbit
+///|
+extern "js" fn ffi_clsx(args : FixedArray[@core.Any]) -> String = "clsx"
+
+///|
+pub fn clsx_raw(args : Array[@core.Any]) -> String {
+  ffi_clsx(FixedArray::from_array(args[:]))
+}
+```
+
+For returns, convert back with `Array::from_fixed_array(...)`.
 
 ## Testing
 

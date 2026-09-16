@@ -94,7 +94,7 @@ jobs:
         run: |
           PACKAGES="${{ steps.changed.outputs.packages }}"
           for pkg in $PACKAGES; do
-            if [ -d "$pkg" ] && [ -f "$pkg/moon.pkg.json" ]; then
+            if [ -d "$pkg" ] && [ -f "$pkg/moon.pkg" ]; then
               echo "Testing package: $pkg"
               moon test --package "$pkg" --target js || exit 1
             fi

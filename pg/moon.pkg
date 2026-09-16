@@ -2,6 +2,4 @@ import {
   "mizchi/js_core" @core,
 }
 
-warnings = "-4-6-7-27"
-
 supported_targets = "js"

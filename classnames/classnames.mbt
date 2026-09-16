@@ -5,7 +5,7 @@
 ///| Main classnames function
 
 ///|
-extern "js" fn ffi_classNames(args : Array[@core.Any]) -> String =
+extern "js" fn ffi_classNames(args : FixedArray[@core.Any]) -> String =
   #| (args) => require('classnames')(...args)
 
 ///|
@@ -17,7 +17,7 @@ extern "js" fn ffi_classNames(args : Array[@core.Any]) -> String =
 /// // => "foo bar baz"
 /// ```
 pub fn classNames(class_names : Array[String]) -> String {
-  ffi_classNames(class_names.map(fn(s) { @core.any(s) }))
+  classNames_raw(class_names.map(fn(s) { @core.any(s) }))
 }
 
 ///|
@@ -29,7 +29,7 @@ pub fn classNames(class_names : Array[String]) -> String {
 /// // => "foo bar"
 /// ```
 pub fn classNames_raw(args : Array[@core.Any]) -> String {
-  ffi_classNames(args)
+  ffi_classNames(FixedArray::from_array(args[:]))
 }
 
 ///|

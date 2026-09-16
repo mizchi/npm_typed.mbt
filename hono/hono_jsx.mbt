@@ -142,7 +142,7 @@ extern "js" fn ffi_hono_jsx_raw(m : HonoJsx, html : String) -> JSXNode =
 ///|
 extern "js" fn ffi_hono_jsx_html(
   m : HonoJsx,
-  template : Array[String],
+  template : FixedArray[String],
 ) -> HtmlEscapedString =
   #|(m, template) => m.html(template)
 
@@ -558,7 +558,7 @@ pub fn raw(html : String) -> JSXNode {
 ///|
 /// Create HTML from template string (legacy - prefer HonoJsx::html)
 #module("hono/html")
-extern "js" fn ffi_html_esm(template : Array[String]) -> HtmlEscapedString = "html"
+extern "js" fn ffi_html_esm(template : FixedArray[String]) -> HtmlEscapedString = "html"
 
 ///|
 pub fn html(template : String) -> HtmlEscapedString {

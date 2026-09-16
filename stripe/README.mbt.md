@@ -17,11 +17,11 @@ MoonBit bindings for [Stripe](https://stripe.com/) payment processing SDK.
 moon add mizchi/npm_typed
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": ["mizchi/npm_typed/stripe"]
+```
+import {
+  "mizchi/npm_typed/stripe",
 }
 ```
 

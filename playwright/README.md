@@ -11,14 +11,12 @@ npm install playwright
 npx playwright install chromium
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/npm_typed/playwright"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/npm_typed/playwright",
 }
 ```
 

@@ -22,7 +22,7 @@ async test "set innerHTML and query elements" {
   let window = create_window()
   defer close_window_sync(window)
   let document = window.document()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   body.setInnerHTML("<div class=\"container\"><p>Hello</p></div>")
   let container = document.querySelector(".container")
   inspect(container is Some(_), content="true")
@@ -33,7 +33,7 @@ async test "create and append elements" {
   let window = create_window()
   defer close_window_sync(window)
   let document = window.document()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   let div = document.createElement("div")
   div.setId("test-div")
   body.as_node().appendChild(div.as_node()) |> ignore

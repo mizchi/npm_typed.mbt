@@ -10,18 +10,13 @@ moon add mizchi/npm_typed
 npm install @testing-library/react @testing-library/jest-dom global-jsdom
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/npm_typed/react",
-    {
-      "path": "mizchi/npm_typed/testing_library_react",
-      "alias": "rtl"
-    }
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/testing_library_react" @rtl,
 }
 ```
 

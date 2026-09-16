@@ -4,6 +4,4 @@ import {
   "mizchi/npm_typed/vue",
 }
 
-warnings = "-25"
-
 supported_targets = "js"

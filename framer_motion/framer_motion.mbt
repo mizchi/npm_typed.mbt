@@ -334,8 +334,8 @@ pub fn mv_on(
 #module("framer-motion")
 extern "js" fn ffi_transform(
   value : @core.Any,
-  input_range : Array[Double],
-  output_range : Array[@core.Any],
+  input_range : FixedArray[Double],
+  output_range : FixedArray[@core.Any],
 ) -> @core.Any = "transform"
 
 ///|
@@ -345,7 +345,11 @@ pub fn transform(
   input_range : Array[Double],
   output_range : Array[@core.Any],
 ) -> @core.Any {
-  ffi_transform(value, input_range, output_range)
+  ffi_transform(
+    value,
+    FixedArray::from_array(input_range[:]),
+    FixedArray::from_array(output_range[:]),
+  )
 }
 
 ///| Mix/interpolate values

@@ -3,11 +3,8 @@ import {
   "mizchi/js",
   "mizchi/js_node" @node,
   "mizchi/js_node/process",
-  "mizchi/js_node/tty",
   "mizchi/npm_typed/ai",
   "mizchi/js_core" @core,
-  "mizchi/js_builtin/iterator",
-  "mizchi/js_builtin/json",
 }
 
 import {

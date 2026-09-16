@@ -10,12 +10,10 @@ import {
   "mizchi/npm_typed/react_element",
   "mizchi/npm_typed/react_dom_server",
   "mizchi/npm_typed/global_jsdom",
-  "mizchi/npm_typed/testing_library",
-  "mizchi/js_web/streams",
   "mizchi/js_web/encoding",
   "mizchi/js_builtin/arraybuffer",
 } for "test"
 
-warnings = "-1-5-6"
+warnings = "-1-5"
 
 supported_targets = "js"

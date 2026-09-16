@@ -58,7 +58,7 @@ pub extern "js" fn coerce(val : @core.Any) -> @core.Any =
 extern "js" fn ffi_log(
   debug : Debug,
   message : String,
-  args : Array[@core.Any],
+  args : FixedArray[@core.Any],
 ) -> Unit =
   #| (debug, message, args) => {
   #|   debug(message, ...args);
@@ -147,7 +147,7 @@ pub fn Debug::log_with(
   message : String,
   args : Array[@core.Any],
 ) -> Unit {
-  ffi_log(self, message, args)
+  ffi_log(self, message, FixedArray::from_array(args[:]))
 }
 
 ///|

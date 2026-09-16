@@ -91,7 +91,7 @@ test "addSchema and getSchema" {
   let schema = @core.json_parse("{\"type\": \"string\"}")
   ajv.addSchema(schema, key="mySchema") |> ignore
   let retrieved = ajv.getSchema("mySchema")
-  guard retrieved is Some(validate)
+  guard! retrieved is Some(validate)
   @core.typeof_(validate.as_any()) |> assert_eq("function")
 }
 
@@ -99,7 +99,7 @@ test "addSchema and getSchema" {
 test "getSchema returns None for unknown" {
   let ajv = Ajv::new()
   let result = ajv.getSchema("unknown")
-  guard result is None
+  guard! result is None
 }
 
 ///|
@@ -198,9 +198,9 @@ test "removeSchema" {
   let schema = @core.json_parse("{\"type\": \"string\"}")
   ajv.addSchema(schema, key="test") |> ignore
   // Verify it exists
-  guard ajv.getSchema("test") is Some(_)
+  guard! ajv.getSchema("test") is Some(_)
   // Remove it
   ajv.removeSchema("test") |> ignore
   // Verify it's gone
-  guard ajv.getSchema("test") is None
+  guard! ajv.getSchema("test") is None
 }

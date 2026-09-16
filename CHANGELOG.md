@@ -1,5 +1,38 @@
 # Changelog
 
+## [0.1.17] - 2026-09-16
+
+### Changed
+
+- Bumped `moonbitlang/async` to `0.22.0`; `mizchi/js` and the split `mizchi/js_*`
+  modules stay on `0.13.0` and are now listed alphabetically in `moon.mod`.
+- Verified against moon `0.1.20260915` / moonc `v0.10.13`; `.versions` refreshed.
+- `moon check` is warning-free again (was 168 warnings):
+  - intentional-panic `guard` in tests/examples now uses `guard!`
+  - remaining `Array[T]` parameters and results in `extern "js"` signatures moved
+    to `FixedArray[T]`, with public wrappers still taking/returning `Array[T]`
+  - `Array::new(capacity=)` → `Array(capacity=)`, `StringBuilder::new()` →
+    `StringBuilder()`, empty `{}` map literals → `Map([])`
+  - dropped unused package imports and `?=Some(..)` argument anti-pattern
+- Narrowed or removed stale per-package `warnings = "-N"` suppressions: dropped
+  entirely from `claude_code`, `drizzle`, `pg`, `hono_element`, `preact_element`,
+  `react_element`, `vue_element` and `react/examples/router_app`.
+
+### Docs
+
+- Package configs are `moon.pkg` / `moon.mod`, not the legacy `*.json` files.
+  Install snippets in all READMEs, `_scripts/new-library.sh`, `CLAUDE.md`,
+  `CONTRIBUTING.md` and the cheatsheet were updated accordingly, including the
+  `mizchi/js/core` → `mizchi/js_core` rename.
+- Root README documents the split `mizchi/js_*` modules.
+- `semver/README.md` and `zod/README.md` are now symlinks to their executable
+  `README.mbt.md` instead of drifted hand-written copies.
+
+### Fixed
+
+- CI's changed-package test loop probed for `moon.pkg.json`, so it never ran any
+  package tests; it now looks for `moon.pkg`.
+
 ## [0.1.16] - 2026-09-16
 
 ### Changed

@@ -164,12 +164,12 @@ pub fn ProcessOutput::text(self : ProcessOutput) -> String {
 
 ///|
 /// Get output lines
-extern "js" fn ffi_output_lines(output : ProcessOutput) -> Array[String] =
+extern "js" fn ffi_output_lines(output : ProcessOutput) -> FixedArray[String] =
   #| (o) => o.lines()
 
 ///|
 pub fn ProcessOutput::lines(self : ProcessOutput) -> Array[String] {
-  ffi_output_lines(self)
+  Array::from_fixed_array(ffi_output_lines(self))
 }
 
 ///|
@@ -331,7 +331,7 @@ fn get_dollar() -> @core.Any {
 extern "js" fn ffi_call_dollar(
   dollar_fn : @core.Any,
   strings : @core.TemplateStringsArray,
-  values : Array[@core.Any],
+  values : FixedArray[@core.Any],
 ) -> ProcessPromise =
   #| (dollar_fn, strings, values) => dollar_fn(strings, ...values)
 
@@ -345,7 +345,9 @@ extern "js" fn ffi_call_dollar(
 /// ```
 pub fn tagged(cmd : String, args? : Array[@core.Any] = []) -> ProcessPromise {
   @core.tag(
-    fn(strings, values) { ffi_call_dollar(get_dollar(), strings, values) },
+    fn(strings, values) {
+      ffi_call_dollar(get_dollar(), strings, FixedArray::from_array(values[:]))
+    },
     cmd,
     args,
   )
@@ -414,13 +416,13 @@ fn get_echo() -> @core.Any {
 ///|
 extern "js" fn ffi_call_echo(
   echo_fn : @core.Any,
-  args : Array[@core.Any],
+  args : FixedArray[@core.Any],
 ) -> Unit =
   #| (echo_fn, args) => echo_fn(...args)
 
 ///|
 pub fn echo(messages : Array[@core.Any]) -> Unit {
-  ffi_call_echo(get_echo(), messages)
+  ffi_call_echo(get_echo(), FixedArray::from_array(messages[:]))
 }
 
 ///|

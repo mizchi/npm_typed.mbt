@@ -215,13 +215,12 @@ pub fn[T : Show] print_value(x : T) -> Unit {
 
 ### Adding Dependencies
 
-Add libraries in `moon.pkg.json`:
+Add libraries in `moon.pkg`:
 
-```json
-{
-  "import": [
-    "username/package"
-  ]
+```
+import {
+  "username/package",
+  "username/package/sub" @alias,
 }
 ```
 

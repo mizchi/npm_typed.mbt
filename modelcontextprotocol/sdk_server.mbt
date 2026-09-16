@@ -86,7 +86,7 @@ pub fn SdkServer::new(
 ///|
 extern "js" fn ffi_construct(
   class_ : @core.Any,
-  args : Array[@core.Any],
+  args : FixedArray[@core.Any],
 ) -> @core.Any =
   #| (cls, args) => new cls(...args)
 

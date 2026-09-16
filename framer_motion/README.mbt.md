@@ -10,15 +10,13 @@ moon add mizchi/npm_typed
 npm install framer-motion
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js/core",
-    "mizchi/js_browser/dom",
-    "mizchi/npm_typed/framer_motion"
-  ]
+```
+import {
+  "mizchi/js_core" @core,
+  "mizchi/js_browser/dom",
+  "mizchi/npm_typed/framer_motion",
 }
 ```
 
