@@ -4,6 +4,6 @@ import {
   "mizchi/npm_typed/react",
 }
 
-warnings = "-1-5-6-9"
+warnings = "-1-9"
 
 supported_targets = "js"

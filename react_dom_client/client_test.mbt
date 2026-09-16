@@ -33,7 +33,7 @@ test "createRoot and render" {
 test "ReactDOMRoot has render method" {
   init_jsdom()
   let document : @dom.Document = @global.global_this()._get("document").cast()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   let container = document.createElement("div")
   body.as_node().appendChild(container.as_node()) |> ignore
   let root = @react_dom_client.createRoot(container)

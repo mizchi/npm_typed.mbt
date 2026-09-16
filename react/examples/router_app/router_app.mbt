@@ -18,7 +18,7 @@ using @react {
 using @react_router {router_provider}
 
 ///|
-using @js {log, identity, run_async}
+using @js {identity, run_async}
 
 ///|
 using @react_element {
@@ -26,12 +26,9 @@ using @react_element {
   h2,
   hr,
   ul,
-  li,
   button,
   form,
   input,
-  main_,
-  section,
   div,
   textarea,
   svg,
@@ -252,7 +249,7 @@ async fn main {
   // react_router requires init_global() for __ReactRouterApi global
   // TODO: Remove when MoonBit adds native ESM support
   @react_router.init_global()
-  guard @dom.document().getElementById("app") is Some(app_root)
+  guard! @dom.document().getElementById("app") is Some(app_root)
   let index = (_props : @react_router.RouteProps) => {
     component(app, { x: 42, items: ["Item 1", "Item 2", "Item 3"], })
   }

@@ -3,14 +3,11 @@ import {
   "mizchi/js_core" @core,
   "mizchi/js",
   "mizchi/js_browser/dom",
-  "mizchi/js_web/http",
   "mizchi/npm_typed/react",
   "mizchi/npm_typed/react_element",
   "mizchi/npm_typed/react_dom_client",
   "mizchi/npm_typed/react_router",
 }
-
-warnings = "-1-2"
 
 supported_targets = "js"
 

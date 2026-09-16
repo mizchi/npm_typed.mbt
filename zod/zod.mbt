@@ -145,23 +145,33 @@ pub fn object_from_any(shape : @core.Any) -> ZodSchema {
 pub extern "js" fn array(element : ZodSchema) -> ZodSchema = "array"
 
 ///|
-/// Create a tuple schema from an Array
 #module("zod")
-pub extern "js" fn tuple(items : Array[ZodSchema]) -> ZodSchema = "tuple"
+extern "js" fn ffi_tuple(items : FixedArray[ZodSchema]) -> ZodSchema = "tuple"
+
+///|
+/// Create a tuple schema from an Array
+pub fn tuple(items : Array[ZodSchema]) -> ZodSchema {
+  ffi_tuple(FixedArray::from_array(items[:]))
+}
+
+///|
+#module("zod")
+extern "js" fn ffi_union(options : FixedArray[ZodSchema]) -> ZodSchema = "union"
 
 ///|
 /// Create a union schema from an Array
-#module("zod")
-pub extern "js" fn union(options : Array[ZodSchema]) -> ZodSchema = "union"
+pub fn union(options : Array[ZodSchema]) -> ZodSchema {
+  ffi_union(FixedArray::from_array(options[:]))
+}
 
 ///|
 /// Create an enum schema from string values
 #module("zod")
-extern "js" fn ffi_enum(values : Array[String]) -> ZodSchema = "enum"
+extern "js" fn ffi_enum(values : FixedArray[String]) -> ZodSchema = "enum"
 
 ///|
 pub fn enum_(values : Array[String]) -> ZodSchema {
-  ffi_enum(values)
+  ffi_enum(FixedArray::from_array(values[:]))
 }
 
 ///|
@@ -199,12 +209,20 @@ pub extern "js" fn intersection(
 ) -> ZodSchema = "intersection"
 
 ///|
-/// Create a discriminated union schema
 #module("zod")
-pub extern "js" fn discriminated_union(
+extern "js" fn ffi_discriminated_union(
+  discriminator : String,
+  options : FixedArray[ZodSchema],
+) -> ZodSchema = "discriminatedUnion"
+
+///|
+/// Create a discriminated union schema
+pub fn discriminated_union(
   discriminator : String,
   options : Array[ZodSchema],
-) -> ZodSchema = "discriminatedUnion"
+) -> ZodSchema {
+  ffi_discriminated_union(discriminator, FixedArray::from_array(options[:]))
+}
 
 ///|
 /// Create a promise schema

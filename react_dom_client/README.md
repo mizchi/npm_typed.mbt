@@ -10,16 +10,14 @@ moon add mizchi/npm_typed
 npm install react react-dom
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js_browser/dom",
-    "mizchi/npm_typed/react",
-    "mizchi/npm_typed/react_dom_client"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/js_browser/dom",
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/react_dom_client",
 }
 ```
 

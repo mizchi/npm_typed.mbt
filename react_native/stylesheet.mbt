@@ -47,7 +47,7 @@ pub fn StyleSheet::create(
     styles_obj._set(name, style_obj)
   }
   let result = ffi_stylesheet_create(styles_obj)
-  let output : Map[String, Style] = {}
+  let output : Map[String, Style] = Map([])
   for name, _ in styles {
     output[name] = Style::from_any(result[name])
   }
@@ -90,7 +90,7 @@ pub fn StyleSheet::create_typed(
     styles_obj._set(name, style.as_any())
   }
   let result = ffi_stylesheet_create(styles_obj)
-  let output : Map[String, Style] = {}
+  let output : Map[String, Style] = Map([])
   for name, _ in styles {
     output[name] = Style::from_any(result[name])
   }

@@ -5,7 +5,6 @@ import {
 }
 
 import {
-  "mizchi/npm_typed/testing_library",
   "mizchi/js_builtin/global",
   "mizchi/npm_typed/react_element",
   "mizchi/npm_typed/testing_library_react",

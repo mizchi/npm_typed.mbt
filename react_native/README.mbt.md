@@ -9,16 +9,14 @@ moon add mizchi/npm_typed
 npm install react-native
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/react",
-    "mizchi/npm_typed/react_native"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/react_native",
 }
 ```
 

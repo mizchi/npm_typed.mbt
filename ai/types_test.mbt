@@ -56,7 +56,7 @@ test "LanguageModelUsage from_any without cached" {
 ///|
 test "ProviderMetadata from_any with undefined" {
   let result = ProviderMetadata::from_any(@js.undefined())
-  guard result is None
+  guard! result is None
 }
 
 ///|
@@ -64,7 +64,7 @@ test "ProviderMetadata from_any with value" {
   let obj = @core.new_object()
   obj._set("key", "value" |> @core.any)
   let result = ProviderMetadata::from_any(obj)
-  guard result is Some(meta)
+  guard! result is Some(meta)
   assert_eq(meta.raw._get("key").cast(), "value")
 }
 
@@ -75,7 +75,7 @@ test "CallWarning from_any" {
   obj._set("message", "Test message" |> @core.any)
   let warning = CallWarning::from_any(obj)
   assert_eq(warning.type_, "test-warning")
-  guard warning.message is Some(msg)
+  guard! warning.message is Some(msg)
   assert_eq(msg, "Test message")
 }
 
@@ -85,7 +85,7 @@ test "CallWarning from_any without message" {
   obj._set("type", "test-warning" |> @core.any)
   let warning = CallWarning::from_any(obj)
   assert_eq(warning.type_, "test-warning")
-  guard warning.message is None
+  guard! warning.message is None
 }
 
 ///|
@@ -104,10 +104,10 @@ test "Source from_any url" {
   obj._set("url", "https://example.com" |> @core.any)
   obj._set("title", "Example" |> @core.any)
   let source = Source::from_any(obj)
-  guard source is UrlSource(src)
+  guard! source is UrlSource(src)
   assert_eq(src.id, "src-1")
   assert_eq(src.url, "https://example.com")
-  guard src.title is Some(title)
+  guard! src.title is Some(title)
   assert_eq(title, "Example")
 }
 
@@ -119,9 +119,9 @@ test "Source from_any document" {
   obj._set("id", "doc-1" |> @core.any)
   obj._set("title", "Document" |> @core.any)
   let source = Source::from_any(obj)
-  guard source is DocumentSource(doc)
+  guard! source is DocumentSource(doc)
   assert_eq(doc.id, "doc-1")
-  guard doc.title is Some(title)
+  guard! doc.title is Some(title)
   assert_eq(title, "Document")
 }
 
@@ -162,7 +162,7 @@ test "TextStreamPart from_any text-start" {
   obj._set("type", "text-start" |> @core.any)
   obj._set("id", "text-1" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is TextStart(id~, ..)
+  guard! part is TextStart(id~, ..)
   assert_eq(id, "text-1")
   assert_eq(part.type_string(), "text-start")
   assert_eq(part.is_text_part(), true)
@@ -175,10 +175,10 @@ test "TextStreamPart from_any text-delta" {
   obj._set("id", "text-1" |> @core.any)
   obj._set("text", "Hello" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is TextDelta(id~, text~, ..)
+  guard! part is TextDelta(id~, text~, ..)
   assert_eq(id, "text-1")
   assert_eq(text, "Hello")
-  guard part.get_text() is Some(t)
+  guard! part.get_text() is Some(t)
   assert_eq(t, "Hello")
 }
 
@@ -189,11 +189,11 @@ test "TextStreamPart from_any reasoning-delta" {
   obj._set("id", "reason-1" |> @core.any)
   obj._set("text", "Thinking..." |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ReasoningDelta(id~, text~, ..)
+  guard! part is ReasoningDelta(id~, text~, ..)
   assert_eq(id, "reason-1")
   assert_eq(text, "Thinking...")
   assert_eq(part.is_reasoning_part(), true)
-  guard part.get_reasoning_text() is Some(t)
+  guard! part.get_reasoning_text() is Some(t)
   assert_eq(t, "Thinking...")
 }
 
@@ -204,7 +204,7 @@ test "TextStreamPart from_any tool-input-start" {
   obj._set("id", "tool-1" |> @core.any)
   obj._set("toolName", "search" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolInputStart(id~, tool_name~, ..)
+  guard! part is ToolInputStart(id~, tool_name~, ..)
   assert_eq(id, "tool-1")
   assert_eq(tool_name, "search")
   assert_eq(part.is_tool_part(), true)
@@ -215,7 +215,7 @@ test "TextStreamPart from_any start" {
   let obj = @core.new_object()
   obj._set("type", "start" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is Start
+  guard! part is Start
   assert_eq(part.type_string(), "start")
 }
 
@@ -230,7 +230,7 @@ test "TextStreamPart from_any finish" {
   usage_obj._set("totalTokens", 150 |> @core.any)
   obj._set("totalUsage", usage_obj)
   let part = TextStreamPart::from_any(obj)
-  guard part is Finish(finish_reason~, total_usage~)
+  guard! part is Finish(finish_reason~, total_usage~)
   assert_eq(finish_reason, FinishReason::Stop)
   assert_eq(total_usage.total_tokens, 150)
 }
@@ -241,7 +241,7 @@ test "TextStreamPart from_any error" {
   obj._set("type", "error" |> @core.any)
   obj._set("error", "Something went wrong" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is Error(error~)
+  guard! part is Error(error~)
   let err : String = error.cast()
   assert_eq(err, "Something went wrong")
 }
@@ -251,7 +251,7 @@ test "TextStreamPart from_any abort" {
   let obj = @core.new_object()
   obj._set("type", "abort" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is Abort
+  guard! part is Abort
   assert_eq(part.type_string(), "abort")
 }
 
@@ -260,7 +260,7 @@ test "TextStreamPart from_any unknown" {
   let obj = @core.new_object()
   obj._set("type", "custom-type" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is Unknown(type_~, ..)
+  guard! part is Unknown(type_~, ..)
   assert_eq(type_, "custom-type")
 }
 
@@ -304,7 +304,7 @@ test "TextStreamPart from_any tool-output-denied" {
   input_obj._set("city", "Tokyo" |> @core.any)
   obj._set("input", input_obj)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolOutputDeniedPart(tool_output_denied~)
+  guard! part is ToolOutputDeniedPart(tool_output_denied~)
   assert_eq(tool_output_denied.tool_call_id, "call-1")
   assert_eq(tool_output_denied.tool_name, "get_weather")
   assert_eq(part.type_string(), "tool-output-denied")
@@ -321,7 +321,7 @@ test "TextStreamPart from_any tool-approval-request" {
   input_obj._set("path", "/tmp/test.txt" |> @core.any)
   obj._set("input", input_obj)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolApprovalRequestPart(tool_approval_request~)
+  guard! part is ToolApprovalRequestPart(tool_approval_request~)
   assert_eq(tool_approval_request.tool_call_id, "call-2")
   assert_eq(tool_approval_request.tool_name, "delete_file")
   assert_eq(part.type_string(), "tool-approval-request")
@@ -343,10 +343,10 @@ test "TextStreamPart from_any finish-step" {
   obj._set("usage", usage_obj)
   obj._set("finishReason", "stop" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is FinishStep(response~, usage~, finish_reason~, ..)
-  guard response.id is Some(id)
+  guard! part is FinishStep(response~, usage~, finish_reason~, ..)
+  guard! response.id is Some(id)
   assert_eq(id, "resp-1")
-  guard response.model_id is Some(model)
+  guard! response.model_id is Some(model)
   assert_eq(model, "gpt-4")
   assert_eq(usage.total_tokens, 30)
   assert_eq(finish_reason, FinishReason::Stop)
@@ -357,7 +357,7 @@ test "TextStreamPart get_text returns None for non-text-delta" {
   let obj = @core.new_object()
   obj._set("type", "start" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part.get_text() is None
+  guard! part.get_text() is None
 }
 
 ///|
@@ -367,7 +367,7 @@ test "TextStreamPart get_reasoning_text returns None for non-reasoning" {
   obj._set("id", "text-1" |> @core.any)
   obj._set("text", "Hello" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part.get_reasoning_text() is None
+  guard! part.get_reasoning_text() is None
 }
 
 ///|
@@ -376,7 +376,7 @@ test "TextStreamPart from_any text-end" {
   obj._set("type", "text-end" |> @core.any)
   obj._set("id", "text-1" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is TextEnd(id~, ..)
+  guard! part is TextEnd(id~, ..)
   assert_eq(id, "text-1")
   assert_eq(part.type_string(), "text-end")
   assert_eq(part.is_text_part(), true)
@@ -388,7 +388,7 @@ test "TextStreamPart from_any reasoning-start" {
   obj._set("type", "reasoning-start" |> @core.any)
   obj._set("id", "reason-1" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ReasoningStart(id~, ..)
+  guard! part is ReasoningStart(id~, ..)
   assert_eq(id, "reason-1")
   assert_eq(part.type_string(), "reasoning-start")
   assert_eq(part.is_reasoning_part(), true)
@@ -400,7 +400,7 @@ test "TextStreamPart from_any reasoning-end" {
   obj._set("type", "reasoning-end" |> @core.any)
   obj._set("id", "reason-1" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ReasoningEnd(id~, ..)
+  guard! part is ReasoningEnd(id~, ..)
   assert_eq(id, "reason-1")
   assert_eq(part.type_string(), "reasoning-end")
   assert_eq(part.is_reasoning_part(), true)
@@ -412,7 +412,7 @@ test "TextStreamPart from_any tool-input-end" {
   obj._set("type", "tool-input-end" |> @core.any)
   obj._set("id", "tool-1" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolInputEnd(id~, ..)
+  guard! part is ToolInputEnd(id~, ..)
   assert_eq(id, "tool-1")
   assert_eq(part.type_string(), "tool-input-end")
   assert_eq(part.is_tool_part(), true)
@@ -425,7 +425,7 @@ test "TextStreamPart from_any tool-input-delta" {
   obj._set("id", "tool-1" |> @core.any)
   obj._set("delta", "{\"query\":" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolInputDelta(id~, delta~, ..)
+  guard! part is ToolInputDelta(id~, delta~, ..)
   assert_eq(id, "tool-1")
   assert_eq(delta, "{\"query\":")
   assert_eq(part.type_string(), "tool-input-delta")
@@ -442,7 +442,7 @@ test "TextStreamPart from_any tool-call" {
   input_obj._set("query", "weather" |> @core.any)
   obj._set("input", input_obj)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolCallPart(tool_call~)
+  guard! part is ToolCallPart(tool_call~)
   assert_eq(tool_call.tool_call_id, "call-1")
   assert_eq(tool_call.tool_name, "search")
   assert_eq(part.type_string(), "tool-call")
@@ -460,7 +460,7 @@ test "TextStreamPart from_any tool-result" {
   obj._set("input", input_obj)
   obj._set("output", "Sunny" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolResultPart(tool_result~)
+  guard! part is ToolResultPart(tool_result~)
   assert_eq(tool_result.tool_call_id, "call-1")
   assert_eq(tool_result.tool_name, "search")
   assert_eq(part.type_string(), "tool-result")
@@ -478,7 +478,7 @@ test "TextStreamPart from_any tool-error" {
   obj._set("args", args_obj)
   obj._set("error", "Network error" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is ToolErrorPart(tool_error~)
+  guard! part is ToolErrorPart(tool_error~)
   assert_eq(tool_error.tool_call_id, "call-1")
   assert_eq(tool_error.tool_name, "search")
   assert_eq(part.type_string(), "tool-error")
@@ -491,7 +491,7 @@ test "TextStreamPart from_any raw" {
   obj._set("type", "raw" |> @core.any)
   obj._set("rawValue", "raw data" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is Raw(raw_value~)
+  guard! part is Raw(raw_value~)
   let val : String = raw_value.cast()
   assert_eq(val, "raw data")
   assert_eq(part.type_string(), "raw")
@@ -508,7 +508,7 @@ test "TextStreamPart from_any start-step" {
   warning_obj._set("type", "test-warning" |> @core.any)
   obj._set("warnings", [warning_obj] |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is StartStep(request~, warnings~)
+  guard! part is StartStep(request~, warnings~)
   ignore(request)
   assert_eq(warnings.length(), 1)
   assert_eq(part.type_string(), "start-step")
@@ -522,8 +522,8 @@ test "TextStreamPart from_any source" {
   obj._set("id", "src-1" |> @core.any)
   obj._set("url", "https://example.com" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part is SourcePart(source~)
-  guard source is UrlSource(src)
+  guard! part is SourcePart(source~)
+  guard! source is UrlSource(src)
   assert_eq(src.id, "src-1")
   assert_eq(part.type_string(), "source")
 }
@@ -538,8 +538,8 @@ test "TextStreamPart from_any file" {
   file_obj._set("data", "base64data" |> @core.any)
   obj._set("file", file_obj)
   let part = TextStreamPart::from_any(obj)
-  guard part is FilePart(file~)
-  guard file.name is Some(name)
+  guard! part is FilePart(file~)
+  guard! file.name is Some(name)
   assert_eq(name, "image.png")
   assert_eq(part.type_string(), "file")
 }
@@ -567,9 +567,9 @@ test "GeneratedFile from_any" {
   obj._set("mediaType", "image/png" |> @core.any)
   obj._set("data", "base64encodeddata" |> @core.any)
   let file = GeneratedFile::from_any(obj)
-  guard file.name is Some(name)
+  guard! file.name is Some(name)
   assert_eq(name, "output.png")
-  guard file.media_type is Some(media_type)
+  guard! file.media_type is Some(media_type)
   assert_eq(media_type, "image/png")
 }
 
@@ -578,8 +578,8 @@ test "GeneratedFile from_any without optional fields" {
   let obj = @core.new_object()
   obj._set("data", "base64encodeddata" |> @core.any)
   let file = GeneratedFile::from_any(obj)
-  guard file.name is None
-  guard file.media_type is None
+  guard! file.name is None
+  guard! file.media_type is None
 }
 
 ///|
@@ -596,7 +596,7 @@ test "ContentPart from_any text" {
   obj._set("type", "text" |> @core.any)
   obj._set("text", "Hello world" |> @core.any)
   let part = ContentPart::from_any(obj)
-  guard part is TextPart(text~, ..)
+  guard! part is TextPart(text~, ..)
   assert_eq(text, "Hello world")
 }
 
@@ -606,7 +606,7 @@ test "ContentPart from_any reasoning" {
   obj._set("type", "reasoning" |> @core.any)
   obj._set("text", "Thinking..." |> @core.any)
   let part = ContentPart::from_any(obj)
-  guard part is ReasoningPart(reasoning~)
+  guard! part is ReasoningPart(reasoning~)
   assert_eq(reasoning.text, "Thinking...")
 }
 
@@ -618,8 +618,8 @@ test "ContentPart from_any source" {
   obj._set("id", "src-1" |> @core.any)
   obj._set("url", "https://example.com" |> @core.any)
   let part = ContentPart::from_any(obj)
-  guard part is SourceContentPart(source~)
-  guard source is UrlSource(src)
+  guard! part is SourceContentPart(source~)
+  guard! source is UrlSource(src)
   assert_eq(src.id, "src-1")
 }
 
@@ -632,8 +632,8 @@ test "ContentPart from_any file" {
   file_obj._set("data", "data" |> @core.any)
   obj._set("file", file_obj)
   let part = ContentPart::from_any(obj)
-  guard part is FilePart(file~, ..)
-  guard file.name is Some(name)
+  guard! part is FilePart(file~, ..)
+  guard! file.name is Some(name)
   assert_eq(name, "doc.pdf")
 }
 
@@ -647,7 +647,7 @@ test "ContentPart from_any tool-call" {
   input_obj._set("q", "test" |> @core.any)
   obj._set("input", input_obj)
   let part = ContentPart::from_any(obj)
-  guard part is ToolCallContentPart(tool_call~, ..)
+  guard! part is ToolCallContentPart(tool_call~, ..)
   assert_eq(tool_call.tool_call_id, "call-1")
 }
 
@@ -661,7 +661,7 @@ test "ContentPart from_any tool-result" {
   obj._set("input", input_obj)
   obj._set("output", "result" |> @core.any)
   let part = ContentPart::from_any(obj)
-  guard part is ToolResultContentPart(tool_result~, ..)
+  guard! part is ToolResultContentPart(tool_result~, ..)
   assert_eq(tool_result.tool_call_id, "call-1")
 }
 
@@ -675,7 +675,7 @@ test "ContentPart from_any tool-error" {
   obj._set("args", args_obj)
   obj._set("error", "Error message" |> @core.any)
   let part = ContentPart::from_any(obj)
-  guard part is ToolErrorContentPart(tool_error~, ..)
+  guard! part is ToolErrorContentPart(tool_error~, ..)
   assert_eq(tool_error.tool_call_id, "call-1")
 }
 
@@ -685,7 +685,7 @@ test "ContentPart from_any unknown type" {
   obj._set("type", "unknown-type" |> @core.any)
   let part = ContentPart::from_any(obj)
   // Unknown types fall through to TextPart with empty text
-  guard part is TextPart(text~, ..)
+  guard! part is TextPart(text~, ..)
   assert_eq(text, "")
 }
 
@@ -696,20 +696,20 @@ test "LanguageModelResponseMetadata from_any" {
   obj._set("modelId", "gpt-4" |> @core.any)
   obj._set("timestamp", "2024-01-01T00:00:00Z" |> @core.any)
   let meta = LanguageModelResponseMetadata::from_any(obj)
-  guard meta.id is Some(id)
+  guard! meta.id is Some(id)
   assert_eq(id, "resp-123")
-  guard meta.model_id is Some(model_id)
+  guard! meta.model_id is Some(model_id)
   assert_eq(model_id, "gpt-4")
-  guard meta.timestamp is Some(_)
+  guard! meta.timestamp is Some(_)
 }
 
 ///|
 test "LanguageModelResponseMetadata from_any without optional" {
   let obj = @core.new_object()
   let meta = LanguageModelResponseMetadata::from_any(obj)
-  guard meta.id is None
-  guard meta.model_id is None
-  guard meta.timestamp is None
+  guard! meta.id is None
+  guard! meta.model_id is None
+  guard! meta.timestamp is None
 }
 
 ///|
@@ -791,14 +791,14 @@ test "ToolInputStart with all optional fields" {
   obj._set("dynamic", false |> @core.any)
   obj._set("title", "Search Tool" |> @core.any)
   let part = TextStreamPart::from_any(obj)
-  guard part
+  guard! part
     is ToolInputStart(id~, tool_name~, provider_executed~, dynamic~, title~, ..)
   assert_eq(id, "tool-1")
   assert_eq(tool_name, "search")
-  guard provider_executed is Some(pe)
+  guard! provider_executed is Some(pe)
   assert_eq(pe, true)
-  guard dynamic is Some(d)
+  guard! dynamic is Some(d)
   assert_eq(d, false)
-  guard title is Some(t)
+  guard! title is Some(t)
   assert_eq(t, "Search Tool")
 }

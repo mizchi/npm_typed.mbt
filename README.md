@@ -17,20 +17,30 @@ Inspired by [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped
 ## Installation
 
 ```bash
-moon add mizchi/js
 moon add mizchi/npm_typed
 ```
 
-Add to your `moon.pkg.json`:
+The bindings are built on [mizchi/js](https://github.com/mizchi/js.mbt), which is
+split into per-environment modules. Add the ones your package needs:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/react",
-    "mizchi/npm_typed/hono"
-  ]
+```bash
+moon add mizchi/js          # facade: re-exports js_core + js_builtin
+moon add mizchi/js_core     # Any, Promise, Nullable, interop primitives
+moon add mizchi/js_builtin  # Object, Array, JSON, RegExp, Symbol, ...
+moon add mizchi/js_web      # fetch, Streams, Blob, URL, Crypto, ...
+moon add mizchi/js_node     # fs, http, stream, process, ...
+moon add mizchi/js_browser  # dom, history, storage, ...
+moon add mizchi/js_convert  # MoonBit <-> JS value conversion
+```
+
+Add to your `moon.pkg`:
+
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/hono",
 }
 ```
 

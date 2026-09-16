@@ -27,7 +27,7 @@ fn dev_server_example() -> Unit {
     println("✓ Server created")
 
     // Start listening
-    let listening = server.listen(port?=Some(5173)) catch {
+    let listening = server.listen(port=5173) catch {
       e => {
         println("Failed to start server: \{e}")
         return

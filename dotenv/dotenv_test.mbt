@@ -1,46 +1,46 @@
 ///|
 test "parse simple string" {
   let result = parse("KEY=value")
-  guard result.get_("KEY") is Some(v)
+  guard! result.get_("KEY") is Some(v)
   assert_eq(v, "value")
 }
 
 ///|
 test "parse multiple lines" {
   let result = parse("FOO=bar\nBAZ=qux")
-  guard result.get_("FOO") is Some(foo)
+  guard! result.get_("FOO") is Some(foo)
   assert_eq(foo, "bar")
-  guard result.get_("BAZ") is Some(baz)
+  guard! result.get_("BAZ") is Some(baz)
   assert_eq(baz, "qux")
 }
 
 ///|
 test "parse with quotes" {
   let result = parse("QUOTED=\"hello world\"")
-  guard result.get_("QUOTED") is Some(v)
+  guard! result.get_("QUOTED") is Some(v)
   assert_eq(v, "hello world")
 }
 
 ///|
 test "parse with single quotes" {
   let result = parse("SINGLE='hello world'")
-  guard result.get_("SINGLE") is Some(v)
+  guard! result.get_("SINGLE") is Some(v)
   assert_eq(v, "hello world")
 }
 
 ///|
 test "parse with comments" {
   let result = parse("# comment\nKEY=value")
-  guard result.get_("KEY") is Some(v)
+  guard! result.get_("KEY") is Some(v)
   assert_eq(v, "value")
   // Comment line should not create a key
-  guard result.get_("# comment") is None
+  guard! result.get_("# comment") is None
 }
 
 ///|
 test "parse empty value" {
   let result = parse("EMPTY=")
-  guard result.get_("EMPTY") is Some(v)
+  guard! result.get_("EMPTY") is Some(v)
   assert_eq(v, "")
 }
 
@@ -55,11 +55,11 @@ test "parse keys" {
 test "getEnv and setEnv" {
   // Set a test env var
   setEnv("TEST_VAR_123", "test_value")
-  guard getEnv("TEST_VAR_123") is Some(v)
+  guard! getEnv("TEST_VAR_123") is Some(v)
   assert_eq(v, "test_value")
   // Clean up
   deleteEnv("TEST_VAR_123")
-  guard getEnv("TEST_VAR_123") is None
+  guard! getEnv("TEST_VAR_123") is None
 }
 
 ///|
@@ -74,20 +74,20 @@ test "config without .env file" {
   // quiet=true to suppress console output
   let result = config(path="/nonexistent/.env", quiet=true)
   // Error should be set since file doesn't exist
-  guard result.error is Some(_)
+  guard! result.error is Some(_)
 }
 
 ///|
 test "parse with export prefix" {
   let result = parse("export KEY=value")
-  guard result.get_("KEY") is Some(v)
+  guard! result.get_("KEY") is Some(v)
   assert_eq(v, "value")
 }
 
 ///|
 test "parse multiline" {
   let result = parse("MULTI=\"line1\nline2\"")
-  guard result.get_("MULTI") is Some(v)
+  guard! result.get_("MULTI") is Some(v)
   assert_eq(v.contains("line1"), true)
 }
 

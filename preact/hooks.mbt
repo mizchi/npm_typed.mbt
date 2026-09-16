@@ -23,14 +23,14 @@ pub fn[T] useStateLazy(initial : () -> T) -> (T, (T) -> Unit) {
 /// Preact.useEffect
 #alias(use_effect)
 pub fn useEffect(f : () -> () -> Unit, keys : Array[@core.Any]) -> Unit {
-  ffi_use_effect(f, keys)
+  ffi_use_effect(f, FixedArray::from_array(keys[:]))
 }
 
 ///|
 /// Preact.useLayoutEffect
 #alias(use_layout_effect)
 pub fn useLayoutEffect(f : () -> () -> Unit, keys : Array[@core.Any]) -> Unit {
-  ffi_use_layout_effect(f, keys)
+  ffi_use_layout_effect(f, FixedArray::from_array(keys[:]))
 }
 
 ///|
@@ -38,14 +38,14 @@ pub fn useLayoutEffect(f : () -> () -> Unit, keys : Array[@core.Any]) -> Unit {
 #alias(use_memo)
 pub fn[T] useMemo(f : () -> T, keys : Array[@core.Any]) -> T {
   let f = fn() { @core.any(f()) }
-  ffi_use_memo(f, keys).cast()
+  ffi_use_memo(f, FixedArray::from_array(keys[:])).cast()
 }
 
 ///|
 /// Preact.useCallback
 #alias(use_callback)
 pub fn[F] useCallback(f : F, keys : Array[@core.Any]) -> F {
-  ffi_use_callback(@core.any(f), keys).cast()
+  ffi_use_callback(@core.any(f), FixedArray::from_array(keys[:])).cast()
 }
 
 ///|

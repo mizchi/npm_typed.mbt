@@ -6,7 +6,7 @@
 
 ///|
 #module("clsx")
-extern "js" fn ffi_clsx(args : Array[@core.Any]) -> String = "clsx"
+extern "js" fn ffi_clsx(args : FixedArray[@core.Any]) -> String = "clsx"
 
 ///|
 /// Construct className string from multiple strings
@@ -17,7 +17,7 @@ extern "js" fn ffi_clsx(args : Array[@core.Any]) -> String = "clsx"
 /// // => "foo bar baz"
 /// ```
 pub fn clsx(class_names : Array[String]) -> String {
-  ffi_clsx(class_names.map(fn(s) { @core.any(s) }))
+  clsx_raw(class_names.map(fn(s) { @core.any(s) }))
 }
 
 ///|
@@ -29,7 +29,7 @@ pub fn clsx(class_names : Array[String]) -> String {
 /// // => "foo bar"
 /// ```
 pub fn clsx_raw(args : Array[@core.Any]) -> String {
-  ffi_clsx(args)
+  ffi_clsx(FixedArray::from_array(args[:]))
 }
 
 ///|

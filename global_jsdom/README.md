@@ -10,14 +10,12 @@ moon add mizchi/npm_typed
 npm install jsdom global-jsdom
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/npm_typed/global_jsdom"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/npm_typed/global_jsdom",
 }
 ```
 

@@ -10,16 +10,14 @@ moon add mizchi/npm_typed
 npm install hono
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/js/web/http",
-    "mizchi/npm_typed/hono"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/js_web/http",
+  "mizchi/npm_typed/hono",
 }
 ```
 

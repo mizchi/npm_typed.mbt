@@ -30,7 +30,7 @@ test "createPortal returns React element" {
   @testing_library_react.cleanup()
   let react_dom = get_react_dom()
   let document : @dom.Document = @global.global_this()._get("document").cast()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   // Create portal target
   let portal_target = document.createElement("div")
   portal_target.setId("portal-root")
@@ -51,7 +51,7 @@ test "createPortal with key" {
   @testing_library_react.cleanup()
   let react_dom = get_react_dom()
   let document : @dom.Document = @global.global_this()._get("document").cast()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   // Create portal target
   let portal_target = document.createElement("div")
   body.as_node().appendChild(portal_target.as_node()) |> ignore
@@ -110,7 +110,7 @@ test "createPortal renders to target" {
   init_jsdom()
   @testing_library_react.cleanup()
   let document : @dom.Document = @global.global_this()._get("document").cast()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   // Create portal target
   let portal_target = document.createElement("div")
   portal_target.setId("portal-root")

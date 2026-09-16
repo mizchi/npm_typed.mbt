@@ -44,14 +44,16 @@ echo ""
 # Create directory
 mkdir -p "$PACKAGE_DIR"
 
-# Create moon.pkg.json
-cat > "$PACKAGE_DIR/moon.pkg.json" << EOF
-{
-  "supported-targets": ["js"],
-  "import": [
-    "mizchi/js/core"
-  ]
+# Create moon.pkg
+cat > "$PACKAGE_DIR/moon.pkg" << EOF
+// Add the mizchi/js_* packages the bindings need, e.g.
+//   "mizchi/js_core" @core,
+//   "mizchi/js_builtin/json",
+//   "mizchi/js_node/fs",
+import {
 }
+
+supported_targets = "js"
 EOF
 
 # Create main .mbt file
@@ -92,15 +94,13 @@ moon add mizchi/npm_typed
 npm install $NPM_PACKAGE
 \`\`\`
 
-Add to your \`moon.pkg.json\`:
+Add to your \`moon.pkg\`:
 
-\`\`\`json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/$PACKAGE_NAME"
-  ]
+\`\`\`
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/npm_typed/$PACKAGE_NAME",
 }
 \`\`\`
 
@@ -129,7 +129,7 @@ cat > "$PACKAGE_DIR/package.json" << EOF
 EOF
 
 echo "Created:"
-echo "  $PACKAGE_DIR/moon.pkg.json"
+echo "  $PACKAGE_DIR/moon.pkg"
 echo "  $PACKAGE_DIR/package.json"
 echo "  $PACKAGE_DIR/$PACKAGE_NAME.mbt"
 echo "  $PACKAGE_DIR/${PACKAGE_NAME}_test.mbt"

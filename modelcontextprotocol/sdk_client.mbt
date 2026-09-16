@@ -73,7 +73,7 @@ pub fn SdkClient::new(name : String, version : String) -> SdkClient {
 ///|
 extern "js" fn ffi_construct_client(
   class_ : @core.Any,
-  args : Array[@core.Any],
+  args : FixedArray[@core.Any],
 ) -> @core.Any =
   #| (cls, args) => new cls(...args)
 

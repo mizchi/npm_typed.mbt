@@ -50,7 +50,7 @@ test "ToolInfo identity cast" {
   ])
   let info : ToolInfo = @core.identity(raw)
   assert_eq(info.name, "test-tool")
-  guard info.description is Some(desc)
+  guard! info.description is Some(desc)
   assert_eq(desc, "A test tool")
 }
 
@@ -63,7 +63,7 @@ test "ContentResult identity cast" {
   ])
   let content : ContentResult = @core.identity(raw)
   assert_eq(content.type_(), "text")
-  guard content.text is Some(text)
+  guard! content.text is Some(text)
   assert_eq(text, "Hello, world!")
 }
 
@@ -78,9 +78,9 @@ test "ResourceInfo identity cast" {
   let info : ResourceInfo = @core.identity(raw)
   assert_eq(info.uri, "file:///test.txt")
   assert_eq(info.name, "test.txt")
-  guard info.description is Some(desc)
+  guard! info.description is Some(desc)
   assert_eq(desc, "A test file")
-  guard info.mime_type is Some(mime)
+  guard! info.mime_type is Some(mime)
   assert_eq(mime, "text/plain")
 }
 
@@ -93,9 +93,9 @@ test "PromptArgumentInfo identity cast" {
   ])
   let info : PromptArgumentInfo = @core.identity(raw)
   assert_eq(info.name, "query")
-  guard info.description is Some(desc)
+  guard! info.description is Some(desc)
   assert_eq(desc, "The search query")
-  guard info.required is Some(req)
+  guard! info.required is Some(req)
   assert_true(req)
 }
 
@@ -107,7 +107,7 @@ test "PromptInfo identity cast" {
   ])
   let info : PromptInfo = @core.identity(raw)
   assert_eq(info.name, "greeting")
-  guard info.description is Some(desc)
+  guard! info.description is Some(desc)
   assert_eq(desc, "A greeting prompt")
 }
 
@@ -128,6 +128,6 @@ test "PromptMessageResult identity cast" {
   let msg : PromptMessageResult = @core.identity(raw)
   assert_eq(msg.role, "assistant")
   assert_eq(msg.content.type_(), "text")
-  guard msg.content.text is Some(text)
+  guard! msg.content.text is Some(text)
   assert_eq(text, "Hello!")
 }

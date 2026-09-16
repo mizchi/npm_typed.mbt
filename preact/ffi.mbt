@@ -34,28 +34,28 @@ extern "js" fn ffi_use_state_lazy(initial : () -> @core.Any) -> @core.Any = "use
 #module("preact/hooks")
 extern "js" fn ffi_use_effect(
   f : () -> () -> Unit,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> Unit = "useEffect"
 
 ///|
 #module("preact/hooks")
 extern "js" fn ffi_use_layout_effect(
   f : () -> () -> Unit,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> Unit = "useLayoutEffect"
 
 ///|
 #module("preact/hooks")
 extern "js" fn ffi_use_memo(
   f : () -> @core.Any,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> @core.Any = "useMemo"
 
 ///|
 #module("preact/hooks")
 extern "js" fn ffi_use_callback(
   f : @core.Any,
-  keys : Array[@core.Any],
+  keys : FixedArray[@core.Any],
 ) -> @core.Any = "useCallback"
 
 ///|

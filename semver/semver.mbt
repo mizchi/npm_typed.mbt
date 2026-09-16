@@ -121,13 +121,13 @@ pub extern "js" fn satisfies(version : String, range : String) -> Bool = "satisf
 /// https://github.com/npm/node-semver#ranges
 #module("semver")
 extern "js" fn ffi_max_satisfying(
-  versions : Array[String],
+  versions : FixedArray[String],
   range : String,
 ) -> @core.Any = "maxSatisfying"
 
 ///|
 pub fn max_satisfying(versions : Array[String], range : String) -> String? {
-  let result = ffi_max_satisfying(versions, range)
+  let result = ffi_max_satisfying(FixedArray::from_array(versions[:]), range)
   if @core.is_null(result) {
     None
   } else {
@@ -140,13 +140,13 @@ pub fn max_satisfying(versions : Array[String], range : String) -> String? {
 /// https://github.com/npm/node-semver#ranges
 #module("semver")
 extern "js" fn ffi_min_satisfying(
-  versions : Array[String],
+  versions : FixedArray[String],
   range : String,
 ) -> @core.Any = "minSatisfying"
 
 ///|
 pub fn min_satisfying(versions : Array[String], range : String) -> String? {
-  let result = ffi_min_satisfying(versions, range)
+  let result = ffi_min_satisfying(FixedArray::from_array(versions[:]), range)
   if @core.is_null(result) {
     None
   } else {
@@ -158,11 +158,11 @@ pub fn min_satisfying(versions : Array[String], range : String) -> String? {
 /// Return the highest version in the list
 /// https://github.com/npm/node-semver#ranges
 #module("semver")
-extern "js" fn ffi_max(versions : Array[String]) -> @core.Any = "max"
+extern "js" fn ffi_max(versions : FixedArray[String]) -> @core.Any = "max"
 
 ///|
 pub fn max(versions : Array[String]) -> String? {
-  let result = ffi_max(versions)
+  let result = ffi_max(FixedArray::from_array(versions[:]))
   if @core.is_null(result) {
     None
   } else {
@@ -174,11 +174,11 @@ pub fn max(versions : Array[String]) -> String? {
 /// Return the lowest version in the list
 /// https://github.com/npm/node-semver#ranges
 #module("semver")
-extern "js" fn ffi_min(versions : Array[String]) -> @core.Any = "min"
+extern "js" fn ffi_min(versions : FixedArray[String]) -> @core.Any = "min"
 
 ///|
 pub fn min(versions : Array[String]) -> String? {
-  let result = ffi_min(versions)
+  let result = ffi_min(FixedArray::from_array(versions[:]))
   if @core.is_null(result) {
     None
   } else {
@@ -299,16 +299,26 @@ pub fn diff(v1 : String, v2 : String) -> String? {
 }
 
 ///|
+#module("semver")
+extern "js" fn ffi_sort(versions : FixedArray[String]) -> FixedArray[String] = "sort"
+
+///|
 /// Sort an array of semver strings
 /// https://github.com/npm/node-semver#functions
+pub fn sort(versions : Array[String]) -> Array[String] {
+  Array::from_fixed_array(ffi_sort(FixedArray::from_array(versions[:])))
+}
+
+///|
 #module("semver")
-pub extern "js" fn sort(versions : Array[String]) -> Array[String] = "sort"
+extern "js" fn ffi_rsort(versions : FixedArray[String]) -> FixedArray[String] = "rsort"
 
 ///|
 /// Sort an array of semver strings in reverse order
 /// https://github.com/npm/node-semver#functions
-#module("semver")
-pub extern "js" fn rsort(versions : Array[String]) -> Array[String] = "rsort"
+pub fn rsort(versions : Array[String]) -> Array[String] {
+  Array::from_fixed_array(ffi_rsort(FixedArray::from_array(versions[:])))
+}
 
 ///|
 /// Coerce a string to semver if possible

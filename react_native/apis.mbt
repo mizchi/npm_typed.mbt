@@ -952,7 +952,7 @@ pub async fn permissions_request_multiple(
   permissions : Array[String],
 ) -> Map[String, PermissionResult] {
   let result = ffi_permissions_android_request_multiple(@core.any(permissions)).wait()
-  let map : Map[String, PermissionResult] = {}
+  let map : Map[String, PermissionResult] = Map([])
   for permission in permissions {
     let status : String = result[permission].cast()
     map[permission] = PermissionResult::from_string(status)

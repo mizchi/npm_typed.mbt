@@ -20,7 +20,7 @@ async test "create jsdom with HTML" {
 async test "create_window convenience function" {
   let window = create_window(html="<html><body><p>Test</p></body></html>")
   let document = window.document()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   let html = body.innerHTML()
   inspect(html.contains("Test"), content="true")
 }
@@ -36,7 +36,7 @@ async test "serialize document" {
 async test "document manipulation" {
   let window = create_window()
   let document = window.document()
-  guard document.body() is Some(body)
+  guard! document.body() is Some(body)
   let div = document.createElement("div")
   div.setId("new-div")
   div.setTextContent("Created")

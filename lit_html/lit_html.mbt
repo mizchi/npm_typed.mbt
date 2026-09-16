@@ -30,7 +30,7 @@ extern "js" fn ffi_html_fn() -> @core.Any = "html"
 extern "js" fn ffi_call_html(
   html_fn : @core.Any,
   strings : @core.TemplateStringsArray,
-  values : Array[@core.Any],
+  values : FixedArray[@core.Any],
 ) -> TemplateResult =
   #| (html_fn, strings, values) => html_fn(strings, ...values)
 
@@ -44,7 +44,9 @@ extern "js" fn ffi_call_html(
 /// ```
 pub fn html(template : String, args? : Array[@core.Any] = []) -> TemplateResult {
   @core.tag(
-    fn(strings, values) { ffi_call_html(ffi_html_fn(), strings, values) },
+    fn(strings, values) {
+      ffi_call_html(ffi_html_fn(), strings, FixedArray::from_array(values[:]))
+    },
     template,
     args,
   )
@@ -58,7 +60,7 @@ extern "js" fn ffi_svg_fn() -> @core.Any = "svg"
 extern "js" fn ffi_call_svg(
   svg_fn : @core.Any,
   strings : @core.TemplateStringsArray,
-  values : Array[@core.Any],
+  values : FixedArray[@core.Any],
 ) -> SVGTemplateResult =
   #| (svg_fn, strings, values) => svg_fn(strings, ...values)
 
@@ -69,7 +71,9 @@ pub fn svg(
   args? : Array[@core.Any] = [],
 ) -> SVGTemplateResult {
   @core.tag(
-    fn(strings, values) { ffi_call_svg(ffi_svg_fn(), strings, values) },
+    fn(strings, values) {
+      ffi_call_svg(ffi_svg_fn(), strings, FixedArray::from_array(values[:]))
+    },
     template,
     args,
   )

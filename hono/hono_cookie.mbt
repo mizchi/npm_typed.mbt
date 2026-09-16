@@ -129,7 +129,7 @@ pub fn[Env, ExecutionContext] get_all_cookies(
   c : Context[Env, ExecutionContext],
 ) -> Map[String, String] {
   let obj = ffi_get_all_cookies(c.as_any())
-  let result : Map[String, String] = {}
+  let result : Map[String, String] = Map([])
   let keys : Array[String] = @core.object_keys(obj)
   for i = 0; i < keys.length(); i = i + 1 {
     let key = keys[i]

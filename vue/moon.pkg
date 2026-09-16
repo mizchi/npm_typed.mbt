@@ -5,6 +5,6 @@ import {
   "mizchi/js_builtin/global",
 }
 
-warnings = "-1-5-6"
+warnings = "-5"
 
 supported_targets = "js"

@@ -590,7 +590,7 @@ pub fn QueryBuilder::set(self : QueryBuilder, data : @core.Any) -> QueryBuilder 
 ///|
 extern "js" fn ffi_order_by(
   qb : QueryBuilder,
-  columns : Array[@core.Any],
+  columns : FixedArray[@core.Any],
 ) -> QueryBuilder =
   #| (qb, columns) => qb.orderBy(...columns)
 
@@ -601,7 +601,7 @@ pub fn QueryBuilder::orderBy(
   self : QueryBuilder,
   columns : Array[@core.Any],
 ) -> QueryBuilder {
-  ffi_order_by(self, columns)
+  ffi_order_by(self, FixedArray::from_array(columns[:]))
 }
 
 ///|
@@ -717,18 +717,31 @@ pub extern "js" fn isNotNull(column : Column) -> SQL =
   #| (column) => require("drizzle-orm").isNotNull(column)
 
 ///|
-/// IN comparison
-pub extern "js" fn inArray(column : Column, values : Array[@core.Any]) -> SQL =
+extern "js" fn ffi_in_array(
+  column : Column,
+  values : FixedArray[@core.Any],
+) -> SQL =
   #| (column, values) => require("drizzle-orm").inArray(column, values)
+
+///|
+/// IN comparison
+pub fn inArray(column : Column, values : Array[@core.Any]) -> SQL {
+  ffi_in_array(column, FixedArray::from_array(values[:]))
+}
+
+///|
+extern "js" fn ffi_not_in_array(
+  column : Column,
+  values : FixedArray[@core.Any],
+) -> SQL =
+  #| (column, values) => require("drizzle-orm").notInArray(column, values)
 
 ///|
 /// NOT IN comparison
 #alias(not_in_array)
-pub extern "js" fn notInArray(
-  column : Column,
-  values : Array[@core.Any],
-) -> SQL =
-  #| (column, values) => require("drizzle-orm").notInArray(column, values)
+pub fn notInArray(column : Column, values : Array[@core.Any]) -> SQL {
+  ffi_not_in_array(column, FixedArray::from_array(values[:]))
+}
 
 ///|
 /// BETWEEN comparison (accepts any values)
@@ -740,14 +753,24 @@ pub extern "js" fn between(
   #| (column, min, max) => require("drizzle-orm").between(column, min, max)
 
 ///|
-/// AND logical operator
-pub extern "js" fn and_(conditions : Array[SQL]) -> SQL =
+extern "js" fn ffi_and(conditions : FixedArray[SQL]) -> SQL =
   #| (conditions) => require("drizzle-orm").and(...conditions)
 
 ///|
-/// OR logical operator
-pub extern "js" fn or_(conditions : Array[SQL]) -> SQL =
+/// AND logical operator
+pub fn and_(conditions : Array[SQL]) -> SQL {
+  ffi_and(FixedArray::from_array(conditions[:]))
+}
+
+///|
+extern "js" fn ffi_or(conditions : FixedArray[SQL]) -> SQL =
   #| (conditions) => require("drizzle-orm").or(...conditions)
+
+///|
+/// OR logical operator
+pub fn or_(conditions : Array[SQL]) -> SQL {
+  ffi_or(FixedArray::from_array(conditions[:]))
+}
 
 ///|
 /// NOT logical operator

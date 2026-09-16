@@ -8,6 +8,6 @@ import {
   "moonbitlang/async",
 } for "test"
 
-warnings = "-1-5-6"
+warnings = "-1-5"
 
 supported_targets = "js"

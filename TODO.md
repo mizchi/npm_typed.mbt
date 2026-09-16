@@ -4,6 +4,8 @@
 
 **Goal**: Eliminate all `require()` calls → `git grep 'require('` should return nothing.
 
+Current status: 297 occurrences across 54 packages.
+
 ### Blocked Items
 
 These items cannot use `#module` directive due to MoonBit limitations.
@@ -66,8 +68,5 @@ Three async tests in `jose/jose_test.mbt` cause PanicError:
 - `JWE compact encrypt and decrypt`
 - `Generate secret key`
 
-Tests are commented out with `// FIXME:` comments.
-
-### Flaky tests with NEW_MOON=0
-
-Running `NEW_MOON=0 moon test` occasionally fails with PanicError in async driver. This appears to be a flaky test issue with the legacy moon runtime.
+Tests are commented out with `// FIXME:` comments. Still reproducible on
+moonc v0.10.13.

@@ -42,7 +42,7 @@ pub impl Show for StackFrame with fn output(self, logger) {
 pub fn parse(error : @core.Any) -> Array[StackFrame] {
   let frames = ffi_parse(error)
   let length : Int = frames["length"] |> @core.identity
-  let result = Array::new(capacity=length)
+  let result = Array(capacity=length)
   for i in 0..<length {
     let frame = frames[i.to_string()]
     result.push(StackFrame::from_any(frame))
@@ -62,7 +62,7 @@ extern "js" fn ffi_parse(error : @core.Any) -> @core.Any =
 pub fn parse_string(stack : String) -> Array[StackFrame] {
   let frames = ffi_parse_string(stack)
   let length : Int = frames["length"] |> @core.identity
-  let result = Array::new(capacity=length)
+  let result = Array(capacity=length)
   for i in 0..<length {
     let frame = frames[i.to_string()]
     result.push(StackFrame::from_any(frame))
@@ -89,7 +89,7 @@ extern "js" fn ffi_parse_string(stack : String) -> @core.Any =
 pub fn capture_stack_trace() -> Array[StackFrame] {
   let frames = ffi_capture_stack()
   let length : Int = frames["length"] |> @core.identity
-  let result = Array::new(capacity=length)
+  let result = Array(capacity=length)
   for i in 0..<length {
     let frame = frames[i.to_string()]
     result.push(StackFrame::from_any(frame))
@@ -107,7 +107,7 @@ extern "js" fn ffi_capture_stack() -> @core.Any =
 ///|
 /// Format stack frames as a string (similar to console output)
 pub fn format_stack(frames : Array[StackFrame]) -> String {
-  let buf = StringBuilder::new()
+  let buf = StringBuilder()
   for i, frame in frames {
     if i > 0 {
       buf.write_char('\n')

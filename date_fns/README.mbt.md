@@ -10,15 +10,13 @@ moon add mizchi/npm_typed
 npm install date-fns
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/date_fns"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/npm_typed/date_fns",
 }
 ```
 

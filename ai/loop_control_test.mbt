@@ -222,7 +222,7 @@ test "PrepareStepResult::empty should have all None" {
 test "PrepareStepResult::with_active_tools should set tools" {
   let result = @ai.PrepareStepResult::with_active_tools(["search", "execute"])
   assert_true(result.model is None)
-  guard result.activeTools is Some(tools)
+  guard! result.activeTools is Some(tools)
   assert_eq(tools.length(), 2)
   assert_eq(tools[0], "search")
   assert_eq(tools[1], "execute")
@@ -233,7 +233,7 @@ test "PrepareStepResult::with_messages should set messages" {
   let msg : @core.Any = @core.from_entries([("role", "user" |> @core.any)]).cast()
   let result = @ai.PrepareStepResult::with_messages([msg])
   assert_true(result.model is None)
-  guard result.messages is Some(msgs)
+  guard! result.messages is Some(msgs)
   assert_eq(msgs.length(), 1)
 }
 

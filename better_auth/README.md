@@ -10,15 +10,13 @@ moon add mizchi/npm_typed
 npm install better-auth
 ```
 
-Add to your `moon.pkg.json`:
+Add to your `moon.pkg`:
 
-```json
-{
-  "import": [
-    "mizchi/js",
-    "mizchi/js/core",
-    "mizchi/npm_typed/better_auth"
-  ]
+```
+import {
+  "mizchi/js",
+  "mizchi/js_core" @core,
+  "mizchi/npm_typed/better_auth",
 }
 ```
 

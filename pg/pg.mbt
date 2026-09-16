@@ -110,7 +110,7 @@ pub async fn Client::connect(self : Client) -> Unit {
 extern "js" fn ffi_client_query(
   client : Client,
   sql : String,
-  params : Array[@core.Any],
+  params : FixedArray[@core.Any],
 ) -> @core.Promise[QueryResult] =
   #| (client, sql, params) => client.query(sql, params)
 
@@ -131,7 +131,7 @@ pub async fn Client::query(
   if params.length() == 0 {
     ffi_client_query_no_params(self, sql).wait()
   } else {
-    ffi_client_query(self, sql, params).wait()
+    ffi_client_query(self, sql, FixedArray::from_array(params[:])).wait()
   }
 }
 
@@ -223,7 +223,7 @@ pub fn Pool::new(
 extern "js" fn ffi_pool_query(
   pool : Pool,
   sql : String,
-  params : Array[@core.Any],
+  params : FixedArray[@core.Any],
 ) -> @core.Promise[QueryResult] =
   #| (pool, sql, params) => pool.query(sql, params)
 
@@ -244,7 +244,7 @@ pub async fn Pool::query(
   if params.length() == 0 {
     ffi_pool_query_no_params(self, sql).wait()
   } else {
-    ffi_pool_query(self, sql, params).wait()
+    ffi_pool_query(self, sql, FixedArray::from_array(params[:])).wait()
   }
 }
 
@@ -314,7 +314,7 @@ pub fn Pool::waitingCount(self : Pool) -> Int {
 extern "js" fn ffi_pool_client_query(
   client : PoolClient,
   sql : String,
-  params : Array[@core.Any],
+  params : FixedArray[@core.Any],
 ) -> @core.Promise[QueryResult] =
   #| (client, sql, params) => client.query(sql, params)
 
@@ -335,7 +335,7 @@ pub async fn PoolClient::query(
   if params.length() == 0 {
     ffi_pool_client_query_no_params(self, sql).wait()
   } else {
-    ffi_pool_client_query(self, sql, params).wait()
+    ffi_pool_client_query(self, sql, FixedArray::from_array(params[:])).wait()
   }
 }
 

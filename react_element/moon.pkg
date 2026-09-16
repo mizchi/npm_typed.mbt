@@ -7,6 +7,4 @@ import {
   "moonbitlang/core/bench",
 }
 
-warnings = "-25"
-
 supported_targets = "js"
