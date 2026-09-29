@@ -470,7 +470,14 @@ extern "js" fn ffi_wrap_unit_callback(f : () -> Unit) -> @core.Any =
   #|(f) => f
 
 ///|
-extern "js" fn ffi_wrap_string_array_callback(
-  f : (Array[String]) -> Unit,
+extern "js" fn ffi_wrap_string_array_callback_ffi(
+  f : (FixedArray[String]) -> Unit,
 ) -> @core.Any =
   #|(f) => (arr) => f(Array.from(arr))
+
+fn ffi_wrap_string_array_callback(
+  f : (Array[String]) -> Unit,
+) -> @core.Any {
+  ffi_wrap_string_array_callback_ffi(fn(__a1) { f(Array::from_fixed_array(__a1)) })
+}
+
