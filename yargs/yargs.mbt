@@ -27,8 +27,12 @@ pub extern "js" fn Argv::as_any(self : Argv) -> @core.Any =
 ///| FFI Functions
 
 ///|
-extern "js" fn ffi_yargs_default() -> (Array[String]) -> Yargs =
+extern "js" fn ffi_yargs_default_ffi() -> (FixedArray[String]) -> Yargs =
   #| () => require("yargs")
+
+fn ffi_yargs_default() -> (Array[String]) -> Yargs {
+  fn(__a1) { ffi_yargs_default_ffi()(FixedArray::from_array(__a1)) }
+}
 
 ///| Module Functions
 
